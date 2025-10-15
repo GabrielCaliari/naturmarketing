@@ -96,7 +96,7 @@ const Footer = () => {
           borderRadius: '10px'
         }}>
           <div style={{ fontSize: '16px', color: 'rgba(247, 247, 247, 0.7)' }}>
-            GlowApp@ - Todos os direitos reservados |  
+            Natur@ - Todos os direitos reservados |  
             <Link href="/privacy-policy" style={{ color: 'var(--white-color)' }}> Política de Privacidade</Link> 
           </div>
 
