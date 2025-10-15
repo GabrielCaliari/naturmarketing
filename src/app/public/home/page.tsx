@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Banner } from "./_components/Banner";
 import { BannerFour } from "./_components/BannerFour";
 import { BannerThree } from "./_components/BannerThree";
@@ -22,6 +23,7 @@ const Home = () => {
         <SubscriptionPlans />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 };

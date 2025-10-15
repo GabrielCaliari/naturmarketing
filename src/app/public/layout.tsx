@@ -8,8 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 // Estilos já importados no layout principal
 
-import { Footer } from "@/components/Footer";
-
 export default function PublicLayout({
   children,
 }: Readonly<{
@@ -19,7 +17,6 @@ export default function PublicLayout({
     <AuthProvider>
       <StyledComponentsRegistry>
         {children}
-        <Footer />
         <ToastContainer />
       </StyledComponentsRegistry>
     </AuthProvider>

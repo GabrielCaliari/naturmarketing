@@ -30,10 +30,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 main {
   flex: 1;
+  min-height: 100vh;
 }
 
 /* Header Styles */
@@ -288,6 +291,7 @@ footer {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
+  min-height: 200px !important;
 }
 
 footer .footer-container,
