@@ -7,123 +7,116 @@ interface Plan {
   id: string;
   name: string;
   description: string;
-  price: number;
   features: string[];
-  limitations: string[];
+  contract: string;
   isPopular?: boolean;
 }
 
 const plans: Plan[] = [
   {
-    id: 'glow-start',
-    name: 'Glow Start',
-    description: 'Experimente todas as funcionalidades do GlowApp com algumas limitações.',
-    price: 0,
+    id: 'essencial',
+    name: 'PLANO ESSENCIAL',
+    description: 'Para iniciar com base sólida e performance rápida.',
     features: [
-      'Imagem antes e depois',
-      'Agenda',
-      'Controle Financeiro',
-      'Lista de Procedimentos',
-      'Orçamentos',
-      'Checklist',
-      'Histórico de Tarefas',
-      'Integração com WhatsApp'
+      'Gestão de Redes Sociais: Instagram e Facebook',
+      'Planejamento + calendário estratégico',
+      'Criação de conteúdo (design para posts feed e story)',
+      'Edição de vídeo e roteiro para reels',
+      'Relatório mensal de desempenho'
     ],
-    limitations: [
-      'Máximo de 10 clientes cadastrados',
-      'Máximo de 4 imagens por cliente (2 antes e 2 depois)',
-      'Após 30 dias, escolha um plano pago para continuar sem restrições'
-    ]
+    contract: 'Contrato mínimo: 3 meses'
   },
   {
-    id: 'glow-pro',
-    name: 'Glow Pro',
-    description: 'Todas as funcionalidades para profissionais que querem crescer.',
-    price: 29.90,
+    id: 'performance',
+    name: 'PLANO PERFORMANCE',
+    description: 'Para quem busca presença consistente e conversão.',
     features: [
-      'Imagem antes e depois',
-      'Agenda',
-      'Controle Financeiro',
-      'Lista de Procedimentos',
-      'Orçamentos',
-      'Checklist',
-      'Histórico de Tarefas',
-      'Integração com WhatsApp',
-      'Dashboard financeiro com filtros',
-      'Customização de catálogo',
-      'Link de agendamento online'
+      'Tudo do Essencial, mais:',
+      'Gestão de anúncios (Plataforma: Meta)',
+      'Criação, gestão e otimização de campanhas',
+      'Relatórios quinzenais de desempenho'
     ],
-    limitations: [
-      'Máximo de 50 novos clientes por mês',
-      'Máximo de 8 fotos por cliente (4 antes e 4 depois)'
+    contract: 'Contrato mínimo: 3 meses'
+  },
+  {
+    id: 'premium',
+    name: 'PLANO PREMIUM',
+    description: 'Para quem deseja dominar seu mercado online e escalar.',
+    features: [
+      'Tudo do Performance, mais:',
+      'Captação de conteúdo presencial a cada 3 meses',
+      'Relatórios avançados de crescimento',
+      'Análise de funil, ROI e comparativos de evolução',
+      'Bônus: PDF personalizado com orientações de boas-vindas'
     ],
+    contract: 'Contrato mínimo: 6 meses',
     isPopular: true
+  },
+  {
+    id: 'ancoragem',
+    name: 'PLANO ANCORAGEM',
+    description: 'Gestão digital completa com landing page e CRM.',
+    features: [
+      'Tudo do Premium, mais:',
+      'Landing page com CRM integrado',
+      'Sistema completo de gestão de leads',
+      'Automação de marketing'
+    ],
+    contract: 'Contrato mínimo: 6 meses'
   }
 ];
 
 export default function SubscriptionPlans() {
-  const formatPrice = (price: number) => {
-    if (price === 0) return 'Grátis';
-    return `R$ ${price.toFixed(2).replace('.', ',')}`;
-  };
-
   return (
     <div id="plans" className="mt-20">
       <div className="container mx-auto py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">ESCOLHA SEU PLANO</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-4">Nossos Planos</h2>
+        <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+          Apresentamos quatro opções — com mínimo 3 meses (recomendado 6 meses para consolidação de resultados).
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-8xl mx-auto px-4">
           {plans.map((plan, index) => (
             <Card 
               key={plan.id} 
-              className={`shadow-lg p-4 rounded-2xl border border-gray-200 flex flex-col h-full relative transition-transform duration-300 hover:scale-105 hover:shadow-xl ${
+              className={`shadow-lg p-6 rounded-2xl border border-gray-200 flex flex-col h-full relative transition-transform duration-300 hover:scale-105 hover:shadow-xl min-w-0 ${
                 plan.isPopular ? 'ring-2 ring-blue-500' : ''
               }`}
             >
               {/* Badges */}
               <div className="absolute top-4 right-4 flex flex-col gap-2">
                 {plan.isPopular && (
-                  <Badge className="bg-blue-500 text-white">
+                  <Badge className="bg-blue-500 text-white text-xs">
                     MAIS POPULAR
                   </Badge>
                 )}
               </div>
 
-              <CardHeader>
-                <CardTitle className="text-xl font-bold text-center text-blue-600">{plan.name}</CardTitle>
-                <p className="text-center text-sm text-gray-600">{plan.description}</p>
-                <p className="text-center text-2xl font-semibold text-gray-700">
-                  {formatPrice(plan.price)}
-                  {plan.price > 0 && <span className="text-lg text-gray-500">/mês</span>}
-                </p>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-xl font-bold text-center text-blue-600 mb-3">{plan.name}</CardTitle>
+                <p className="text-center text-sm text-gray-600 mb-4 leading-relaxed">{plan.description}</p>
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                  <p className="text-center text-sm font-medium text-blue-700">{plan.contract}</p>
+                </div>
               </CardHeader>
+              
               <CardContent className="flex flex-col flex-grow">
-                <div className="space-y-3 flex-grow">
-                  <h4 className="font-semibold text-gray-900">Incluído:</h4>
-                  <ul className="space-y-2 text-gray-600">
+                <div className="space-y-4 flex-grow">
+                  <h4 className="font-semibold text-gray-900 text-base">Inclui:</h4>
+                  <ul className="space-y-3 text-gray-600">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-green-500 flex-shrink-0" />
-                        {feature}
+                      <li key={i} className="flex items-start gap-3 text-sm leading-relaxed">
+                        <Check className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Limitations */}
-                {plan.limitations.length > 0 && (
-                  <div className="bg-pink-50 border border-pink-200 rounded-lg p-4 mt-4">
-                    <ul className="space-y-2">
-                      {plan.limitations.map((limitation, index) => (
-                        <li key={index} className="text-sm text-gray-700 flex items-start gap-2">
-                          <span className="text-pink-500 mt-1">•</span>
-                          {limitation}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-
+                <div className="mt-6 pt-4 border-t border-gray-100">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                    Solicitar Orçamento
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
