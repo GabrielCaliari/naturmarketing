@@ -1,8 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check } from "lucide-react";
-import "./styles.css"; // Importando o arquivo de estilos
+import { Check } from "lucide-react"; 
 
 interface Plan {
   id: string;
@@ -76,7 +75,7 @@ export default function SubscriptionPlans() {
           {plans.map((plan, index) => (
             <Card 
               key={plan.id} 
-              className={`card shadow-lg p-4 rounded-2xl border border-gray-200 flex flex-col h-full relative ${
+              className={`shadow-lg p-4 rounded-2xl border border-gray-200 flex flex-col h-full relative transition-transform duration-300 hover:scale-105 hover:shadow-xl ${
                 plan.isPopular ? 'ring-2 ring-blue-500' : ''
               }`}
             >

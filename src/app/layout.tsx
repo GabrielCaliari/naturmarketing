@@ -1,11 +1,7 @@
 import type { Metadata } from 'next'
 
-// Importações CSS globais
-import "@/styles/bootstrap.css";
+// Importar estilos CSS essenciais
 import "@/styles/globals.css";
-import "@/styles/global.css";
-import "@/styles/style-theme.css";
-import "@/styles/style-theme-responsive.css";
 
 export const metadata: Metadata = {
   title: 'Natur',

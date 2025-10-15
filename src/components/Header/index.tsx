@@ -28,66 +28,72 @@ const Header = () => {
   }, [isMobile]);
 
   return (
-    <header className="fixed left-0 top-0 right-0 z-50 bg-white shadow-md">
-      <div className="flex items-center justify-between px-4 py-3 lg:px-8">
-        {/* Logo */}
-        <a href="/" className="flex-shrink-0">
-          <img src="/img/logos/main-logo.png" alt="Logo" className="h-8 lg:h-10" />
-        </a>
-
-        {/* Desktop Navigation */}
-        {!isMobile && (
-          <>
-            <nav className="hidden lg:flex items-center space-x-8">
-              <a href="/" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Home
+    <header className="main-header fixed-header">
+      <div className="auto-container">
+        <div className="header-lower">
+          <div className="inner-container">
+            <div className="logo-box">
+              <a href="/" className="logo">
+                <img src="/img/logos/main-logo.png" alt="Logo" />
               </a>
-              <a 
-                href="#plans" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  const plansSection = document.getElementById('plans');
-                  if (plansSection) {
-                    const offset = 100;
-                    const elementPosition = plansSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }}
-                className="text-gray-700 hover:text-pink-500 transition-colors"
+            </div>
+
+            {/* Desktop Navigation */}
+            {!isMobile && (
+              <div className="nav-outer">
+                <nav className="main-menu">
+                  <div className="navbar-collapse">
+                    <ul className="navigation">
+                      <li><a href="/">Home</a></li>
+                      <li>
+                        <a 
+                          href="#plans" 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const plansSection = document.getElementById('plans');
+                            if (plansSection) {
+                              const offset = 100;
+                              const elementPosition = plansSection.getBoundingClientRect().top;
+                              const offsetPosition = elementPosition + window.pageYOffset - offset;
+                              window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                            }
+                          }}
+                        >
+                          Planos
+                        </a>
+                      </li>
+                      <li>
+                        <a 
+                          href="#contact" 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const contactSection = document.getElementById('contact');
+                            if (contactSection) {
+                              contactSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }}
+                        >
+                          Contato
+                        </a>
+                      </li>
+                      <li><a href="/">Sobre</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            )}
+
+            {/* Mobile Menu Button */}
+            {isMobile && (
+              <button
+                onClick={handleOpenMenu}
+                className="mobile-nav-toggler"
               >
-                Planos
-              </a>
-              <a 
-                href="#contact" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  const contactSection = document.getElementById('contact');
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="text-gray-700 hover:text-pink-500 transition-colors"
-              >
-                Contato
-              </a>
-              <a href="/" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Sobre
-              </a>
-            </nav>
-
-          </>
-        )}
-
-        {/* Mobile Menu Button */}
-        {isMobile && (
-          <button
-            onClick={handleOpenMenu}
-            className="p-2 text-gray-700 hover:text-pink-500 transition-colors"
-          >
-            <IconMenu3 size={24} />
-          </button>
-        )}
+                <IconMenu3 size={24} />
+              </button>
+            )}
+          </div>
+        </div>
       </div>
 
       {/* Mobile Menu Modal */}
@@ -110,32 +116,69 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 lg:hidden">
+    <div style={{
+      position: 'fixed',
+      inset: 0,
+      zIndex: 50
+    }}>
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black bg-opacity-50" 
+        style={{
+          position: 'fixed',
+          inset: 0,
+          backgroundColor: 'rgba(0,0,0,0.5)'
+        }}
         onClick={onClose}
       />
       
       {/* Menu Panel */}
-      <div className="fixed right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-xl">
+      <div style={{
+        position: 'fixed',
+        right: 0,
+        top: 0,
+        height: '100%',
+        width: '320px',
+        maxWidth: '85vw',
+        backgroundColor: 'white',
+        boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)'
+      }}>
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b">
-          <img src="/img/logos/main-logo.png" alt="Logo" className="h-8" />
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: '16px',
+          borderBottom: '1px solid #e5e7eb'
+        }}>
+          <img src="/img/logos/main-logo.png" alt="Logo" style={{ height: '32px' }} />
           <button
             onClick={onClose}
-            className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+            style={{
+              padding: '8px',
+              color: '#6b7280',
+              border: 'none',
+              background: 'none',
+              cursor: 'pointer'
+            }}
           >
             <IconX size={24} />
           </button>
         </div>
 
         {/* Navigation */}
-        <nav className="p-4 space-y-2">
+        <nav style={{ padding: '16px' }}>
           <a 
             href="/" 
             onClick={() => handleLinkClick()}
-            className="block py-3 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            style={{
+              display: 'block',
+              padding: '12px 16px',
+              color: '#374151',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              marginBottom: '8px',
+              transition: 'background-color 0.3s'
+            }}
           >
             Home
           </a>
@@ -152,7 +195,15 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
               }
               handleLinkClick();
             }}
-            className="block py-3 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            style={{
+              display: 'block',
+              padding: '12px 16px',
+              color: '#374151',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              marginBottom: '8px',
+              transition: 'background-color 0.3s'
+            }}
           >
             Planos
           </a>
@@ -166,14 +217,30 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
               }
               handleLinkClick();
             }}
-            className="block py-3 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            style={{
+              display: 'block',
+              padding: '12px 16px',
+              color: '#374151',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              marginBottom: '8px',
+              transition: 'background-color 0.3s'
+            }}
           >
             Contato
           </a>
           <a 
             href="/" 
             onClick={() => handleLinkClick()}
-            className="block py-3 px-4 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+            style={{
+              display: 'block',
+              padding: '12px 16px',
+              color: '#374151',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              marginBottom: '8px',
+              transition: 'background-color 0.3s'
+            }}
           >
             Sobre
           </a>

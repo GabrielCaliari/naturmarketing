@@ -6,10 +6,11 @@ import StyledComponentsRegistry from "../registry";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Header from "@/components/Header";
+// Estilos já importados no layout principal
+
 import { Footer } from "@/components/Footer";
 
-export default function RootLayout({
+export default function PublicLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -17,7 +18,6 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <StyledComponentsRegistry>
-        <Header />
         {children}
         <Footer />
         <ToastContainer />
