@@ -10,6 +10,7 @@ import {
 import { useRouter } from "next/navigation";
 import BackgroundImage from './../../../../../../public/img/resource/background.png'
 import { motion } from 'framer-motion';
+import { trackButtonClick } from '@/lib/analytics';
 
 const Banner = () => {
   const router = useRouter();
@@ -66,6 +67,7 @@ const Banner = () => {
               <button
                 className="theme-btn btn-style-one"
                 onClick={() => {
+                  trackButtonClick('download_android', '/');
                   router.push("/android-download");
                 }}
               >
@@ -83,6 +85,7 @@ const Banner = () => {
               <button
                 className="theme-btn btn-style-one"
                 onClick={() => {
+                  trackButtonClick('download_iphone', '/');
                   router.push("/iphone-download");
                 }}
               >

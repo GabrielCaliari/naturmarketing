@@ -1,8 +1,49 @@
+"use client";
+
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
+import { trackFormStart, trackFormSubmit, trackFormError, trackButtonClick } from '@/lib/analytics';
 
 export default function Contact() {
+  const [formStarted, setFormStarted] = useState(false);
+
+  // Rastreia quando o usuário começa a preencher o formulário
+  const handleFormStart = () => {
+    if (!formStarted) {
+      setFormStarted(true);
+      trackFormStart('home_contact_form');
+    }
+  };
+
+  // Rastreia envio do formulário
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    try {
+      // Aqui você adicionaria a lógica real de envio
+      // Por enquanto, apenas simula sucesso
+      
+      trackFormSubmit('home_contact_form', true);
+      
+      // Mostra mensagem de sucesso
+      alert('Mensagem enviada com sucesso!');
+      
+      // Limpa o formulário
+      (e.target as HTMLFormElement).reset();
+      setFormStarted(false);
+    } catch (error) {
+      // Em caso de erro
+      trackFormError('home_contact_form', 'Erro ao enviar formulário');
+      alert('Erro ao enviar mensagem. Tente novamente.');
+    }
+  };
+
+  // Rastreia clique no WhatsApp
+  const handleWhatsAppClick = () => {
+    trackButtonClick('whatsapp_contact', '/');
+  };
   return (
     <div id="contact" className="container mx-auto py-12">
     
@@ -19,7 +60,10 @@ export default function Contact() {
                 <li>
                   <a 
                     href="#" 
-                    onClick={(e) => e.preventDefault()}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleWhatsAppClick();
+                    }}
                     className="flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors"
                   >
                     <IconBrandWhatsapp size={24} />
@@ -34,12 +78,39 @@ export default function Contact() {
               <CardTitle className="text-xl font-bold">Fale Conosco</CardTitle>
             </CardHeader>
             <CardContent>
-              <form className="space-y-4">
-                <input type="text" placeholder="Seu nome completo" className="w-full p-2 border rounded-lg" />
-                <input type="email" placeholder="seu@email.com" className="w-full p-2 border rounded-lg" />
-                <input type="text" placeholder="(00) 00000-0000" className="w-full p-2 border rounded-lg" />
-                <textarea placeholder="Como podemos ajudar?" className="w-full p-2 border rounded-lg h-24"></textarea>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">Enviar Mensagem</Button>
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <input 
+                  type="text" 
+                  placeholder="Seu nome completo" 
+                  className="w-full p-2 border rounded-lg"
+                  onFocus={handleFormStart}
+                  required
+                />
+                <input 
+                  type="email" 
+                  placeholder="seu@email.com" 
+                  className="w-full p-2 border rounded-lg"
+                  onFocus={handleFormStart}
+                  required
+                />
+                <input 
+                  type="text" 
+                  placeholder="(00) 00000-0000" 
+                  className="w-full p-2 border rounded-lg"
+                  onFocus={handleFormStart}
+                />
+                <textarea 
+                  placeholder="Como podemos ajudar?" 
+                  className="w-full p-2 border rounded-lg h-24"
+                  onFocus={handleFormStart}
+                  required
+                ></textarea>
+                <Button 
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                >
+                  Enviar Mensagem
+                </Button>
               </form>
             </CardContent>
           </Card>

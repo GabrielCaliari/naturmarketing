@@ -1,4 +1,7 @@
+"use client";
+
 import { motion } from 'framer-motion';
+import { trackButtonClick } from '@/lib/analytics';
 
 export function GlowAppBanner() {
   const buttonVariants = {
@@ -40,6 +43,7 @@ export function GlowAppBanner() {
                 rel="noopener noreferrer"
                 variants={buttonVariants}
                 whileHover="hover"
+                onClick={() => trackButtonClick('app_store_banner', '/')}
               >
                 <img src="/img/resource/app-store.png" className='w-32 md:w-64' alt="Button loja Apple store" />
               </motion.a>
@@ -49,6 +53,7 @@ export function GlowAppBanner() {
                 rel="noopener noreferrer"
                 variants={buttonVariants}
                 whileHover="hover"
+                onClick={() => trackButtonClick('play_store_banner', '/')}
               >
                 <img src="/img/resource/play-store.png" className='w-32 md:w-64' alt="Button loja Play store" />
               </motion.a>

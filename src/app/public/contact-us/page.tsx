@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { trackFormStart, trackFormSubmit, trackFormError } from '@/lib/analytics';
 
 const ContactUs = () => {
     const router = useRouter();
+    const [formStarted, setFormStarted] = useState(false);
 
     useEffect(() => {
         // Redireciona para a home e depois faz scroll para a seção de contato
@@ -19,8 +21,35 @@ const ContactUs = () => {
         }, 500);
     }, [router]);
 
+    // Rastreia quando o usuário começa a preencher o formulário
+    const handleFormStart = () => {
+        if (!formStarted) {
+            setFormStarted(true);
+            trackFormStart('contact_us_form');
+        }
+    };
+
+    // Rastreia envio do formulário
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
+        try {
+            // Aqui você adicionaria a lógica real de envio
+            // Por enquanto, apenas simula sucesso
+            
+            trackFormSubmit('contact_us_form', true);
+            
+            // Redireciona ou mostra mensagem de sucesso
+            alert('Mensagem enviada com sucesso!');
+        } catch (error) {
+            // Em caso de erro
+            trackFormError('contact_us_form', 'Erro ao enviar formulário');
+            alert('Erro ao enviar mensagem. Tente novamente.');
+        }
+    };
+
     return (
-        <section className="p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md mt-10 p-20">
+        <section className="p-20 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md mt-10">
             <h1 className="text-2xl font-bold text-center text-gray-900 dark:text-white">Redirecionando...</h1>
             <p className="text-center text-gray-600 dark:text-gray-400 mt-4">
                 Você será redirecionado para a página inicial e levado até a seção de contato.
@@ -34,7 +63,10 @@ const ContactUs = () => {
                     </p>
                 </div>
 
-                <form className="md:w-2/4 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                <form 
+                    className="md:w-2/4 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md"
+                    onSubmit={handleSubmit}
+                >
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-white">
                             Seu email
@@ -44,7 +76,8 @@ const ContactUs = () => {
                             id="email" 
                             className="mt-1 w-full p-2.5 text-sm border rounded-lg bg-gray-50 border-gray-300 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-blue-500 focus:border-blue-500"
                             placeholder="seu email"
-                            required 
+                            required
+                            onFocus={handleFormStart}
                         />
                     </div>
                     <div className="mb-4">
@@ -56,7 +89,8 @@ const ContactUs = () => {
                             id="subject" 
                             className="mt-1 w-full p-2.5 text-sm border rounded-lg bg-gray-50 border-gray-300 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Assunto"
-                            required 
+                            required
+                            onFocus={handleFormStart}
                         />
                     </div>
                     <div className="mb-4">
@@ -68,6 +102,7 @@ const ContactUs = () => {
                             rows={4} 
                             className="mt-1 w-full p-2.5 text-sm border rounded-lg bg-gray-50 border-gray-300 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Descreva sua mensagem..."
+                            onFocus={handleFormStart}
                         ></textarea>
                     </div>
                     <button 

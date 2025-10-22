@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -113,7 +115,10 @@ export default function SubscriptionPlans() {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-gray-100">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                  <Button 
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                    trackName={`plan_quote_${plan.id}`}
+                  >
                     Solicitar Orçamento
                   </Button>
                 </div>

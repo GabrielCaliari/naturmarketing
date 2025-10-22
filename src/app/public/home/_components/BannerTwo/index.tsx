@@ -1,4 +1,7 @@
+"use client";
+
 import { ImageSize } from "../Banner/styles";
+import { trackButtonClick } from '@/lib/analytics';
 
 const BannerTwo = () => {
 
@@ -40,6 +43,7 @@ const BannerTwo = () => {
                   className="theme-btn btn-style-one"
                   onClick={(e) => {
                     e.preventDefault();
+                    trackButtonClick('cta_banner_two_contact', '/');
                     const contactSection = document.getElementById('contact');
                     if (contactSection) {
                       contactSection.scrollIntoView({ behavior: 'smooth' });
