@@ -183,3 +183,4 @@ npm run dev
 **Data**: Outubro 2025  
 **Versão**: 1.0.0
 
+
