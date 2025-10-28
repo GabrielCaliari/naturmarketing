@@ -7,7 +7,10 @@ import {
   IconAd, 
   IconSeo,
   IconChartBar,
-  IconPalette 
+  IconPalette,
+  IconCamera,
+  IconBrandGoogle,
+  IconWorld
 } from "@tabler/icons-react";
 
 export default function OQueFazemos() {
@@ -19,10 +22,28 @@ export default function OQueFazemos() {
       cor: "from-pink-500 to-purple-600"
     },
     {
-      icon: <IconAd className="w-12 h-12" />,
-      titulo: "Tráfego Pago",
-      descricao: "Campanhas otimizadas no Google Ads e Meta Ads focadas em aumentar reservas diretas e reduzir custos com OTAs.",
+      icon: <IconCamera className="w-12 h-12" />,
+      titulo: "Captação de Conteúdo Completa",
+      descricao: "Produção profissional de fotos e vídeos do seu hotel, capturando a essência e os diferenciais do seu empreendimento.",
+      cor: "from-violet-500 to-purple-600"
+    },
+    {
+      icon: <IconBrandGoogle className="w-12 h-12" />,
+      titulo: "Google Ads & Google Hotel Ads",
+      descricao: "Campanhas especializadas no Google Ads e Google Hotel Ads para maximizar suas reservas diretas e visibilidade.",
       cor: "from-blue-500 to-cyan-600"
+    },
+    {
+      icon: <IconAd className="w-12 h-12" />,
+      titulo: "Tráfego Pago Meta Ads",
+      descricao: "Campanhas otimizadas no Facebook e Instagram Ads focadas em aumentar reservas diretas e reduzir custos com OTAs.",
+      cor: "from-sky-500 to-blue-600"
+    },
+    {
+      icon: <IconWorld className="w-12 h-12" />,
+      titulo: "Sites para Reserva Direta",
+      descricao: "Desenvolvimento de sites modernos e otimizados com sistema de reserva direta, aumentando sua independência de OTAs.",
+      cor: "from-emerald-500 to-green-600"
     },
     {
       icon: <IconSeo className="w-12 h-12" />,

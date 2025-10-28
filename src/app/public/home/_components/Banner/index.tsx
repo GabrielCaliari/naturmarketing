@@ -29,7 +29,7 @@ const Banner = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.instagram.com/brokerx.app/profilecard/?igsh=cGRjcGVweXc0cTBi"
+            href="https://www.instagram.com/agencianatur"
           >
             <IconBrandInstagram />
           </a>
@@ -75,7 +75,6 @@ const Banner = () => {
               >
                 <span className="btn-wrap">
                   <span className="text-one">Fale Conosco</span>
-                  <span className="text-two">Fale Conosco</span>
                 </span>
               </button>
               <button
@@ -90,7 +89,6 @@ const Banner = () => {
               >
                 <span className="btn-wrap">
                   <span className="text-one">Nossos Planos</span>
-                  <span className="text-two">Nossos Planos</span>
                 </span>
               </button>
             </div>
