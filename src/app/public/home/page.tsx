@@ -3,12 +3,13 @@
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Banner } from "./_components/Banner";
-import { BannerFour } from "./_components/BannerFour";
-import { BannerThree } from "./_components/BannerThree";
 import { BannerTwo } from "./_components/BannerTwo";
 import Contact from "./_components/Contact";
-import {GlowAppBanner} from "./_components/GlowAppBanner";
 import SubscriptionPlans from "./_components/Plans";
+import QuemSomos from "./_components/QuemSomos";
+import OQueFazemos from "./_components/OQueFazemos";
+import ParaQuemFazemos from "./_components/ParaQuemFazemos";
+import ConsultoriaBanner from "./_components/ConsultoriaBanner";
 
 const Home = () => {
   return (
@@ -16,11 +17,12 @@ const Home = () => {
       <Header />
       <main className="overflow-x-hidden">
         <Banner />
+        <QuemSomos />
+        <OQueFazemos />
+        <ParaQuemFazemos />
         <BannerTwo />
-        <GlowAppBanner />
-        <BannerThree />
-        <BannerFour />
         <SubscriptionPlans />
+        <ConsultoriaBanner />
         <Contact />
       </main>
       <Footer />

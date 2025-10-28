@@ -10,8 +10,8 @@ import CookieConsent from '@/components/CookieConsent';
 import AutoTrack from '@/components/Analytics/AutoTrack';
 
 export const metadata: Metadata = {
-  title: 'Natur',
-  description: 'Marketing Digital',
+  title: 'Natur - Marketing Digital para Hotelaria',
+  description: 'Agência especializada em marketing digital para hotéis, pousadas e resorts. Aumente suas reservas diretas e reduza comissões de OTAs.',
 }
 
 export default function RootLayout({

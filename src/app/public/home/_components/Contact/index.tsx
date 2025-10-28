@@ -52,23 +52,33 @@ export default function Contact() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className=" border-gray-200">
             <CardHeader>
-              <CardTitle className="text-xl font-bold">Informaçoes de Contato</CardTitle>
+              <CardTitle className="text-xl font-bold">Informações de Contato</CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-4 text-gray-600">
-                <li>Tem interesse em um plano personalizado ou saber mais entre em contato</li>
+                <li>
+                  <strong className="text-[#003D5C]">Especialistas em Marketing Hoteleiro</strong>
+                </li>
+                <li>
+                  Quer aumentar suas reservas diretas e reduzir comissões de OTAs? 
+                  Entre em contato conosco para uma consultoria gratuita.
+                </li>
                 <li>
                   <a 
-                    href="#" 
+                    href="https://wa.me/5535998067432?text=Olá! Gostaria de saber mais sobre os serviços de marketing digital para meu hotel." 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={(e) => {
-                      e.preventDefault();
                       handleWhatsAppClick();
                     }}
-                    className="flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors"
+                    className="flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors font-semibold"
                   >
                     <IconBrandWhatsapp size={24} />
                     Fale conosco no WhatsApp
                   </a>
+                </li>
+                <li className="text-sm text-gray-500">
+                  📞 +55 35 99806-7432
                 </li>
               </ul>
             </CardContent>

@@ -101,17 +101,22 @@ const Footer = () => {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <a href="#" onClick={(e) => e.preventDefault()} style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '40px',
-              height: '40px',
-              borderRadius: '50px',
-              color: 'var(--white-color)',
-              border: '1px solid rgba(255, 255, 255, 0.3)',
-              transition: 'all 0.3s'
-            }}>
+            <a 
+              href="https://wa.me/5535998067432?text=Olá! Vim pelo site da Natur e gostaria de saber mais sobre os serviços de marketing digital." 
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '40px',
+                height: '40px',
+                borderRadius: '50px',
+                color: 'var(--white-color)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                transition: 'all 0.3s'
+              }}
+            >
               <IconBrandWhatsapp />
             </a>
           </div>

@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  IconApple,
-  IconBrandAndroid,
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandWhatsapp,
@@ -46,58 +44,53 @@ const Banner = () => {
 
         <div className="banner-one_content">
           <div className="banner-one_content-inner">
-            <div className="sec-title_title">Do antes ao depois</div>
+            <div className="sec-title_title">Marketing Digital Hoteleiro</div>
             <h1 className="banner-one_heading">
               <motion.div
                 initial="hidden"
                 animate="visible"
                 variants={animationVariants}
               >
-                Documente, <br />
-                Organize e Compartilhe <br />
-                <span>Suas Transformações</span>
+                Aumente suas <br />
+                Reservas Diretas e <br />
+                <span>Reduza Comissões</span>
               </motion.div>
             </h1>
             <div className="sec-title_text">
-              O GlowApp é uma plataforma digital inovadora, disponível em app e web, que revoluciona a organização diária de profissionais, especialmente aqueles que buscam otimizar seu tempo e melhorar a gestão do trabalho. 
-              Com foco em facilitar a rotina, a plataforma permite que os usuários registrem fotos dos clientes no estilo "antes e depois",
-               criando um portfólio visual completo e um histórico detalhado de todos os serviços realizados ao longo dos anos.
+              A Natur é especializada em marketing digital para hotéis, pousadas e resorts. 
+              Desenvolvemos estratégias personalizadas que aumentam sua visibilidade online, 
+              engajam o público certo e transformam visitantes em hóspedes, reduzindo sua 
+              dependência de OTAs e maximizando sua lucratividade.
             </div>
             <div className="story-two_button">
               <button
                 className="theme-btn btn-style-one"
                 onClick={() => {
-                  trackButtonClick('download_android', '/');
-                  router.push("/android-download");
+                  trackButtonClick('cta_hero_contact', '/');
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  }
                 }}
               >
                 <span className="btn-wrap">
-                  <span className="text-one">
-                    <IconBrandAndroid />
-                    Android
-                  </span>
-                  <span className="text-two">
-                    <IconBrandAndroid />
-                    Android
-                  </span>
+                  <span className="text-one">Fale Conosco</span>
+                  <span className="text-two">Fale Conosco</span>
                 </span>
               </button>
               <button
                 className="theme-btn btn-style-one"
                 onClick={() => {
-                  trackButtonClick('download_iphone', '/');
-                  router.push("/iphone-download");
+                  trackButtonClick('cta_hero_plans', '/');
+                  const plansSection = document.getElementById('plans');
+                  if (plansSection) {
+                    plansSection.scrollIntoView({ behavior: 'smooth' });
+                  }
                 }}
               >
                 <span className="btn-wrap">
-                  <span className="text-one">
-                    <IconApple />
-                    Iphone
-                  </span>
-                  <span className="text-two">
-                    <IconApple />
-                    Iphone
-                  </span>
+                  <span className="text-one">Nossos Planos</span>
+                  <span className="text-two">Nossos Planos</span>
                 </span>
               </button>
             </div>
