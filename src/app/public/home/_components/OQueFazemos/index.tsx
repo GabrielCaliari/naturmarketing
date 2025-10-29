@@ -3,14 +3,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   IconBrandInstagram, 
-  IconBrandFacebook, 
-  IconAd, 
+  IconBrandMeta, 
   IconSeo,
   IconChartBar,
   IconPalette,
   IconCamera,
-  IconBrandGoogle,
-  IconWorld
+  IconBrandGoogleFilled,
+  IconWorld,
+  IconFileText
 } from "@tabler/icons-react";
 
 export default function OQueFazemos() {
@@ -28,16 +28,16 @@ export default function OQueFazemos() {
       cor: "from-violet-500 to-purple-600"
     },
     {
-      icon: <IconBrandGoogle className="w-12 h-12" />,
+      icon: <IconBrandGoogleFilled className="w-12 h-12" />,
       titulo: "Google Ads & Google Hotel Ads",
       descricao: "Campanhas especializadas no Google Ads e Google Hotel Ads para maximizar suas reservas diretas e visibilidade.",
       cor: "from-blue-500 to-cyan-600"
     },
     {
-      icon: <IconAd className="w-12 h-12" />,
-      titulo: "Tráfego Pago Meta Ads",
+      icon: <IconBrandMeta className="w-12 h-12" />,
+      titulo: "Meta Ads - Facebook e Instagram",
       descricao: "Campanhas otimizadas no Facebook e Instagram Ads focadas em aumentar reservas diretas e reduzir custos com OTAs.",
-      cor: "from-sky-500 to-blue-600"
+      cor: "from-blue-600 to-purple-600"
     },
     {
       icon: <IconWorld className="w-12 h-12" />,
@@ -64,7 +64,7 @@ export default function OQueFazemos() {
       cor: "from-indigo-500 to-purple-600"
     },
     {
-      icon: <IconBrandFacebook className="w-12 h-12" />,
+      icon: <IconFileText className="w-12 h-12" />,
       titulo: "Marketing de Conteúdo",
       descricao: "Estratégias de conteúdo que contam a história do seu hotel e atraem o público ideal.",
       cor: "from-teal-500 to-blue-600"
