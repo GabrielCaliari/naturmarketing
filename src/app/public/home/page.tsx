@@ -5,7 +5,6 @@ import { Footer } from "@/components/Footer";
 import { Banner } from "./_components/Banner";
 import { BannerTwo } from "./_components/BannerTwo";
 import Contact from "./_components/Contact";
-import SubscriptionPlans from "./_components/Plans";
 import QuemSomos from "./_components/QuemSomos";
 import OQueFazemos from "./_components/OQueFazemos";
 import ParaQuemFazemos from "./_components/ParaQuemFazemos";
@@ -21,7 +20,6 @@ const Home = () => {
         <OQueFazemos />
         <ParaQuemFazemos />
         <BannerTwo />
-        <SubscriptionPlans />
         <ConsultoriaBanner />
         <Contact />
       </main>

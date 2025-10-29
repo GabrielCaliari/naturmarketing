@@ -77,20 +77,6 @@ const Banner = () => {
                   <span className="text-one">Fale Conosco</span>
                 </span>
               </button>
-              <button
-                className="theme-btn btn-style-one"
-                onClick={() => {
-                  trackButtonClick('cta_hero_plans', '/');
-                  const plansSection = document.getElementById('plans');
-                  if (plansSection) {
-                    plansSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                <span className="btn-wrap">
-                  <span className="text-one">Nossos Planos</span>
-                </span>
-              </button>
             </div>
           </div>
         </div>

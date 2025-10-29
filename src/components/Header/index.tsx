@@ -47,23 +47,6 @@ const Header = () => {
                       <li><a href="/">Home</a></li>
                       <li>
                         <a 
-                          href="#plans" 
-                          onClick={(e) => {
-                            e.preventDefault();
-                            const plansSection = document.getElementById('plans');
-                            if (plansSection) {
-                              const offset = 100;
-                              const elementPosition = plansSection.getBoundingClientRect().top;
-                              const offsetPosition = elementPosition + window.pageYOffset - offset;
-                              window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                            }
-                          }}
-                        >
-                          Planos
-                        </a>
-                      </li>
-                      <li>
-                        <a 
                           href="#contact" 
                           onClick={(e) => {
                             e.preventDefault();
@@ -181,31 +164,6 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
             }}
           >
             Home
-          </a>
-          <a 
-            href="#plans" 
-            onClick={(e) => {
-              e.preventDefault();
-              const plansSection = document.getElementById('plans');
-              if (plansSection) {
-                const offset = 100;
-                const elementPosition = plansSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-              handleLinkClick();
-            }}
-            style={{
-              display: 'block',
-              padding: '12px 16px',
-              color: '#374151',
-              textDecoration: 'none',
-              borderRadius: '8px',
-              marginBottom: '8px',
-              transition: 'background-color 0.3s'
-            }}
-          >
-            Planos
           </a>
           <a 
             href="#contact" 
