@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { trackFormStart, trackFormSubmit, trackFormError, trackButtonClick } from '@/lib/analytics';
 
 export default function Contact() {
+  const router = useRouter();
   const [formStarted, setFormStarted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -46,12 +48,8 @@ export default function Contact() {
 
       trackFormSubmit('home_contact_form', true);
       
-      // Mostra mensagem de sucesso
-      alert('✅ Mensagem enviada com sucesso! Entraremos em contato em breve.');
-      
-      // Limpa o formulário
-      (e.target as HTMLFormElement).reset();
-      setFormStarted(false);
+      // Redireciona para a página de sucesso
+      router.push('/public/consultoria-sucesso');
     } catch (error) {
       // Em caso de erro
       trackFormError('home_contact_form', 'Erro ao enviar formulário');
