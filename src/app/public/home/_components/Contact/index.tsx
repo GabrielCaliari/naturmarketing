@@ -8,6 +8,7 @@ import { trackFormStart, trackFormSubmit, trackFormError, trackButtonClick } fro
 
 export default function Contact() {
   const [formStarted, setFormStarted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Rastreia quando o usuário começa a preencher o formulário
   const handleFormStart = () => {
@@ -18,17 +19,35 @@ export default function Contact() {
   };
 
   // Rastreia envio do formulário
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
-      // Aqui você adicionaria a lógica real de envio
-      // Por enquanto, apenas simula sucesso
-      
+      const formData = new FormData(e.currentTarget);
+      const data = {
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        phone: formData.get('phone') as string,
+        message: formData.get('message') as string,
+      };
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro ao enviar mensagem');
+      }
+
       trackFormSubmit('home_contact_form', true);
       
       // Mostra mensagem de sucesso
-      alert('Mensagem enviada com sucesso!');
+      alert('✅ Mensagem enviada com sucesso! Entraremos em contato em breve.');
       
       // Limpa o formulário
       (e.target as HTMLFormElement).reset();
@@ -36,7 +55,10 @@ export default function Contact() {
     } catch (error) {
       // Em caso de erro
       trackFormError('home_contact_form', 'Erro ao enviar formulário');
-      alert('Erro ao enviar mensagem. Tente novamente.');
+      alert('❌ Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato via WhatsApp.');
+      console.error('Erro:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -90,36 +112,45 @@ export default function Contact() {
             <CardContent>
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <input 
-                  type="text" 
+                  type="text"
+                  name="name"
                   placeholder="Seu nome completo" 
                   className="w-full p-2 border rounded-lg"
                   onFocus={handleFormStart}
+                  disabled={isSubmitting}
                   required
                 />
                 <input 
-                  type="email" 
+                  type="email"
+                  name="email"
                   placeholder="seu@email.com" 
                   className="w-full p-2 border rounded-lg"
                   onFocus={handleFormStart}
+                  disabled={isSubmitting}
                   required
                 />
                 <input 
-                  type="text" 
+                  type="text"
+                  name="phone"
                   placeholder="(00) 00000-0000" 
                   className="w-full p-2 border rounded-lg"
                   onFocus={handleFormStart}
+                  disabled={isSubmitting}
                 />
                 <textarea 
+                  name="message"
                   placeholder="Como podemos ajudar?" 
                   className="w-full p-2 border rounded-lg h-24"
                   onFocus={handleFormStart}
+                  disabled={isSubmitting}
                   required
                 ></textarea>
                 <Button 
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={isSubmitting}
                 >
-                  Enviar Mensagem
+                  {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
                 </Button>
               </form>
             </CardContent>
