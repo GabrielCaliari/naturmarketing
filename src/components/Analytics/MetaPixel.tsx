@@ -26,8 +26,10 @@ export default function MetaPixel() {
     <>
       <Script
         id="meta-pixel"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
+        data-name="metaPixel"
         data-consent-category="metaPixel"
+        type="text/plain"
       >
         {`
           !function(f,b,e,v,n,t,s)

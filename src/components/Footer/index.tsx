@@ -63,6 +63,33 @@ const Footer = () => {
             <Link href="/privacy-policy" style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', display: 'block', marginBottom: '10px' }}>
               Política de Privacidade
             </Link>
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                // Abre o modal de gerenciamento de cookies
+                if (typeof window !== 'undefined') {
+                  // Usa a função global definida pelo CookieConsent
+                  if ((window as any).openCookieModal) {
+                    (window as any).openCookieModal();
+                  } else if ((window as any).showCookieModal) {
+                    (window as any).showCookieModal();
+                  } else {
+                    // Se ainda não carregou, tenta novamente após um delay
+                    setTimeout(() => {
+                      if ((window as any).openCookieModal) {
+                        (window as any).openCookieModal();
+                      } else if ((window as any).showCookieModal) {
+                        (window as any).showCookieModal();
+                      }
+                    }, 500);
+                  }
+                }
+              }}
+              style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', display: 'block', marginBottom: '10px', cursor: 'pointer' }}
+            >
+              Gerenciar Cookies
+            </a>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

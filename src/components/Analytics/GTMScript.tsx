@@ -25,8 +25,10 @@ export function GTMScript() {
   return (
     <Script
       id="gtm-script"
-      strategy="afterInteractive"
+      strategy="lazyOnload"
+      data-name="gtm"
       data-consent-category="gtm"
+      type="text/plain"
     >
       {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

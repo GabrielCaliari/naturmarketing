@@ -10,10 +10,12 @@ export const klaroConfig: KlarodConfig = {
   default: false,
   mustConsent: true,
   acceptAll: true,
-  hideDeclineAll: false,
+  hideDeclineAll: true, // Esconde o botão "Recusar todos"
   hideLearnMore: false,
   noticeAsModal: false,
   disablePoweredBy: true,
+  groupByPurpose: true,
+  testing: false,
   
   translations: {
     zz: {
@@ -21,39 +23,40 @@ export const klaroConfig: KlarodConfig = {
     },
     pt: {
       consentModal: {
-        title: '🍪 Cookies e Privacidade',
+        title: '🍪 Gerenciamento de Cookies',
         description:
-          'Usamos cookies e tecnologias de rastreamento para melhorar sua experiência, analisar o tráfego e otimizar nossos anúncios. Você pode escolher quais cookies aceitar.',
+          'A Natur utiliza cookies essenciais que são necessários para o funcionamento do site e cookies opcionais para melhorar sua experiência, analisar o tráfego e otimizar nossos anúncios. Os cookies essenciais (como Google Analytics) são sempre ativados para garantir que possamos melhorar continuamente nossos serviços. Você pode escolher aceitar todos os cookies ou apenas os essenciais.',
         privacyPolicy: {
-          name: 'política de privacidade',
-          text: 'Para mais informações, consulte nossa {privacyPolicy}.',
+          name: 'Política de Privacidade',
+          text: 'Para mais informações sobre como tratamos seus dados, consulte nossa {privacyPolicy}.',
         },
       },
       consentNotice: {
         changeDescription:
-          'Houve mudanças desde sua última visita. Atualize seu consentimento.',
+          'Houve mudanças nas configurações de cookies desde sua última visita. Por favor, atualize seu consentimento.',
         description:
-          'Usamos cookies e tecnologias de rastreamento para melhorar sua experiência, analisar o tráfego e otimizar nossos anúncios. Você pode escolher quais cookies aceitar.',
-        learnMore: 'Personalizar',
-        testing: 'Modo de teste!',
+          'Utilizamos cookies essenciais para o funcionamento do site e cookies opcionais para melhorar sua experiência, analisar o uso do site e personalizar anúncios. Os cookies essenciais são sempre ativados e você pode escolher quais cookies opcionais aceitar.',
+        learnMore: 'Personalizar Cookies',
+        testing: 'Modo de teste ativo',
       },
       purposes: {
         analytics: {
-          title: 'Análise',
-          description: 'Cookies de análise nos ajudam a entender como os visitantes interagem com nosso site.',
+          title: 'Cookies de Análise',
+          description: 'Estes cookies nos ajudam a entender como os visitantes interagem com nosso site, quais páginas são mais visitadas, quanto tempo permanecem na página e outras métricas importantes. Isso nos permite melhorar continuamente a experiência do usuário e o conteúdo oferecido.',
         },
         marketing: {
-          title: 'Marketing',
-          description: 'Cookies de marketing são usados para rastrear visitantes e exibir anúncios relevantes.',
+          title: 'Cookies de Marketing',
+          description: 'Estes cookies são usados para rastrear visitantes em diferentes sites e exibir anúncios relevantes e personalizados. Eles também nos ajudam a medir a eficácia de nossas campanhas publicitárias e otimizar nossos anúncios para melhorar os resultados.',
         },
         functional: {
-          title: 'Funcional',
-          description: 'Cookies funcionais ajudam a executar funcionalidades específicas.',
+          title: 'Cookies Funcionais',
+          description: 'Estes cookies permitem que o site forneça funcionalidades e personalização aprimoradas, como lembrar suas preferências de idioma ou região. Eles podem ser definidos por nós ou por provedores de serviços terceirizados cujos serviços adicionamos às nossas páginas.',
         },
       },
       ok: 'Aceitar selecionados',
       acceptAll: 'Aceitar todos',
       acceptSelected: 'Aceitar selecionados',
+      acceptNecessaryOnly: 'Aceitar apenas essenciais',
       decline: 'Recusar todos',
       close: 'Fechar',
       save: 'Salvar',
@@ -75,15 +78,15 @@ export const klaroConfig: KlarodConfig = {
       },
       gtm: {
         title: 'Google Tag Manager',
-        description: 'Gerenciador de tags que nos permite rastrear eventos e conversões.',
+        description: 'Gerenciador de tags do Google que nos permite gerenciar e rastrear eventos, conversões e interações no site de forma centralizada. Utilizado para enviar dados ao Google Analytics e outras ferramentas de marketing.',
       },
       ga4: {
         title: 'Google Analytics 4',
-        description: 'Serviço de análise que nos ajuda a entender como você usa nosso site.',
+        description: 'Serviço de análise do Google que nos ajuda a entender como os visitantes interagem com nosso site, incluindo páginas visitadas, tempo na página, taxa de rejeição e outras métricas importantes para melhorar nossa presença online.',
       },
       metaPixel: {
-        title: 'Meta Pixel (Facebook)',
-        description: 'Pixel de rastreamento para otimizar nossos anúncios no Facebook e Instagram.',
+        title: 'Meta Pixel (Facebook/Instagram)',
+        description: 'Pixel de rastreamento do Meta (Facebook/Instagram) que nos permite medir a eficácia de nossos anúncios, criar públicos personalizados para campanhas futuras e rastrear conversões provenientes de anúncios no Facebook e Instagram.',
       },
     },
   },
@@ -99,7 +102,7 @@ export const klaroConfig: KlarodConfig = {
         /^_gat/,
         '_dc_gtm_UA-',
       ],
-      required: false,
+      required: false, // Não é essencial, mas recomendado
       optOut: false,
       default: true,
       onlyOnce: false,
@@ -112,7 +115,7 @@ export const klaroConfig: KlarodConfig = {
         /^_ga/,
         /^_gid/,
       ],
-      required: false,
+      required: true, // MARCADO COMO ESSENCIAL - sempre será aceito
       optOut: false,
       default: true,
       onlyOnce: false,
@@ -126,9 +129,9 @@ export const klaroConfig: KlarodConfig = {
         '_fbc',
         'fr',
       ],
-      required: false,
+      required: false, // Não é essencial
       optOut: false,
-      default: true,
+      default: false, // Não ativado por padrão quando aceita apenas essenciais
       onlyOnce: false,
     },
   ],

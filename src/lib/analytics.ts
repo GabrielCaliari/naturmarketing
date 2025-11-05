@@ -12,9 +12,42 @@ function generateEventId(): string {
   return `${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
 }
 
+// Verifica se o usuário consentiu com os cookies
+function hasConsent(): boolean {
+  if (typeof window === 'undefined') return false;
+  
+  // Verifica cookie de consentimento diretamente
+  // O Klaro salva o consentimento no cookie 'klaro-consent'
+  const consentCookie = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('klaro-consent='));
+  
+  if (consentCookie) {
+    try {
+      // O cookie contém um objeto JSON com o consentimento de cada serviço
+      const cookieValue = consentCookie.split('=')[1];
+      const consent = JSON.parse(decodeURIComponent(cookieValue));
+      
+      // Retorna true se pelo menos um serviço foi aceito
+      // Verifica se o objeto tem valores true
+      if (consent && typeof consent === 'object') {
+        return Object.values(consent).some((v: any) => v === true);
+      }
+      
+      return false;
+    } catch (e) {
+      // Se não conseguir parsear, assume que não há consentimento
+      return false;
+    }
+  }
+  
+  // Se não houver cookie de consentimento, retorna false
+  return false;
+}
+
 // Envia evento para o dataLayer do GTM
 function pushToDataLayer(eventName: string, eventParams: Record<string, any> = {}) {
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && hasConsent()) {
     window.dataLayer.push({
       event: eventName,
       ...eventParams,
@@ -24,7 +57,7 @@ function pushToDataLayer(eventName: string, eventParams: Record<string, any> = {
 
 // Envia evento para Meta Pixel (client-side)
 function pushToMetaPixel(eventName: string, eventParams: Record<string, any> = {}) {
-  if (typeof window !== 'undefined' && window.fbq) {
+  if (typeof window !== 'undefined' && window.fbq && hasConsent()) {
     window.fbq('track', eventName, eventParams);
   }
 }
@@ -295,6 +328,13 @@ declare global {
   interface Window {
     dataLayer: any[];
     fbq: (...args: any[]) => void;
+    klaro?: {
+      setup: (config: any) => void;
+      show: (config?: any, modal?: boolean) => void;
+      hide: () => void;
+      version: () => string;
+      getManager: (config: any) => any;
+    };
   }
 }
 

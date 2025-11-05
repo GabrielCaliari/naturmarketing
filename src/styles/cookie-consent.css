@@ -1,0 +1,320 @@
+/* Estilos customizados para o banner de cookies Klaro */
+/* Alinhado com o design da Natur */
+
+#klaro {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Banner de notificação (bottom) */
+.cn-container {
+  background: linear-gradient(135deg, #003D5C 0%, #0066A1 100%) !important;
+  border-radius: 12px 12px 0 0 !important;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+  padding: 24px !important;
+  max-width: 100% !important;
+  z-index: 9999 !important;
+}
+
+.cn-container .cn-body {
+  color: white !important;
+}
+
+.cn-container .cn-title {
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  margin-bottom: 12px !important;
+}
+
+.cn-container .cn-body p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 20px !important;
+}
+
+.cn-container .cn-body a {
+  color: #ff339a !important;
+  text-decoration: underline !important;
+}
+
+.cn-container .cn-body a:hover {
+  color: #ff66b3 !important;
+}
+
+/* Botões */
+.cn-container .cn-buttons {
+  display: flex !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;
+}
+
+.cn-container .cn-button {
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+/* Botão "Aceitar todos" */
+.cn-container .cn-button.cn-button-accept {
+  background: white !important;
+  color: #003D5C !important;
+}
+
+.cn-container .cn-button.cn-button-accept:hover {
+  background: #f0f0f0 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Botão "Recusar todos" */
+.cn-container .cn-button.cn-button-decline {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.cn-container .cn-button.cn-button-decline:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Botão "Personalizar" */
+.cn-container .cn-button.cn-button-info {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.cn-container .cn-button.cn-button-info:hover {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Modal de personalização */
+.cn-modal {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+  max-width: 600px !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+}
+
+.cn-modal .cn-modal-header {
+  background: linear-gradient(135deg, #003D5C 0%, #0066A1 100%) !important;
+  color: white !important;
+  padding: 24px !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+.cn-modal .cn-modal-header .cn-modal-title {
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
+}
+
+.cn-modal .cn-modal-body {
+  padding: 24px !important;
+  background: white !important;
+}
+
+.cn-modal .cn-modal-body p {
+  color: #333 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 20px !important;
+}
+
+.cn-modal .cn-modal-body a {
+  color: #0066A1 !important;
+  text-decoration: underline !important;
+}
+
+.cn-modal .cn-modal-body a:hover {
+  color: #003D5C !important;
+}
+
+/* Categorias de cookies */
+.cn-purpose {
+  margin-bottom: 24px !important;
+  padding: 20px !important;
+  background: #f8f9fa !important;
+  border-radius: 8px !important;
+  border: 1px solid #e9ecef !important;
+}
+
+.cn-purpose-title {
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  color: #003D5C !important;
+  margin-bottom: 8px !important;
+}
+
+.cn-purpose-description {
+  color: #666 !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 16px !important;
+}
+
+/* Serviços de cookies */
+.cn-service {
+  padding: 16px !important;
+  background: white !important;
+  border-radius: 8px !important;
+  margin-bottom: 12px !important;
+  border: 1px solid #e9ecef !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.cn-service-title {
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  color: #333 !important;
+  margin-bottom: 4px !important;
+}
+
+.cn-service-description {
+  color: #666 !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+/* Switch/Toggle */
+.cn-service-toggle {
+  position: relative !important;
+  width: 48px !important;
+  height: 24px !important;
+  background: #ccc !important;
+  border-radius: 24px !important;
+  cursor: pointer !important;
+  transition: background 0.3s !important;
+  flex-shrink: 0 !important;
+}
+
+.cn-service-toggle.active {
+  background: #0066A1 !important;
+}
+
+.cn-service-toggle::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  background: white !important;
+  top: 2px !important;
+  left: 2px !important;
+  transition: transform 0.3s !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.cn-service-toggle.active::after {
+  transform: translateX(24px) !important;
+}
+
+/* Botões do modal */
+.cn-modal-footer {
+  padding: 20px 24px !important;
+  background: #f8f9fa !important;
+  border-radius: 0 0 16px 16px !important;
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: flex-end !important;
+  border-top: 1px solid #e9ecef !important;
+  align-items: center !important;
+}
+
+/* Botão "Aceitar apenas essenciais" */
+.cn-button-essential {
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease !important;
+  border: 2px solid #0066A1 !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  color: #0066A1 !important;
+  margin-right: auto !important;
+}
+
+.cn-button-essential:hover {
+  background: #0066A1 !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 102, 161, 0.3) !important;
+}
+
+.cn-modal-footer .cn-button {
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.cn-modal-footer .cn-button.cn-button-accept {
+  background: #0066A1 !important;
+  color: white !important;
+}
+
+.cn-modal-footer .cn-button.cn-button-accept:hover {
+  background: #003D5C !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 102, 161, 0.3) !important;
+}
+
+.cn-modal-footer .cn-button.cn-button-decline {
+  background: #6c757d !important;
+  color: white !important;
+}
+
+.cn-modal-footer .cn-button.cn-button-decline:hover {
+  background: #5a6268 !important;
+}
+
+/* Overlay */
+.cn-overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .cn-container {
+    padding: 20px !important;
+    border-radius: 12px 12px 0 0 !important;
+  }
+
+  .cn-container .cn-buttons {
+    flex-direction: column !important;
+  }
+
+  .cn-container .cn-button {
+    width: 100% !important;
+  }
+
+  .cn-modal {
+    max-width: 95% !important;
+    margin: 20px !important;
+  }
+
+  .cn-service {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .cn-service-toggle {
+    align-self: flex-end !important;
+  }
+}
+
