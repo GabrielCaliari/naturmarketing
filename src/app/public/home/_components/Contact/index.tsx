@@ -97,9 +97,6 @@ export default function Contact() {
                     Fale conosco no WhatsApp
                   </a>
                 </li>
-                <li className="text-sm text-gray-500">
-                  📞 +55 35 99806-7432
-                </li>
               </ul>
             </CardContent>
           </div>

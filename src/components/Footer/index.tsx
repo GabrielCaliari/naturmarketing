@@ -48,6 +48,9 @@ const Footer = () => {
             <Link href="/" style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', display: 'block', marginBottom: '10px' }}>
               Home
             </Link>
+            <Link href="/empresa" style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', display: 'block', marginBottom: '10px' }}>
+              Empresa
+            </Link>
             <a href="#contact" onClick={(e) => {
               e.preventDefault();
               const contactSection = document.getElementById('contact');
