@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 import { useIsMobile } from "@/hooks/useMobileDevice";
 
@@ -44,7 +45,8 @@ const Header = () => {
                 <nav className="main-menu">
                   <div className="navbar-collapse">
                     <ul className="navigation">
-                      <li><a href="/">Home</a></li>
+                      <li><Link href="/">Home</Link></li>
+                      <li><Link href="/empresa">Empresa</Link></li>
                       <li>
                         <a 
                           href="#contact" 
@@ -59,7 +61,7 @@ const Header = () => {
                           Contato
                         </a>
                       </li>
-                      <li><a href="/">Sobre</a></li>
+                      <li><Link href="/">Sobre</Link></li>
                     </ul>
                   </div>
                 </nav>
@@ -150,7 +152,7 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
 
         {/* Navigation */}
         <nav style={{ padding: '16px' }}>
-          <a 
+          <Link 
             href="/" 
             onClick={() => handleLinkClick()}
             style={{
@@ -164,7 +166,22 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
             }}
           >
             Home
-          </a>
+          </Link>
+          <Link 
+            href="/empresa" 
+            onClick={() => handleLinkClick()}
+            style={{
+              display: 'block',
+              padding: '12px 16px',
+              color: '#374151',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              marginBottom: '8px',
+              transition: 'background-color 0.3s'
+            }}
+          >
+            Empresa
+          </Link>
           <a 
             href="#contact" 
             onClick={(e) => {
@@ -187,7 +204,7 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
           >
             Contato
           </a>
-          <a 
+          <Link 
             href="/" 
             onClick={() => handleLinkClick()}
             style={{
@@ -201,7 +218,7 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
             }}
           >
             Sobre
-          </a>
+          </Link>
         </nav>
       </div>
     </div>
