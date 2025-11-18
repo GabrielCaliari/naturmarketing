@@ -3,6 +3,9 @@ declare module 'klaro' {
     [key: string]: any;
   }
 
+  // Alias para compatibilidade
+  export type KlarodConfig = KlaroConfig;
+
   export interface KlaroManager {
     show: (modal?: boolean) => void;
     hide: () => void;
