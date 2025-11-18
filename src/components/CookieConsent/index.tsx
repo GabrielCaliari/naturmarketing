@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { klaroConfig } from './config';
 import '@/styles/cookie-consent.css';
-// Importa CSS do Klaro estaticamente para evitar problemas no build
+// Importa CSS do Klaro - configurado para não passar por PostCSS
 import 'klaro/dist/klaro.css';
 
 export default function CookieConsent() {
