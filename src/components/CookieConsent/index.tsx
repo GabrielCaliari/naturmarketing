@@ -3,8 +3,6 @@
 import { useEffect, useRef } from 'react';
 import { klaroConfig } from './config';
 import '@/styles/cookie-consent.css';
-// Importa CSS do Klaro - configurado para não passar por PostCSS
-import 'klaro/dist/klaro.css';
 
 export default function CookieConsent() {
   const klaroModuleRef = useRef<any>(null);
@@ -14,6 +12,14 @@ export default function CookieConsent() {
     // Importa Klaro apenas no cliente (browser)
     const initKlaro = async () => {
       try {
+        // Carrega CSS do Klaro dinamicamente
+        if (typeof window !== 'undefined' && !document.querySelector('link[href*="klaro"]')) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = 'https://cdn.jsdelivr.net/npm/klaro@0.7.22/dist/klaro.css';
+          document.head.appendChild(link);
+        }
+        
         // Importa e inicializa o Klaro
         const Klaro = await import('klaro');
         klaroModuleRef.current = Klaro;
