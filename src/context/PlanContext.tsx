@@ -16,7 +16,6 @@ interface PlanContextType {
 const PlanContext = createContext<PlanContextType | undefined>(undefined);
 
 export function PlanProvider({ children }: { children: React.ReactNode }) {
-  const { user } = useUserAuth();
   const { 
     userPlan, 
     getCurrentPlan, 

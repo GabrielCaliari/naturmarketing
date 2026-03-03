@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import {
   createContext,
@@ -36,13 +35,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const unsubscribe = onAuthStateChanged(auth, handleUser);
     return () => unsubscribe();
   }, []);
-
-  // Sempre que o usuário logado mudar, faz reload para garantir dados atualizados
-  useEffect(() => {
-    if (auth.currentUser) {
-      auth.currentUser.reload().then(() => setUser(auth.currentUser));
-    }
-  }, [auth.currentUser]);
 
   return (
     <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>
