@@ -32,7 +32,7 @@ export default function QuemSomos() {
                 
                 <div className="mt-8 pt-8 border-t border-gray-200">
                   <p className="text-center text-[#0066A1] font-semibold italic">
-                    "Transformando hospedagens em experiências inesquecíveis através do marketing digital"
+                    &ldquo;Transformando hospedagens em experiências inesquecíveis através do marketing digital&rdquo;
                   </p>
                 </div>
               </div>

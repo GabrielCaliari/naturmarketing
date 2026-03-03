@@ -59,7 +59,7 @@ export function GTMNoScript() {
 // Declaração de tipos para o dataLayer
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayer: Array<Record<string, unknown>>;
   }
 }
 

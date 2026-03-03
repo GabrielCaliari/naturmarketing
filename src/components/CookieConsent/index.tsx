@@ -4,9 +4,26 @@ import { useEffect, useRef } from 'react';
 import { klaroConfig } from './config';
 import '@/styles/cookie-consent.css';
 
+interface KlaroService {
+  name: string;
+  required?: boolean;
+}
+
+interface KlaroManager {
+  show: (modal?: boolean) => void;
+  hide: () => void;
+  saveConsent?: (consent: Record<string, boolean>) => void;
+  updateConsent?: (consent: Record<string, boolean>) => void;
+}
+
+interface KlaroModule {
+  setup: (config: typeof klaroConfig) => void;
+  getManager: (config: typeof klaroConfig) => KlaroManager;
+}
+
 export default function CookieConsent() {
-  const klaroModuleRef = useRef<any>(null);
-  const klaroManagerRef = useRef<any>(null);
+  const klaroModuleRef = useRef<KlaroModule | null>(null);
+  const klaroManagerRef = useRef<KlaroManager | null>(null);
 
   useEffect(() => {
     // Importa Klaro apenas no cliente (browser)
@@ -68,7 +85,7 @@ export default function CookieConsent() {
                 const services = klaroConfig.services || [];
                 const consent: Record<string, boolean> = {};
                 
-                services.forEach((service: any) => {
+                services.forEach((service: KlaroService) => {
                   // Aceita apenas serviços marcados como required: true
                   consent[service.name] = service.required === true;
                   
@@ -87,10 +104,10 @@ export default function CookieConsent() {
                 // Salva o consentimento usando o método correto do Klaro
                 try {
                   // Usa o método saveConsent do manager
-                  if (manager && typeof (manager as any).saveConsent === 'function') {
-                    (manager as any).saveConsent(consent);
-                  } else if (manager && typeof (manager as any).updateConsent === 'function') {
-                    (manager as any).updateConsent(consent);
+                  if (manager && manager.saveConsent) {
+                    manager.saveConsent(consent);
+                  } else if (manager && manager.updateConsent) {
+                    manager.updateConsent(consent);
                   } else {
                     // Fallback: salva diretamente no cookie
                     const cookieName = 'klaro-consent';
@@ -104,8 +121,8 @@ export default function CookieConsent() {
                   }
                   
                   // Fecha o modal
-                  if (manager && typeof (manager as any).hide === 'function') {
-                    (manager as any).hide();
+                  if (manager && manager.hide) {
+                    manager.hide();
                   }
                   
                   // Recarrega a página para aplicar as mudanças
@@ -161,7 +178,7 @@ export default function CookieConsent() {
                 const services = klaroConfig.services || [];
                 const consent: Record<string, boolean> = {};
                 
-                services.forEach((service: any) => {
+                services.forEach((service: KlaroService) => {
                   consent[service.name] = service.required === true;
                 });
                 
@@ -208,27 +225,43 @@ export default function CookieConsent() {
         // Expõe funções úteis globalmente para debug/teste
         if (typeof window !== 'undefined') {
           // Armazena o módulo e config no window para acesso global
-          (window as any).__klaroModule = Klaro;
-          (window as any).__klaroConfig = klaroConfig;
-          (window as any).__klaroManager = manager;
+          (window as Window & { 
+            __klaroModule?: KlaroModule;
+            __klaroConfig?: typeof klaroConfig;
+            __klaroManager?: KlaroManager;
+            __getKlaroManager?: () => KlaroManager | null;
+            showCookieBanner?: () => void;
+            showCookieModal?: () => void;
+            clearCookieConsent?: () => void;
+            checkCookieConsent?: () => Record<string, boolean> | null;
+            openCookieModal?: () => void;
+          }).__klaroModule = Klaro;
+          (window as Window & { __klaroConfig?: typeof klaroConfig }).__klaroConfig = klaroConfig;
+          (window as Window & { __klaroManager?: KlaroManager }).__klaroManager = manager;
           
           // Função auxiliar para obter o manager (acessível globalmente)
-          (window as any).__getKlaroManager = () => {
-            if ((window as any).__klaroManager) {
-              return (window as any).__klaroManager;
+          (window as Window & { __getKlaroManager?: () => KlaroManager | null }).__getKlaroManager = () => {
+            const w = window as Window & { 
+              __klaroManager?: KlaroManager;
+              __klaroModule?: KlaroModule;
+              __klaroConfig?: typeof klaroConfig;
+            };
+            if (w.__klaroManager) {
+              return w.__klaroManager;
             }
-            if ((window as any).__klaroModule) {
-              const manager = (window as any).__klaroModule.getManager((window as any).__klaroConfig);
-              (window as any).__klaroManager = manager;
+            if (w.__klaroModule && w.__klaroConfig) {
+              const manager = w.__klaroModule.getManager(w.__klaroConfig);
+              w.__klaroManager = manager;
               return manager;
             }
             return null;
           };
           
           // Função para mostrar o banner novamente
-          (window as any).showCookieBanner = () => {
-            const manager = (window as any).__getKlaroManager();
-            if (manager && manager.show) {
+          (window as Window & { showCookieBanner?: () => void }).showCookieBanner = () => {
+            const w = window as Window & { __getKlaroManager?: () => KlaroManager | null };
+            const manager = w.__getKlaroManager?.();
+            if (manager?.show) {
               manager.show();
               console.log('✅ Banner de cookies aberto!');
             } else {
@@ -237,9 +270,10 @@ export default function CookieConsent() {
           };
           
           // Função para abrir o modal de configuração
-          (window as any).showCookieModal = () => {
-            const manager = (window as any).__getKlaroManager();
-            if (manager && manager.show) {
+          (window as Window & { showCookieModal?: () => void }).showCookieModal = () => {
+            const w = window as Window & { __getKlaroManager?: () => KlaroManager | null };
+            const manager = w.__getKlaroManager?.();
+            if (manager?.show) {
               manager.show(true); // true = abre como modal
               console.log('✅ Modal de cookies aberto!');
             } else {
@@ -248,7 +282,7 @@ export default function CookieConsent() {
           };
           
           // Função para limpar o consentimento (útil para testes)
-          (window as any).clearCookieConsent = () => {
+          (window as Window & { clearCookieConsent?: () => void }).clearCookieConsent = () => {
             const cookieName = 'klaro-consent';
             const domain = window.location.hostname;
             // Remove o cookie
@@ -258,7 +292,7 @@ export default function CookieConsent() {
           };
           
           // Função para ver o estado atual do consentimento
-          (window as any).checkCookieConsent = () => {
+          (window as Window & { checkCookieConsent?: () => Record<string, boolean> | null }).checkCookieConsent = () => {
             const consentCookie = document.cookie
               .split('; ')
               .find(row => row.startsWith('klaro-consent='));
@@ -266,7 +300,7 @@ export default function CookieConsent() {
             if (consentCookie) {
               try {
                 const cookieValue = consentCookie.split('=')[1];
-                const consent = JSON.parse(decodeURIComponent(cookieValue));
+                const consent = JSON.parse(decodeURIComponent(cookieValue)) as Record<string, boolean>;
                 console.log('📋 Estado atual do consentimento:', consent);
                 return consent;
               } catch (e) {
@@ -280,15 +314,16 @@ export default function CookieConsent() {
           };
           
           // Função global para abrir modal (usada pelo footer)
-          (window as any).openCookieModal = () => {
-            const manager = (window as any).__getKlaroManager();
-            if (manager && manager.show) {
+          (window as Window & { openCookieModal?: () => void }).openCookieModal = () => {
+            const w = window as Window & { __getKlaroManager?: () => KlaroManager | null };
+            const manager = w.__getKlaroManager?.();
+            if (manager?.show) {
               manager.show(true); // true = modal
             } else {
               // Se ainda não carregou, tenta novamente após um delay
               setTimeout(() => {
-                const retryManager = (window as any).__getKlaroManager();
-                if (retryManager && retryManager.show) {
+                const retryManager = w.__getKlaroManager?.();
+                if (retryManager?.show) {
                   retryManager.show(true);
                 }
               }, 500);
@@ -314,18 +349,5 @@ export default function CookieConsent() {
   }, []);
 
   return null;
-}
-
-// Declaração de tipos para o Klaro
-declare global {
-  interface Window {
-    klaro?: {
-      setup: (config: any) => void;
-      show: (config?: any, modal?: boolean) => void;
-      hide: () => void;
-      version: () => string;
-      getManager: (config: any) => any;
-    };
-  }
 }
 

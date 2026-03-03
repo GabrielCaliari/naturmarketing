@@ -531,7 +531,7 @@ export default function TodayAppointments() {
                       </div>
                       <div>
                         <p className="text-sm text-gray-500">CPF</p>
-                        <p className="font-medium">{(appointment.client as any).cpf || "Não informado"}</p>
+                        <p className="font-medium">{(appointment.client as { cpf?: string }).cpf || "Não informado"}</p>
                       </div>
                     </div>
                   </div>

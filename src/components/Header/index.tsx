@@ -34,9 +34,9 @@ const Header = () => {
         <div className="header-lower">
           <div className="inner-container">
             <div className="logo-box">
-              <a href="/" className="logo">
+              <Link href="/" className="logo">
                 <img src="/img/logos/main-logo.png" alt="Logo" />
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation */}

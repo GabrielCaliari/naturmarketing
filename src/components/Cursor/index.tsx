@@ -1,17 +1,35 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import useCallbackLoadedPage from "@/hooks/useCallbackPageLoaded";
 
-import { gsap } from "gsap";
-import $ from "jquery";
-
 import * as S from "./styles";
-const Cursor = () => {
-  const [setFn] = useCallbackLoadedPage();
 
+// Declarações globais para jQuery e GSAP
+declare const $: {
+  (selector: string): {
+    addClass: (className: string) => void;
+    removeClass: (className: string) => void;
+    on: (event: string, handler: () => void) => void;
+  };
+};
+
+declare const gsap: {
+  to: (target: object, duration: number, vars: {
+    repeat?: number;
+    onRepeat?: () => void;
+  }) => void;
+  set: (target: unknown, vars: { css: { left: number; top: number } }) => void;
+};
+
+const Cursor = () => {
   const animate = () => {
+    // Verifica se jQuery e GSAP estão disponíveis
+    if (typeof $ === 'undefined' || typeof gsap === 'undefined') {
+      console.warn('jQuery ou GSAP não estão disponíveis');
+      return;
+    }
+
     const cursor = $(".cursor");
     const follower = $(".cursor-follower");
 
@@ -43,7 +61,7 @@ const Cursor = () => {
       },
     });
 
-    setFn(() => {
+    const setupEventListeners = () => {
       $("button, a, form").on("mouseenter", function () {
         cursor.addClass("active");
         follower.addClass("active");
@@ -52,12 +70,13 @@ const Cursor = () => {
         cursor.removeClass("active");
         follower.removeClass("active");
       });
-    });
-
-    const handleMouseLeave = () => {
-      cursor.addClass("active");
-      follower.addClass("active");
     };
+
+    if (document.readyState === 'complete') {
+      setupEventListeners();
+    } else {
+      window.addEventListener('load', setupEventListeners);
+    }
 
     window.addEventListener("mousemove", (e) => {
       mouseX = e.clientX;

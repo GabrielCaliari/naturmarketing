@@ -2,7 +2,6 @@
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useUserPlan } from '@/hooks/useUserPlan';
-import { useUserAuth } from '@/hooks/useUserAuth';
 
 interface PlanContextType {
   currentPlan: string;

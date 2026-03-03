@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { IconCheck, IconPhone, IconMail, IconBrandWhatsapp } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function ConsultoriaSucesso() {
   useEffect(() => {
@@ -142,12 +143,12 @@ export default function ConsultoriaSucesso() {
             transition={{ delay: 0.8 }}
             className="text-center"
           >
-            <a
+            <Link
               href="/"
               className="inline-block text-[#0066A1] hover:text-[#003D5C] font-semibold underline transition-colors"
             >
               ← Voltar para a página inicial
-            </a>
+            </Link>
           </motion.div>
         </div>
       </main>

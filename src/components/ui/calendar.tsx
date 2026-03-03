@@ -53,7 +53,7 @@ function Calendar({
       components={{
         IconLeft: () => <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />,
         IconRight: () => <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />,
-      } as any}
+      } as React.ComponentProps<typeof DayPicker>['components']}
       {...props}
     />
   );

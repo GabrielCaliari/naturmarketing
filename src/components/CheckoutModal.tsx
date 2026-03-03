@@ -14,7 +14,7 @@ import { Elements, CardElement, useStripe, useElements } from '@stripe/react-str
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 
 // Função para sanitizar erros do Stripe e não expor informações sensíveis
-const sanitizeStripeError = (error: any): string => {
+const sanitizeStripeError = (error: unknown): string => {
   console.log('Erro recebido para sanitização:', error);
   
   // Se o erro for um objeto vazio ou null/undefined
@@ -22,7 +22,7 @@ const sanitizeStripeError = (error: any): string => {
     return 'Erro temporário no sistema de pagamento. Tente novamente em alguns instantes.';
   }
   
-  const message = error?.message || error?.toString() || '';
+  const message = (error as { message?: string })?.message || String(error) || '';
   
   // Se a mensagem contém informações sobre API keys, retornar uma mensagem genérica
   if (message.includes('Invalid API Key') || message.includes('pk_live') || message.includes('pk_test')) {

@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 import { 
   IconUsers, 
   IconTarget, 
@@ -205,7 +206,7 @@ const Empresa = () => {
                     </div>
                     
                     <p className="mt-8 text-center text-[#0066A1] font-semibold italic">
-                      "Juntos, transformamos desafios em oportunidades e ideias em resultados reais."
+                      &ldquo;Juntos, transformamos desafios em oportunidades e ideias em resultados reais.&rdquo;
                     </p>
                   </div>
                 </CardContent>
@@ -224,12 +225,12 @@ const Empresa = () => {
               <p className="text-xl mb-8 text-blue-100">
                 Entre em contato e descubra como podemos ajudar seu negócio a crescer
               </p>
-              <a
+              <Link
                 href="/#contact"
                 className="inline-block px-8 py-4 bg-white text-[#003D5C] font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Fale Conosco
-              </a>
+              </Link>
             </div>
           </div>
         </section>

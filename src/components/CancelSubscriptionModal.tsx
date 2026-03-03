@@ -16,7 +16,15 @@ interface CancelSubscriptionModalProps {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
-  subscriptionData: any;
+  subscriptionData: {
+    id?: string;
+    status?: string;
+    current_period_end?: number;
+    plan?: {
+      amount?: number;
+      interval?: string;
+    };
+  };
   loading?: boolean;
 }
 

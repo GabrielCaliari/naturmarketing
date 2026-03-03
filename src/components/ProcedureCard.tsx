@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Edit, Calendar, Clock, User } from 'lucide-react';
+import { Edit, Calendar, Clock } from 'lucide-react';
 import { formatDateToBrazilian } from '@/utils/formater/date';
 import { formatCurrencyFromCents } from '@/utils/maks/masks';
 
@@ -47,11 +46,10 @@ interface ProcedureCardProps {
       description?: string;
     }>;
   };
-  onViewDetails: (service: any) => void;
+  onViewDetails: (service: ProcedureCardProps['service']) => void;
 }
 
 export default function ProcedureCard({ service, onViewDetails }: ProcedureCardProps) {
-  const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageError, setImageError] = useState(false);
   
