@@ -112,7 +112,8 @@ export default function CookieConsent() {
                     // Fallback: salva diretamente no cookie
                     const cookieName = 'klaro-consent';
                     const expires = new Date();
-                    expires.setTime(expires.getTime() + (klaroConfig.cookieExpiresAfterDays * 24 * 60 * 60 * 1000));
+                    const expiresAfterDays = (klaroConfig.cookieExpiresAfterDays as number) || 365;
+                    expires.setTime(expires.getTime() + (expiresAfterDays * 24 * 60 * 60 * 1000));
                     document.cookie = `${cookieName}=${encodeURIComponent(JSON.stringify(consent))}; expires=${expires.toUTCString()}; path=/; domain=${klaroConfig.cookieDomain || window.location.hostname}`;
                     
                     // Recarrega a página para aplicar as mudanças
@@ -186,7 +187,8 @@ export default function CookieConsent() {
                 try {
                   const cookieName = 'klaro-consent';
                   const expires = new Date();
-                  expires.setTime(expires.getTime() + (klaroConfig.cookieExpiresAfterDays * 24 * 60 * 60 * 1000));
+                  const expiresAfterDays = (klaroConfig.cookieExpiresAfterDays as number) || 365;
+                  expires.setTime(expires.getTime() + (expiresAfterDays * 24 * 60 * 60 * 1000));
                   document.cookie = `${cookieName}=${encodeURIComponent(JSON.stringify(consent))}; expires=${expires.toUTCString()}; path=/; domain=${klaroConfig.cookieDomain || window.location.hostname}`;
                   
                   // Recarrega a página
