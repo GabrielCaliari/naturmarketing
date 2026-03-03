@@ -31,11 +31,11 @@ function hasConsent(): boolean {
       // Retorna true se pelo menos um serviço foi aceito
       // Verifica se o objeto tem valores true
       if (consent && typeof consent === 'object') {
-        return Object.values(consent).some((v: any) => v === true);
+        return Object.values(consent).some((v: unknown) => v === true);
       }
       
       return false;
-    } catch (e) {
+    } catch {
       // Se não conseguir parsear, assume que não há consentimento
       return false;
     }
@@ -46,7 +46,7 @@ function hasConsent(): boolean {
 }
 
 // Envia evento para o dataLayer do GTM
-function pushToDataLayer(eventName: string, eventParams: Record<string, any> = {}) {
+function pushToDataLayer(eventName: string, eventParams: Record<string, unknown> = {}) {
   if (typeof window !== 'undefined' && window.dataLayer && hasConsent()) {
     window.dataLayer.push({
       event: eventName,
@@ -56,7 +56,7 @@ function pushToDataLayer(eventName: string, eventParams: Record<string, any> = {
 }
 
 // Envia evento para Meta Pixel (client-side)
-function pushToMetaPixel(eventName: string, eventParams: Record<string, any> = {}) {
+function pushToMetaPixel(eventName: string, eventParams: Record<string, unknown> = {}) {
   if (typeof window !== 'undefined' && window.fbq && hasConsent()) {
     window.fbq('track', eventName, eventParams);
   }
@@ -66,7 +66,7 @@ function pushToMetaPixel(eventName: string, eventParams: Record<string, any> = {
 async function pushToMetaConversionAPI(
   eventName: string,
   eventId: string,
-  customData: Record<string, any> = {}
+  customData: Record<string, unknown> = {}
 ) {
   if (typeof window === 'undefined') return;
 
@@ -105,7 +105,7 @@ async function pushToMetaConversionAPI(
  */
 export function trackEvent(
   eventName: string,
-  eventParams: Record<string, any> = {}
+  eventParams: Record<string, unknown> = {}
 ) {
   const eventId = generateEventId();
 
@@ -326,14 +326,14 @@ export function trackLinkClick(linkUrl: string, linkText?: string) {
 // Declarações de tipos globais
 declare global {
   interface Window {
-    dataLayer: any[];
-    fbq: (...args: any[]) => void;
+    dataLayer: Array<Record<string, unknown>>;
+    fbq: (...args: unknown[]) => void;
     klaro?: {
-      setup: (config: any) => void;
-      show: (config?: any, modal?: boolean) => void;
+      setup: (config: unknown) => void;
+      show: (config?: unknown, modal?: boolean) => void;
       hide: () => void;
       version: () => string;
-      getManager: (config: any) => any;
+      getManager: (config: unknown) => unknown;
     };
   }
 }

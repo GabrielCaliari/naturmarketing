@@ -1,6 +1,6 @@
 declare module 'klaro' {
   export interface KlaroConfig {
-    [key: string]: any;
+    [key: string]: unknown;
   }
 
   // Alias para compatibilidade
@@ -11,7 +11,7 @@ declare module 'klaro' {
     hide: () => void;
     saveConsent?: (consent: Record<string, boolean>) => void;
     updateConsent?: (consent: Record<string, boolean>) => void;
-    [key: string]: any;
+    [key: string]: unknown;
   }
 
   const klaro: {

@@ -54,7 +54,7 @@ export async function sendConversionEvent(
     fbp?: string; // Facebook Browser ID
     fbc?: string; // Facebook Click ID
   } = {},
-  customData: Record<string, any> = {}
+  customData: Record<string, unknown> = {}
 ): Promise<{ success: boolean; error?: string }> {
   if (!PIXEL_ID || !ACCESS_TOKEN) {
     console.error('Meta Pixel ID ou Access Token não configurados');
@@ -65,7 +65,7 @@ export async function sendConversionEvent(
     const url = `https://graph.facebook.com/${API_VERSION}/${PIXEL_ID}/events`;
 
     // Prepara dados do usuário com hash (para privacidade)
-    const hashedUserData: Record<string, any> = {
+    const hashedUserData: Record<string, string | undefined> = {
       client_ip_address: userData.clientIpAddress,
       client_user_agent: userData.clientUserAgent,
       fbp: userData.fbp,

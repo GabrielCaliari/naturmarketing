@@ -51,7 +51,7 @@ const Footer = () => {
             <Link href="/empresa" style={{ fontSize: '16px', color: 'rgba(255, 255, 255, 0.7)', textDecoration: 'none', display: 'block', marginBottom: '10px' }}>
               Empresa
             </Link>
-            <a href="#contact" onClick={(e) => {
+            <a href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const contactSection = document.getElementById('contact');
               if (contactSection) {
