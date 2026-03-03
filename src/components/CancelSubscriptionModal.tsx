@@ -87,7 +87,7 @@ export default function CancelSubscriptionModal({
                 <CheckCircle className="h-4 w-4 text-green-500 mt-0.5" />
                 <div className="text-sm text-gray-600">
                   <strong>Você mantém acesso completo</strong> até{' '}
-                  {subscriptionData ? formatDate(subscriptionData.current_period_end) : 'o final do período atual'}
+                  {subscriptionData?.current_period_end ? formatDate(subscriptionData.current_period_end) : 'o final do período atual'}
                 </div>
               </div>
               
@@ -108,7 +108,7 @@ export default function CancelSubscriptionModal({
           </div>
 
           {/* Data de vencimento */}
-          {subscriptionData && (
+          {subscriptionData?.current_period_end && (
             <div className="flex items-center gap-2 p-3 bg-blue-50 rounded-lg">
               <Calendar className="h-4 w-4 text-blue-500" />
               <div className="text-sm">
