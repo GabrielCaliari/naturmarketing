@@ -82,7 +82,7 @@ export default function CookieConsent() {
                 e.preventDefault();
                 
                 // Desativa todos os serviços opcionais
-                const services = klaroConfig.services || [];
+                const services = (klaroConfig.services || []) as KlaroService[];
                 const consent: Record<string, boolean> = {};
                 
                 services.forEach((service: KlaroService) => {
@@ -175,7 +175,7 @@ export default function CookieConsent() {
               essentialBannerButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                const services = klaroConfig.services || [];
+                const services = (klaroConfig.services || []) as KlaroService[];
                 const consent: Record<string, boolean> = {};
                 
                 services.forEach((service: KlaroService) => {
