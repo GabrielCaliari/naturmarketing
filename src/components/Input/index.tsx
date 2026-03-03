@@ -24,7 +24,6 @@ export const Input: React.FC<InputProps> = ({
   showSearch = false,
   passwordType = false,
   showIcon = false,
-  name,
   type,
   showPlus = false,
   onPress,

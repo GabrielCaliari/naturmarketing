@@ -5,14 +5,11 @@ import {
   IconBrandInstagram,
   IconBrandWhatsapp,
 } from "@tabler/icons-react";
-import { useRouter } from "next/navigation";
 import BackgroundImage from './../../../../../../public/img/resource/background.png'
 import { motion } from 'framer-motion';
 import { trackButtonClick } from '@/lib/analytics';
 
 const Banner = () => {
-  const router = useRouter();
-
   const animationVariants = {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0, transition: { duration: 1 } }

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, HtmlHTMLAttributes, ReactNode } from "react"
+import { ButtonHTMLAttributes, ReactNode } from "react"
 import { trackButtonClick } from '@/lib/analytics';
 
 import * as S from './styles';

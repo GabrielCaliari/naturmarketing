@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import imagebackground from './../../../../../../public/img/resource/background.png'
 import { StaticImageData } from 'next/image';
 
 export const Banner = styled.section`

@@ -88,7 +88,7 @@ export default function Contact() {
                     href="https://wa.me/5535998067432?text=Olá! Gostaria de saber mais sobre os serviços de marketing digital para meu hotel." 
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={(e) => {
+                    onClick={() => {
                       handleWhatsAppClick();
                     }}
                     className="flex items-center gap-2 text-green-600 hover:text-green-700 transition-colors font-semibold"

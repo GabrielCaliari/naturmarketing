@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import useCallbackLoadedPage from "@/hooks/useCallbackPageLoaded";
 
 import * as S from "./styles";
 

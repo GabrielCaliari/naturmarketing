@@ -41,7 +41,7 @@ const ContactUs = () => {
             
             // Redireciona ou mostra mensagem de sucesso
             alert('Mensagem enviada com sucesso!');
-        } catch (error) {
+        } catch {
             // Em caso de erro
             trackFormError('contact_us_form', 'Erro ao enviar formulário');
             alert('Erro ao enviar mensagem. Tente novamente.');
