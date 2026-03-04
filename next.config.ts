@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import path from "path";
 
 interface WebpackRule {
   test?: RegExp;
@@ -17,7 +16,6 @@ interface WebpackConfig {
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
-  outputFileTracingRoot: path.join(__dirname, '../../'),
   webpack: (config: WebpackConfig) => {
     // Encontra regras CSS e exclui node_modules do PostCSS
     const rules = config.module.rules;
