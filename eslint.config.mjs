@@ -24,6 +24,13 @@ const eslintConfig = [
     rules: {
       "@next/next/no-img-element": "off",
       "@next/next/no-page-custom-font": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_"
+        }
+      ],
     },
   },
 ];

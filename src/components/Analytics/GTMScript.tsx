@@ -18,7 +18,7 @@ export function GTMScript() {
   }, []);
 
   if (!GTM_ID) {
-    console.warn('GTM_ID não configurado');
+    // console.warn('GTM_ID não configurado');
     return null;
   }
 

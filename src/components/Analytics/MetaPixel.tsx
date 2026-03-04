@@ -18,7 +18,7 @@ export default function MetaPixel() {
   }, [pathname, searchParams]);
 
   if (!PIXEL_ID) {
-    console.warn('META_PIXEL_ID não configurado');
+    // console.warn('META_PIXEL_ID não configurado');
     return null;
   }
 

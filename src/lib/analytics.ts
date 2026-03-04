@@ -64,10 +64,14 @@ function pushToMetaPixel(eventName: string, eventParams: Record<string, unknown>
 
 // Envia evento para Meta Conversion API (server-side)
 async function pushToMetaConversionAPI(
-  eventName: string,
-  eventId: string,
-  customData: Record<string, unknown> = {}
+  _eventName: string,
+  _eventId: string,
+  _customData: Record<string, unknown> = {}
 ) {
+  // Temporariamente desabilitado até configurar META_PIXEL_ID e META_CONVERSION_API_TOKEN
+  return;
+  
+  /* Descomente quando configurar as variáveis de ambiente
   if (typeof window === 'undefined') return;
 
   try {
@@ -98,6 +102,7 @@ async function pushToMetaConversionAPI(
   } catch (error) {
     console.error('Erro ao enviar para Meta Conversion API:', error);
   }
+  */
 }
 
 /**

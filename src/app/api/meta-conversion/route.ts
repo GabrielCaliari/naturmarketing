@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { sendConversionEvent } from '@/lib/meta-conversion';
+// import { sendConversionEvent } from '@/lib/meta-conversion';
 
-export async function POST(request: NextRequest) {
+export async function POST(_request: NextRequest) {
+  // Rota temporariamente desabilitada até configurar META_PIXEL_ID e META_CONVERSION_API_TOKEN
+  return NextResponse.json(
+    { error: 'Meta Conversion API não configurada. Configure as variáveis de ambiente primeiro.' },
+    { status: 503 }
+  );
+
+  /* Descomente quando configurar as variáveis de ambiente
+  
+  
   try {
     const body = await request.json();
     
@@ -57,6 +66,7 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+  */
 }
 
 

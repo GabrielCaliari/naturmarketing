@@ -57,7 +57,7 @@ export async function sendConversionEvent(
   customData: Record<string, unknown> = {}
 ): Promise<{ success: boolean; error?: string }> {
   if (!PIXEL_ID || !ACCESS_TOKEN) {
-    console.error('Meta Pixel ID ou Access Token não configurados');
+    // console.error('Meta Pixel ID ou Access Token não configurados');
     return { success: false, error: 'Configuração incompleta' };
   }
 

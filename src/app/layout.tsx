@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
+// import { Suspense } from 'react'
 
 // Importar estilos CSS essenciais
 import "@/styles/globals.css";
 
 // Analytics e Rastreamento
-import { GTMScript, GTMNoScript } from '@/components/Analytics/GTMScript';
-import MetaPixel from '@/components/Analytics/MetaPixel';
+// import { GTMScript, GTMNoScript } from '@/components/Analytics/GTMScript';
+// import MetaPixel from '@/components/Analytics/MetaPixel';
 import CookieConsent from '@/components/CookieConsent';
 import AutoTrack from '@/components/Analytics/AutoTrack';
 
@@ -32,14 +33,16 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
           rel="stylesheet"
         />
-        {/* Google Tag Manager */}
-        <GTMScript />
-        {/* Meta Pixel */}
-        <MetaPixel />
+        {/* Google Tag Manager - Descomente quando configurar NEXT_PUBLIC_GTM_ID */}
+        {/* <GTMScript /> */}
+        {/* Meta Pixel - Descomente quando configurar NEXT_PUBLIC_META_PIXEL_ID */}
+        {/* <Suspense fallback={null}>
+          <MetaPixel />
+        </Suspense> */}
       </head>
       <body suppressHydrationWarning={true}>
-        {/* GTM NoScript Fallback */}
-        <GTMNoScript />
+        {/* GTM NoScript Fallback - Descomente quando configurar NEXT_PUBLIC_GTM_ID */}
+        {/* <GTMNoScript /> */}
         
         {/* Conteúdo principal */}
         {children}
