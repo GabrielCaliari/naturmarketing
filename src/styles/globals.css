@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
 
 :root {
-	/* #ff339a in decimal RGB */
-	--main-color: rgb(255,51,154);
-	--main-color-rgb: 255,51,154;
+	/* Réserve brand colors */
+	--main-color: rgb(135,166,174);
+	--main-color-rgb: 135,166,174;
 	--color-two: rgb(23,27,42);
 	--color-three: rgb(245,245,245);
 	--color-four: rgb(249,249,249);
@@ -23,7 +23,7 @@
 body {
   color: #0a0a0a;
   background: white;
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -43,8 +43,8 @@ main {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: #87a6ae;
+  box-shadow: none;
 }
 
 .auto-container {
@@ -91,23 +91,25 @@ main {
 }
 
 .main-menu .navigation li a {
-  color: #333;
+  color: rgba(255,255,255,0.9);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 15px;
   transition: color 0.3s;
   white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .main-menu .navigation li a:hover {
-  color: var(--main-color);
+  color: #ffffff;
 }
 
 .mobile-nav-toggler {
   background: none;
   border: none;
   cursor: pointer;
-  color: #333;
+  color: #ffffff;
   flex-shrink: 0;
 }
 
@@ -117,7 +119,7 @@ main {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #2c3e50;
 }
 
 .banner-one_image {
@@ -128,12 +130,13 @@ main {
   bottom: 0;
   background-size: cover;
   background-position: center;
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 .banner-one_content {
   position: relative;
   z-index: 2;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -141,6 +144,15 @@ main {
 
 .banner-one_content-inner {
   padding: 120px 0 80px;
+}
+
+.banner-one_content-inner.reserve-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 180px 0 120px;
 }
 
 .sec-title_title {
@@ -161,6 +173,21 @@ main {
   text-transform: uppercase;
 }
 
+.banner-one_heading.reserve-heading {
+  font-size: 52px;
+  font-weight: 300;
+  color: white;
+  line-height: 1.3;
+  margin-bottom: 50px;
+  text-transform: none;
+  font-family: "Poppins", sans-serif;
+  max-width: 800px;
+}
+
+.banner-one_heading.reserve-heading strong {
+  font-weight: 700;
+}
+
 .banner-one_heading span {
   color: var(--main-color);
 }
@@ -171,6 +198,46 @@ main {
   line-height: 1.6;
   max-width: 600px;
   margin-bottom: 40px;
+}
+
+/* Réserve CTA Button */
+.reserve-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.reserve-cta-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 16px 32px;
+}
+
+.reserve-cta-btn strong {
+  font-weight: 700;
+}
+
+.reserve-cta-btn:hover {
+  transform: translateY(4px);
+  color: rgba(255,255,255,0.8);
+}
+
+.reserve-cta-btn svg {
+  animation: bounceDown 2s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 .story-two_button {
@@ -232,19 +299,27 @@ main {
   .banner-one_heading {
     font-size: 48px;
   }
-  
+
+  .banner-one_heading.reserve-heading {
+    font-size: 38px;
+  }
+
   .banner-one_content-inner {
     padding: 100px 0 60px;
   }
-  
+
+  .banner-one_content-inner.reserve-hero {
+    padding: 140px 0 80px;
+  }
+
   .banner-two_socials {
     display: none;
   }
-  
+
   .story-two_button {
     flex-direction: column;
   }
-  
+
   .theme-btn {
     justify-content: center;
   }
@@ -254,25 +329,159 @@ main {
   .banner-one_heading {
     font-size: 36px;
   }
-  
+
+  .banner-one_heading.reserve-heading {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
   .sec-title_text {
     font-size: 16px;
   }
-  
+
   .main-menu .navigation {
     display: none;
   }
-  
+
   .nav-outer {
     display: none;
   }
-  
+
   .inner-container {
     justify-content: space-between;
   }
-  
+
   .logo-box img {
     max-height: 40px;
+  }
+
+  .reserve-cta-btn {
+    font-size: 14px;
+  }
+}
+
+/* ============================
+   Transform Section (Seção 2)
+   ============================ */
+.transform-section {
+  background-color: #f0efeb;
+  padding: 100px 0;
+}
+
+.transform-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.transform-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.transform-heading {
+  font-family: "Poppins", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #2d2d2d;
+  margin: 0;
+}
+
+.transform-heading strong {
+  font-weight: 700;
+}
+
+.transform-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #666666;
+  margin: 0;
+}
+
+.transform-images {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.transform-img-room {
+  position: relative;
+  z-index: 2;
+  width: 55%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  align-self: flex-start;
+}
+
+.transform-img-polaroid {
+  position: relative;
+  z-index: 1;
+  width: 65%;
+  margin-left: -15%;
+  margin-top: 40px;
+}
+
+/* Transform Section Responsive */
+@media (max-width: 1080px) {
+  .transform-section {
+    padding: 70px 0;
+  }
+
+  .transform-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 24px;
+  }
+
+  .transform-heading {
+    font-size: 26px;
+  }
+
+  .transform-images {
+    min-height: 300px;
+    justify-content: center;
+  }
+
+  .transform-img-room {
+    width: 50%;
+  }
+
+  .transform-img-polaroid {
+    width: 60%;
+    margin-left: -10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .transform-section {
+    padding: 50px 0;
+  }
+
+  .transform-heading {
+    font-size: 22px;
+  }
+
+  .transform-subtitle {
+    font-size: 14px;
+  }
+
+  .transform-img-room {
+    width: 55%;
+  }
+
+  .transform-img-polaroid {
+    width: 65%;
   }
 }
 

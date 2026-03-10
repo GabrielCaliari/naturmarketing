@@ -35,7 +35,7 @@ const Header = () => {
           <div className="inner-container">
             <div className="logo-box">
               <Link href="/" className="logo">
-                <img src="/img/logos/main-logo.png" alt="Logo" />
+                <img src="/img/logos/reserve.png" alt="Réserve Marketing Agency" />
               </Link>
             </div>
 
@@ -45,11 +45,10 @@ const Header = () => {
                 <nav className="main-menu">
                   <div className="navbar-collapse">
                     <ul className="navigation">
-                      <li><Link href="/">Home</Link></li>
-                      <li><Link href="/empresa">Empresa</Link></li>
+                      <li><Link href="/">Início</Link></li>
                       <li>
-                        <a 
-                          href="#contact" 
+                        <a
+                          href="#contact"
                           onClick={(e) => {
                             e.preventDefault();
                             const contactSection = document.getElementById('contact');
@@ -61,7 +60,34 @@ const Header = () => {
                           Contato
                         </a>
                       </li>
-                      <li><Link href="/">Sobre</Link></li>
+                      <li>
+                        <a
+                          href="#services"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const servicesSection = document.getElementById('services');
+                            if (servicesSection) {
+                              servicesSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }}
+                        >
+                          Serviços
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#about"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const aboutSection = document.getElementById('about');
+                            if (aboutSection) {
+                              aboutSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }}
+                        >
+                          Quem Somos
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </nav>
@@ -132,15 +158,16 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '16px',
-          borderBottom: '1px solid #e5e7eb'
+          padding: '16px 20px',
+          borderBottom: '1px solid rgba(135,166,174,0.2)',
+          backgroundColor: '#87a6ae'
         }}>
-          <img src="/img/logos/main-logo.png" alt="Logo" style={{ height: '32px' }} />
+          <img src="/img/logos/reserve.png" alt="Réserve Marketing Agency" style={{ height: '36px' }} />
           <button
             onClick={onClose}
             style={{
               padding: '8px',
-              color: '#6b7280',
+              color: '#ffffff',
               border: 'none',
               background: 'none',
               cursor: 'pointer'
@@ -152,38 +179,26 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
 
         {/* Navigation */}
         <nav style={{ padding: '16px' }}>
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             onClick={() => handleLinkClick()}
             style={{
               display: 'block',
-              padding: '12px 16px',
+              padding: '14px 16px',
               color: '#374151',
               textDecoration: 'none',
               borderRadius: '8px',
-              marginBottom: '8px',
+              marginBottom: '4px',
+              fontSize: '15px',
+              letterSpacing: '1px',
+              textTransform: 'uppercase' as const,
               transition: 'background-color 0.3s'
             }}
           >
-            Home
+            Início
           </Link>
-          <Link 
-            href="/empresa" 
-            onClick={() => handleLinkClick()}
-            style={{
-              display: 'block',
-              padding: '12px 16px',
-              color: '#374151',
-              textDecoration: 'none',
-              borderRadius: '8px',
-              marginBottom: '8px',
-              transition: 'background-color 0.3s'
-            }}
-          >
-            Empresa
-          </Link>
-          <a 
-            href="#contact" 
+          <a
+            href="#contact"
             onClick={(e) => {
               e.preventDefault();
               const contactSection = document.getElementById('contact');
@@ -194,31 +209,69 @@ const MobileMenuModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
             }}
             style={{
               display: 'block',
-              padding: '12px 16px',
+              padding: '14px 16px',
               color: '#374151',
               textDecoration: 'none',
               borderRadius: '8px',
-              marginBottom: '8px',
+              marginBottom: '4px',
+              fontSize: '15px',
+              letterSpacing: '1px',
+              textTransform: 'uppercase' as const,
               transition: 'background-color 0.3s'
             }}
           >
             Contato
           </a>
-          <Link 
-            href="/" 
-            onClick={() => handleLinkClick()}
+          <a
+            href="#services"
+            onClick={(e) => {
+              e.preventDefault();
+              const servicesSection = document.getElementById('services');
+              if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+              }
+              handleLinkClick();
+            }}
             style={{
               display: 'block',
-              padding: '12px 16px',
+              padding: '14px 16px',
               color: '#374151',
               textDecoration: 'none',
               borderRadius: '8px',
-              marginBottom: '8px',
+              marginBottom: '4px',
+              fontSize: '15px',
+              letterSpacing: '1px',
+              textTransform: 'uppercase' as const,
               transition: 'background-color 0.3s'
             }}
           >
-            Sobre
-          </Link>
+            Serviços
+          </a>
+          <a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              const aboutSection = document.getElementById('about');
+              if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+              }
+              handleLinkClick();
+            }}
+            style={{
+              display: 'block',
+              padding: '14px 16px',
+              color: '#374151',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              marginBottom: '4px',
+              fontSize: '15px',
+              letterSpacing: '1px',
+              textTransform: 'uppercase' as const,
+              transition: 'background-color 0.3s'
+            }}
+          >
+            Quem Somos
+          </a>
         </nav>
       </div>
     </div>

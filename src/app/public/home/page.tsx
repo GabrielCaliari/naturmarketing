@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Banner } from "./_components/Banner";
+import TransformSection from "./_components/TransformSection";
 import { BannerTwo } from "./_components/BannerTwo";
 import Contact from "./_components/Contact";
 import QuemSomos from "./_components/QuemSomos";
@@ -16,6 +17,7 @@ const Home = () => {
       <Header />
       <main className="overflow-x-hidden">
         <Banner />
+        <TransformSection />
         <QuemSomos />
         <OQueFazemos />
         <ParaQuemFazemos />

@@ -4,15 +4,24 @@ import {
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandWhatsapp,
+  IconChevronDown,
 } from "@tabler/icons-react";
 import BackgroundImage from './../../../../../../public/img/resource/background.png'
 import { motion } from 'framer-motion';
 import { trackButtonClick } from '@/lib/analytics';
 
 const Banner = () => {
-  const animationVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } }
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
+    }
+  };
+
+  const childVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
 
   return (
@@ -40,42 +49,38 @@ const Banner = () => {
         </div>
 
         <div className="banner-one_content">
-          <div className="banner-one_content-inner">
-            <div className="sec-title_title">Marketing Digital Hoteleiro</div>
-            <h1 className="banner-one_heading">
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={animationVariants}
-              >
-                Aumente suas <br />
-                Reservas Diretas e <br />
-                <span>Reduza Comissões</span>
-              </motion.div>
-            </h1>
-            <div className="sec-title_text">
-              A Natur é especializada em marketing digital para hotéis, pousadas e resorts. 
-              Desenvolvemos estratégias personalizadas que aumentam sua visibilidade online, 
-              engajam o público certo e transformam visitantes em hóspedes, reduzindo sua 
-              dependência de OTAs e maximizando sua lucratividade.
-            </div>
-            <div className="story-two_button">
+          <motion.div
+            className="banner-one_content-inner reserve-hero"
+            initial="hidden"
+            animate="visible"
+            variants={staggerChildren}
+          >
+            <motion.h1
+              className="banner-one_heading reserve-heading"
+              variants={childVariant}
+            >
+              Mais <strong>reservas diretas.</strong><br />
+              <strong>Menos dependência</strong> de OTAs.
+            </motion.h1>
+            <motion.div
+              className="reserve-cta"
+              variants={childVariant}
+            >
               <button
-                className="theme-btn btn-style-one"
+                className="reserve-cta-btn"
                 onClick={() => {
-                  trackButtonClick('cta_hero_contact', '/');
-                  const contactSection = document.getElementById('contact');
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  trackButtonClick('cta_hero_conheca', '/');
+                  const aboutSection = document.getElementById('about');
+                  if (aboutSection) {
+                    aboutSection.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
               >
-                <span className="btn-wrap">
-                  <span className="text-one">Fale Conosco</span>
-                </span>
+                <span>Conheça a <strong>RÉSERVE</strong></span>
+                <IconChevronDown size={20} />
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
