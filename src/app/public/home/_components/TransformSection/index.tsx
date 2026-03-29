@@ -46,20 +46,20 @@ const TransformSection = () => {
             <Image
               src="/img/resource/secao2-img1.png"
               alt="Quarto de hotel elegante"
-              width={420}
-              height={300}
+              width={600}
+              height={450}
               quality={90}
-              style={{ objectFit: "cover", borderRadius: "16px", width: "100%", height: "auto" }}
+              style={{ objectFit: "cover", width: "100%", height: "auto", display: "block", borderRadius: "16px" }}
             />
           </div>
           <div className="transform-img-polaroid">
             <Image
               src="/img/resource/secao2-img2.png"
               alt="Check-in em hotel"
-              width={500}
-              height={350}
+              width={400}
+              height={300}
               quality={90}
-              style={{ objectFit: "contain", width: "100%", height: "auto" }}
+              style={{ objectFit: "cover", width: "100%", height: "auto", display: "block" }}
             />
           </div>
         </motion.div>

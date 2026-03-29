@@ -1,14 +1,14 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { IconBuilding, IconHome, IconBeach } from "@tabler/icons-react";
+import { IconBuilding, IconHome, IconBrandAirbnb } from "@tabler/icons-react";
 
 export default function ParaQuemFazemos() {
   const publicos = [
     {
       icon: <IconBuilding className="w-16 h-16" />,
-      titulo: "Hotéis",
-      descricao: "Estratégias completas para hotéis urbanos e de negócios que buscam aumentar ocupação e reduzir dependência de OTAs.",
+      titulo: "Hotéis e Resorts",
+      descricao: "Estratégias completas para hotéis e resorts que buscam aumentar ocupação, maximizar receitas e reduzir dependência de OTAs.",
       features: [
         "Aumento de reservas diretas",
         "Gestão de reputação online",
@@ -28,13 +28,13 @@ export default function ParaQuemFazemos() {
       cor: "from-green-600 to-emerald-500"
     },
     {
-      icon: <IconBeach className="w-16 h-16" />,
-      titulo: "Resorts",
-      descricao: "Soluções de marketing de alto impacto para resorts que desejam maximizar receitas e fortalecer presença digital.",
+      icon: <IconBrandAirbnb className="w-16 h-16" />,
+      titulo: "Airbnb",
+      descricao: "Gestão de marketing para anfitriões e propriedades no Airbnb que desejam se destacar, aumentar avaliações e maximizar a taxa de ocupação.",
       features: [
-        "Campanhas de alto ticket",
-        "Marketing sazonal estratégico",
-        "Experiências visuais impactantes"
+        "Otimização de anúncios na plataforma",
+        "Fotografia e conteúdo profissional",
+        "Estratégias de precificação e visibilidade"
       ],
       cor: "from-orange-600 to-pink-500"
     }

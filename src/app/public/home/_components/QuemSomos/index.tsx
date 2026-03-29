@@ -1,46 +1,83 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { motion, type Variants } from "framer-motion";
+
+const steps = [
+  {
+    image: "/img/resource/secao2-img1.png",
+    text: "Analisamos a operação da hospedagem para identificar melhorias",
+  },
+  {
+    image: "/img/resource/icon1.png",
+    text: "Estruturamos um plano estratégico de conversão com canal próprio",
+  },
+  {
+    image: "/img/resource/icon2.png",
+    text: "Executamos todas as soluções propostas de forma integrada",
+  },
+  {
+    image: "/img/resource/icon3.png",
+    text: "Monitoramos métricas e ajustamos para melhorar performance",
+  },
+];
 
 export default function QuemSomos() {
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  };
+
+  const stagger: Variants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15 } },
+  };
+
   return (
-    <section id="quem-somos" className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-[#003D5C]">
-            Quem Somos
-          </h2>
-          <div className="w-24 h-1 bg-[#0066A1] mx-auto mb-12"></div>
-          
-          <Card className="border-none shadow-xl bg-white/80 backdrop-blur">
-            <CardContent className="p-8 md:p-12">
-              <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
-                <p>
-                  <strong className="text-[#003D5C]">A Natur é uma agência de marketing digital especializada no setor hoteleiro</strong>, 
-                  com expertise em transformar a presença online de hotéis, pousadas e resorts em resultados concretos.
-                </p>
-                
-                <p>
-                  Com profundo conhecimento do mercado hoteleiro, desenvolvemos estratégias personalizadas que aumentam 
-                  a visibilidade, engajamento e, principalmente, as reservas diretas dos nossos clientes.
-                </p>
-                
-                <p>
-                  Nossa missão é reduzir a dependência de OTAs e maximizar a lucratividade do seu empreendimento através 
-                  de marketing digital inteligente e orientado a resultados.
-                </p>
-                
-                <div className="mt-8 pt-8 border-t border-gray-200">
-                  <p className="text-center text-[#0066A1] font-semibold italic">
-                    &ldquo;Transformando hospedagens em experiências inesquecíveis através do marketing digital&rdquo;
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+    <section id="about" className="quem-somos-section">
+      {/* Labels bar */}
+      <div className="quem-somos-labels">
+        <span>Diagnóstico</span>
+        <span>Direcionamento</span>
+        <span>Implementação</span>
+        <span>Otimização</span>
       </div>
+
+      {/* Top - Brown banner */}
+      <div className="quem-somos-banner">
+        <motion.div
+          className="quem-somos-banner-content"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={stagger}
+        >
+          <motion.h2 className="quem-somos-title" variants={fadeUp}>
+            MARKETING, TRÁFEGO E CONTEÚDO
+          </motion.h2>
+          <motion.p className="quem-somos-subtitle" variants={fadeUp}>
+            trabalhando juntos para que você tenha autoridade de{" "}
+            <strong>hospedagem premium</strong> no mercado
+          </motion.p>
+        </motion.div>
+      </div>
+
+      {/* Bottom - Steps */}
+      <motion.div
+        className="quem-somos-steps"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={stagger}
+      >
+        {steps.map((step, index) => (
+          <motion.div key={index} className="quem-somos-step" variants={fadeUp}>
+            <div className="quem-somos-step-img">
+              <img src={step.image} alt={step.text} />
+            </div>
+            <p className="quem-somos-step-text">{step.text}</p>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }
-
