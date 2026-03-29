@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import Image from "next/image";
 
 const TransformSection = () => {
   const fadeInLeft: Variants = {
@@ -43,23 +42,15 @@ const TransformSection = () => {
           variants={fadeInRight}
         >
           <div className="transform-img-room">
-            <Image
+            <img
               src="/img/resource/secao2-img1.png"
               alt="Quarto de hotel elegante"
-              width={600}
-              height={450}
-              quality={90}
-              style={{ objectFit: "cover", width: "100%", height: "auto", display: "block", borderRadius: "16px" }}
             />
           </div>
           <div className="transform-img-polaroid">
-            <Image
+            <img
               src="/img/resource/secao2-img2.png"
               alt="Check-in em hotel"
-              width={400}
-              height={300}
-              quality={90}
-              style={{ objectFit: "cover", width: "100%", height: "auto", display: "block" }}
             />
           </div>
         </motion.div>
