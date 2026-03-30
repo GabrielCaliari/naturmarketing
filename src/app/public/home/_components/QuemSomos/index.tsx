@@ -42,6 +42,9 @@ export default function QuemSomos() {
         <span>Otimização</span>
       </div>
 
+      {/* Spacer branco */}
+      <div className="quem-somos-spacer" />
+
       {/* Top - Brown banner */}
       <div className="quem-somos-banner">
         <motion.div

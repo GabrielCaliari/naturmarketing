@@ -29,7 +29,7 @@ const TransformSection = () => {
             <strong>reservas diretas</strong> através de canais próprios.
           </h2>
           <p className="transform-subtitle">
-            Tenha mais visibilidade, atraia hóspedes qualificados e proteja sua margem.
+            Tenha mais visibilidade,<br />atraia hóspedes qualificados<br /><strong>e proteja sua margem.</strong>
           </p>
         </motion.div>
 
