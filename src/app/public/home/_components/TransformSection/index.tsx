@@ -25,8 +25,8 @@ const TransformSection = () => {
           variants={fadeInLeft}
         >
           <h2 className="transform-heading">
-            Transformamos a presença online da sua hospedagem para gerar mais{" "}
-            <strong>reservas diretas</strong> através de canais próprios.
+            Transformamos a <br/>presença online da<br/>sua hospedagem <br/>para gerar mais<br/>{" "}
+            <strong>reservas diretas<br/></strong> através de canais <br/>próprios.
           </h2>
           <p className="transform-subtitle">
             Tenha mais visibilidade,<br />atraia hóspedes qualificados<br /><strong>e proteja sua margem.</strong>

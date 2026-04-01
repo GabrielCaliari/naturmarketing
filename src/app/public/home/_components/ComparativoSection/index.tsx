@@ -38,9 +38,9 @@ const ComparativoSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInLeft}
         >
-          <h3 className="comparativo-title">
-            Sua hospedagem <strong>com</strong> a
-          </h3>
+          <h2 className="comparativo-title">
+            Sua hospedagem com a
+          </h2>
           <p className="comparativo-brand">réserve</p>
           <ul className="comparativo-list">
             {comItems.map((item, i) => (
@@ -59,13 +59,13 @@ const ComparativoSection = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeInRight}
         >
-          <h3 className="comparativo-title">
+          <h2 className="comparativo-title">
             Sua hospedagem
             <br />
             <strong>sem estrutura de</strong>
             <br />
             <strong>marketing</strong>
-          </h3>
+          </h2>
           <ul className="comparativo-list">
             {semItems.map((item, i) => (
               <li key={i}>

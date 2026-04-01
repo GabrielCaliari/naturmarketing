@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Banner } from "./_components/Banner";
 import TransformSection from "./_components/TransformSection";
-import { BannerTwo } from "./_components/BannerTwo";
 import QuemSomos from "./_components/QuemSomos";
 import OQueFazemos from "./_components/OQueFazemos";
 import ParaQuemFazemos from "./_components/ParaQuemFazemos";
@@ -20,12 +19,10 @@ const Home = () => {
       <main className="overflow-x-hidden">
         <Banner />
         <TransformSection />
-        <QuemSomos />
-        <EspecialistasSection />
+        <QuemSomos />        <EspecialistasSection />
         <OQueFazemos />
         <ParaQuemFazemos />
         <PlataformasSection />
-        <BannerTwo />
         <ComparativoSection />
         <ConsultoriaBanner />
       </main>

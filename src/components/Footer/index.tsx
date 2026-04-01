@@ -6,8 +6,12 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="site-footer">
-      <div className="site-footer-top">
+      <div className="site-footer-content">
         <span className="site-footer-brand">réserve</span>
+        <span className="site-footer-copy">
+          Réserve - Todos os direitos reservados |{" "}
+          <Link href="/privacy-policy">Política de Privacidade</Link>
+        </span>
         <div className="site-footer-socials">
           <a
             href="https://www.instagram.com/agencianatur"
@@ -24,12 +28,6 @@ const Footer = () => {
             <IconBrandWhatsapp size={22} />
           </a>
         </div>
-      </div>
-      <div className="site-footer-bottom">
-        <span>
-          Réserve - Todos os direitos reservados |{" "}
-          <Link href="/privacy-policy">Política de Privacidade</Link>
-        </span>
       </div>
     </footer>
   );

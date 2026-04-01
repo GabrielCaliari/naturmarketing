@@ -62,23 +62,23 @@ const PlataformasSection = () => {
           </motion.h2>
           <motion.div className="plataformas-canais" variants={fadeUp}>
             <div className="plataformas-canal">
-              <IconBrandInstagram size={24} />
+              <IconBrandInstagram size={36} />
               <span>Instagram</span>
             </div>
             <div className="plataformas-canal">
-              <IconBrandFacebook size={24} />
+              <IconBrandFacebook size={36} />
               <span>facebook</span>
             </div>
             <div className="plataformas-canal">
-              <IconBrandTiktok size={24} />
+              <IconBrandTiktok size={36} />
               <span>TikTok</span>
             </div>
             <div className="plataformas-canal">
-              <IconBrandGoogle size={24} />
+              <IconBrandGoogle size={36} />
               <span>Google</span>
             </div>
             <div className="plataformas-canal">
-              <IconBrandWhatsapp size={24} />
+              <IconBrandWhatsapp size={36} />
               <span>WhatsApp</span>
             </div>
           </motion.div>
@@ -89,3 +89,5 @@ const PlataformasSection = () => {
 };
 
 export default PlataformasSection;
+
+

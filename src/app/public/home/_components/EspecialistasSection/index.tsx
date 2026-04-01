@@ -19,18 +19,29 @@ const EspecialistasSection = () => {
           variants={fadeInLeft}
         >
           <h2 className="especialistas-heading">
-            Contar com um time de especialistas é fundamental para o sucesso de todo negócio.
+            Contar com um time<br />
+            de especialistas é <br />
+            fundamental para o <br />
+            sucesso de todo <br />
+            negócio.
           </h2>
           <p className="especialistas-subtitle">
-            Com a RÉSERVE você garante gestão completa de marketing feita por{" "}
-            <strong>especialistas em mercado hoteleiro.</strong>
+            Com a RÉSERVE você garante<br />
+            gestão completa de marketing<br />
+            feita por <strong>especialistas em 
+              <br />mercado hoteleiro.</strong>
           </p>
         </motion.div>
         <div className="especialistas-image">
           <div className="especialistas-gradient" />
-          <img
+          <div className="especialistas-gradient-right" />
+          <motion.img
             src="/img/resource/resersecao5.png"
             alt="Especialista em hotelaria"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true }}
           />
         </div>
       </div>

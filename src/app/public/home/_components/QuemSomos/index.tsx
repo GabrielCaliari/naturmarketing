@@ -36,10 +36,12 @@ export default function QuemSomos() {
     <section id="about" className="quem-somos-section">
       {/* Labels bar */}
       <div className="quem-somos-labels">
-        <span>Diagnóstico</span>
-        <span>Direcionamento</span>
-        <span>Implementação</span>
-        <span>Otimização</span>
+        <div className="quem-somos-labels-inner">
+          <span>Diagnóstico</span>
+          <span>Direcionamento</span>
+          <span>Implementação</span>
+          <span>Otimização</span>
+        </div>
       </div>
 
       {/* Spacer branco */}
@@ -58,29 +60,31 @@ export default function QuemSomos() {
             MARKETING, TRÁFEGO E CONTEÚDO
           </motion.h2>
           <motion.p className="quem-somos-subtitle" variants={fadeUp}>
-            trabalhando juntos para que você tenha autoridade de{" "}
+            trabalhando juntos para que você tenha autoridade <br />de{" "}
             <strong>hospedagem premium</strong> no mercado
-          </motion.p>
+          </motion.p> 
         </motion.div>
       </div>
 
       {/* Bottom - Steps */}
-      <motion.div
-        className="quem-somos-steps"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={stagger}
-      >
-        {steps.map((step, index) => (
-          <motion.div key={index} className="quem-somos-step" variants={fadeUp}>
-            <div className="quem-somos-step-img">
-              <img src={step.image} alt={step.text} />
-            </div>
-            <p className="quem-somos-step-text">{step.text}</p>
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="quem-somos-steps-wrapper">
+        <motion.div
+          className="quem-somos-steps"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={stagger}
+        >
+          {steps.map((step, index) => (
+            <motion.div key={index} className="quem-somos-step" variants={fadeUp}>
+              <div className="quem-somos-step-img">
+                <img src={step.image} alt={step.text} />
+              </div>
+              <p className="quem-somos-step-text">{step.text}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }

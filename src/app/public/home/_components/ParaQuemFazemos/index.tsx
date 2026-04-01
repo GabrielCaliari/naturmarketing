@@ -1,107 +1,87 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion, type Variants } from "framer-motion";
 import { IconBuilding, IconHome, IconBrandAirbnb } from "@tabler/icons-react";
+import { CardCarousel } from "@/components/CardCarousel";
+import { useIsMobile } from "@/hooks/useMobileDevice";
+
+const publicos = [
+  {
+    icon: <IconBuilding size={32} stroke={1.5} />,
+    titulo: "Hotéis e Resorts",
+    descricao: "Estratégias completas para hotéis e resorts que buscam aumentar ocupação, maximizar receitas e reduzir dependência de OTAs.",
+    features: ["Aumento de reservas diretas", "Gestão de reputação online", "Campanhas segmentadas por perfil de hóspede"],
+  },
+  {
+    icon: <IconHome size={32} stroke={1.5} />,
+    titulo: "Pousadas",
+    descricao: "Marketing digital personalizado para pousadas que querem destacar seu charme e atrair mais hóspedes qualificados.",
+    features: ["Posicionamento de marca autêntico", "Conteúdo que valoriza a experiência", "Captação de público regional e nacional"],
+  },
+  {
+    icon: <IconBrandAirbnb size={32} stroke={1.5} />,
+    titulo: "Airbnb",
+    descricao: "Gestão de marketing para anfitriões que desejam se destacar, aumentar avaliações e maximizar a taxa de ocupação.",
+    features: ["Otimização de anúncios na plataforma", "Fotografia e conteúdo profissional", "Estratégias de precificação e visibilidade"],
+  },
+];
+
+const Card = ({ p }: { p: typeof publicos[0] }) => (
+  <div className="pqf-card">
+    <div className="pqf-card-icon">{p.icon}</div>
+    <h3 className="pqf-card-title">{p.titulo}</h3>
+    <p className="pqf-card-desc">{p.descricao}</p>
+    <ul className="pqf-card-features">
+      {p.features.map((f, j) => (
+        <li key={j}><span className="pqf-check">✓</span> {f}</li>
+      ))}
+    </ul>
+  </div>
+);
 
 export default function ParaQuemFazemos() {
-  const publicos = [
-    {
-      icon: <IconBuilding className="w-16 h-16" />,
-      titulo: "Hotéis e Resorts",
-      descricao: "Estratégias completas para hotéis e resorts que buscam aumentar ocupação, maximizar receitas e reduzir dependência de OTAs.",
-      features: [
-        "Aumento de reservas diretas",
-        "Gestão de reputação online",
-        "Campanhas segmentadas por perfil de hóspede"
-      ],
-      cor: "from-blue-600 to-cyan-500"
-    },
-    {
-      icon: <IconHome className="w-16 h-16" />,
-      titulo: "Pousadas",
-      descricao: "Marketing digital personalizado para pousadas que querem destacar seu charme e atrair mais hóspedes qualificados.",
-      features: [
-        "Posicionamento de marca autêntico",
-        "Conteúdo que valoriza a experiência",
-        "Captação de público regional e nacional"
-      ],
-      cor: "from-green-600 to-emerald-500"
-    },
-    {
-      icon: <IconBrandAirbnb className="w-16 h-16" />,
-      titulo: "Airbnb",
-      descricao: "Gestão de marketing para anfitriões e propriedades no Airbnb que desejam se destacar, aumentar avaliações e maximizar a taxa de ocupação.",
-      features: [
-        "Otimização de anúncios na plataforma",
-        "Fotografia e conteúdo profissional",
-        "Estratégias de precificação e visibilidade"
-      ],
-      cor: "from-orange-600 to-pink-500"
-    }
-  ];
+  const { isMobile } = useIsMobile({ breakpoint: 768 });
+
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+  };
+
+  const stagger: Variants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15 } },
+  };
 
   return (
-    <section id="para-quem-fazemos" className="py-16 md:py-24 bg-gradient-to-b from-blue-50 to-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-[#003D5C]">
-          Para Quem Fazemos
-        </h2>
-        <div className="w-24 h-1 bg-[#0066A1] mx-auto mb-6"></div>
-        <p className="text-center text-gray-600 text-lg mb-12 max-w-3xl mx-auto">
+    <section id="para-quem-fazemos" className="pqf-section">
+      <motion.div
+        className="pqf-container"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={stagger}
+      >
+        <motion.h2 className="pqf-title" variants={fadeUp}>
+          Para quem <strong>fazemos</strong>
+        </motion.h2>
+        <motion.p className="pqf-subtitle" variants={fadeUp}>
           Especializados em atender diferentes tipos de empreendimentos hoteleiros com estratégias personalizadas
-        </p>
+        </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {publicos.map((publico, index) => (
-            <Card 
-              key={index}
-              className="group hover:shadow-2xl transition-all duration-300 border-none overflow-hidden h-full flex flex-col"
-            >
-              <div className={`h-2 bg-gradient-to-r ${publico.cor}`}></div>
-              
-              <CardHeader className="text-center pb-4">
-                <div className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br ${publico.cor} flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  {publico.icon}
-                </div>
-                <CardTitle className="text-2xl font-bold text-[#003D5C]">
-                  {publico.titulo}
-                </CardTitle>
-              </CardHeader>
-              
-              <CardContent className="flex-grow flex flex-col">
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {publico.descricao}
-                </p>
-                
-                <div className="mt-auto">
-                  <div className="border-t border-gray-200 pt-4">
-                    <h4 className="font-semibold text-[#003D5C] mb-3 text-sm uppercase tracking-wide">
-                      Diferenciais:
-                    </h4>
-                    <ul className="space-y-2">
-                      {publico.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                          <span className="text-[#0066A1] mt-1">✓</span>
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-[#003D5C] text-white px-8 py-4 rounded-lg">
-            <p className="text-lg font-semibold">
-              Atendemos todo o Brasil com soluções 100% remotas
-            </p>
-          </div>
-        </div>
-      </div>
+        {isMobile ? (
+          <CardCarousel>
+            {publicos.map((p, i) => <Card key={i} p={p} />)}
+          </CardCarousel>
+        ) : (
+          <motion.div className="pqf-grid" variants={stagger}>
+            {publicos.map((p, i) => (
+              <motion.div key={i} variants={fadeUp}>
+                <Card p={p} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </motion.div>
     </section>
   );
 }
-
