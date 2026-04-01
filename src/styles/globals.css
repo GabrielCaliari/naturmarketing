@@ -14,7 +14,7 @@
   --color-brand-teal: #87a6ae;
   --color-bg-warm: #f0efeb;
   --color-bg-cream: #f9f6f2;
-  --font-heading: "Hanken Grotesk", "Poppins", sans-serif;
+  --font-heading: "Poppins", "Hanken Grotesk", sans-serif;
   --font-body: "Poppins", sans-serif;
   --font-display: "PP Hatton Medium", "Georgia", serif;
 }
@@ -558,7 +558,6 @@ main {
 .quem-somos-labels span {
   font-family: var(--font-heading);
   font-size: 14px;
-  font-style: italic;
   font-weight: 400;
   color: #333;
   text-align: center;
@@ -601,7 +600,6 @@ main {
   font-family: var(--font-heading);
   font-size: 36px;
   font-weight: 300;
-  font-style: italic;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
   line-height: 1.6;
@@ -669,7 +667,6 @@ main {
 .quem-somos-step-text {
   font-family: var(--font-heading);
   font-size: 14px;
-  font-style: italic;
   font-weight: 400;
   color: #333;
   line-height: 1.5;
@@ -1053,7 +1050,7 @@ main {
   font-family: var(--font-display);
   font-size: 62px;
   font-weight: 400;
-  font-style: italic;
+
   color: #ffffff;
   margin: 0 0 32px;
   line-height: 1.1;
@@ -1298,7 +1295,7 @@ main {
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 400;
-  font-style: italic;
+
   color: #ffffff;
 }
 
@@ -1359,7 +1356,7 @@ main {
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 400;
-  font-style: italic;
+
   color: #ffffff;
 }
 
@@ -1530,7 +1527,6 @@ main {
   max-width: 600px;
   margin: 0 auto 50px;
   line-height: 1.7;
-  font-style: italic;
 }
 
 .pqf-grid {
