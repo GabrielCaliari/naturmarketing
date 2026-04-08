@@ -7,7 +7,6 @@ import {
 } from "@tabler/icons-react";
 import BackgroundImage from './../../../../../../public/img/resource/background.png'
 import { motion } from 'framer-motion';
-import { trackButtonClick } from '@/lib/analytics';
 
 const Banner = () => {
   const staggerChildren = {
@@ -21,14 +20,6 @@ const Banner = () => {
   const childVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
-  const handleScroll = () => {
-    trackButtonClick('cta_hero_conheca', '/');
-    const target = document.getElementById('transform');
-    if (!target) return;
-    const top = target.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top, behavior: 'smooth' });
   };
 
   return (
@@ -70,10 +61,7 @@ const Banner = () => {
               className="reserve-cta"
               variants={childVariant}
             >
-              <button
-                className="reserve-cta-btn"
-                onClick={handleScroll}
-              >
+              <button className="reserve-cta-btn">
                 <span>Conheça a <strong>RÉSERVE</strong></span>
                 <IconChevronDown size={20} />
               </button>
