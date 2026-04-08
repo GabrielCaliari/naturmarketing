@@ -539,18 +539,33 @@ main {
     padding: 50px 0;
   }
 
+  .transform-container {
+    padding: 0 20px;
+  }
+
   .transform-heading {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .transform-subtitle {
-    font-size: 14px;
+    font-size: 18px;
+  }
+
+  .transform-images {
+    min-height: 280px;
+  }
+
+  .transform-img-room {
+    position: relative;
+    width: 100%;
+  }
+
+  .transform-img-room img {
+    height: 280px !important;
   }
 
   .transform-img-polaroid {
-    width: 45%;
-    right: -5px;
-    bottom: -10px;
+    display: none;
   }
 }
 
@@ -1246,12 +1261,20 @@ main {
 
   .plataformas-logos,
   .plataformas-canais {
-    gap: 24px;
+    gap: 20px;
   }
 
-  .plataformas-logo-text,
+  .plataformas-ota-img {
+    height: 50px;
+  }
+
+  .plataformas-canal-img {
+    width: 28px;
+    height: 28px;
+  }
+
   .plataformas-canal span {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
@@ -2028,4 +2051,75 @@ main {
 .mobile-menu-link:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
+}
+
+/* ============================
+   Mobile text alignment
+   ============================ */
+@media (max-width: 768px) {
+  .transform-text {
+    text-align: center;
+  }
+
+  .transform-heading,
+  .transform-subtitle {
+    text-align: center;
+  }
+
+  .quem-somos-title,
+  .quem-somos-subtitle {
+    text-align: center;
+  }
+
+  .especialistas-text {
+    text-align: center;
+  }
+
+  .especialistas-heading,
+  .especialistas-subtitle {
+    text-align: center;
+  }
+
+  .oqf-title {
+    text-align: center;
+  }
+
+  .pqf-title,
+  .pqf-subtitle {
+    text-align: center;
+  }
+
+  .bannertwo-heading,
+  .bannertwo-text {
+    text-align: center;
+  }
+
+  .consultoria-heading,
+  .consultoria-sub {
+    text-align: center;
+  }
+
+  .comparativo-title,
+  .comparativo-brand {
+    text-align: left;
+  }
+
+  /* Remove card hover animation on mobile */
+  @media (hover: none) {
+    .oqf-card:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: #e0d5ca;
+      border-top-color: #c4a48e;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .transform-heading br,
+  .transform-subtitle br,
+  .especialistas-heading br,
+  .especialistas-subtitle br {
+    display: none;
+  }
 }
