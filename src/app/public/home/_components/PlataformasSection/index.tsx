@@ -1,13 +1,14 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import {
-  IconBrandInstagram,
-  IconBrandFacebook,
-  IconBrandTiktok,
-  IconBrandGoogle,
-  IconBrandWhatsapp,
-} from "@tabler/icons-react";
+
+const canais = [
+  { src: "/img/svg/instagram-icon.svg", label: "Instagram" },
+  { src: "/img/svg/facebook-icon.svg", label: "Facebook" },
+  { src: "/img/svg/tiktok-icon.svg", label: "TikTok" },
+  { src: "/img/svg/google-icon.svg", label: "Google" },
+  { src: "/img/svg/whatsapp-icon.svg", label: "WhatsApp" },
+];
 
 const PlataformasSection = () => {
   const fadeUp: Variants = {
@@ -61,26 +62,12 @@ const PlataformasSection = () => {
             canais próprios de aquisição
           </motion.h2>
           <motion.div className="plataformas-canais" variants={fadeUp}>
-            <div className="plataformas-canal">
-              <IconBrandInstagram size={36} />
-              <span>Instagram</span>
-            </div>
-            <div className="plataformas-canal">
-              <IconBrandFacebook size={36} />
-              <span>facebook</span>
-            </div>
-            <div className="plataformas-canal">
-              <IconBrandTiktok size={36} />
-              <span>TikTok</span>
-            </div>
-            <div className="plataformas-canal">
-              <IconBrandGoogle size={36} />
-              <span>Google</span>
-            </div>
-            <div className="plataformas-canal">
-              <IconBrandWhatsapp size={36} />
-              <span>WhatsApp</span>
-            </div>
+            {canais.map((canal) => (
+              <div key={canal.label} className="plataformas-canal">
+                <img src={canal.src} alt={canal.label} className="plataformas-canal-img" />
+                <span>{canal.label}</span>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
       </div>
@@ -89,5 +76,3 @@ const PlataformasSection = () => {
 };
 
 export default PlataformasSection;
-
-

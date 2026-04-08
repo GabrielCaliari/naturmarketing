@@ -14,7 +14,7 @@ const TransformSection = () => {
   };
 
   return (
-    <section className="transform-section">
+    <section className="transform-section" id="transform">
       <div className="transform-container">
         {/* Left - Text */}
         <motion.div

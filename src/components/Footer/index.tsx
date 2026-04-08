@@ -14,14 +14,14 @@ const Footer = () => {
         </span>
         <div className="site-footer-socials">
           <a
-            href="https://www.instagram.com/agencianatur"
+            href="https://www.instagram.com/reserve.mkt/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <IconBrandInstagram size={22} />
           </a>
           <a
-            href="https://wa.me/5535998067432"
+            href="https://wa.me/5535977429840"
             target="_blank"
             rel="noopener noreferrer"
           >

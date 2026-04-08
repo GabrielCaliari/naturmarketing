@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  IconBrandFacebook,
   IconBrandInstagram,
   IconBrandWhatsapp,
   IconChevronDown,
@@ -24,27 +23,32 @@ const Banner = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
 
+  const handleScroll = () => {
+    trackButtonClick('cta_hero_conheca', '/');
+    const target = document.getElementById('transform');
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
+
   return (
     <section className="banner-one">
       <div className="auto-container">
         <div className="banner-one_image" style={{backgroundImage: `url(${BackgroundImage.src})`}}></div>
         <div className="banner-two_socials">
-          <a href="#" onClick={(e) => e.preventDefault()}>
+          <a
+            href="https://wa.me/5535977429840"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <IconBrandWhatsapp />
           </a>
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.instagram.com/agencianatur"
+            href="https://www.instagram.com/reserve.mkt/"
           >
             <IconBrandInstagram />
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.facebook.com/share/19MTVABLe2/"
-          >
-            <IconBrandFacebook />
           </a>
         </div>
 
@@ -68,13 +72,7 @@ const Banner = () => {
             >
               <button
                 className="reserve-cta-btn"
-                onClick={() => {
-                  trackButtonClick('cta_hero_conheca', '/');
-                  const aboutSection = document.getElementById('about');
-                  if (aboutSection) {
-                    aboutSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+                onClick={handleScroll}
               >
                 <span>Conheça a <strong>RÉSERVE</strong></span>
                 <IconChevronDown size={20} />
