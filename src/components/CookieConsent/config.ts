@@ -25,7 +25,7 @@ export const klaroConfig: KlarodConfig = {
       consentModal: {
         title: '🍪 Gerenciamento de Cookies',
         description:
-          'A Natur utiliza cookies essenciais que são necessários para o funcionamento do site e cookies opcionais para melhorar sua experiência, analisar o tráfego e otimizar nossos anúncios. Os cookies essenciais (como Google Analytics) são sempre ativados para garantir que possamos melhorar continuamente nossos serviços. Você pode escolher aceitar todos os cookies ou apenas os essenciais.',
+          'A RÉSERVE utiliza cookies essenciais que são necessários para o funcionamento do site e cookies opcionais para melhorar sua experiência, analisar o tráfego e otimizar nossos anúncios. Os cookies essenciais (como Google Analytics) são sempre ativados para garantir que possamos melhorar continuamente nossos serviços. Você pode escolher aceitar todos os cookies ou apenas os essenciais.',
         privacyPolicy: {
           name: 'Política de Privacidade',
           text: 'Para mais informações sobre como tratamos seus dados, consulte nossa {privacyPolicy}.',

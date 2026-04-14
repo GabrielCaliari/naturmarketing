@@ -2,51 +2,117 @@
 
 import { motion, type Variants } from "framer-motion";
 
-const EspecialistasSection = () => {
-  const fadeInLeft: Variants = {
-    hidden: { opacity: 0, x: -40 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
-  };
+const BRAND_GREEN = "#84936f";
+const BRAND_BROWN = "#994f2a";
 
-  return (
-    <section className="especialistas-section">
-      <div className="especialistas-container">
-        <motion.div
-          className="especialistas-text"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeInLeft}
-        >
-          <h2 className="especialistas-heading">
-            Contar com um time<br />
-            de especialistas é <br />
-            fundamental para o <br />
-            sucesso de todo <br />
-            negócio.
-          </h2>
-          <p className="especialistas-subtitle">
-            Com a RÉSERVE você garante<br />
-            gestão completa de marketing<br />
-            feita por <strong>especialistas em 
-              <br />mercado hoteleiro.</strong>
-          </p>
-        </motion.div>
-        <div className="especialistas-image">
-          <div className="especialistas-gradient" />
-          <div className="especialistas-gradient-right" />
-          <motion.img
-            src="/img/resource/resersecao5.png"
-            alt="Especialista em hotelaria"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true }}
-          />
-        </div>
-      </div>
-    </section>
-  );
+const fadeLeft: Variants = {
+  hidden: { opacity: 0, x: -48 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
+
+const EspecialistasSection = () => (
+  <section className="overflow-hidden" style={{ background: BRAND_BROWN }}>
+    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-120">
+
+      {/* Text column */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeLeft}
+        className="flex flex-col justify-center gap-8 px-6 md:px-16 py-20 md:py-24 text-center lg:text-left order-2 lg:order-1 relative"
+      >
+        {/* Subtle highlight */}
+        <div
+          className="absolute top-0 left-0 bottom-0 w-px hidden lg:block"
+          style={{ background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent)" }}
+        />
+
+        <div className="flex items-center justify-center lg:justify-start gap-3">
+          <div className="w-6 h-px" style={{ background: "rgba(255,255,255,0.3)" }} />
+          <span
+            className="text-[10px] font-medium tracking-[0.3em] uppercase"
+            style={{ color: "rgba(255,255,255,0.5)" }}
+          >
+            Por que a Réserve
+          </span>
+        </div>
+
+        <h2
+          className="font-extralight text-white leading-[1.06] tracking-[-0.025em]"
+          style={{ fontSize: "clamp(1.85rem, 3.8vw, 2.9rem)" }}
+        >
+          A diferença entre crescer e estagnar é ter um time de{" "}
+          <strong className="font-semibold">Marketing Hoteleiro</strong>{" "}
+          dedicado ao seu hotel.
+        </h2>
+
+        <p
+          className="text-[15px] font-light leading-[1.85]"
+          style={{ color: "rgba(255,255,255,0.72)" }}
+        >
+          Com a RÉSERVE, você tem uma{" "}
+          <strong className="font-semibold text-white">
+            agência de marketing para hotéis
+          </strong>{" "}
+          de alta performance dedicada a transformar presença digital em{" "}
+          <strong className="font-semibold text-white">receita real.</strong>
+        </p>
+
+        {/* Stats row */}
+        <div className="flex flex-wrap justify-center lg:justify-start gap-8 pt-2">
+          {[
+            { value: "OTAs", desc: "Redução de dependência" },
+            { value: "Direto", desc: "Canal próprio ativado" },
+            { value: "ROI", desc: "Rastreado e mensurável" },
+          ].map((s, i) => (
+            <div key={i} className="flex flex-col gap-1">
+              <span
+                className="text-[13px] font-semibold tracking-wide"
+                style={{ color: "rgba(255,255,255,0.9)" }}
+              >
+                {s.value}
+              </span>
+              <span
+                className="text-[11px] font-light"
+                style={{ color: "rgba(255,255,255,0.45)" }}
+              >
+                {s.desc}
+              </span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* Image column */}
+      <div className="relative overflow-hidden min-h-72 lg:min-h-auto order-1 lg:order-2">
+        {/* Left gradient fade */}
+        <div
+          className="absolute inset-y-0 left-0 w-1/2 pointer-events-none z-10"
+          style={{
+            background: `linear-gradient(to right, ${BRAND_BROWN} 0%, transparent 100%)`,
+          }}
+        />
+        {/* Bottom gradient fade on mobile */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-1/3 pointer-events-none z-10 lg:hidden"
+          style={{
+            background: `linear-gradient(to top, ${BRAND_BROWN} 0%, transparent 100%)`,
+          }}
+        />
+        <motion.img
+          src="/img/resource/resersecao5.png"
+          alt="Especialistas em marketing hoteleiro — Equipe Réserve"
+          className="w-full h-full object-cover object-top"
+          initial={{ opacity: 0, scale: 1.04 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true }}
+        />
+      </div>
+
+    </div>
+  </section>
+);
 
 export default EspecialistasSection;

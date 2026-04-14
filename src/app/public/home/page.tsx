@@ -19,7 +19,7 @@ const Home = () => {
       <main className="overflow-x-hidden">
         <Banner />
         <TransformSection />
-        <QuemSomos />        <EspecialistasSection />
+        {/* <QuemSomos />        <EspecialistasSection /> */}
         <OQueFazemos />
         <ParaQuemFazemos />
         <PlataformasSection />

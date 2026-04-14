@@ -1,86 +1,192 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { IconBuilding, IconHome, IconBrandAirbnb } from "@tabler/icons-react";
-import { CardCarousel } from "@/components/CardCarousel";
-import { useIsMobile } from "@/hooks/useMobileDevice";
+import { IconBuilding, IconHome, IconBrandAirbnb, IconArrowRight } from "@tabler/icons-react";
+
+const BRAND_GREEN = "#84936f";
+const BRAND_BROWN = "#994f2a";
 
 const publicos = [
   {
-    icon: <IconBuilding size={32} stroke={1.5} />,
+    image: "/img/resource/hotel&resort.png",
+    icon: <IconBuilding size={13} stroke={1.8} />,
+    label: "Escala e Posicionamento",
     titulo: "Hotéis e Resorts",
-    descricao: "Estratégias completas para hotéis e resorts que buscam aumentar ocupação, maximizar receitas e reduzir dependência de OTAs.",
-    features: ["Aumento de reservas diretas", "Gestão de reputação online", "Campanhas segmentadas por perfil de hóspede"],
+    descricao:
+      "Estratégias que aumentam ocupação, elevam ticket médio e fortalecem a marca numa posição de liderança de mercado.",
   },
   {
-    icon: <IconHome size={32} stroke={1.5} />,
-    titulo: "Pousadas",
-    descricao: "Marketing digital personalizado para pousadas que querem destacar seu charme e atrair mais hóspedes qualificados.",
-    features: ["Posicionamento de marca autêntico", "Conteúdo que valoriza a experiência", "Captação de público regional e nacional"],
+    image: "/img/resource/pousada.png",
+    icon: <IconHome size={13} stroke={1.8} />,
+    label: "Alma e Exclusividade",
+    titulo: "Pousadas e Boutique Hotels",
+    descricao:
+      "Marketing personalizado para empreendimentos que querem se destacar pelo charme, autenticidade e experiência — não pelo preço.",
   },
   {
-    icon: <IconBrandAirbnb size={32} stroke={1.5} />,
-    titulo: "Airbnb",
-    descricao: "Gestão de marketing para anfitriões que desejam se destacar, aumentar avaliações e maximizar a taxa de ocupação.",
-    features: ["Otimização de anúncios na plataforma", "Fotografia e conteúdo profissional", "Estratégias de precificação e visibilidade"],
+    image: "/img/resource/airnb.png",
+    icon: <IconBrandAirbnb size={13} stroke={1.8} />,
+    label: "Performance e Desejo",
+    titulo: "Airbnb & Temporada",
+    descricao:
+      "Para anfitriões que buscam o design visual impecável e a otimização de canais para maximizar reservas e avaliações.",
   },
 ];
 
-const Card = ({ p }: { p: typeof publicos[0] }) => (
-  <div className="pqf-card">
-    <div className="pqf-card-icon">{p.icon}</div>
-    <h3 className="pqf-card-title">{p.titulo}</h3>
-    <p className="pqf-card-desc">{p.descricao}</p>
-    <ul className="pqf-card-features">
-      {p.features.map((f, j) => (
-        <li key={j}><span className="pqf-check">✓</span> {f}</li>
-      ))}
-    </ul>
-  </div>
-);
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+};
 
 export default function ParaQuemFazemos() {
-  const { isMobile } = useIsMobile({ breakpoint: 768 });
-
-  const fadeUp: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
-  };
-
-  const stagger: Variants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.15 } },
+  const handleContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="para-quem-fazemos" className="pqf-section">
+    <section
+      id="para-quem-fazemos"
+      className="py-28 md:py-40 px-6 md:px-16"
+      style={{ background: "#F7F3EE" }}
+    >
       <motion.div
-        className="pqf-container"
+        className="max-w-7xl mx-auto"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={stagger}
       >
-        <motion.h2 className="pqf-title" variants={fadeUp}>
-          Para quem <strong>fazemos</strong>
-        </motion.h2>
-        <motion.p className="pqf-subtitle" variants={fadeUp}>
-          Especializados em atender diferentes tipos de empreendimentos hoteleiros com estratégias personalizadas
-        </motion.p>
+        {/* ── Header ── */}
+        <motion.div variants={fadeUp} className="text-center mb-14 md:mb-16">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+            <span
+              className="text-[10px] font-medium tracking-[0.3em] uppercase"
+              style={{ color: BRAND_GREEN }}
+            >
+              Para quem fazemos
+            </span>
+            <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+          </div>
 
-        {isMobile ? (
-          <CardCarousel>
-            {publicos.map((p, i) => <Card key={i} p={p} />)}
-          </CardCarousel>
-        ) : (
-          <motion.div className="pqf-grid" variants={stagger}>
-            {publicos.map((p, i) => (
-              <motion.div key={i} variants={fadeUp}>
-                <Card p={p} />
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
+          <h2
+            className="font-extralight leading-[1.1] tracking-[-0.02em]"
+            style={{
+              fontSize: "clamp(1.85rem, 3.8vw, 3rem)",
+              color: "#1A0F08",
+              fontWeight: 300,
+            }}
+          >
+            Marketing Hoteleiro para cada{" "}
+            <strong className="font-semibold" style={{ fontWeight: 600 }}>
+              tipo de empreendimento
+            </strong>
+          </h2>
+        </motion.div>
+
+        {/* ── Cards contidos ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {publicos.map((p, i) => (
+            <motion.article
+              key={i}
+              variants={fadeUp}
+              className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1"
+              style={{
+                background: "#FDFAF7",
+                border: "1px solid rgba(196,164,142,0.22)",
+                boxShadow: "0 4px 24px rgba(26,15,8,0.06)",
+              }}
+            >
+              {/* Imagem */}
+              <div className="relative overflow-hidden" style={{ height: "240px" }}>
+                <img
+                  src={p.image}
+                  alt={p.titulo}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Overlay suave */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "rgba(26,15,8,0.06)" }}
+                />
+              </div>
+
+              {/* Corpo do card */}
+              <div className="flex flex-col gap-4 p-6 flex-1">
+
+                {/* Ícone + Label */}
+                <div className="flex items-center gap-2">
+                  <div
+                    className="w-5 h-5 rounded flex items-center justify-center shrink-0"
+                    style={{ background: "rgba(153,79,42,0.08)", color: BRAND_BROWN }}
+                  >
+                    {p.icon}
+                  </div>
+                  <span
+                    className="text-[9px] font-semibold tracking-[0.22em] uppercase"
+                    style={{ color: BRAND_BROWN }}
+                  >
+                    {p.label}
+                  </span>
+                </div>
+
+                {/* Título */}
+                <h3
+                  className="font-semibold leading-snug"
+                  style={{
+                    fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
+                    color: "#1A0F08",
+                    fontWeight: 600,
+                  }}
+                >
+                  {p.titulo}
+                </h3>
+
+                {/* Descrição */}
+                <p
+                  className="text-[13px] font-light leading-[1.85] flex-1"
+                  style={{ color: "#7a6a5e" }}
+                >
+                  {p.descricao}
+                </p>
+
+                {/* CTA inline */}
+                <button
+                  onClick={handleContact}
+                  className="group/btn inline-flex items-center gap-2 pt-2 transition-colors duration-300"
+                  style={{
+                    borderTop: "1px solid rgba(196,164,142,0.2)",
+                    paddingTop: "14px",
+                  }}
+                >
+                  <span
+                    className="text-[10px] font-semibold tracking-[0.2em] uppercase transition-colors duration-300 group-hover/btn:text-[#994f2a]"
+                    style={{ color: BRAND_GREEN }}
+                  >
+                    Saiba mais
+                  </span>
+                  <IconArrowRight
+                    size={13}
+                    stroke={2}
+                    className="transition-all duration-300 group-hover/btn:translate-x-1"
+                    style={{ color: BRAND_GREEN }}
+                  />
+                </button>
+
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
       </motion.div>
     </section>
   );

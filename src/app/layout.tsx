@@ -11,8 +11,15 @@ import CookieConsent from '@/components/CookieConsent';
 import AutoTrack from '@/components/Analytics/AutoTrack';
 
 export const metadata: Metadata = {
-  title: 'Réserve - Marketing Agency para Hotelaria',
-  description: 'Agência especializada em marketing digital para hotéis, pousadas e resorts. Mais reservas diretas, menos dependência de OTAs.',
+  title: 'Réserve | Agência de Marketing para Hotéis — Gestão de Tráfego para Resorts',
+  description: 'A Réserve é a agência de Marketing Hoteleiro especializada em gestão de tráfego para resorts, hotéis e pousadas. Aumente reservas diretas, elimine dependência de OTAs e maximize sua receita.',
+  keywords: 'Marketing Hoteleiro, Agência de Marketing para Hotéis, Gestão de Tráfego para Resorts, marketing digital hoteleiro, reservas diretas, reduzir OTAs',
+  openGraph: {
+    title: 'Réserve | Agência de Marketing para Hotéis',
+    description: 'Especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts. Mais reservas diretas, mais autonomia, mais receita.',
+    type: 'website',
+    locale: 'pt_BR',
+  },
 }
 
 export default function RootLayout({

@@ -60,6 +60,17 @@ const Header = () => {
               </div>
             )}
 
+            {!isMobile && (
+              <a
+                href="https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header-cta-btn"
+              >
+                Diagnóstico Gratuito
+              </a>
+            )}
+
             {isMobile && (
               <button onClick={() => setIsMobileMenuOpen(true)} className="mobile-nav-toggler">
                 <IconMenu3 size={24} />
