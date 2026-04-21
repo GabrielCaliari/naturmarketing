@@ -17,6 +17,7 @@ type ItemOptions = {
     onCopy?: () => void;
     onShare?: () => void;
     image?: string;
+    imageAlt?: string; // Add alt text prop
     showCopy?: boolean;
     showDelete?: boolean;
     showEdit?: boolean;
@@ -29,6 +30,7 @@ export function Options({
     onEdit, 
     title, 
     image, 
+    imageAlt,
     showCopy, 
     showDelete, 
     showEdit, 
@@ -39,7 +41,10 @@ export function Options({
         <Container>
             <ContainerItem>
                 {image ? (
-                    <ContainerImage src={image} alt="Imagem" />
+                    <ContainerImage 
+                        src={image} 
+                        alt={imageAlt || `Imagem de ${title}`} 
+                    />
                 ) : (
                     <ContainerIcon>
                         <FiCamera size={22} color="white" />

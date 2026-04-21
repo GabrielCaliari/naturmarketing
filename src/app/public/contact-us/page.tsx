@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { trackFormStart, trackFormSubmit, trackFormError } from '@/lib/analytics';
 
 const ContactUs = () => {
@@ -57,7 +58,14 @@ const ContactUs = () => {
             
             <div className="mt-10 flex flex-col md:flex-row justify-center gap-8">
                 <div className="md:w-2/4 p-20 flex justify-center items-center flex-col gap-10">
-                <img src="/img/logos/main-logo.png" alt="Logo" width={200} />
+                <Image 
+                    src="/img/logos/main-logo.png" 
+                    alt="Réserve Marketing - Logo da Agência de Marketing Hoteleiro" 
+                    width={200} 
+                    height={80}
+                    quality={85}
+                    className="object-contain"
+                />
                     <p className="text-gray-700 dark:text-gray-300 text-lg">
                         Deixe seu feedback ou sugestão, e entraremos em contato em breve.
                     </p>

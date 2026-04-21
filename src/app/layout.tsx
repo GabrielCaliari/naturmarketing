@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { Poppins, Inter } from 'next/font/google'
+import Script from 'next/script'
 // import { Suspense } from 'react'
 
 // Importar estilos CSS essenciais
@@ -10,15 +12,76 @@ import "@/styles/globals.css";
 import CookieConsent from '@/components/CookieConsent';
 import AutoTrack from '@/components/Analytics/AutoTrack';
 
+// SEO Components
+import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/SEO/JsonLd';
+
+// Constants
+import { COMPANY_NAP } from '@/constants/company';
+
+// Optimize fonts with next/font
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url
+
 export const metadata: Metadata = {
-  title: 'Réserve | Agência de Marketing para Hotéis — Gestão de Tráfego para Resorts',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'Réserve | Agência de Marketing para Hotéis — Gestão de Tráfego para Resorts',
+    template: '%s | Réserve Marketing'
+  },
   description: 'A Réserve é a agência de Marketing Hoteleiro especializada em gestão de tráfego para resorts, hotéis e pousadas. Aumente reservas diretas, elimine dependência de OTAs e maximize sua receita.',
-  keywords: 'Marketing Hoteleiro, Agência de Marketing para Hotéis, Gestão de Tráfego para Resorts, marketing digital hoteleiro, reservas diretas, reduzir OTAs',
+  keywords: COMPANY_NAP.primaryKeywords.join(', '),
+  authors: [{ name: COMPANY_NAP.name, url: siteUrl }],
+  creator: COMPANY_NAP.name,
+  publisher: COMPANY_NAP.name,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'Réserve | Agência de Marketing para Hotéis',
-    description: 'Especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts. Mais reservas diretas, mais autonomia, mais receita.',
     type: 'website',
     locale: 'pt_BR',
+    url: siteUrl,
+    siteName: COMPANY_NAP.name,
+    title: 'Réserve | Agência de Marketing para Hotéis',
+    description: 'Especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts. Mais reservas diretas, mais autonomia, mais receita.',
+    images: [
+      {
+        url: '/og-image.jpg', // Add this image to public folder
+        width: 1200,
+        height: 630,
+        alt: 'Réserve - Agência de Marketing para Hotéis',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Réserve | Agência de Marketing para Hotéis',
+    description: 'Especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts. Mais reservas diretas, mais autonomia, mais receita.',
+    images: ['/og-image.jpg'], // Add this image to public folder
+    creator: '@reservemarketing', // Update with real Twitter handle
+  },
+  verification: {
+    google: 'your-google-verification-code', // Add real verification code
   },
 }
 
@@ -28,24 +91,53 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${poppins.variable} ${inter.variable}`}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://db.onlinewebfonts.com/c/9e65328448e32690935f5e0dec7e40be?family=PP+Hatton+Medium"
-          rel="stylesheet"
-        />
-        {/* Google Tag Manager - Descomente quando configurar NEXT_PUBLIC_GTM_ID */}
-        {/* <GTMScript /> */}
-        {/* Meta Pixel - Descomente quando configurar NEXT_PUBLIC_META_PIXEL_ID */}
-        {/* <Suspense fallback={null}>
-          <MetaPixel />
-        </Suspense> */}
+        
+        {/* Structured Data */}
+        <OrganizationJsonLd />
+        <WebSiteJsonLd />
+        
+        {/* Google Tag Manager - Lazy Loading */}
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <Script
+            id="gtm-script"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
+              `,
+            }}
+          />
+        )}
+        
+        {/* Meta Pixel - Lazy Loading */}
+        {process.env.NEXT_PUBLIC_META_PIXEL_ID && (
+          <Script
+            id="meta-pixel"
+            strategy="lazyOnload"
+            dangerouslySetInnerHTML={{
+              __html: `
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID}');
+                fbq('track', 'PageView');
+              `,
+            }}
+          />
+        )}
       </head>
       <body suppressHydrationWarning={true}>
         {/* GTM NoScript Fallback - Descomente quando configurar NEXT_PUBLIC_GTM_ID */}

@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import BackgroundImage from "./../../../../../../public/img/resource/house1.png";
-
-const BRAND_BROWN = "#994f2a";
 
 const Banner = () => {
   const handleScroll = () => {
@@ -15,12 +14,18 @@ const Banner = () => {
       className="relative flex flex-col overflow-hidden"
       style={{ minHeight: "100svh" }}
     >
-      {/* Imagem de fundo full */}
+      {/* Imagem de fundo otimizada para LCP */}
       <div className="absolute inset-0" aria-hidden="true">
-        <img
-          src={BackgroundImage.src}
+        <Image
+          src={BackgroundImage}
           alt=""
-          className="w-full h-full object-cover object-center"
+          fill
+          priority={true}
+          fetchPriority="high"
+          quality={85}
+          sizes="100vw"
+          className="object-cover object-center"
+          placeholder="blur"
         />
         {/* Gradiente da esquerda para direita — branco sólido à esq, transparente à dir */}
         <div
@@ -38,10 +43,10 @@ const Banner = () => {
         />
       </div>
 
-      {/* Conteúdo — alinhado à esquerda */}
+      {/* Conteúdo — alinhado com container padrão */}
       <div
-        className="relative z-10 flex-1 flex flex-col justify-center w-full max-w-6xl mx-auto px-8 md:px-16"
-        style={{ paddingTop: "80px", paddingBottom: "40px" }}
+        className="relative z-10 flex-1 flex flex-col justify-center section-container"
+        style={{ paddingTop: "120px", paddingBottom: "60px" }}
       >
         {/* Badge */}
         <motion.div
@@ -64,16 +69,13 @@ const Banner = () => {
           </span>
         </motion.div>
 
-        {/* Título — serif grande, à esquerda */}
+        {/* Título — usando tipografia padronizada h1 */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="h1"
           style={{
-            fontFamily: "'PP Hatton Medium', Georgia, serif",
-            fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
-            fontWeight: 500,
-            lineHeight: 1.05,
             color: "#1A0F08",
             marginBottom: "1.25rem",
             maxWidth: "620px",
@@ -84,15 +86,14 @@ const Banner = () => {
           <em style={{ fontStyle: "italic", color: "#1A0F08" }}>converte.</em>
         </motion.h1>
 
-        {/* Subtítulo */}
+        {/* Subtítulo — usando paragraph padrão */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="paragraph"
           style={{
-            fontSize: "15px",
             fontWeight: 300,
-            lineHeight: 1.65,
             color: "#3a2518",
             marginBottom: "2.5rem",
             maxWidth: "400px",

@@ -16,8 +16,8 @@ const fadeRight: Variants = {
 };
 
 const TransformSection = () => (
-  <section id="transform" className="py-16 md:py-24 overflow-hidden" style={{ background: "#F7F3EE" }}>
-    <div className="max-w-6xl mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+  <section id="transform" className="py-16 md:py-20 overflow-hidden" style={{ background: "#F7F3EE" }}>
+    <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
       {/* Left — Text */}
       <motion.div
@@ -38,28 +38,28 @@ const TransformSection = () => (
           </span>
         </div>
 
-        {/* Headline — dois blocos separados como na referência */}
+        {/* Headline — usando h3 padronizado */}
         <div className="flex flex-col gap-4">
-          <h2
-            className="font-semibold leading-[1.1] tracking-[-0.02em]"
-            style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", color: "#1A0F08" }}
+          <h3
+            className="h3"
+            style={{ color: "#1A0F08" }}
           >
             Somos especialistas<br />em Marketing Hoteleiro.
-          </h2>
-          <h2
-            className="font-semibold leading-[1.1] tracking-[-0.02em]"
-            style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", color: "#1A0F08" }}
+          </h3>
+          <h3
+            className="h3"
+            style={{ color: "#1A0F08" }}
           >
             Construímos canais próprios que geram{" "}
             <span style={{ color: BRAND_GREEN }}>reservas diretas</span>{" "}
             e eliminam a comissão das OTAs.
-          </h2>
+          </h3>
         </div>
 
-        {/* Body */}
+        {/* Body — usando paragraph padrão */}
         <p
-          className="text-[14px] font-light leading-[1.75]"
-          style={{ color: "#6b5c50" }}
+          className="paragraph"
+          style={{ fontWeight: 300, color: "#6b5c50" }}
         >
           Visibilidade de verdade, hóspedes que pagam<br/> pelo valor{" "}
           <strong className="font-medium" style={{ color: "#3a2518" }}>

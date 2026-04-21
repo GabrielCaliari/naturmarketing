@@ -3,10 +3,20 @@
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import { LEGAL_CONFIG } from '@/constants/legal-pages';
+import { BreadcrumbJsonLd } from '@/components/SEO/JsonLd';
 
 export default function PrivacyPolicy() {
   return (
     <>
+      {/* Breadcrumb Schema */}
+      <BreadcrumbJsonLd 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Política de Privacidade', url: '/privacy-policy' }
+        ]} 
+      />
+      
       <Header />
       <main className="overflow-x-hidden">
         {/* Hero Section */}
@@ -237,10 +247,13 @@ export default function PrivacyPolicy() {
                       </p>
                       <div className="bg-blue-50 p-4 rounded-lg">
                         <p className="text-gray-700">
-                          <strong>WhatsApp:</strong> <a href="https://wa.me/5535998067432" className="text-[#0066A1] hover:underline">+55 35 99806-7432</a>
+                          <strong>Telefone:</strong> <a href={`tel:${LEGAL_CONFIG.COMPANY_PHONE.href}`} className="text-[#0066A1] hover:underline">{LEGAL_CONFIG.COMPANY_PHONE.display}</a>
                         </p>
                         <p className="text-gray-700 mt-2">
-                          <strong>E-mail:</strong> <a href="mailto:contato@agencianatur.com.br" className="text-[#0066A1] hover:underline">contato@agencianatur.com.br</a>
+                          <strong>E-mail:</strong> <a href={`mailto:${LEGAL_CONFIG.COMPANY_EMAIL}`} className="text-[#0066A1] hover:underline">{LEGAL_CONFIG.COMPANY_EMAIL}</a>
+                        </p>
+                        <p className="text-gray-700 mt-2">
+                          <strong>Endereço:</strong> {LEGAL_CONFIG.COMPANY_ADDRESS.full}
                         </p>
                       </div>
                       <p className="text-gray-600 mt-4">

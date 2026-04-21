@@ -26,7 +26,7 @@ export default function ConsultoriaBanner() {
 
   return (
     <section
-      className="relative py-16 md:py-24 px-6 md:px-16 overflow-hidden"
+      className="relative py-12 md:py-16 px-6 md:px-16 overflow-hidden"
       style={{ background: "#2a1f14" }}
     >
       {/* Background image — bem visível */}
@@ -53,7 +53,7 @@ export default function ConsultoriaBanner() {
         variants={stagger}
       >
         {/* Badge */}
-        <motion.div variants={fadeUp} style={{ marginBottom: "2rem" }}>
+        <motion.div variants={fadeUp} style={{ marginBottom: "1.5rem" }}>
           <span
             className="inline-flex items-center gap-2.5 text-[10px] font-medium tracking-[0.28em] uppercase px-5 py-2.5 rounded-full"
             style={{
@@ -74,7 +74,7 @@ export default function ConsultoriaBanner() {
           style={{
             fontSize: "clamp(2rem, 5.5vw, 5rem)",
             textAlign: "center",
-            marginBottom: "1.5rem",
+            marginBottom: "1.25rem",
           }}
         >
           Descubra por que seu hotel{" "}
@@ -97,7 +97,7 @@ export default function ConsultoriaBanner() {
             color: "rgba(255,255,255,0.55)",
             textAlign: "center",
             maxWidth: "560px",
-            margin: "0 auto 2.5rem",
+            margin: "0 auto 2rem",
           }}
         >
           Solicite uma análise estratégica gratuita e receba um plano de ação personalizado
@@ -111,7 +111,7 @@ export default function ConsultoriaBanner() {
         >
           <button
             onClick={handleClick}
-            className="inline-flex items-center gap-3 px-10 py-5 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] active:scale-[0.98]"
+            className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] active:scale-[0.98]"
             style={{ background: BRAND_BROWN, letterSpacing: "0.05em" }}
           >
             Diagnóstico Gratuito

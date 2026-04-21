@@ -12,7 +12,7 @@ const fadeLeft: Variants = {
 
 const EspecialistasSection = () => (
   <section className="overflow-hidden" style={{ background: BRAND_BROWN }}>
-    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-120">
+    <div className="section-container grid grid-cols-1 lg:grid-cols-2 min-h-120">
 
       {/* Text column */}
       <motion.div
@@ -20,7 +20,7 @@ const EspecialistasSection = () => (
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeLeft}
-        className="flex flex-col justify-center gap-8 px-6 md:px-16 py-20 md:py-24 text-center lg:text-left order-2 lg:order-1 relative"
+        className="flex flex-col justify-center gap-8 py-20 md:py-24 text-center lg:text-left order-2 lg:order-1 relative"
       >
         {/* Subtle highlight */}
         <div
@@ -39,8 +39,8 @@ const EspecialistasSection = () => (
         </div>
 
         <h2
-          className="font-extralight text-white leading-[1.06] tracking-[-0.025em]"
-          style={{ fontSize: "clamp(1.85rem, 3.8vw, 2.9rem)" }}
+          className="h2 text-white"
+          style={{ fontWeight: 300 }}
         >
           A diferença entre crescer e estagnar é ter um time de{" "}
           <strong className="font-semibold">Marketing Hoteleiro</strong>{" "}
@@ -48,8 +48,11 @@ const EspecialistasSection = () => (
         </h2>
 
         <p
-          className="text-[15px] font-light leading-[1.85]"
-          style={{ color: "rgba(255,255,255,0.72)" }}
+          className="paragraph"
+          style={{ 
+            fontWeight: 300,
+            color: "rgba(255,255,255,0.72)" 
+          }}
         >
           Com a RÉSERVE, você tem uma{" "}
           <strong className="font-semibold text-white">

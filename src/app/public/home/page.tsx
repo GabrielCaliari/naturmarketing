@@ -1,30 +1,60 @@
 "use client";
 
+import { Suspense, lazy } from "react";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Banner } from "./_components/Banner";
-import TransformSection from "./_components/TransformSection";
-import QuemSomos from "./_components/QuemSomos";
-import OQueFazemos from "./_components/OQueFazemos";
-import ParaQuemFazemos from "./_components/ParaQuemFazemos";
-import ConsultoriaBanner from "./_components/ConsultoriaBanner";
-import EspecialistasSection from "./_components/EspecialistasSection";
-import PlataformasSection from "./_components/PlataformasSection";
-import ComparativoSection from "./_components/ComparativoSection";
+import { LocalBusinessJsonLd, ServiceJsonLd } from "@/components/SEO/JsonLd";
+
+// Lazy load components below the fold
+const TransformSection = lazy(() => import("./_components/TransformSection"));
+const OQueFazemos = lazy(() => import("./_components/OQueFazemos"));
+const ParaQuemFazemos = lazy(() => import("./_components/ParaQuemFazemos"));
+const PlataformasSection = lazy(() => import("./_components/PlataformasSection"));
+const ComparativoSection = lazy(() => import("./_components/ComparativoSection"));
+const ConsultoriaBanner = lazy(() => import("./_components/ConsultoriaBanner"));
+
+// Loading skeleton component
+const SectionSkeleton = () => (
+  <div className="w-full h-96 bg-gray-100 animate-pulse rounded-lg" />
+);
 
 const Home = () => {
   return (
     <>
+      {/* Structured Data for Homepage */}
+      <LocalBusinessJsonLd />
+      <ServiceJsonLd />
+      
       <Header />
       <main className="overflow-x-hidden">
+        {/* Above the fold - load immediately */}
         <Banner />
-        <TransformSection />
-        {/* <QuemSomos />        <EspecialistasSection /> */}
-        <OQueFazemos />
-        <ParaQuemFazemos />
-        <PlataformasSection />
-        <ComparativoSection />
-        <ConsultoriaBanner />
+        
+        {/* Below the fold - lazy load with suspense */}
+        <Suspense fallback={<SectionSkeleton />}>
+          <TransformSection />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <OQueFazemos />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <ParaQuemFazemos />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <PlataformasSection />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <ComparativoSection />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <ConsultoriaBanner />
+        </Suspense>
       </main>
       <Footer />
     </>

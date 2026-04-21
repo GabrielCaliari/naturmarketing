@@ -12,10 +12,19 @@ import {
   IconAward,
   IconFriends
 } from "@tabler/icons-react";
+import { BreadcrumbJsonLd } from '@/components/SEO/JsonLd';
 
 const Empresa = () => {
   return (
     <>
+      {/* Breadcrumb Schema */}
+      <BreadcrumbJsonLd 
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Nossa Empresa', url: '/empresa' }
+        ]} 
+      />
+      
       <Header />
       <main className="overflow-x-hidden">
         {/* Hero Section */}

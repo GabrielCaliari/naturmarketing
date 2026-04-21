@@ -55,11 +55,11 @@ export default function ParaQuemFazemos() {
   return (
     <section
       id="para-quem-fazemos"
-      className="py-28 md:py-40 px-6 md:px-16"
+      className="py-20 md:py-24"
       style={{ background: "#F7F3EE" }}
     >
       <motion.div
-        className="max-w-7xl mx-auto"
+        className="section-container"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
@@ -79,15 +79,14 @@ export default function ParaQuemFazemos() {
           </div>
 
           <h2
-            className="font-extralight leading-[1.1] tracking-[-0.02em]"
+            className="h2"
             style={{
-              fontSize: "clamp(1.85rem, 3.8vw, 3rem)",
               color: "#1A0F08",
-              fontWeight: 300,
+              fontWeight: 400,
             }}
           >
             Marketing Hoteleiro para cada{" "}
-            <strong className="font-semibold" style={{ fontWeight: 600 }}>
+            <strong className="font-semibold">
               tipo de empreendimento
             </strong>
           </h2>

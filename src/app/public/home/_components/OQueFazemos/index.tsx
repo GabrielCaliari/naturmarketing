@@ -78,11 +78,11 @@ export default function OQueFazemos() {
   return (
     <section
       id="services"
-      className="py-14 md:py-20 px-6 md:px-16"
-      style={{ background: "#F7F3EE", backgroundColor: "#F7F3EE" }}
+      className="py-16 md:py-20"
+      style={{ background: BG_SECTION }}
     >
       <motion.div
-        className="max-w-7xl mx-auto"
+        className="section-container"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
@@ -91,7 +91,7 @@ export default function OQueFazemos() {
         {/* ── Header split ── */}
         <motion.div
           variants={fadeUp}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-12 gap-8"
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8"
         >
           <div className="max-w-xl">
             <div className="flex items-center gap-3 mb-5">
@@ -104,11 +104,10 @@ export default function OQueFazemos() {
               </span>
             </div>
             <h2
-              className="font-extralight leading-[1.1] tracking-[-0.025em]"
+              className="h2"
               style={{
-                fontSize: "clamp(1.85rem, 3.8vw, 3rem)",
                 color: TEXT_HEAD,
-                fontWeight: 300,
+                fontWeight: 400,
               }}
             >
               Soluções completas desenvolvidas para{" "}
@@ -119,8 +118,9 @@ export default function OQueFazemos() {
           </div>
 
           <p
-            className="text-[14px] font-light leading-[1.85] max-w-xs pb-4 italic"
+            className="paragraph max-w-xs pb-4 italic"
             style={{
+              fontWeight: 300,
               color: TEXT_BODY,
               borderBottom: `1px solid ${BORDER}`,
             }}
@@ -142,15 +142,18 @@ export default function OQueFazemos() {
         {/* ── CTA strip ── */}
         <motion.div
           variants={fadeUp}
-          className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-6 px-8 py-7 rounded-2xl"
+          className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 px-8 py-7 rounded-2xl"
           style={{
             background: "#F0EBE3",
             border: `1px solid ${BORDER}`,
           }}
         >
           <p
-            className="text-[14px] font-light text-center sm:text-left"
-            style={{ color: TEXT_BODY }}
+            className="paragraph text-center sm:text-left"
+            style={{ 
+              fontWeight: 300,
+              color: TEXT_BODY 
+            }}
           >
             Quer uma estratégia completa e integrada para o seu hotel?{" "}
             <strong className="font-medium" style={{ color: TEXT_HEAD }}>
