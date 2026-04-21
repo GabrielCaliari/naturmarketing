@@ -134,7 +134,7 @@ export default function ComparativoSection() {
                 <li key={i} className="flex items-start gap-4">
                   {/* Ícone X */}
                   <div
-                    className="shrink-0 w-5 h-5 flex items-center justify-center"
+                    className="shrink-0 w-5 h-5 flex items-center justify-center mt-1.5"
                     style={{ color: "rgba(180,80,65,0.5)" }}
                   >
                     <IconX size={13} stroke={2} />
@@ -205,7 +205,7 @@ export default function ComparativoSection() {
                   <li key={i} className="flex items-start gap-4">
                     {/* Check circular preenchido */}
                     <div
-                      className="shrink-0"
+                      className="shrink-0 mt-1.5"
                       style={{ color: "rgba(255,255,255,0.65)" }}
                     >
                       <IconCircleCheckFilled size={18} />

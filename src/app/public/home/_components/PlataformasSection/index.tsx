@@ -1,62 +1,66 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
 
-// Componentes de ícones SVG para cada OTA
-const BookingIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <rect x="2" y="3" width="20" height="18" rx="2" fill="#003580"/>
-    <text x="12" y="15" textAnchor="middle" fill="white" fontSize="8" fontWeight="bold">B</text>
-  </svg>
-);
-
-const AirbnbIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#FF5A5F"/>
-    <circle cx="12" cy="9" r="2.5" fill="white"/>
-  </svg>
-);
-
-const HoteisIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <rect x="3" y="4" width="18" height="16" rx="2" fill="#D32F2F"/>
-    <text x="12" y="14" textAnchor="middle" fill="white" fontSize="7" fontWeight="bold">H</text>
-  </svg>
-);
-
-const DecolarIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="10" fill="#FF6900"/>
-    <path d="M8 12l3-3v2h5v2h-5v2l-3-3z" fill="white"/>
-  </svg>
-);
-
-const ExpediaIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <rect x="2" y="6" width="20" height="12" rx="2" fill="#FFC72C"/>
-    <circle cx="7" cy="12" r="2" fill="#003580"/>
-    <circle cx="17" cy="12" r="2" fill="#003580"/>
-  </svg>
-);
-
-// Agora com ícones SVG personalizados
+// OTAs com SVGs reais da pasta public/img/svg
 const otas = [
-  { icon: <BookingIcon />, label: "Booking.com" },
-  { icon: <AirbnbIcon />, label: "Airbnb" },
-  { icon: <HoteisIcon />, label: "Hoteis.com" },
-  { icon: <DecolarIcon />, label: "Decolar" },
-  { icon: <ExpediaIcon />, label: "Expedia" },
+  { 
+    src: "/img/svg/bookingcom-logo-svgrepo-com.svg", 
+    label: "Booking.com",
+    alt: "Logo do Booking.com - plataforma de reservas de hotéis"
+  },
+  { 
+    src: "/img/svg/Airbnb_Logo_Bélo.svg", 
+    label: "Airbnb",
+    alt: "Logo do Airbnb - plataforma de hospedagem alternativa"
+  },
+  { 
+    src: "/img/svg/Hotels.com New.svg", 
+    label: "Hotels.com",
+    alt: "Logo do Hotels.com - site de reservas de hotéis"
+  },
+  { 
+    src: "/img/svg/decolar-logo-2019.svg", 
+    label: "Decolar",
+    alt: "Logo da Decolar - agência de viagens online"
+  },
+  { 
+    src: "/img/svg/Expedia_Logo_2023.svg", 
+    label: "Expedia",
+    alt: "Logo da Expedia - plataforma de viagens e hospedagem"
+  },
 ];
 
 const canais = [
-  { src: "/img/svg/instagram-icon.svg", label: "Instagram" },
-  { src: "/img/svg/facebook-icon.svg",  label: "Facebook" },
-  { src: "/img/svg/tiktok-icon.svg",    label: "TikTok" },
-  { src: "/img/svg/google-icon.svg",    label: "Google" },
-  { src: "/img/svg/whatsapp-icon.svg",  label: "WhatsApp" },
+  { 
+    src: "/img/svg/instagram-icon.svg", 
+    label: "Instagram",
+    alt: "Ícone do Instagram - rede social para marketing visual"
+  },
+  { 
+    src: "/img/svg/facebook-icon.svg",  
+    label: "Facebook",
+    alt: "Ícone do Facebook - rede social para marketing digital"
+  },
+  { 
+    src: "/img/svg/tiktok-icon.svg",    
+    label: "TikTok",
+    alt: "Ícone do TikTok - plataforma de vídeos curtos"
+  },
+  { 
+    src: "/img/svg/google-icon.svg",    
+    label: "Google",
+    alt: "Ícone do Google - mecanismo de busca e publicidade"
+  },
+  { 
+    src: "/img/svg/whatsapp-icon.svg",  
+    label: "WhatsApp",
+    alt: "Ícone do WhatsApp - aplicativo de mensagens"
+  },
 ];
 
 const fadeUp: Variants = {
@@ -106,7 +110,7 @@ const PlataformasSection = () => (
         Canais onde otimizamos o posicionamento do seu hotel
       </motion.h3>
 
-      {/* Cards OTAs - agora com ícones SVG */}
+      {/* Cards OTAs - agora com SVGs reais */}
       <motion.div
         variants={fadeUp}
         className="flex items-center justify-center gap-3 flex-wrap"
@@ -114,20 +118,22 @@ const PlataformasSection = () => (
         {otas.map((ota) => (
           <div
             key={ota.label}
-            className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+            className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
             style={{
               background: "#FDFAF7",
               border: "1px solid rgba(196,164,142,0.3)",
               boxShadow: "0 2px 8px rgba(26,15,8,0.05)",
+              height: "48px",
+              minWidth: "120px",
             }}
           >
-            {ota.icon}
-            <span
-              className="text-[13px] font-medium tracking-wide"
-              style={{ color: "#4a3728" }}
-            >
-              {ota.label}
-            </span>
+            <Image
+              src={ota.src}
+              alt={ota.alt}
+              width={100}
+              height={100}
+              className="object-contain"
+            />
           </div>
         ))}
       </motion.div>
@@ -172,7 +178,7 @@ const PlataformasSection = () => (
         Canais onde construímos o seu ecossistema de reservas diretas
       </motion.h3>
 
-      {/* Chips de plataformas */}
+      {/* Chips de plataformas - otimizados */}
       <motion.div
         variants={fadeUp}
         className="flex items-center justify-center gap-3 flex-wrap"
@@ -187,10 +193,12 @@ const PlataformasSection = () => (
               boxShadow: "0 2px 8px rgba(26,15,8,0.05)",
             }}
           >
-            <img
+            <Image
               src={canal.src}
-              alt={canal.label}
-              className="w-5 h-5 object-contain"
+              alt={canal.alt}
+              width={20}
+              height={20}
+              className="object-contain"
             />
             <span
               className="text-[13px] font-medium tracking-wide"

@@ -48,14 +48,14 @@ export default function PrivacyPolicy() {
                     <section className="mt-8">
                       <h2 className="text-2xl font-semibold mb-4 text-[#003D5C]">1. Introdução</h2>
                       <p className="text-gray-600 mb-4">
-                        Bem-vindo à Natur. Esta Política de Privacidade (&quot;Política&quot;) descreve como a Natur, 
+                        Bem-vindo à Réserve. Esta Política de Privacidade (&quot;Política&quot;) descreve como a Réserve, 
                         uma agência de marketing digital especializada no setor hoteleiro, coleta, armazena, utiliza e 
                         protege suas informações ao usar nossos serviços de marketing digital, sites e outros serviços 
                         associados (coletivamente, os &quot;Serviços&quot;).
                       </p>
                       <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-[#0066A1]">
                         <p className="text-gray-700">
-                          <strong>Controlador dos Dados:</strong> A Natur Marketing Hoteleiro, inscrita no CNPJ nº 
+                          <strong>Controlador dos Dados:</strong> A Réserve Marketing Digital LTDA, inscrita no CNPJ nº 
                           [XX.XXX.XXX/0001-XX], com sede em [Cidade/UF], é a responsável pelo tratamento dos dados pessoais 
                           coletados através dos nossos Serviços, nos termos da Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018).
                         </p>
@@ -113,7 +113,7 @@ export default function PrivacyPolicy() {
                         <li><strong>Execução de Contrato ou Procedimentos Preliminares:</strong> Quando necessário para execução de contratos de prestação de serviços de marketing digital ou para atender solicitações pré-contratuais.</li>
                         <li><strong>Cumprimento de Obrigação Legal ou Regulatória:</strong> Quando necessário para cumprir obrigações legais, fiscais, contábeis ou regulatórias aplicáveis.</li>
                         <li><strong>Proteção do Crédito:</strong> Para análise de crédito e verificação de dados cadastrais, quando aplicável.</li>
-                        <li><strong>Interesses Legítimos:</strong> Para atender aos interesses legítimos da Natur, como melhoria de serviços, análise de dados agregados, segurança da informação e comunicação comercial relevante, sempre respeitando os direitos e liberdades fundamentais do titular.</li>
+                        <li><strong>Interesses Legítimos:</strong> Para atender aos interesses legítimos da Réserve, como melhoria de serviços, análise de dados agregados, segurança da informação e comunicação comercial relevante, sempre respeitando os direitos e liberdades fundamentais do titular.</li>
                       </ul>
                     </section>
 
@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
                     <section className="mt-8">
                       <h2 className="text-2xl font-semibold mb-4 text-[#003D5C]">7. Compartilhamento de Informações</h2>
                       <p className="text-gray-600 mb-4">
-                        A Natur não compartilha suas informações pessoais com terceiros, exceto nas seguintes circunstâncias:
+                        A Réserve não compartilha suas informações pessoais com terceiros, exceto nas seguintes circunstâncias:
                       </p>
                       <ul className="list-disc ml-6 text-gray-600 space-y-2">
                         <li><strong>Prestadores de Serviços:</strong> Podemos compartilhar informações com fornecedores terceirizados que auxiliam na operação dos nossos serviços, como serviços de hospedagem, processamento de dados, plataformas de publicidade digital (Google Ads, Meta Ads, etc.), desde que estejam em conformidade com esta Política de Privacidade e sigam padrões adequados de proteção de dados.</li>
@@ -149,7 +149,7 @@ export default function PrivacyPolicy() {
                         ferramentas utilizadas em nossos serviços de marketing digital.
                       </p>
                       <p className="text-gray-600 mb-4">
-                        A Natur não é responsável pelas práticas de privacidade ou pelo conteúdo desses sites de terceiros. 
+                        A Réserve não é responsável pelas práticas de privacidade ou pelo conteúdo desses sites de terceiros. 
                         Recomendamos que você leia as políticas de privacidade desses sites antes de fornecer qualquer dado 
                         pessoal ou interagir com eles.
                       </p>
@@ -258,7 +258,7 @@ export default function PrivacyPolicy() {
                       </div>
                       <p className="text-gray-600 mt-4">
                         Esta Política de Privacidade foi atualizada pela última vez em {new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}.<br />
-                        Este documento visa fornecer transparência sobre como suas informações são tratadas pela Natur e 
+                        Este documento visa fornecer transparência sobre como suas informações são tratadas pela Réserve e 
                         assegurar nosso compromisso com a proteção de seus dados pessoais.
                       </p>
                     </section>

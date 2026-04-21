@@ -96,6 +96,11 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
+        <link
+          href="https://db.onlinewebfonts.com/c/9e65328448e32690935f5e0dec7e40be?family=PP+Hatton+Medium"
+          rel="stylesheet"
+        />
+        
         {/* Structured Data */}
         <OrganizationJsonLd />
         <WebSiteJsonLd />

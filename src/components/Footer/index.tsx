@@ -58,8 +58,8 @@ const Footer = () => {
               className="text-[14px] font-light leading-[1.85]"
               style={{ color: "#7a6a5e" }}
             >
-              Transformando empreendimentos hoteleiros em marcas icônicas e máquinas
-              de reservas diretas através da curadoria digital.
+              Agência especializada em Marketing Hoteleiro. Transformamos hotéis, 
+              pousadas e resorts em marcas fortes com reservas diretas e menos dependência de OTAs.
             </p>
             <div className="flex items-center gap-4 pt-1">
               {socialLinks.map((s) => (
@@ -159,7 +159,7 @@ const Footer = () => {
             className="text-[10px] tracking-[0.18em] uppercase"
             style={{ color: "rgba(26,15,8,0.35)" }}
           >
-            © {new Date().getFullYear()} RÉSERVE · A Curadoria do Invisível
+            © {new Date().getFullYear()} RÉSERVE · Marketing Hoteleiro
           </span>
           <Link
             href="/privacy-policy"

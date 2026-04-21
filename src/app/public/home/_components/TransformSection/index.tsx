@@ -50,9 +50,9 @@ const TransformSection = () => (
             className="h3"
             style={{ color: "#1A0F08" }}
           >
-            Construímos canais próprios que geram{" "}
+            Construímos canais<br/> próprios que geram{" "}<br/> 
             <span style={{ color: BRAND_GREEN }}>reservas diretas</span>{" "}
-            e eliminam a comissão das OTAs.
+            e <br/> eliminam a comissão<br/>  das OTAs.
           </h3>
         </div>
 
@@ -91,38 +91,9 @@ const TransformSection = () => (
         <div className="relative flex items-center justify-center">
 
           {/* Grid de pontos decorativo */}
-          <div
-            className="absolute top-0 left-0 pointer-events-none"
-            style={{ opacity: 0.35 }}
-            aria-hidden="true"
-          >
-            {Array.from({ length: 4 }).map((_, row) => (
-              <div key={row} className="flex gap-2.5 mb-2.5">
-                {Array.from({ length: 8 }).map((_, col) => (
-                  <div key={col} className="w-1 h-1 rounded-full" style={{ background: "#84936f" }} />
-                ))}
-              </div>
-            ))}
-          </div>
+          
 
-          {/* Arco decorativo — semicírculo à direita da imagem */}
-          <svg
-            className="absolute pointer-events-none hidden lg:block"
-            style={{ top: "15%", right: "-70px", height: "70%", width: "80px" }}
-            viewBox="0 0 80 300"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M 10 0 A 150 150 0 0 1 10 300"
-              stroke={BRAND_GREEN}
-              strokeWidth="22"
-              strokeLinecap="round"
-              fill="none"
-              opacity="0.6"
-            />
-          </svg>
+         
 
           {/* Imagem principal */}
           <div
