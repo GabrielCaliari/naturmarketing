@@ -26,7 +26,7 @@ export default function ConsultoriaBanner() {
 
   return (
     <section
-      className="relative py-12 md:py-16 px-6 md:px-16 overflow-hidden"
+      className="relative py-10 md:py-12 px-6 md:px-16 overflow-hidden"
       style={{ background: "#2a1f14" }}
     >
       {/* Background image — bem visível */}
@@ -70,28 +70,27 @@ export default function ConsultoriaBanner() {
         {/* Heading grande */}
         <motion.h2
           variants={fadeUp}
-          className="font-semibold text-white leading-[1.08] tracking-[-0.025em]"
+          className="h2 text-white"
           style={{
-            fontSize: "clamp(2rem, 5.5vw, 5rem)",
             textAlign: "center",
             marginBottom: "1.25rem",
           }}
         >
           Descubra por que seu hotel{" "}
-          <strong
-            className="font-extralight italic"
-            style={{ color: "rgba(255,255,255,0.75)" }}
+          <em
+            className="font-light"
+            style={{ fontStyle: "italic", color: "rgba(255,255,255,0.75)" }}
           >
             perde reservas
-          </strong>{" "}
+          </em>{" "}
           todos os dias
         </motion.h2>
 
         {/* Subtexto */}
         <motion.p
           variants={fadeUp}
+          className="paragraph"
           style={{
-            fontSize: "clamp(15px, 2vw, 18px)",
             fontWeight: 300,
             lineHeight: 1.8,
             color: "rgba(255,255,255,0.55)",
@@ -116,16 +115,7 @@ export default function ConsultoriaBanner() {
           >
             Diagnóstico Gratuito
           </button>
-          <span
-            style={{
-              fontSize: "11px",
-              fontWeight: 300,
-              letterSpacing: "0.05em",
-              color: "rgba(255,255,255,0.35)",
-            }}
-          >
-            Sem compromisso · 100% gratuito
-          </span>
+          
         </motion.div>
       </motion.div>
     </section>

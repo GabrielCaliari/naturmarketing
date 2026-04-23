@@ -1,236 +1,374 @@
 "use client";
 
+import { motion, type Variants } from "framer-motion";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import { 
-  IconUsers, 
-  IconTarget, 
-  IconHeart, 
+import {
+  IconUsers,
+  IconTarget,
+  IconHeart,
   IconRocket,
   IconAward,
-  IconFriends
+  IconFriends,
 } from "@tabler/icons-react";
+
+const BRAND_GREEN = "#84936f";
+const BRAND_BROWN = "#994f2a";
+const BG_CREAM = "#F7F3EE";
+const BG_LIGHT = "#F0EBE3";
+const BG_CARD = "#FDFAF7";
+const TEXT_HEAD = "#1A0F08";
+const TEXT_BODY = "#7a6a5e";
+const BORDER = "rgba(196,164,142,0.22)";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09 } },
+};
+
+const valores = [
+  {
+    icon: <IconTarget size={20} stroke={1.5} />,
+    titulo: "Foco em Resultados",
+    desc: "Cada ação de marketing hoteleiro que executamos é mensurada e orientada ao retorno real do seu investimento.",
+  },
+  {
+    icon: <IconHeart size={20} stroke={1.5} />,
+    titulo: "Paixão pelo Setor",
+    desc: "Vivemos e respiramos hotelaria. Esse conhecimento profundo é o que nos diferencia de agências genéricas de marketing.",
+  },
+  {
+    icon: <IconRocket size={20} stroke={1.5} />,
+    titulo: "Inovação Constante",
+    desc: "As estratégias de gestão de tráfego para resorts e hotéis evoluem constantemente — e nós evoluímos junto.",
+  },
+  {
+    icon: <IconAward size={20} stroke={1.5} />,
+    titulo: "Excelência",
+    desc: "Nenhum detalhe é irrelevante quando se trata de posicionar seu hotel como a melhor opção do mercado.",
+  },
+  {
+    icon: <IconFriends size={20} stroke={1.5} />,
+    titulo: "Parceria",
+    desc: "Tratamos o seu hotel como se fosse nosso. O seu sucesso em reservas diretas é o nosso resultado.",
+  },
+  {
+    icon: <IconUsers size={20} stroke={1.5} />,
+    titulo: "Equipe Dedicada",
+    desc: "Cada membro é especialista em marketing para hotéis — nenhum generalista. Só quem entende de hotelaria.",
+  },
+];
+
+const equipe = [
+  {
+    titulo: "Especialistas em Marketing Hoteleiro",
+    desc: "Profissionais certificados em campanhas digitais para hotelaria, SEO, Google Hotel Ads e gestão de redes sociais.",
+  },
+  {
+    titulo: "Designers e Criativos",
+    desc: "Equipe criativa especializada em conteúdo visual para hotéis — fotos, vídeos e identidade de marca que elevam a percepção de valor.",
+  },
+  {
+    titulo: "Desenvolvedores",
+    desc: "Especialistas em sites de alta performance para hotelaria com motor de reserva direta integrado e otimizado para conversão.",
+  },
+  {
+    titulo: "Estrategistas de Tráfego",
+    desc: "Especialistas em gestão de tráfego para resorts e hotéis que constroem funis de conversão com ROI mensurável.",
+  },
+];
 
 const Empresa = () => {
   return (
     <>
       <Header />
       <main className="overflow-x-hidden">
-        {/* Hero Section */}
-        <section className="py-20 md:py-32 bg-gradient-to-br from-[#003D5C] via-[#0066A1] to-[#003D5C] text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                A Agência de Marketing para Hotéis que Transforma Resultados
-              </h1>
-              <div className="w-32 h-1 bg-white mx-auto mb-8"></div>
-              <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
-                Conheça o time de especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts
-              </p>
-            </div>
-          </div>
+
+        {/* ── Hero ── */}
+        <section
+          className="pt-40 pb-24 px-6 md:px-16 relative"
+          style={{ background: BRAND_BROWN }}
+        >
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 70%)",
+            }}
+          />
+          <motion.div
+            className="relative z-10 max-w-4xl mx-auto text-center"
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-8 h-px" style={{ background: "rgba(255,255,255,0.25)" }} />
+              <span
+                className="text-[10px] font-medium tracking-[0.3em] uppercase"
+                style={{ color: "rgba(255,255,255,0.5)" }}
+              >
+                Quem somos
+              </span>
+              <div className="w-8 h-px" style={{ background: "rgba(255,255,255,0.25)" }} />
+            </motion.div>
+
+            <motion.h1
+              variants={fadeUp}
+              className="font-extralight text-white leading-[1.06] tracking-[-0.025em] mb-6"
+              style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
+            >
+              A agência de{" "}
+              <strong className="font-semibold">Marketing Hoteleiro</strong>
+              <br />que transforma resultados
+            </motion.h1>
+
+            <motion.p
+              variants={fadeUp}
+              className="text-[15px] md:text-base font-light leading-[1.85]"
+              style={{ color: "rgba(255,255,255,0.65)", maxWidth: "560px", margin: "0 auto" }}
+            >
+              Conheça o time de especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts
+            </motion.p>
+          </motion.div>
         </section>
 
-        {/* Sobre a Empresa */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-[#003D5C]">
-                Sobre a RÉSERVE
+        {/* ── Sobre ── */}
+        <section className="py-20 md:py-28 px-6 md:px-16" style={{ background: BG_CREAM }}>
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+              <span
+                className="text-[10px] font-medium tracking-[0.3em] uppercase"
+                style={{ color: BRAND_GREEN }}
+              >
+                Sobre a Réserve
+              </span>
+            </motion.div>
+
+            <motion.h2
+              variants={fadeUp}
+              className="h2 mb-10"
+              style={{ color: TEXT_HEAD, fontWeight: 400 }}
+            >
+              Fundada para libertar hotéis da{" "}
+              <strong className="font-semibold">dependência de OTAs</strong>
+            </motion.h2>
+
+            <motion.div
+              variants={fadeUp}
+              className="flex flex-col gap-5 p-8 md:p-12 rounded-2xl"
+              style={{
+                background: BG_CARD,
+                border: `1px solid ${BORDER}`,
+                boxShadow: "0 8px 40px rgba(26,15,8,0.06)",
+              }}
+            >
+              {[
+                "A RÉSERVE é uma agência de Marketing Hoteleiro especializada em gestão de tráfego para resorts, hotéis e pousadas, com expertise em transformar presença digital em reservas diretas e receita real.",
+                "Fundada com a missão de libertar os empreendimentos hoteleiros da dependência de OTAs, a RÉSERVE combina estratégia de marketing de alto nível com um conhecimento profundo das particularidades do setor hoteleiro brasileiro.",
+                "Nossa equipe de especialistas atua de forma integrada — unindo tráfego pago, Google Hotel Ads, branding, conteúdo e tecnologia para construir canais próprios de aquisição que trabalham pelo seu hotel 24 horas por dia.",
+                "Com metodologias exclusivas de marketing hoteleiro, já ajudamos dezenas de estabelecimentos a aumentarem suas reservas diretas, reduzirem custos com comissões e consolidarem sua marca como referência de mercado.",
+              ].map((p, i) => (
+                <p key={i} className="text-[15px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+                  {p}
+                </p>
+              ))}
+            </motion.div>
+          </motion.div>
+        </section>
+
+        {/* ── Valores ── */}
+        <section className="py-20 md:py-28 px-6 md:px-16" style={{ background: BG_LIGHT }}>
+          <motion.div
+            className="max-w-6xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="text-center mb-14">
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+                <span
+                  className="text-[10px] font-medium tracking-[0.3em] uppercase"
+                  style={{ color: BRAND_GREEN }}
+                >
+                  Nossos Valores
+                </span>
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+              </div>
+              <h2 className="h2" style={{ color: TEXT_HEAD, fontWeight: 400 }}>
+                O que guia cada{" "}
+                <strong className="font-semibold">decisão que tomamos</strong>
               </h2>
-              <div className="w-24 h-1 bg-[#0066A1] mx-auto mb-12"></div>
+            </motion.div>
 
-              <Card className="border-none shadow-xl bg-white">
-                <CardContent className="p-8 md:p-12">
-                  <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
-                    <p>
-                      <strong className="text-[#003D5C]">A RÉSERVE é uma agência de Marketing Hoteleiro especializada em gestão de tráfego para resorts, hotéis e pousadas</strong>,
-                      com expertise em transformar presença digital em reservas diretas e receita real.
-                    </p>
-
-                    <p>
-                      Fundada com a missão de libertar os empreendimentos hoteleiros da dependência de OTAs, a RÉSERVE combina
-                      estratégia de marketing de alto nível com um conhecimento profundo das particularidades do setor hoteleiro brasileiro.
-                    </p>
-
-                    <p>
-                      Nossa equipe de especialistas em marketing para hotéis atua de forma integrada — unindo tráfego pago,
-                      branding, conteúdo e tecnologia para construir canais próprios de aquisição que trabalham pelo seu hotel 24 horas por dia.
-                    </p>
-
-                    <p>
-                      Com metodologias exclusivas de marketing hoteleiro, já ajudamos dezenas de estabelecimentos a aumentarem
-                      suas reservas diretas, reduzirem custos com comissões e consolidarem sua marca como referência de mercado.
-                    </p>
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+              style={{ borderTop: `1px solid ${BORDER}`, borderLeft: `1px solid ${BORDER}` }}
+            >
+              {valores.map((v, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="flex flex-col gap-4 p-7 md:p-8"
+                  style={{
+                    background: BG_CARD,
+                    borderRight: `1px solid ${BORDER}`,
+                    borderBottom: `1px solid ${BORDER}`,
+                  }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ background: "rgba(132,147,111,0.12)", color: BRAND_GREEN }}
+                  >
+                    {v.icon}
                   </div>
-                </CardContent>
-              </Card>
+                  <h3 className="text-[15px] font-semibold" style={{ color: TEXT_HEAD }}>
+                    {v.titulo}
+                  </h3>
+                  <p className="text-[13px] font-light leading-[1.8]" style={{ color: TEXT_BODY }}>
+                    {v.desc}
+                  </p>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </section>
 
-        {/* Valores */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-[#003D5C]">
-              Nossos Valores
-            </h2>
-            <div className="w-24 h-1 bg-[#0066A1] mx-auto mb-12"></div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              <Card className="border-2 border-transparent hover:border-[#0066A1] transition-all duration-300 h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-4">
-                    <IconTarget className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#003D5C] mb-3">Foco em Resultados</h3>
-                  <p className="text-gray-600">
-                    Cada ação de marketing hoteleiro que executamos é mensurada e orientada ao retorno real do seu investimento.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-transparent hover:border-[#0066A1] transition-all duration-300 h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mx-auto mb-4">
-                    <IconHeart className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#003D5C] mb-3">Paixão pelo Setor</h3>
-                  <p className="text-gray-600">
-                    Vivemos e respiramos hotelaria. Esse conhecimento profundo é o que nos diferencia de agências genéricas de marketing.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-transparent hover:border-[#0066A1] transition-all duration-300 h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-4">
-                    <IconRocket className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#003D5C] mb-3">Inovação Constante</h3>
-                  <p className="text-gray-600">
-                    As estratégias de gestão de tráfego para resorts e hotéis evoluem constantemente — e nós evoluímos junto com elas.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-transparent hover:border-[#0066A1] transition-all duration-300 h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mx-auto mb-4">
-                    <IconAward className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#003D5C] mb-3">Excelência</h3>
-                  <p className="text-gray-600">
-                    Nenhum detalhe é irrelevante quando se trata de posicionar seu hotel como a melhor opção do mercado.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-transparent hover:border-[#0066A1] transition-all duration-300 h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center mx-auto mb-4">
-                    <IconFriends className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#003D5C] mb-3">Parceria</h3>
-                  <p className="text-gray-600">
-                    Tratamos o seu hotel como se fosse nosso. O seu sucesso em reservas diretas é o nosso resultado.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-transparent hover:border-[#0066A1] transition-all duration-300 h-full">
-                <CardContent className="p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mx-auto mb-4">
-                    <IconUsers className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-[#003D5C] mb-3">Equipe Dedicada</h3>
-                  <p className="text-gray-600">
-                    Cada membro é especialista em marketing para hotéis — nenhum generalista, nenhum amador. Só quem entende de hotelaria.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Equipe */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-4 text-[#003D5C]">
-              Time de Especialistas em Marketing Hoteleiro
-            </h2>
-            <div className="w-24 h-1 bg-[#0066A1] mx-auto mb-12"></div>
-
-            <div className="max-w-4xl mx-auto">
-              <Card className="border-none shadow-xl bg-gradient-to-br from-blue-50 to-white">
-                <CardContent className="p-8 md:p-12">
-                  <div className="space-y-6 text-gray-700 text-lg leading-relaxed text-center">
-                    <p>
-                      A equipe da RÉSERVE é formada por especialistas em marketing para hotéis e resorts,
-                      todos unidos pelo compromisso de transformar presença digital em reservas diretas e receita real.
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                      <div className="p-6 bg-white rounded-lg shadow-md">
-                        <h4 className="font-bold text-[#003D5C] mb-2 text-xl">Especialistas em Marketing Hoteleiro</h4>
-                        <p className="text-gray-600">
-                          Profissionais certificados em campanhas digitais para hotelaria, SEO, Google Hotel Ads e gestão de redes sociais.
-                        </p>
-                      </div>
-
-                      <div className="p-6 bg-white rounded-lg shadow-md">
-                        <h4 className="font-bold text-[#003D5C] mb-2 text-xl">Designers e Criativos</h4>
-                        <p className="text-gray-600">
-                          Equipe criativa especializada em conteúdo visual para hotéis — fotos, vídeos e identidade de marca que elevam a percepção de valor.
-                        </p>
-                      </div>
-
-                      <div className="p-6 bg-white rounded-lg shadow-md">
-                        <h4 className="font-bold text-[#003D5C] mb-2 text-xl">Desenvolvedores</h4>
-                        <p className="text-gray-600">
-                          Especialistas em sites de alta performance para hotelaria com motor de reserva direta integrado e otimizado para conversão.
-                        </p>
-                      </div>
-
-                      <div className="p-6 bg-white rounded-lg shadow-md">
-                        <h4 className="font-bold text-[#003D5C] mb-2 text-xl">Estrategistas de Tráfego</h4>
-                        <p className="text-gray-600">
-                          Especialistas em gestão de tráfego para resorts e hotéis que constroem funis de conversão com ROI mensurável.
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="mt-8 text-center text-[#0066A1] font-semibold italic">
-                      &ldquo;Cada hotel tem um potencial que ainda não foi explorado. Nós estamos aqui para desbloqueá-lo.&rdquo;
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-[#003D5C] to-[#0066A1] text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Pronto para ter uma Agência de Marketing para Hotéis do seu lado?
+        {/* ── Equipe ── */}
+        <section className="py-20 md:py-28 px-6 md:px-16" style={{ background: BG_CREAM }}>
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-5">
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+                <span
+                  className="text-[10px] font-medium tracking-[0.3em] uppercase"
+                  style={{ color: BRAND_GREEN }}
+                >
+                  O Time
+                </span>
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+              </div>
+              <h2 className="h2" style={{ color: TEXT_HEAD, fontWeight: 400 }}>
+                Time de{" "}
+                <strong className="font-semibold">Especialistas em Marketing Hoteleiro</strong>
               </h2>
-              <p className="text-xl mb-8 text-blue-100">
-                Descubra como nossa gestão de tráfego para resorts e hotéis gera mais reservas diretas com menor custo de aquisição
-              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {equipe.map((e, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className="flex flex-col gap-3 p-7 rounded-2xl"
+                  style={{
+                    background: BG_CARD,
+                    border: `1px solid ${BORDER}`,
+                    boxShadow: "0 4px 24px rgba(26,15,8,0.05)",
+                  }}
+                >
+                  <div className="w-1 h-6 rounded-full" style={{ background: BRAND_GREEN }} />
+                  <h3 className="text-[15px] font-semibold" style={{ color: TEXT_HEAD }}>
+                    {e.titulo}
+                  </h3>
+                  <p className="text-[13px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+                    {e.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.p
+              variants={fadeUp}
+              className="mt-12 text-center text-[15px] font-light italic"
+              style={{ color: BRAND_BROWN }}
+            >
+              &ldquo;Cada hotel tem um potencial que ainda não foi explorado. Nós estamos aqui para desbloqueá-lo.&rdquo;
+            </motion.p>
+          </motion.div>
+        </section>
+
+        {/* ── CTA ── */}
+        <section
+          className="py-16 md:py-20 px-6 md:px-16 relative overflow-hidden"
+          style={{ background: "#2a1f14" }}
+        >
+          <div className="absolute inset-0 z-0" aria-hidden="true">
+            <img
+              src="/img/resource/seedsbackground.png"
+              alt=""
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0" style={{ background: "rgba(20,12,6,0.5)" }} />
+          </div>
+
+          <motion.div
+            className="relative z-10 max-w-3xl mx-auto text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={stagger}
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="font-semibold text-white leading-[1.08] tracking-[-0.025em] mb-5"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
+            >
+              Pronto para ter uma{" "}
+              <strong className="font-extralight italic" style={{ color: "rgba(255,255,255,0.75)" }}>
+                Agência de Marketing para Hotéis
+              </strong>{" "}
+              do seu lado?
+            </motion.h2>
+
+            <motion.p
+              variants={fadeUp}
+              className="text-[15px] font-light leading-[1.8] mb-8"
+              style={{ color: "rgba(255,255,255,0.55)", maxWidth: "480px", margin: "0 auto 2rem" }}
+            >
+              Em 30 minutos, mapeamos as principais oportunidades de reservas diretas do seu hotel — sem compromisso.
+            </motion.p>
+
+            <motion.div variants={fadeUp}>
               <Link
-                href="/#contact"
-                className="inline-block px-8 py-4 bg-white text-[#003D5C] font-bold rounded-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+                href="https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] active:scale-[0.98]"
+                style={{ background: BRAND_BROWN, letterSpacing: "0.05em" }}
               >
                 Solicitar Diagnóstico Gratuito
               </Link>
-            </div>
-          </div>
+              <p
+                className="mt-3 text-[11px] font-light"
+                style={{ color: "rgba(255,255,255,0.35)", letterSpacing: "0.05em" }}
+              >
+                Sem compromisso · 100% gratuito
+              </p>
+            </motion.div>
+          </motion.div>
         </section>
+
       </main>
       <Footer />
     </>
@@ -238,4 +376,3 @@ const Empresa = () => {
 };
 
 export default Empresa;
-

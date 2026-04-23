@@ -8,6 +8,7 @@ import {
   IconPalette,
   IconTargetArrow,
   IconChartBar,
+  IconBuildingStore,
 } from "@tabler/icons-react";
 
 const BRAND_GREEN = "#84936f";
@@ -48,9 +49,15 @@ const servicos = [
   },
   {
     icon: <IconTargetArrow size={22} stroke={1.4} />,
-    titulo: "Anúncios (Meta/Google)",
+    titulo: "Google Hotel Ads & Meta Ads",
     descricao:
-      "Tráfego pago inteligente segmentado para o público de alta renda pronto para reservar.",
+      "Tráfego pago inteligente — Google Hotel Ads, Search e Meta Ads segmentados para quem está pronto para reservar.",
+  },
+  {
+    icon: <IconBuildingStore size={22} stroke={1.4} />,
+    titulo: "SEO para Hotéis",
+    descricao:
+      "Otimização de mecanismos de busca focada em hotelaria para seu hotel aparecer antes dos concorrentes no Google.",
   },
   {
     icon: <IconChartBar size={22} stroke={1.4} />,
@@ -78,8 +85,8 @@ export default function OQueFazemos() {
   return (
     <section
       id="services"
-      className="py-16 md:py-20"
-      style={{ background: BG_SECTION }}
+      className="py-10 md:py-12"
+      style={{ background: "#F0EBE3" }}
     >
       <motion.div
         className="section-container"
@@ -91,10 +98,10 @@ export default function OQueFazemos() {
         {/* ── Header split ── */}
         <motion.div
           variants={fadeUp}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-8"
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6"
         >
           <div className="max-w-xl">
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
               <span
                 className="text-[10px] font-medium tracking-[0.3em] uppercase"
@@ -118,7 +125,7 @@ export default function OQueFazemos() {
           </div>
 
           <p
-            className="paragraph max-w-xs pb-4 italic"
+            className="paragraph max-w-xs pb-3 italic"
             style={{
               fontWeight: 300,
               color: TEXT_BODY,
@@ -131,7 +138,7 @@ export default function OQueFazemos() {
 
         {/* ── Bento Grid ── */}
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           style={{ borderTop: `1px solid ${BORDER}`, borderLeft: `1px solid ${BORDER}` }}
         >
           {servicos.map((s, i) => (
@@ -142,9 +149,9 @@ export default function OQueFazemos() {
         {/* ── CTA strip ── */}
         <motion.div
           variants={fadeUp}
-          className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-6 px-8 py-7 rounded-2xl"
+          className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-5 px-6 py-5 rounded-2xl"
           style={{
-            background: "#F0EBE3",
+            background: BG_CARD,
             border: `1px solid ${BORDER}`,
           }}
         >
@@ -164,7 +171,7 @@ export default function OQueFazemos() {
             href="https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center px-6 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+            className="shrink-0 inline-flex items-center px-6 py-3 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: BRAND_BROWN, letterSpacing: "0.04em" }}
           >
             Falar com Especialista
@@ -184,9 +191,9 @@ function BentoCard({
   return (
     <motion.div
       className={[
-        "group flex flex-col justify-between gap-4 p-7 md:p-8",
+        "group flex flex-col justify-between gap-2.5 p-4 md:p-5",
         "transition-all duration-700 cursor-default",
-        "hover:bg-[#84936f]",
+        "hover:bg-[#84936f] hover:scale-[1.02] hover:shadow-lg",
       ].join(" ")}
       style={{
         background: BG_CARD,
@@ -201,28 +208,29 @@ function BentoCard({
           transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
         },
       }}
+      whileHover={{ y: -4 }}
     >
       {/* Ícone */}
       <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:bg-white/15"
+        className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-500 group-hover:bg-white/15 group-hover:scale-110"
         style={{
           background: "rgba(132,147,111,0.12)",
           color: BRAND_GREEN,
         }}
       >
-        {servico.icon}
+        <div className="scale-90">{servico.icon}</div>
       </div>
 
       {/* Texto */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-1.5">
         <h3
-          className="text-[16px] font-semibold leading-snug transition-colors duration-500 group-hover:text-white"
+          className="text-[14px] font-semibold leading-tight transition-colors duration-500 group-hover:text-white"
           style={{ color: TEXT_HEAD }}
         >
           {servico.titulo}
         </h3>
         <p
-          className="text-[13px] leading-[1.8] font-light transition-colors duration-500 group-hover:text-white/75"
+          className="text-[11.5px] leading-[1.6] font-light transition-colors duration-500 group-hover:text-white/75"
           style={{ color: TEXT_BODY }}
         >
           {servico.descricao}

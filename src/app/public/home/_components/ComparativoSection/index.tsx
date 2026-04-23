@@ -57,7 +57,7 @@ const fadeRight: Variants = {
 
 export default function ComparativoSection() {
   return (
-    <section className="py-14 md:py-20 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
+    <section className="py-12 md:py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
       <div className="max-w-6xl mx-auto">
 
         {/* ── Header centralizado ── */}
@@ -66,33 +66,22 @@ export default function ComparativoSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
-          className="text-center mb-16 md:mb-20"
+          className="text-center mb-12 md:mb-14"
         >
-          <span
-            className="text-[10px] font-bold tracking-[0.4em] uppercase block mb-6"
-            style={{ color: BRAND_BROWN }}
-          >
-            The Benchmark
-          </span>
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
+            <span
+              className="text-[10px] font-medium tracking-[0.3em] uppercase"
+              style={{ color: BRAND_BROWN }}
+            >
+              O Comparativo
+            </span>
+            <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
+          </div>
 
-          {/* Título no estilo display serif — leve */}
-          <h2
-            style={{
-              fontFamily: "PP Hatton Medium, Georgia, serif",
-              fontSize: "clamp(2rem, 4.5vw, 3.6rem)",
-              fontWeight: 400,
-              color: "#1A0F08",
-              lineHeight: 1.1,
-              letterSpacing: "-0.01em",
-            }}
-          >
+          <h1 className="h1" style={{ color: "#1A0F08" }}>
             A diferença é clara
-          </h2>
-
-          <div
-            className="mx-auto mt-8"
-            style={{ width: "36px", height: "1px", background: "rgba(196,164,142,0.7)" }}
-          />
+          </h1>
         </motion.div>
 
         {/* ── Painéis ── */}
@@ -104,26 +93,23 @@ export default function ComparativoSection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeLeft}
-            className="flex-1 flex flex-col p-10 md:p-14"
+            className="flex-1 flex flex-col p-8 md:p-10"
             style={{
               background: "#FDFAF7",
               border: "1px solid rgba(196,164,142,0.22)",
             }}
           >
             <span
-              className="text-[9px] font-semibold tracking-[0.28em] uppercase mb-3 block"
-              style={{ color: "rgba(122,106,94,0.45)" }}
+              className="text-[9px] font-semibold tracking-[0.28em] uppercase mb-4 block"
+              style={{ color: "rgba(122,106,94,0.6)" }}
             >
               Estado Atual
             </span>
 
             <h3
-              className="mb-10 font-extralight leading-none"
+              className="text-[22px] md:text-[24px] font-light leading-tight mb-10 pb-4"
               style={{
-                fontFamily: "PP Hatton Medium, Georgia, serif",
-                fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
-                fontWeight: 400,
-                color: "rgba(26,15,8,0.28)",
+                color: "rgba(26,15,8,0.5)",
               }}
             >
               Sem Estrutura
@@ -134,21 +120,23 @@ export default function ComparativoSection() {
                 <li key={i} className="flex items-start gap-4">
                   {/* Ícone X */}
                   <div
-                    className="shrink-0 w-5 h-5 flex items-center justify-center mt-1.5"
-                    style={{ color: "rgba(180,80,65,0.5)" }}
+                    className="shrink-0 w-5 h-5 flex items-center justify-center mt-[3px] pt-2"
+                    style={{ color: "rgba(180,80,65,0.6)" }}
                   >
-                    <IconX size={13} stroke={2} />
+                    <IconX size={16} stroke={2.5} />
                   </div>
-                  <div className="flex flex-col gap-1.5">
+                  <div className="flex flex-col gap-2">
                     <h4
-                      className="text-[10px] font-semibold tracking-[0.2em] uppercase"
-                      style={{ color: "rgba(122,106,94,0.6)" }}
+                      className="text-[11px] font-semibold tracking-[0.15em] uppercase"
+                      style={{ color: "rgba(26,15,8,0.75)" }}
                     >
                       {item.label}
                     </h4>
                     <p
-                      className="text-[13.5px] font-light leading-[1.75]"
-                      style={{ color: "rgba(122,106,94,0.7)" }}
+                      className="text-[13px] font-light leading-relaxed"
+                      style={{ 
+                        color: "rgba(26,15,8,0.65)" 
+                      }}
                     >
                       {item.desc}
                     </p>
@@ -164,7 +152,7 @@ export default function ComparativoSection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeRight}
-            className="flex-1 flex flex-col p-10 md:p-14 relative overflow-hidden"
+            className="flex-1 flex flex-col p-8 md:p-10 relative overflow-hidden"
             style={{
               background: BRAND_GREEN,
               boxShadow: "0 32px 80px -16px rgba(0,0,0,0.18)",
@@ -181,19 +169,15 @@ export default function ComparativoSection() {
 
             <div className="relative z-10 flex flex-col h-full">
               <span
-                className="text-[9px] font-semibold tracking-[0.28em] uppercase mb-3 block"
-                style={{ color: "rgba(255,255,255,0.45)" }}
+                className="text-[9px] font-semibold tracking-[0.28em] uppercase mb-4 block"
+                style={{ color: "rgba(255,255,255,0.6)" }}
               >
                 Ecossistema Réserve
               </span>
 
               <h3
-                className="mb-10 leading-none"
+                className="text-[22px] md:text-[24px] font-light leading-tight mb-10 pb-4"
                 style={{
-                  fontFamily: "PP Hatton Medium, Georgia, serif",
-                  fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
-                  fontWeight: 400,
-                  fontStyle: "italic",
                   color: "#ffffff",
                 }}
               >
@@ -205,21 +189,23 @@ export default function ComparativoSection() {
                   <li key={i} className="flex items-start gap-4">
                     {/* Check circular preenchido */}
                     <div
-                      className="shrink-0 mt-1.5"
-                      style={{ color: "rgba(255,255,255,0.65)" }}
+                      className="shrink-0 mt-[3px] pt-1"
+                      style={{ color: "rgba(255,255,255,0.8)" }}
                     >
                       <IconCircleCheckFilled size={18} />
                     </div>
-                    <div className="flex flex-col gap-1.5">
+                    <div className="flex flex-col gap-2">
                       <h4
-                        className="text-[10px] font-semibold tracking-[0.2em] uppercase"
-                        style={{ color: "rgba(255,255,255,0.9)" }}
+                        className="text-[11px] font-semibold tracking-[0.15em] uppercase"
+                        style={{ color: "rgba(255,255,255,0.95)" }}
                       >
                         {item.label}
                       </h4>
                       <p
-                        className="text-[13.5px] font-light leading-[1.75]"
-                        style={{ color: "rgba(255,255,255,0.65)" }}
+                        className="text-[13px] font-light leading-relaxed"
+                        style={{ 
+                          color: "rgba(255,255,255,0.8)" 
+                        }}
                       >
                         {item.desc}
                       </p>

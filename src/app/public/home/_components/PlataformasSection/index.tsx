@@ -74,7 +74,7 @@ const stagger: Variants = {
 };
 
 const PlataformasSection = () => (
-  <section style={{ background: "#F0EBE3", paddingTop: "80px", paddingBottom: "80px" }}>
+  <section style={{ background: "#F0EBE3", paddingTop: "60px", paddingBottom: "60px" }}>
 
     {/* ── Bloco OTAs ── */}
     <motion.div
@@ -83,7 +83,7 @@ const PlataformasSection = () => (
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={stagger}
-      style={{ marginBottom: "80px" }}
+      style={{ marginBottom: "60px" }}
     >
       {/* Label */}
       <motion.div variants={fadeUp} className="flex items-center justify-center gap-3 mb-3">
@@ -142,7 +142,7 @@ const PlataformasSection = () => (
     {/* ── Divisor ── */}
     <div
       className="max-w-7xl mx-auto px-6 md:px-16"
-      style={{ height: "1px", background: "rgba(196,164,142,0.35)", marginBottom: "80px" }}
+      style={{ height: "1px", background: "rgba(196,164,142,0.35)", marginBottom: "60px" }}
     />
 
     {/* ── Bloco Canais Próprios ── */}

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Poppins, Inter } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import Script from 'next/script'
 // import { Suspense } from 'react'
 
@@ -19,17 +19,10 @@ import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/SEO/JsonLd';
 import { COMPANY_NAP } from '@/constants/company';
 
 // Optimize fonts with next/font
-const poppins = Poppins({
+const rubik = Rubik({
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-poppins',
-  display: 'swap',
-})
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-rubik',
   display: 'swap',
 })
 
@@ -41,8 +34,8 @@ export const metadata: Metadata = {
     default: 'Réserve | Agência de Marketing para Hotéis — Gestão de Tráfego para Resorts',
     template: '%s | Réserve Marketing'
   },
-  description: 'A Réserve é a agência de Marketing Hoteleiro especializada em gestão de tráfego para resorts, hotéis e pousadas. Aumente reservas diretas, elimine dependência de OTAs e maximize sua receita.',
-  keywords: COMPANY_NAP.primaryKeywords.join(', '),
+  description: 'Agência especializada em Marketing Hoteleiro. Google Hotel Ads, gestão de tráfego, SEO e motor de reservas para hotéis, resorts e pousadas aumentarem reservas diretas e reduzirem OTAs.',
+  keywords: 'marketing hoteleiro, agência de marketing para hotéis, gestão de tráfego para resorts, Google Hotel Ads, SEO para hotéis, motor de reservas, reservas diretas, reduzir OTAs, marketing para pousadas, aumentar ocupação hoteleira',
   authors: [{ name: COMPANY_NAP.name, url: siteUrl }],
   creator: COMPANY_NAP.name,
   publisher: COMPANY_NAP.name,
@@ -80,9 +73,9 @@ export const metadata: Metadata = {
     images: ['/og-image.jpg'], // Add this image to public folder
     creator: '@reservemarketing', // Update with real Twitter handle
   },
-  verification: {
-    google: 'your-google-verification-code', // Add real verification code
-  },
+  // verification: {
+  //   google: 'ADD_REAL_CODE_HERE',
+  // },
 }
 
 export default function RootLayout({
@@ -91,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${poppins.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={rubik.variable}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -16,8 +16,8 @@ const fadeRight: Variants = {
 };
 
 const TransformSection = () => (
-  <section id="transform" className="py-16 md:py-20 overflow-hidden" style={{ background: "#F7F3EE" }}>
-    <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+  <section id="transform" className="py-12 md:py-16 overflow-hidden" style={{ background: "#F7F3EE" }}>
+    <div className="section-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
       {/* Left — Text */}
       <motion.div
@@ -89,12 +89,7 @@ const TransformSection = () => (
       >
         {/* Imagem + arco */}
         <div className="relative flex items-center justify-center">
-
-          {/* Grid de pontos decorativo */}
-          
-
-         
-
+    
           {/* Imagem principal */}
           <div
             className="relative z-10 w-full max-w-sm mx-auto rounded-3xl overflow-hidden"

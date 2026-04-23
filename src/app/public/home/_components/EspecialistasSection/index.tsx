@@ -2,7 +2,6 @@
 
 import { motion, type Variants } from "framer-motion";
 
-const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
 
 const fadeLeft: Variants = {
@@ -12,7 +11,7 @@ const fadeLeft: Variants = {
 
 const EspecialistasSection = () => (
   <section className="overflow-hidden" style={{ background: BRAND_BROWN }}>
-    <div className="section-container grid grid-cols-1 lg:grid-cols-2 min-h-120">
+    <div className="section-container grid grid-cols-1 lg:grid-cols-2">
 
       {/* Text column */}
       <motion.div
@@ -20,7 +19,7 @@ const EspecialistasSection = () => (
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeLeft}
-        className="flex flex-col justify-center gap-8 py-20 md:py-24 text-center lg:text-left order-2 lg:order-1 relative"
+        className="flex flex-col justify-center gap-6 py-12 md:py-16 text-center lg:text-left order-2 lg:order-1 relative"
       >
         {/* Subtle highlight */}
         <div
@@ -65,9 +64,9 @@ const EspecialistasSection = () => (
         {/* Stats row */}
         <div className="flex flex-wrap justify-center lg:justify-start gap-8 pt-2">
           {[
-            { value: "OTAs", desc: "Redução de dependência" },
-            { value: "Direto", desc: "Canal próprio ativado" },
-            { value: "ROI", desc: "Rastreado e mensurável" },
+            { value: "40%+", desc: "Redução média de dependência de OTAs" },
+            { value: "3×", desc: "Aumento médio em reservas diretas" },
+            { value: "6 meses", desc: "Para resultados mensuráveis" },
           ].map((s, i) => (
             <div key={i} className="flex flex-col gap-1">
               <span
@@ -88,7 +87,7 @@ const EspecialistasSection = () => (
       </motion.div>
 
       {/* Image column */}
-      <div className="relative overflow-hidden min-h-72 lg:min-h-auto order-1 lg:order-2">
+      <div className="relative overflow-hidden min-h-64 lg:min-h-96 order-1 lg:order-2">
         {/* Left gradient fade */}
         <div
           className="absolute inset-y-0 left-0 w-1/2 pointer-events-none z-10"

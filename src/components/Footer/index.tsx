@@ -7,8 +7,8 @@ const BRAND_GREEN = "#84936f";
 
 const menuLinks = [
   { label: "Expertise", id: "services" },
-  { label: "Projetos", id: "para-quem-fazemos" },
-  { label: "O Método", id: "about" },
+  { label: "Serviços", id: "services" },
+  { label: "Quem Somos", id: "para-quem-fazemos" },
 ];
 
 const socialLinks = [
@@ -37,9 +37,9 @@ const Footer = () => {
   return (
     <footer style={{ background: "#F0EBE3", borderTop: "1px solid rgba(196,164,142,0.35)" }}>
       <div
-        className="max-w-7xl mx-auto px-6 md:px-16 py-16 md:py-24"
+        className="max-w-7xl mx-auto px-6 md:px-16 py-10 md:py-12"
       >
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16">
 
           {/* Marca + descrição */}
           <div className="flex flex-col gap-6 max-w-sm">
@@ -83,7 +83,7 @@ const Footer = () => {
           </div>
 
           {/* Colunas de links */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-16 lg:gap-24">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
 
             {/* Menu */}
             <div className="flex flex-col gap-5">
@@ -152,7 +152,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div
-          className="mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3"
+          className="mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
           style={{ borderTop: "1px solid rgba(196,164,142,0.3)" }}
         >
           <span

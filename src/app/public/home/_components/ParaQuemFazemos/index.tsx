@@ -55,7 +55,7 @@ export default function ParaQuemFazemos() {
   return (
     <section
       id="para-quem-fazemos"
-      className="py-20 md:py-24"
+      className="py-12 md:py-16"
       style={{ background: "#F7F3EE" }}
     >
       <motion.div
@@ -66,7 +66,7 @@ export default function ParaQuemFazemos() {
         variants={stagger}
       >
         {/* ── Header ── */}
-        <motion.div variants={fadeUp} className="text-center mb-14 md:mb-16">
+        <motion.div variants={fadeUp} className="text-center mb-10 md:mb-12">
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
             <span

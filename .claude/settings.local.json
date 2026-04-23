@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find /c/Users/gabri/OneDrive/Documents/GitHub/naturmarketing/src/app/public/home/_components -type f \\\\\\(-name *.tsx -o -name *.jsx -o -name *.ts -o -name *.js \\\\\\))"
+      "Bash(find /c/Users/gabri/OneDrive/Documents/GitHub/naturmarketing/src/app/public/home/_components -type f \\\\\\(-name *.tsx -o -name *.jsx -o -name *.ts -o -name *.js \\\\\\))",
+      "Bash(npx next *)"
     ]
   }
 }
