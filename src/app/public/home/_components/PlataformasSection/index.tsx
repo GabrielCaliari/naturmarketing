@@ -76,75 +76,6 @@ const stagger: Variants = {
 const PlataformasSection = () => (
   <section style={{ background: "#F0EBE3" }} className="py-10 md:py-16">
 
-    {/* ── Bloco OTAs ── */}
-    <motion.div
-      className="max-w-7xl mx-auto px-6 md:px-16 text-center"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={stagger}
-      style={{ marginBottom: "60px" }}
-    >
-      {/* Label */}
-      <motion.div variants={fadeUp} className="flex items-center justify-center gap-3 mb-3">
-        <div className="w-10 h-px" style={{ background: BRAND_GREEN }} />
-        <span
-          className="text-[9px] font-semibold tracking-[0.3em] uppercase"
-          style={{ color: BRAND_GREEN }}
-        >
-          Intermediários que gerenciamos
-        </span>
-      </motion.div>
-
-      {/* Título */}
-      <motion.h3
-        variants={fadeUp}
-        style={{
-          fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)",
-          fontWeight: 400,
-          lineHeight: 1.4,
-          color: "#4a3728",
-          marginBottom: "48px",
-        }}
-      >
-        Canais onde otimizamos o posicionamento do seu hotel
-      </motion.h3>
-
-      {/* Cards OTAs - agora com SVGs reais */}
-      <motion.div
-        variants={fadeUp}
-        className="flex items-center justify-center gap-3 flex-wrap"
-      >
-        {otas.map((ota) => (
-          <div
-            key={ota.label}
-            className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
-            style={{
-              background: "#FDFAF7",
-              border: "1px solid rgba(196,164,142,0.3)",
-              boxShadow: "0 2px 8px rgba(26,15,8,0.05)",
-              height: "48px",
-              minWidth: "120px",
-            }}
-          >
-            <Image
-              src={ota.src}
-              alt={ota.alt}
-              width={100}
-              height={100}
-              className="object-contain"
-            />
-          </div>
-        ))}
-      </motion.div>
-    </motion.div>
-
-    {/* ── Divisor ── */}
-    <div
-      className="max-w-7xl mx-auto px-6 md:px-16"
-      style={{ height: "1px", background: "rgba(196,164,142,0.35)", marginBottom: "60px" }}
-    />
-
     {/* ── Bloco Canais Próprios ── */}
     <motion.div
       className="max-w-7xl mx-auto px-6 md:px-16 text-center"
@@ -152,6 +83,7 @@ const PlataformasSection = () => (
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
       variants={stagger}
+      style={{ marginBottom: "60px" }}
     >
       {/* Label */}
       <motion.div variants={fadeUp} className="flex items-center justify-center gap-3 mb-3">
@@ -178,7 +110,7 @@ const PlataformasSection = () => (
         Canais onde construímos o seu ecossistema de reservas diretas
       </motion.h3>
 
-      {/* Chips de plataformas - otimizados */}
+      {/* Chips de plataformas */}
       <motion.div
         variants={fadeUp}
         className="flex items-center justify-center gap-3 flex-wrap"
@@ -206,6 +138,74 @@ const PlataformasSection = () => (
             >
               {canal.label}
             </span>
+          </div>
+        ))}
+      </motion.div>
+    </motion.div>
+
+    {/* ── Divisor ── */}
+    <div
+      className="max-w-7xl mx-auto px-6 md:px-16"
+      style={{ height: "1px", background: "rgba(196,164,142,0.35)", marginBottom: "60px" }}
+    />
+
+    {/* ── Bloco OTAs ── */}
+    <motion.div
+      className="max-w-7xl mx-auto px-6 md:px-16 text-center"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+      variants={stagger}
+    >
+      {/* Label */}
+      <motion.div variants={fadeUp} className="flex items-center justify-center gap-3 mb-3">
+        <div className="w-10 h-px" style={{ background: BRAND_GREEN }} />
+        <span
+          className="text-[9px] font-semibold tracking-[0.3em] uppercase"
+          style={{ color: BRAND_GREEN }}
+        >
+          Intermediários que gerenciamos
+        </span>
+      </motion.div>
+
+      {/* Título */}
+      <motion.h3
+        variants={fadeUp}
+        style={{
+          fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)",
+          fontWeight: 400,
+          lineHeight: 1.4,
+          color: "#4a3728",
+          marginBottom: "48px",
+        }}
+      >
+        Canais onde otimizamos o posicionamento do seu hotel
+      </motion.h3>
+
+      {/* Cards OTAs */}
+      <motion.div
+        variants={fadeUp}
+        className="flex items-center justify-center gap-3 flex-wrap"
+      >
+        {otas.map((ota) => (
+          <div
+            key={ota.label}
+            className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+            style={{
+              background: "#FDFAF7",
+              border: "1px solid rgba(196,164,142,0.3)",
+              boxShadow: "0 2px 8px rgba(26,15,8,0.05)",
+              height: "48px",
+              minWidth: "120px",
+            }}
+          >
+            <Image
+              src={ota.src}
+              alt={ota.alt}
+              width={100}
+              height={100}
+              className="object-contain"
+            />
           </div>
         ))}
       </motion.div>
