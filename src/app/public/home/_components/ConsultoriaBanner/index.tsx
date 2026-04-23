@@ -26,18 +26,16 @@ export default function ConsultoriaBanner() {
 
   return (
     <section
-      className="relative py-10 md:py-16 px-6 md:px-16 overflow-hidden"
-      style={{ background: "#2a1f14" }}
+      className="relative flex flex-col overflow-hidden px-6 md:px-16"
+      style={{ minHeight: "80svh", background: "#2a1f14" }}
     >
-      {/* Background image — bem visível */}
+      {/* Background image */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <img
           src="/img/resource/seedsbackground.png"
           alt=""
           className="w-full h-full object-cover"
-          
         />
-        {/* Overlay escuro leve para legibilidade */}
         <div
           className="absolute inset-0"
           style={{ background: "rgba(20,12,6,0.45)" }}
@@ -46,20 +44,21 @@ export default function ConsultoriaBanner() {
 
       {/* Conteúdo */}
       <motion.div
-        className="relative z-10 max-w-5xl mx-auto text-center"
+        className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-5xl mx-auto w-full"
+        style={{ paddingTop: "100px", paddingBottom: "80px" }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={stagger}
       >
         {/* Badge */}
-        <motion.div variants={fadeUp} style={{ marginBottom: "1.5rem" }}>
+        <motion.div variants={fadeUp} style={{ marginBottom: "1.75rem" }}>
           <span
             className="inline-flex items-center gap-2.5 text-[10px] font-medium tracking-[0.28em] uppercase px-5 py-2.5 rounded-full"
             style={{
-              color: "rgba(255,255,255,0.8)",
-              border: "1px solid rgba(255,255,255,0.18)",
-              background: "rgba(255,255,255,0.06)",
+              color: "rgba(255,255,255,0.85)",
+              border: "1px solid rgba(255,255,255,0.3)",
+              background: "rgba(255,255,255,0.08)",
             }}
           >
             <span className="w-1 h-1 rounded-full bg-white/60" />
@@ -67,55 +66,57 @@ export default function ConsultoriaBanner() {
           </span>
         </motion.div>
 
-        {/* Heading grande */}
+        {/* Título — mesmo tamanho do Banner hero */}
         <motion.h2
           variants={fadeUp}
-          className="h2 text-white"
           style={{
+            color: "#ffffff",
+            marginBottom: "1.5rem",
+            maxWidth: "900px",
+            fontSize: "clamp(2.25rem, 4.5vw, 4rem)",
+            fontWeight: 700,
+            lineHeight: "1.05",
             textAlign: "center",
-            marginBottom: "1.25rem",
           }}
         >
-          Descubra por que seu hotel{" "}
-          <em
-            className="font-light"
-            style={{ fontStyle: "italic", color: "rgba(255,255,255,0.75)" }}
-          >
-            perde reservas
-          </em>{" "}
+          Descubra por que seu<br/> hotel{" "}
+         
+            perde reservas<br/>
+          
           todos os dias
         </motion.h2>
 
-        {/* Subtexto */}
+        {/* Subtítulo — mesmo tamanho do Banner hero */}
         <motion.p
           variants={fadeUp}
-          className="paragraph"
           style={{
             fontWeight: 300,
-            lineHeight: 1.8,
-            color: "rgba(255,255,255,0.55)",
+            color: "rgba(255,255,255,0.75)",
             textAlign: "center",
-            maxWidth: "560px",
-            margin: "0 auto 2rem",
+            maxWidth: "520px",
+            margin: "0 auto 2.75rem",
+            fontSize: "clamp(1rem, 2vw, 1.25rem)",
+            lineHeight: 1.7,
           }}
         >
-          Solicite uma análise estratégica gratuita e receba um plano de ação personalizado
-          para aumentar seu faturamento direto.
+          Solicite uma análise estratégica gratuita e receba um plano de ação personalizado.<br />
+          <strong style={{ fontWeight: 600, color: "#ffffff" }}>
+            Aumente seu faturamento direto agora.
+          </strong>
         </motion.p>
 
         {/* CTA */}
         <motion.div
           variants={fadeUp}
-          className="flex flex-col items-center gap-3"
+          className="flex flex-wrap items-center justify-center gap-5"
         >
           <button
             onClick={handleClick}
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] active:scale-[0.98]"
-            style={{ background: BRAND_BROWN, letterSpacing: "0.05em" }}
+            className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-medium tracking-[0.1em] uppercase text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+            style={{ background: BRAND_BROWN, letterSpacing: "0.08em" }}
           >
             Diagnóstico Gratuito
           </button>
-          
         </motion.div>
       </motion.div>
     </section>
