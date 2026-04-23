@@ -74,7 +74,7 @@ const stagger: Variants = {
 };
 
 const PlataformasSection = () => (
-  <section style={{ background: "#F0EBE3", paddingTop: "60px", paddingBottom: "60px" }}>
+  <section style={{ background: "#F0EBE3" }} className="py-10 md:py-16">
 
     {/* ── Bloco OTAs ── */}
     <motion.div

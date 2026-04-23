@@ -26,7 +26,7 @@ export default function ConsultoriaBanner() {
 
   return (
     <section
-      className="relative py-10 md:py-12 px-6 md:px-16 overflow-hidden"
+      className="relative py-10 md:py-16 px-6 md:px-16 overflow-hidden"
       style={{ background: "#2a1f14" }}
     >
       {/* Background image — bem visível */}

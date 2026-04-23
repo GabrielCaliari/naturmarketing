@@ -85,7 +85,7 @@ export default function OQueFazemos() {
   return (
     <section
       id="services"
-      className="py-10 md:py-12"
+      className="py-10 md:py-16"
       style={{ background: "#F0EBE3" }}
     >
       <motion.div

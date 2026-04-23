@@ -57,7 +57,7 @@ const fadeRight: Variants = {
 
 export default function ComparativoSection() {
   return (
-    <section className="py-12 md:py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
+    <section className="py-10 md:py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
       <div className="max-w-6xl mx-auto">
 
         {/* ── Header centralizado ── */}

@@ -58,7 +58,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="py-16 md:py-24 px-6 md:px-16"
+      className="py-10 md:py-16 px-6 md:px-16"
       style={{ background: "#F0EBE3" }}
     >
       {/* FAQ Schema */}

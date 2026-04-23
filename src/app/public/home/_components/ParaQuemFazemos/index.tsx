@@ -55,7 +55,7 @@ export default function ParaQuemFazemos() {
   return (
     <section
       id="para-quem-fazemos"
-      className="py-12 md:py-16"
+      className="py-10 md:py-16"
       style={{ background: "#F7F3EE" }}
     >
       <motion.div

@@ -19,7 +19,7 @@ const EspecialistasSection = () => (
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeLeft}
-        className="flex flex-col justify-center gap-6 py-12 md:py-16 text-center lg:text-left order-2 lg:order-1 relative"
+        className="flex flex-col justify-center gap-6 py-10 md:py-16 text-center lg:text-left order-2 lg:order-1 relative"
       >
         {/* Subtle highlight */}
         <div
