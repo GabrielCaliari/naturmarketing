@@ -70,13 +70,13 @@ const EspecialistasSection = () => (
           ].map((s, i) => (
             <div key={i} className="flex flex-col gap-1">
               <span
-                className="text-[13px] font-semibold tracking-wide"
+                className="text-[15px] font-semibold tracking-wide"
                 style={{ color: "rgba(255,255,255,0.9)" }}
               >
                 {s.value}
               </span>
               <span
-                className="text-[11px] font-light"
+                className="text-[13px] font-light"
                 style={{ color: "rgba(255,255,255,0.45)" }}
               >
                 {s.desc}

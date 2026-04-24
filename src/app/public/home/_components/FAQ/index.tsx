@@ -125,7 +125,7 @@ export default function FAQ() {
                 className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
               >
                 <span
-                  className="text-[14px] font-medium leading-snug"
+                  className="text-[17px] font-medium leading-snug"
                   style={{ color: "#1A0F08" }}
                 >
                   {faq.pergunta}
@@ -151,7 +151,7 @@ export default function FAQ() {
                     style={{ overflow: "hidden" }}
                   >
                     <p
-                      className="px-6 pb-6 text-[13.5px] font-light leading-[1.85]"
+                      className="px-6 pb-6 text-[16px] font-light leading-[1.85]"
                       style={{ color: "#7a6a5e" }}
                     >
                       {faq.resposta}

@@ -99,10 +99,9 @@ const PlataformasSection = () => (
       {/* Título */}
       <motion.h3
         variants={fadeUp}
+        className="h2"
         style={{
-          fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)",
           fontWeight: 400,
-          lineHeight: 1.4,
           color: "#4a3728",
           marginBottom: "48px",
         }}
@@ -171,10 +170,9 @@ const PlataformasSection = () => (
       {/* Título */}
       <motion.h3
         variants={fadeUp}
+        className="h2"
         style={{
-          fontSize: "clamp(1.1rem, 1.8vw, 1.4rem)",
           fontWeight: 400,
-          lineHeight: 1.4,
           color: "#4a3728",
           marginBottom: "48px",
         }}

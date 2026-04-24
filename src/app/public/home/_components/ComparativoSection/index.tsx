@@ -7,33 +7,17 @@ const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
 
 const semItems = [
-  {
-    label: "Altas Taxas OTAs",
-    desc: "Dependência extrema de Booking e Expedia, perdendo margem de lucro.",
-  },
-  {
-    label: "Comunicação Genérica",
-    desc: "O hotel parece apenas mais um no meio de centenas de opções.",
-  },
-  {
-    label: "Marketing Reativo",
-    desc: "Postagens sem estratégia apenas quando a ocupação está baixa.",
-  },
+  "Altas taxas de comissão nas OTAs",
+  "Comunicação genérica sem identidade",
+  "Marketing reativo e sem estratégia",
+  "Dependência total de intermediários",
 ];
 
 const comItems = [
-  {
-    label: "Reservas Diretas",
-    desc: "Redução de custos com comissões e fidelização direta do hóspede.",
-  },
-  {
-    label: "Comunicação Premium",
-    desc: "Posicionamento de marca que atrai o público certo e justifica o preço.",
-  },
-  {
-    label: "ROI Mensurável",
-    desc: "Estratégia previsível com foco em crescimento sustentável de receita.",
-  },
+  "Reservas diretas com zero comissão",
+  "Posicionamento premium e diferenciado",
+  "Estratégia integrada com ROI mensurável",
+  "Canal próprio de aquisição de hóspedes",
 ];
 
 const fadeUp: Variants = {
@@ -41,182 +25,106 @@ const fadeUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
-const fadeLeft: Variants = {
-  hidden: { opacity: 0, x: -32 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const fadeRight: Variants = {
-  hidden: { opacity: 0, x: 32 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, delay: 0.14, ease: [0.25, 0.46, 0.45, 0.94] },
-  },
+const stagger: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 export default function ComparativoSection() {
   return (
-    <section className="py-10 md:py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
-      <div className="max-w-6xl mx-auto">
+    <section className="py-10 md:py-16" style={{ background: "#F7F3EE" }}>
+      <div className="section-container">
 
-        {/* ── Header centralizado ── */}
+        {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
-          className="text-center mb-12 md:mb-14"
+          className="text-center mb-10 md:mb-12"
         >
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
-            <span
-              className="text-[10px] font-medium tracking-[0.3em] uppercase"
-              style={{ color: BRAND_BROWN }}
-            >
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>
               O Comparativo
             </span>
             <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
           </div>
-
-          <h1 className="h1" style={{ color: "#1A0F08" }}>
-            A diferença é clara
-          </h1>
+          <h2 className="h1">A diferença é clara</h2>
         </motion.div>
 
-        {/* ── Painéis ── */}
-        <div className="flex flex-col lg:flex-row items-stretch gap-0">
-
-          {/* Sem estrutura */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeLeft}
-            className="flex-1 flex flex-col p-8 md:p-10"
-            style={{
-              background: "#FDFAF7",
-              border: "1px solid rgba(196,164,142,0.22)",
-            }}
-          >
-            <span
-              className="text-[9px] font-semibold tracking-[0.28em] uppercase mb-4 block"
-              style={{ color: "rgba(122,106,94,0.6)" }}
-            >
-              Estado Atual
-            </span>
-
-            <h3
-              className="text-[22px] md:text-[24px] font-light leading-tight mb-10 pb-4"
-              style={{
-                color: "rgba(26,15,8,0.5)",
-              }}
-            >
-              Sem Estrutura
-            </h3>
-
-            <ul className="flex flex-col gap-8 flex-1">
-              {semItems.map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  {/* Ícone X */}
-                  <div
-                    className="shrink-0 w-5 h-5 flex items-center justify-center mt-[3px] pt-2"
-                    style={{ color: "rgba(180,80,65,0.6)" }}
-                  >
-                    <IconX size={16} stroke={2.5} />
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <h4
-                      className="text-[11px] font-semibold tracking-[0.15em] uppercase"
-                      style={{ color: "rgba(26,15,8,0.75)" }}
-                    >
-                      {item.label}
-                    </h4>
-                    <p
-                      className="text-[13px] font-light leading-relaxed"
-                      style={{ 
-                        color: "rgba(26,15,8,0.65)" 
-                      }}
-                    >
-                      {item.desc}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Com a Réserve */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeRight}
-            className="flex-1 flex flex-col p-8 md:p-10 relative overflow-hidden"
-            style={{
-              background: BRAND_GREEN,
-              boxShadow: "0 32px 80px -16px rgba(0,0,0,0.18)",
-            }}
-          >
-            {/* Radial highlight */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse 80% 55% at 75% 15%, rgba(255,255,255,0.09) 0%, transparent 65%)",
-              }}
-            />
-
-            <div className="relative z-10 flex flex-col h-full">
+        {/* Colunas */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={stagger}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto"
+        >
+          {/* Coluna esquerda — Sem estrutura */}
+          <div className="flex flex-col gap-3">
+            <motion.div variants={fadeUp} className="mb-3">
               <span
-                className="text-[9px] font-semibold tracking-[0.28em] uppercase mb-4 block"
-                style={{ color: "rgba(255,255,255,0.6)" }}
+                className="text-[32px] font-light"
+                style={{ color: "rgba(26,15,8,0.35)", fontFamily: "var(--font-rubik), sans-serif" }}
               >
-                Ecossistema Réserve
+                Sem estrutura
               </span>
-
-              <h3
-                className="text-[22px] md:text-[24px] font-light leading-tight mb-10 pb-4"
+            </motion.div>
+            {semItems.map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="flex items-center gap-3 px-4 py-3.5 rounded-xl"
                 style={{
-                  color: "#ffffff",
+                  background: "#FDFAF7",
+                  border: "1px solid rgba(196,164,142,0.22)",
                 }}
               >
-                Com a Réserve
-              </h3>
+                <div className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(180,80,65,0.1)", color: "rgba(180,80,65,0.7)" }}>
+                  <IconX size={13} stroke={2.5} />
+                </div>
+                <span className="text-[15px] font-light" style={{ color: "rgba(26,15,8,0.6)" }}>
+                  {item}
+                </span>
+              </motion.div>
+            ))}
+          </div>
 
-              <ul className="flex flex-col gap-8 flex-1">
-                {comItems.map((item, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    {/* Check circular preenchido */}
-                    <div
-                      className="shrink-0 mt-[3px] pt-1"
-                      style={{ color: "rgba(255,255,255,0.8)" }}
-                    >
-                      <IconCircleCheckFilled size={18} />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <h4
-                        className="text-[11px] font-semibold tracking-[0.15em] uppercase"
-                        style={{ color: "rgba(255,255,255,0.95)" }}
-                      >
-                        {item.label}
-                      </h4>
-                      <p
-                        className="text-[13px] font-light leading-relaxed"
-                        style={{ 
-                          color: "rgba(255,255,255,0.8)" 
-                        }}
-                      >
-                        {item.desc}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+          {/* Coluna direita — Com a Réserve */}
+          <div className="flex flex-col gap-3">
+            <motion.div variants={fadeUp} className="mb-3">
+              <span
+                className="text-[32px]"
+                style={{ color: BRAND_GREEN, fontWeight: 400 }}
+              >
+                Com a{" "}
+                <span style={{ fontFamily: "PP Hatton Medium, Georgia, serif", fontWeight: 400 }}>
+                  réserve
+                </span>
+              </span>
+            </motion.div>
+            {comItems.map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="flex items-center gap-3 px-4 py-3.5 rounded-xl"
+                style={{
+                  background: BRAND_GREEN,
+                  border: "none",
+                }}
+              >
+                <div className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(255,255,255,0.2)", color: "#ffffff" }}>
+                  <IconCircleCheckFilled size={15} />
+                </div>
+                <span className="text-[15px] font-light" style={{ color: "rgba(255,255,255,0.92)" }}>
+                  {item}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-        </div>
       </div>
     </section>
   );

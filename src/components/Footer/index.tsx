@@ -55,7 +55,7 @@ const Footer = () => {
               réserve
             </span>
             <p
-              className="text-[14px] font-light leading-[1.85]"
+              className="text-[16px] font-light leading-[1.85]"
               style={{ color: "#7a6a5e" }}
             >
               Agência especializada em Marketing Hoteleiro. Transformamos hotéis, 
@@ -88,7 +88,7 @@ const Footer = () => {
             {/* Menu */}
             <div className="flex flex-col gap-5">
               <span
-                className="text-[9px] font-bold tracking-[0.25em] uppercase"
+                className="text-[11px] font-bold tracking-[0.25em] uppercase"
                 style={{ color: "rgba(26,15,8,0.3)" }}
               >
                 Menu
@@ -97,7 +97,7 @@ const Footer = () => {
                 <button
                   key={item.label}
                   onClick={() => handleNav(item.id)}
-                  className="text-left text-[11px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
+                  className="text-left text-[14px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#7a6a5e", fontWeight: 400 }}
                 >
                   {item.label}
@@ -108,7 +108,7 @@ const Footer = () => {
             {/* Social */}
             <div className="flex flex-col gap-5">
               <span
-                className="text-[9px] font-bold tracking-[0.25em] uppercase"
+                className="text-[11px] font-bold tracking-[0.25em] uppercase"
                 style={{ color: "rgba(26,15,8,0.3)" }}
               >
                 Social
@@ -119,7 +119,7 @@ const Footer = () => {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
+                  className="text-[14px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#7a6a5e", fontWeight: 400 }}
                 >
                   {s.label}
@@ -130,7 +130,7 @@ const Footer = () => {
             {/* Legal */}
             <div className="flex flex-col gap-5">
               <span
-                className="text-[9px] font-bold tracking-[0.25em] uppercase"
+                className="text-[11px] font-bold tracking-[0.25em] uppercase"
                 style={{ color: "rgba(26,15,8,0.3)" }}
               >
                 Legal
@@ -139,7 +139,7 @@ const Footer = () => {
                 <Link
                   key={l.label}
                   href={l.href}
-                  className="text-[11px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
+                  className="text-[14px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#7a6a5e", fontWeight: 400 }}
                 >
                   {l.label}
@@ -156,14 +156,14 @@ const Footer = () => {
           style={{ borderTop: "1px solid rgba(196,164,142,0.3)" }}
         >
           <span
-            className="text-[10px] tracking-[0.18em] uppercase"
+            className="text-[12px] tracking-[0.18em] uppercase"
             style={{ color: "rgba(26,15,8,0.35)" }}
           >
             © {new Date().getFullYear()} RÉSERVE · Marketing Hoteleiro
           </span>
           <Link
             href="/privacy-policy"
-            className="text-[10px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
+            className="text-[12px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
             style={{ color: "rgba(26,15,8,0.35)" }}
           >
             Política de Privacidade

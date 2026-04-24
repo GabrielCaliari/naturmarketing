@@ -25,7 +25,7 @@ const TransformSection = () => (
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeLeft}
-        className="flex flex-col gap-6 w-full max-w-md"
+        className="flex flex-col gap-6 w-full max-w-md items-center text-center lg:items-start lg:text-left"
       >
         {/* Label */}
         <div className="flex items-center gap-3">
@@ -38,30 +38,21 @@ const TransformSection = () => (
           </span>
         </div>
 
-        {/* Headline — usando h3 padronizado */}
+        {/* Headline */}
         <div className="flex flex-col gap-4">
-          <h3
-            className="h3"
-            style={{ color: "#1A0F08" }}
-          >
+          <h3 className="h3" style={{ color: "#1A0F08" }}>
             Somos especialistas<br />em Marketing Hoteleiro.
           </h3>
-          <h3
-            className="h3"
-            style={{ color: "#1A0F08" }}
-          >
-            Construímos canais<br/> próprios que geram{" "}<br/> 
+          <h3 className="h3" style={{ color: "#1A0F08" }}>
+            Construímos canais próprios que geram{" "}
             <span style={{ color: BRAND_GREEN }}>reservas diretas</span>{" "}
-            e <br/> eliminam a comissão<br/>  das OTAs.
+            e eliminam a comissão das OTAs.
           </h3>
         </div>
 
-        {/* Body — usando paragraph padrão */}
-        <p
-          className="paragraph"
-          style={{ fontWeight: 300, color: "#6b5c50" }}
-        >
-          Visibilidade de verdade, hóspedes que pagam<br/> pelo valor{" "}
+        {/* Body */}
+        <p className="paragraph" style={{ fontWeight: 300, color: "#6b5c50" }}>
+          Visibilidade de verdade, hóspedes que pagam pelo valor{" "}
           <strong className="font-medium" style={{ color: "#3a2518" }}>
             e margem que fica com você.
           </strong>

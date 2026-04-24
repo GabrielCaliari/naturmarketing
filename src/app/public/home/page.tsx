@@ -14,6 +14,7 @@ const PlataformasSection = lazy(() => import("./_components/PlataformasSection")
 const QuemSomos = lazy(() => import("./_components/QuemSomos"));
 const EspecialistasSection = lazy(() => import("./_components/EspecialistasSection"));
 const ComparativoSection = lazy(() => import("./_components/ComparativoSection"));
+const ResultadosSection = lazy(() => import("./_components/ResultadosSection"));
 const FAQ = lazy(() => import("./_components/FAQ"));
 const ConsultoriaBanner = lazy(() => import("./_components/ConsultoriaBanner"));
 const Contact = lazy(() => import("./_components/Contact"));
@@ -40,6 +41,10 @@ const Home = () => {
           <TransformSection />
         </Suspense>
         
+        
+        <Suspense fallback={<SectionSkeleton />}>
+          <ResultadosSection />
+        </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           <OQueFazemos />
         </Suspense>
@@ -52,11 +57,10 @@ const Home = () => {
           <PlataformasSection />
         </Suspense>
 
-   
-
         <Suspense fallback={<SectionSkeleton />}>
           <ComparativoSection />
         </Suspense>
+
 
         <Suspense fallback={<SectionSkeleton />}>
           <FAQ />
