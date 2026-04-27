@@ -109,8 +109,8 @@ const Banner = () => {
             href="https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-medium tracking-[0.1em] uppercase text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
-            style={{ background: "#994f2a", letterSpacing: "0.08em" }}
+            className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+            style={{ background: "#ffffff", color: "#1A0F08", letterSpacing: "0.08em" }}
           >
             Diagnóstico Gratuito
           </a>
