@@ -8,7 +8,7 @@ const BRAND_BROWN = "#994f2a";
 
 const publicos = [
   {
-    image: "/img/resource/hotel&resort.png",
+    image: "/img/resource/hotel&resort.webp",
     icon: <IconBuilding size={13} stroke={1.8} />,
     label: "Escala e Posicionamento",
     titulo: "Hotéis e Resorts",

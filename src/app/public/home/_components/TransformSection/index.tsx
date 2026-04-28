@@ -77,7 +77,7 @@ const TransformSection = () => (
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeRight}
-        className="w-full max-w-sm"
+        className="hidden lg:block w-full max-w-sm"
       >
         {/* Imagem + arco */}
         <div className="relative flex items-center justify-center">

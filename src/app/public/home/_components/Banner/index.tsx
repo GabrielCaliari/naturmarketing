@@ -106,7 +106,7 @@ const Banner = () => {
           className="flex flex-wrap items-center justify-center gap-5"
         >
           <a
-            href="https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
+            href="https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"

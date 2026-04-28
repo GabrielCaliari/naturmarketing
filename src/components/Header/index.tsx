@@ -8,7 +8,7 @@ import { IconMenu3, IconX } from "@tabler/icons-react";
 const navLinks = [
   { label: "Início", href: "/" },
   { label: "Serviços", id: "services" },
-  { label: "Quem Somos", id: "about" },
+  // { label: "Quem Somos", id: "about" },
   // { label: "Blog", href: "/public/blog" },
   { label: "Contato", id: "contact" },
 ];
@@ -61,9 +61,20 @@ const Header = () => {
               </div>
             )}
 
+            {isMobile && (
+              <a
+                href="https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="header-cta-btn"
+              >
+                Diagnóstico Gratuito
+              </a>
+            )}
+
             {!isMobile && (
               <a
-                href="https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
+                href="https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="header-cta-btn"
@@ -156,6 +167,25 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
             </motion.div>
           ))}
         </nav>
+        
+        {/* CTA Button at the bottom of Mobile Menu */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 + navLinks.length * 0.06, duration: 0.25 }}
+          className="absolute bottom-8 left-0 right-0 px-6"
+        >
+          <a
+            href="https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center px-6 py-3.5 rounded-full text-[14px] font-medium text-white transition-all duration-300 shadow-lg"
+            style={{ background: "#994f2a", letterSpacing: "0.04em" }}
+            onClick={onClose}
+          >
+            Diagnóstico Gratuito
+          </a>
+        </motion.div>
       </motion.div>
     </div>
   );

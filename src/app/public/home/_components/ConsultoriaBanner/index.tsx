@@ -19,13 +19,14 @@ export default function ConsultoriaBanner() {
   const handleClick = () => {
     trackButtonClick("cta_diagnostico", "/");
     window.open(
-      "https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.",
+      "https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.",
       "_blank"
     );
   };
 
   return (
     <section
+      id="contact"
       className="relative flex flex-col overflow-hidden px-6 md:px-16"
       style={{ minHeight: "80svh", background: "#2a1f14" }}
     >

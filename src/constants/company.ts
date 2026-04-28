@@ -17,10 +17,10 @@ export const COMPANY_NAP = {
   // Contact Information
   email: "contato@reservemarketing.com.br",
   phone: {
-    display: "(11) 99999-9999", // Update with real phone
-    href: "tel:+5511999999999", // Update with real phone
-    raw: "11999999999", // Update with real phone
-    schema: "+55-11-99999-9999" // Update with real phone
+    display: "(35) 9774-2984",
+    href: "tel:+553597742984",
+    raw: "553597742984",
+    schema: "+55-35-9774-2984"
   },
   
   // Address Information
@@ -50,11 +50,11 @@ export const COMPANY_NAP = {
   foundingYear: 2024, // Update with real founding year
   
   // URLs and Digital Presence
-  url: "https://www.reservemarketing.com.br", // Update with real domain
+  url: "https://www.reservemkt.com.br", // Update with real domain
   
   // Social Media Profiles
   social: {
-    instagram: "https://instagram.com/reservemarketing", // Update with real profile
+    instagram: "https://www.instagram.com/reserve.mkt/", // Update with real profile
     facebook: "https://facebook.com/reservemarketing", // Update with real profile
     linkedin: "https://linkedin.com/company/reservemarketing", // Update with real profile
     googleMaps: "https://maps.google.com/place/reservemarketing", // Update with real Google Maps URL
