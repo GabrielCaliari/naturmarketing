@@ -5,12 +5,9 @@ import { motion, type Variants } from "framer-motion";
 import {
   IconChevronLeft,
   IconChevronRight,
-  IconBrandInstagram,
   IconBrandMeta,
-  IconCamera,
-  IconBrandWhatsapp,
+  IconBrandGoogle,
 } from "@tabler/icons-react";
-import Image from "next/image";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -20,24 +17,71 @@ const TEXT_HEAD   = "#1A0F08";
 const TEXT_BODY   = "#7a6a5e";
 const TEXT_LABEL  = "#84936f";
 
+// Ícones inline SVG padronizados
+const InstagramIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="4" y="4" width="16" height="16" rx="4" />
+    <circle cx="12" cy="12" r="3" />
+    <path d="M16.5 7.5v.001" />
+  </svg>
+);
+
+const CameraIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+    <circle cx="12" cy="13" r="3" />
+  </svg>
+);
+
+const SiteIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+  </svg>
+);
+
+
+
+const SEOIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.35-4.35" />
+    <path d="M11 8v6M8 11h6" />
+  </svg>
+);
+
+const AnalyticsIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 3v18h18" />
+    <path d="M18 17V9M13 17V5M8 17v-3" />
+  </svg>
+);
+
+const WhatsAppIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+  </svg>
+);
+
 const servicos = [
   {
-    icon: <IconBrandInstagram size={28} stroke={1.3} />,
+    icon: <InstagramIcon />,
     titulo: "Gestão de Canais Digitais",
     descricao: "Redes sociais, OTAs e plataformas digitais gerenciadas de forma integrada — do Instagram ao Booking, do Google ao WhatsApp.",
   },
   {
-    icon: <IconCamera size={28} stroke={1.3} />,
+    icon: <CameraIcon />,
     titulo: "Produção Audiovisual",
     descricao: "Vídeos e fotografia de alto padrão que capturam a alma e a atmosfera única do seu hotel.",
   },
   {
-    svgSrc: "/img/svg/siteicon.svg",
+    icon: <SiteIcon />,
     titulo: "Sites e Landing Pages",
     descricao: "Interfaces focadas em conversão com navegação fluida e integração direta com motor de reservas.",
   },
   {
-    svgSrc: "/img/svg/googleadsicon.svg",
+    icon: <IconBrandGoogle size={28} stroke={1.3} />,
     titulo: "Google Ads & Hotel Ads",
     descricao: "Google Hotel Ads, Search e Display segmentados para capturar viajantes no momento da decisão.",
   },
@@ -47,17 +91,17 @@ const servicos = [
     descricao: "Anúncios no Facebook e Instagram que alcançam o público ideal e convertem em reservas diretas.",
   },
   {
-    svgSrc: "/img/svg/iconeSEO.svg",
+    icon: <SEOIcon />,
     titulo: "SEO para Hotéis",
     descricao: "Otimização focada em hotelaria para seu hotel aparecer antes dos concorrentes no Google.",
   },
   {
-    svgSrc: "/img/svg/analyticsicon.svg",
+    icon: <AnalyticsIcon />,
     titulo: "Relatórios de Performance",
     descricao: "Análise profunda de ROI e métricas de desempenho para decisões baseadas em dados reais.",
   },
   {
-    icon: <IconBrandWhatsapp size={28} stroke={1.3} />,
+    icon: <WhatsAppIcon />,
     titulo: "Automação de Atendimento",
     descricao: "Automação inteligente do WhatsApp para capturar leads, responder dúvidas e converter reservas 24h por dia.",
   },
@@ -77,7 +121,7 @@ const stagger: Variants = {
 function BentoCard({
   servico,
 }: {
-  servico: { icon?: React.ReactNode; svgSrc?: string; titulo: string; descricao: string };
+  servico: { icon: React.ReactNode; titulo: string; descricao: string };
 }) {
   return (
     <div
@@ -96,11 +140,7 @@ function BentoCard({
         className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:bg-white/15"
         style={{ background: "rgba(132,147,111,0.12)", color: BRAND_GREEN }}
       >
-        {servico.svgSrc ? (
-          <Image src={servico.svgSrc} alt={servico.titulo} width={26} height={26} className="object-contain" />
-        ) : (
-          servico.icon
-        )}
+        {servico.icon}
       </div>
       {/* Texto */}
       <div className="flex flex-col gap-1.5 flex-1">
