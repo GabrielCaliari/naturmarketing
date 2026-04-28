@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Banner } from "./_components/Banner";
 import { LocalBusinessJsonLd, ServiceJsonLd } from "@/components/SEO/JsonLd";
+import FloatingSocial from "@/components/FloatingSocial";
 
 // Lazy load components below the fold
 const TransformSection = lazy(() => import("./_components/TransformSection"));
@@ -29,6 +30,7 @@ const Home = () => {
       <ServiceJsonLd />
       
       <Header />
+      <FloatingSocial />
       <main className="overflow-x-hidden">
         {/* Above the fold - load immediately */}
         <Banner />

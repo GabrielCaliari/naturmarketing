@@ -6,9 +6,9 @@ import Link from "next/link";
 const BRAND_GREEN = "#84936f";
 
 const menuLinks = [
-  { label: "Expertise", id: "services" },
+  // { label: "Expertise", id: "services" },
   { label: "Serviços", id: "services" },
-  { label: "Quem Somos", id: "para-quem-fazemos" },
+  { label: "Para quem fazemos", id: "para-quem-fazemos" },
 ];
 
 const socialLinks = [
