@@ -9,34 +9,44 @@ const BRAND_BROWN = "#994f2a";
 
 const faqs = [
   {
-    pergunta: "Quanto tempo leva para ver os primeiros resultados?",
+    pergunta: "Qual a diferença entre contratar a Réserve e uma agência de marketing genérica?",
     resposta:
-      "Os primeiros resultados aparecem entre 30 e 60 dias após o início das campanhas, com crescimento consistente nos meses seguintes. Resultados orgânicos (SEO) levam de 3 a 6 meses para ganhar tração. Entregamos relatórios semanais para que você acompanhe cada etapa.",
+      "Uma agência generalista trata um hotel como qualquer outro negócio. A Réserve entende a sazonalidade do setor, a dinâmica das OTAs, o comportamento do hóspede no funil de reserva, o Google Hotel Ads e as estratégias específicas para aumentar a taxa de ocupação direta. Campanhas mal configuradas por quem não conhece a hotelaria desperdiçam orçamento e não geram reservas — a diferença no resultado é significativa.",
   },
   {
-    pergunta: "Vocês atendem pequenas pousadas e boutique hotels?",
+    pergunta: "É possível reduzir a dependência das OTAs sem perder ocupação?",
     resposta:
-      "Sim. Atendemos desde boutique hotels e pousadas de charme até grandes resorts. O que nos importa é o potencial do empreendimento e o desejo de crescer com reservas diretas — não apenas o tamanho. Nossa estratégia é customizada para cada tipo de hospedagem.",
+      "Sim. A estratégia é usar as OTAs como vitrine e redirecionar a demanda para o canal direto com benefícios exclusivos: melhor tarifa no site próprio, early check-in, café da manhã incluso. Com site otimizado, motor de reservas eficiente e campanhas direcionadas, hotéis conseguem migrar de 80% de dependência de OTA para 40–50%, mantendo a ocupação e aumentando a margem por reserva.",
+  },
+  {
+    pergunta: "Quanto devo investir em marketing para o meu hotel ou pousada?",
+    resposta:
+      "O referencial de mercado é de 4% a 6% da receita anual. Para um hotel com meta de R$1.000.000 em faturamento, isso representa R$40.000 a R$60.000 por ano. Compare esse valor com o que você já paga em comissões para OTAs — que costumam variar entre 15% e 30% por reserva. Na maioria dos casos, o marketing próprio gera reservas com custo muito menor do que ficar dependente de plataformas.",
+  },
+  {
+    pergunta: "Meu hotel precisa de um site próprio se já aparece no Booking e no Airbnb?",
+    resposta:
+      "Com certeza. Estudos mostram que mais da metade dos viajantes que encontram um hotel numa OTA visita o site próprio antes de reservar. Um site próprio com motor de reservas elimina a comissão, permite personalizar a experiência do hóspede e é o principal ativo para qualquer estratégia de SEO e tráfego pago. Sem ele, você depende 100% das condições e algoritmos das plataformas.",
   },
   {
     pergunta: "Como funciona a gestão do Google Hotel Ads?",
     resposta:
-      "Integramos seu motor de reservas ao Google Hotel Ads para que seu hotel apareça diretamente nos resultados de busca do Google com preço e disponibilidade em tempo real. Gerenciamos lances, segmentação e otimização contínua para maximizar reservas diretas com menor custo por conversão.",
+      "O Google Hotel Ads exibe o preço e a disponibilidade do seu hotel diretamente nos resultados de busca e no Google Maps, ao lado das OTAs. Integramos seu motor de reservas ao Google, gerenciamos lances e segmentação, e otimizamos continuamente para maximizar reservas diretas com o menor custo por conversão — capturando hóspedes no exato momento em que estão prontos para reservar.",
   },
   {
-    pergunta: "Preciso cancelar meu contrato com as OTAs para trabalhar com vocês?",
+    pergunta: "Quanto tempo leva para ver os primeiros resultados?",
     resposta:
-      "Não. Trabalhamos em paralelo com suas OTAs atuais. O objetivo é aumentar progressivamente o volume de reservas diretas até que você tenha autonomia para reduzir — ou eliminar — comissões conforme desejar. A transição é gradual e estratégica.",
+      "Campanhas de tráfego pago (Google Ads, Meta Ads) podem gerar reservas em poucos dias. SEO e inbound marketing têm resultados crescentes e consistentes a partir de 3 a 6 meses. A estratégia ideal combina os dois: tráfego pago para resultados imediatos e SEO + conteúdo para construir uma base de reservas diretas sustentável e cada vez mais barata no longo prazo.",
   },
   {
-    pergunta: "Qual é o investimento mínimo para começar?",
+    pergunta: "Que resultados posso esperar e como são medidos?",
     resposta:
-      "O investimento varia conforme os objetivos, canais e porte do empreendimento. Começamos com um diagnóstico estratégico gratuito para entender sua realidade e montar uma proposta personalizada. Não temos pacotes genéricos — cada estratégia é construída sob medida.",
+      "Os principais indicadores que acompanhamos são: custo por reserva gerada, taxa de conversão do site, receita de canais diretos vs. OTAs, taxa de ocupação por período e ROAS (retorno sobre gasto em anúncios). Toda estratégia é baseada em dados reais — não em métricas de vaidade como curtidas ou seguidores. Você recebe relatórios periódicos com visibilidade total dos resultados.",
   },
   {
-    pergunta: "A Réserve atua em todo o Brasil?",
+    pergunta: "A Réserve atende hotéis de qualquer porte e em todo o Brasil?",
     resposta:
-      "Sim, atendemos hotéis, resorts e pousadas em todo o território nacional. Nossa equipe opera de forma 100% digital, o que nos permite trabalhar com empreendimentos de qualquer região sem perda de qualidade ou agilidade.",
+      "Sim. Atendemos desde boutique hotels, pousadas de charme e hostels até grandes resorts, em todo o território nacional. Para propriedades menores, a estratégia foca em canais de alto impacto com menor orçamento — Google Meu Negócio otimizado, campanhas cirúrgicas e SEO local. Nossa equipe opera 100% digital, sem perda de qualidade ou agilidade.",
   },
 ];
 

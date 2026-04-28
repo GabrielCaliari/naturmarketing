@@ -7,9 +7,10 @@ import { IconMenu3, IconX } from "@tabler/icons-react";
 
 const navLinks = [
   { label: "Início", href: "/" },
-  { label: "Contato", id: "contact" },
   { label: "Serviços", id: "services" },
   { label: "Quem Somos", id: "about" },
+  // { label: "Blog", href: "/public/blog" },
+  { label: "Contato", id: "contact" },
 ];
 
 const Header = () => {

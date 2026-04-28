@@ -82,11 +82,18 @@ export const COMPANY_NAP = {
   // SEO Keywords
   primaryKeywords: [
     "marketing hoteleiro",
-    "agência de marketing para hotéis", 
+    "agência de marketing para hotéis",
+    "agência marketing hoteleiro",
+    "marketing digital para hotéis",
+    "marketing digital para pousadas",
     "gestão de tráfego para resorts",
-    "marketing digital hoteleiro",
+    "Google Hotel Ads",
+    "SEO para hotéis",
     "reservas diretas",
-    "reduzir OTAs"
+    "reduzir OTAs",
+    "como aumentar reservas diretas hotel",
+    "consultoria marketing hoteleiro",
+    "tráfego pago para hotel"
   ]
 } as const;
 

@@ -2,7 +2,19 @@
   "permissions": {
     "allow": [
       "Bash(find /c/Users/gabri/OneDrive/Documents/GitHub/naturmarketing/src/app/public/home/_components -type f \\\\\\(-name *.tsx -o -name *.jsx -o -name *.ts -o -name *.js \\\\\\))",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "WebFetch(domain:reprotel.com.br)",
+      "WebFetch(domain:tagmarketinghoteleiro.com.br)",
+      "WebFetch(domain:tribuzana.com.br)",
+      "WebFetch(domain:hotelariaweb.com)",
+      "WebFetch(domain:balloonmkt.com.br)",
+      "WebSearch",
+      "WebFetch(domain:asksuite.com)",
+      "WebFetch(domain:blog.hospedin.com)",
+      "WebFetch(domain:blog.websocorro.com.br)",
+      "WebFetch(domain:blog.focomultimidia.com)",
+      "Bash(npm run *)",
+      "Bash(grep -v \"docs\\\\\\\\\")"
     ]
   }
 }

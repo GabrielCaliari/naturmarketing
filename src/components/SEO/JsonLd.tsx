@@ -134,14 +134,27 @@ export function ServiceJsonLd() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Marketing Digital Hoteleiro",
-    "description": "Serviços especializados de marketing digital para hotéis, resorts e pousadas. Gestão de tráfego, reservas diretas e redução de dependência de OTAs.",
+    "description": "Agência especializada em marketing hoteleiro para hotéis, resorts e pousadas. Google Hotel Ads, tráfego pago, SEO, site com motor de reservas e estratégias para aumentar reservas diretas e reduzir dependência de OTAs.",
     "provider": {
       "@id": `${siteUrl}/#organization`
     },
-    "areaServed": COMPANY_NAP.areasServed.map(area => ({
-      "@type": "City", 
-      "name": area
-    })),
+    "areaServed": {
+      "@type": "Country",
+      "name": "Brasil"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços de Marketing Hoteleiro",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Hotel Ads" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tráfego Pago para Hotéis (Google Ads e Meta Ads)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO para Hotéis e Pousadas" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Criação de Site Hoteleiro com Motor de Reservas" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestão de Redes Sociais para Hotéis" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Estratégia de Reservas Diretas" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Email Marketing Hoteleiro" } }
+      ]
+    },
     "serviceType": "Marketing Digital",
     "category": "Marketing Hoteleiro"
   }

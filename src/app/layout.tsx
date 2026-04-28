@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: '%s | Réserve Marketing'
   },
   description: 'Agência especializada em Marketing Hoteleiro. Google Hotel Ads, gestão de tráfego, SEO e motor de reservas para hotéis, resorts e pousadas aumentarem reservas diretas e reduzirem OTAs.',
-  keywords: 'marketing hoteleiro, agência de marketing para hotéis, gestão de tráfego para resorts, Google Hotel Ads, SEO para hotéis, motor de reservas, reservas diretas, reduzir OTAs, marketing para pousadas, aumentar ocupação hoteleira',
+  keywords: 'marketing hoteleiro, agência de marketing para hotéis, agência marketing hoteleiro, marketing digital para hotéis, marketing digital para pousadas, gestão de tráfego para resorts, Google Hotel Ads, SEO para hotéis, motor de reservas, reservas diretas, reduzir OTAs, marketing para pousadas, aumentar ocupação hoteleira, como reduzir comissão OTA hotel, tráfego pago para hotel, consultoria marketing hoteleiro, agência especializada em hotelaria, como aumentar reservas diretas hotel',
   authors: [{ name: COMPANY_NAP.name, url: siteUrl }],
   creator: COMPANY_NAP.name,
   publisher: COMPANY_NAP.name,
