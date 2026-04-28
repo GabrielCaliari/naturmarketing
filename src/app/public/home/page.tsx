@@ -11,14 +11,10 @@ const TransformSection = lazy(() => import("./_components/TransformSection"));
 const OQueFazemos = lazy(() => import("./_components/OQueFazemos"));
 const ParaQuemFazemos = lazy(() => import("./_components/ParaQuemFazemos"));
 const PlataformasSection = lazy(() => import("./_components/PlataformasSection"));
-const QuemSomos = lazy(() => import("./_components/QuemSomos"));
-const EspecialistasSection = lazy(() => import("./_components/EspecialistasSection"));
 const ComparativoSection = lazy(() => import("./_components/ComparativoSection"));
-const QuemSomosSection = lazy(() => import("./_components/QuemSomosSection"));
 const ResultadosSection = lazy(() => import("./_components/ResultadosSection"));
 const FAQ = lazy(() => import("./_components/FAQ"));
 const ConsultoriaBanner = lazy(() => import("./_components/ConsultoriaBanner"));
-const Contact = lazy(() => import("./_components/Contact"));
 
 // Loading skeleton component
 const SectionSkeleton = () => (
