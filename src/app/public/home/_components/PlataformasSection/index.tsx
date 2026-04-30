@@ -109,10 +109,10 @@ const PlataformasSection = () => (
         Canais onde construímos o seu ecossistema de reservas diretas
       </motion.h3>
 
-      {/* Chips de plataformas */}
+      {/* Chips de plataformas - Desktop */}
       <motion.div
         variants={fadeUp}
-        className="flex items-center justify-center gap-3 flex-wrap"
+        className="hidden md:flex items-center justify-center gap-3 flex-wrap"
       >
         {canais.map((canal) => (
           <div
@@ -139,6 +139,67 @@ const PlataformasSection = () => (
             </span>
           </div>
         ))}
+      </motion.div>
+
+      {/* Carousel infinito - Mobile */}
+      <motion.div
+        variants={fadeUp}
+        className="md:hidden overflow-hidden relative"
+      >
+        <div className="flex animate-scroll-infinite-seamless gap-3" style={{ width: "max-content" }}>
+          {/* Primeira cópia */}
+          {canais.map((canal, idx) => (
+            <div
+              key={`first-${idx}`}
+              className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full flex-shrink-0"
+              style={{
+                background: "#FDFAF7",
+                border: "1px solid rgba(196,164,142,0.3)",
+                boxShadow: "0 2px 8px rgba(26,15,8,0.05)",
+              }}
+            >
+              <Image
+                src={canal.src}
+                alt={canal.alt}
+                width={20}
+                height={20}
+                className="object-contain"
+              />
+              <span
+                className="text-[13px] font-medium tracking-wide"
+                style={{ color: "#4a3728" }}
+              >
+                {canal.label}
+              </span>
+            </div>
+          ))}
+          {/* Segunda cópia para loop seamless */}
+          {canais.map((canal, idx) => (
+            <div
+              key={`second-${idx}`}
+              className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full flex-shrink-0"
+              style={{
+                background: "#FDFAF7",
+                border: "1px solid rgba(196,164,142,0.3)",
+                boxShadow: "0 2px 8px rgba(26,15,8,0.05)",
+              }}
+            >
+              <Image
+                src={canal.src}
+                alt={canal.alt}
+                width={20}
+                height={20}
+                className="object-contain"
+              />
+              <span
+                className="text-[13px] font-medium tracking-wide"
+                style={{ color: "#4a3728" }}
+              >
+                {canal.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </motion.div>
     </motion.div>
 
@@ -180,10 +241,10 @@ const PlataformasSection = () => (
         Canais onde otimizamos o posicionamento do seu hotel
       </motion.h3>
 
-      {/* Cards OTAs */}
+      {/* Cards OTAs - Desktop */}
       <motion.div
         variants={fadeUp}
-        className="flex items-center justify-center gap-3 flex-wrap"
+        className="hidden md:flex items-center justify-center gap-3 flex-wrap"
       >
         {otas.map((ota) => (
           <div
@@ -206,6 +267,59 @@ const PlataformasSection = () => (
             />
           </div>
         ))}
+      </motion.div>
+
+      {/* Carousel infinito - Mobile */}
+      <motion.div
+        variants={fadeUp}
+        className="md:hidden overflow-hidden relative"
+      >
+        <div className="flex animate-scroll-infinite-seamless gap-3" style={{ width: "max-content" }}>
+          {/* Primeira cópia */}
+          {otas.map((ota, idx) => (
+            <div
+              key={`first-${idx}`}
+              className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full flex-shrink-0"
+              style={{
+                background: "#FDFAF7",
+                border: "1px solid rgba(196,164,142,0.3)",
+                boxShadow: "0 2px 8px rgba(26,15,8,0.05)",
+                height: "48px",
+                minWidth: "120px",
+              }}
+            >
+              <Image
+                src={ota.src}
+                alt={ota.alt}
+                width={100}
+                height={100}
+                className="object-contain"
+              />
+            </div>
+          ))}
+          {/* Segunda cópia para loop seamless */}
+          {otas.map((ota, idx) => (
+            <div
+              key={`second-${idx}`}
+              className="inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-full flex-shrink-0"
+              style={{
+                background: "#FDFAF7",
+                border: "1px solid rgba(196,164,142,0.3)",
+                boxShadow: "0 2px 8px rgba(26,15,8,0.05)",
+                height: "48px",
+                minWidth: "120px",
+              }}
+            >
+              <Image
+                src={ota.src}
+                alt={ota.alt}
+                width={100}
+                height={100}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </motion.div>
     </motion.div>
 

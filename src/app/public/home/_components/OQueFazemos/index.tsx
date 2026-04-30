@@ -126,13 +126,14 @@ function BentoCard({
   return (
     <div
       className={[
-        "group flex flex-col items-center text-center gap-3 px-4 py-5 rounded-2xl h-full",
+        "group flex flex-col items-center text-center gap-3 px-5 py-6 rounded-2xl h-full",
         "transition-all duration-500 cursor-default",
         "hover:bg-[#84936f] hover:shadow-lg hover:-translate-y-1",
       ].join(" ")}
       style={{
         background: BG_CARD,
         border: `1px solid ${BORDER}`,
+        minHeight: "220px",
       }}
     >
       {/* Ícone */}
@@ -227,7 +228,7 @@ export default function OQueFazemos() {
         <div className="md:hidden">
           <div
             ref={trackRef}
-            className="flex overflow-x-auto gap-3 pb-2 snap-x snap-mandatory px-[10vw]"
+            className="flex overflow-x-auto gap-3 pb-2 snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             onScroll={() => {
               const track = trackRef.current;
@@ -240,50 +241,28 @@ export default function OQueFazemos() {
               <div
                 key={i}
                 className="flex-shrink-0 snap-center"
-                style={{ width: "75vw", maxWidth: "280px" }}
+                style={{ width: "100%" }}
               >
                 <BentoCard servico={s} />
               </div>
             ))}
           </div>
 
-          {/* Controls */}
-          <div className="flex items-center justify-center gap-4 mt-5">
-            <button
-              onClick={prev}
-              disabled={activeIndex === 0}
-              className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-25"
-              style={{ background: BG_CARD, border: `1px solid ${BORDER}`, color: BRAND_BROWN }}
-              aria-label="Anterior"
-            >
-              <IconChevronLeft size={16} stroke={2} />
-            </button>
-
-            <div className="flex items-center gap-2">
-              {servicos.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => scrollTo(i)}
-                  aria-label={`Ir para slide ${i + 1}`}
-                  className="rounded-full transition-all duration-300"
-                  style={{
-                    width: activeIndex === i ? "20px" : "6px",
-                    height: "6px",
-                    background: activeIndex === i ? BRAND_BROWN : "rgba(153,79,42,0.25)",
-                  }}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={next}
-              disabled={activeIndex === servicos.length - 1}
-              className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 disabled:opacity-25"
-              style={{ background: BG_CARD, border: `1px solid ${BORDER}`, color: BRAND_BROWN }}
-              aria-label="Próximo"
-            >
-              <IconChevronRight size={16} stroke={2} />
-            </button>
+          {/* Contador apenas */}
+          <div className="flex items-center justify-center gap-2 mt-5">
+            {servicos.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => scrollTo(i)}
+                aria-label={`Ir para slide ${i + 1}`}
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: activeIndex === i ? "20px" : "6px",
+                  height: "6px",
+                  background: activeIndex === i ? BRAND_BROWN : "rgba(153,79,42,0.25)",
+                }}
+              />
+            ))}
           </div>
         </div>
 

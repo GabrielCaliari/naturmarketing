@@ -19,7 +19,7 @@ const buttons = [
 
 export default function FloatingSocial() {
   return (
-    <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+    <div className="hidden md:flex fixed right-4 top-1/2 -translate-y-1/2 z-50 flex-col gap-3">
       {buttons.map((btn) => (
         <a
           key={btn.label}

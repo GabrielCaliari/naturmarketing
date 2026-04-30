@@ -11,7 +11,7 @@ const Banner = () => {
 
   return (
     <section
-      className="relative flex flex-col overflow-hidden"
+      className="relative flex flex-col overflow-hidden banner-section"
       style={{ minHeight: "100svh" }}
     >
       {/* Imagem de fundo com blur */}

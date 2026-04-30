@@ -66,9 +66,9 @@ const Header = () => {
                 href="https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="header-cta-btn"
+                className="header-cta-btn-mobile"
               >
-                Diagnóstico Gratuito
+                Diagnóstico
               </a>
             )}
 

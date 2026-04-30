@@ -3,11 +3,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { IconChevronDown } from "@tabler/icons-react";
+import { useIsMobile } from "@/hooks/useMobileDevice";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
 
-const faqs = [
+// Top 5 FAQs para mobile, todas para desktop
+const allFaqs = [
   {
     pergunta: "Qual a diferença entre contratar a Réserve e uma agência de marketing genérica?",
     resposta:
@@ -46,7 +48,7 @@ const faqs = [
   {
     pergunta: "A Réserve atende hotéis de qualquer porte e em todo o Brasil?",
     resposta:
-      "Sim. Atendemos desde boutique hotels, pousadas de charme e hostels até grandes resorts, em todo o território nacional. Para propriedades menores, a estratégia foca em canais de alto impacto com menor orçamento — Google Meu Negócio otimizado, campanhas cirúrgicas e SEO local. Nossa equipe opera 100% digital, sem perda de qualidade ou agilidade.",
+      "Sim. Atendemos desde boutique hotels, pousadas de charme e hostels até grandes resorts, em todo o território nacional. Para propriedades menores, a estratégia foca em canais de alto impacto com menor orçamento — Google Meu Negócio otimizado, campanhas cirúrgicas e SEO local. Nossa equipe opera 100% digital, sem perda qualidade ou agilidade.",
   },
 ];
 
@@ -61,9 +63,13 @@ const stagger: Variants = {
 };
 
 export default function FAQ() {
+  const { isMobile } = useIsMobile({ breakpoint: 768 });
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
+  
+  // Mostrar apenas 5 perguntas no mobile
+  const faqs = isMobile ? allFaqs.slice(0, 5) : allFaqs;
 
   return (
     <section

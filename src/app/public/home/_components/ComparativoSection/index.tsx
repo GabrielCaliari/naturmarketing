@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { IconX, IconCircleCheckFilled } from "@tabler/icons-react";
+import { IconX, IconCheck } from "@tabler/icons-react";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -115,7 +115,7 @@ export default function ComparativoSection() {
                 }}
               >
                 <div className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(255,255,255,0.2)", color: "#ffffff" }}>
-                  <IconCircleCheckFilled size={15} />
+                  <IconCheck size={13} stroke={2.5} />
                 </div>
                 <span className="text-[15px] font-light" style={{ color: "rgba(255,255,255,0.92)" }}>
                   {item}
