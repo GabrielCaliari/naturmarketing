@@ -44,13 +44,13 @@ export const blogPosts: BlogPost[] = [
 <h2>Quatro sinais de que sua agência não entende hotelaria</h2>
 <ul>
   <li><strong>Relatório cheio de métricas de alcance e engajamento, sem mencionar custo por reserva.</strong> Se sua agência não sabe calcular o CPA (custo por aquisição) das campanhas de tráfego pago voltadas para reservas, ela não está medindo o que importa.</li>
-  <li><strong>Nunca falou em Google Hotel Ads.</strong> Esse canal é um dos de maior ROI para hotelaria — <a href="/public/blog/google-hotel-ads-guia-completo">entenda como funciona o Google Hotel Ads</a>. Uma agência especializada coloca ele na primeira conversa.</li>
+  <li><strong>Nunca falou em Google Hotel Ads.</strong> Esse canal é um dos de maior ROI para hotelaria — <a href="/blog/google-hotel-ads-guia-completo">entenda como funciona o Google Hotel Ads</a>. Uma agência especializada coloca ele na primeira conversa.</li>
   <li><strong>Trata OTAs como inimigo, não como ferramenta.</strong> O modelo correto é usar OTAs como vitrine e capturar a demanda no canal direto — não ignorá-las ou depender delas cegamente.</li>
   <li><strong>Não tem cases do setor hoteleiro.</strong> Marketing para hotel não é marketing para varejo. Cases de outras indústrias não servem como prova de competência para o seu negócio.</li>
 </ul>
 
 <h2>A conta que os hoteleiros raramente fazem</h2>
-<p>Compare dois cenários: você paga R$ 3.000/mês para uma agência genérica que gera 10 reservas por mês com um ticket médio de R$ 800. Custo por reserva: R$ 300. Você paga R$ 5.000/mês para uma agência especializada que gera 40 reservas diretas por mês com o mesmo ticket. Custo por reserva: R$ 125 — sem pagar os 15% a 20% de <a href="/public/blog/como-reduzir-comissoes-booking-sem-perder-ocupacao">comissão para OTAs</a> em cima disso.</p>
+<p>Compare dois cenários: você paga R$ 3.000/mês para uma agência genérica que gera 10 reservas por mês com um ticket médio de R$ 800. Custo por reserva: R$ 300. Você paga R$ 5.000/mês para uma agência especializada que gera 40 reservas diretas por mês com o mesmo ticket. Custo por reserva: R$ 125 — sem pagar os 15% a 20% de <a href="/blog/como-reduzir-comissoes-booking-sem-perder-ocupacao">comissão para OTAs</a> em cima disso.</p>
 <p>O barateamento não está na mensalidade da agência. Está no resultado que ela entrega.</p>
 
 <h2>O que esperar de uma parceria especializada</h2>
@@ -108,10 +108,10 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Google Hotel Ads vs. Google Search Ads: qual usar?</h2>
 <p>Os dois se complementam. O Hotel Ads aparece no módulo de busca de hotéis com comparativo de preços — ideal para capturar hóspedes que já escolheram o destino e estão comparando opções. O Search Ads aparece nos resultados gerais de texto — ideal para capturar buscas pelo nome do seu hotel ou por termos como "hotel boutique em [destino]".</p>
-<p>Uma estratégia completa usa os dois, com orçamentos e objetivos distintos. Tentar usar apenas um significa deixar dinheiro na mesa. Saiba também <a href="/public/blog/reservas-diretas-vs-otas-como-equilibrar">como equilibrar reservas diretas e OTAs</a> para maximizar sua margem.</p>
+<p>Uma estratégia completa usa os dois, com orçamentos e objetivos distintos. Tentar usar apenas um significa deixar dinheiro na mesa. Saiba também <a href="/blog/reservas-diretas-vs-otas-como-equilibrar">como equilibrar reservas diretas e OTAs</a> para maximizar sua margem.</p>
 
 <h2>Quão rápido você começa a ver resultados</h2>
-<p>Diferente do <a href="/public/blog/seo-para-hoteis-aparecer-no-google">SEO para hotéis</a>, que leva meses, o Google Hotel Ads pode gerar as primeiras reservas diretas em dias após a ativação — desde que a integração técnica esteja correta e a paridade tarifária esteja garantida. O otimização do canal para máximo ROI leva de 30 a 60 dias de ajustes baseados em dados reais de performance.</p>
+<p>Diferente do <a href="/blog/seo-para-hoteis-aparecer-no-google">SEO para hotéis</a>, que leva meses, o Google Hotel Ads pode gerar as primeiras reservas diretas em dias após a ativação — desde que a integração técnica esteja correta e a paridade tarifária esteja garantida. O otimização do canal para máximo ROI leva de 30 a 60 dias de ajustes baseados em dados reais de performance.</p>
     `,
   },
   {
@@ -141,7 +141,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>A conta que poucos hoteleiros fazem</h2>
 <p>Antes de avaliar o custo do marketing, faça essa conta:</p>
-<p><strong>Quanto você paga de <a href="/public/blog/como-reduzir-comissoes-booking-sem-perder-ocupacao">comissão para OTAs</a> por mês?</strong></p>
+<p><strong>Quanto você paga de <a href="/blog/como-reduzir-comissoes-booking-sem-perder-ocupacao">comissão para OTAs</a> por mês?</strong></p>
 <p>Se seu hotel fatura R$ 80.000 por mês e 60% das reservas vêm pelo Booking com comissão de 18%, você está pagando R$ 8.640 por mês em comissões — R$ 103.680 por ano.</p>
 <p>Agora compare: uma estratégia de marketing direto bem executada custa entre R$ 4.000 e R$ 8.000 por mês (gestão + mídia), mas pode migrar 20, 30 pontos percentuais de OTA para canal direto. Com 40% das reservas no canal direto, você economiza R$ 2.880/mês em comissões — e ainda tem um ativo crescente (site bem posicionado, base de e-mails, audiência de remarketing) que se valoriza com o tempo.</p>
 
@@ -192,7 +192,7 @@ export const blogPosts: BlogPost[] = [
 <p>Quando 70%, 80% das suas reservas vêm de plataformas que cobram entre 15% e 25% por reserva, você está operando com uma margem artificialmente comprimida. Cada reserva que poderia ter ido diretamente para o seu canal é uma comissão que saiu do seu resultado.</p>
 
 <h2>O efeito billboard: transforme o problema em solução</h2>
-<p>Existe um conceito bem documentado no setor chamado "efeito billboard". Para isso funcionar, você precisa de uma estratégia integrada de <a href="/public/blog/google-hotel-ads-guia-completo">Google Hotel Ads</a> e canal direto. Quando um viajante encontra seu hotel no Booking, uma parcela significativa dele vai pesquisar o nome do hotel diretamente no Google antes de confirmar a reserva. Estudo da Cornell University indica que entre 15% e 25% dos usuários que veem um hotel em uma OTA pesquisam o hotel diretamente em seguida.</p>
+<p>Existe um conceito bem documentado no setor chamado "efeito billboard". Para isso funcionar, você precisa de uma estratégia integrada de <a href="/blog/google-hotel-ads-guia-completo">Google Hotel Ads</a> e canal direto. Quando um viajante encontra seu hotel no Booking, uma parcela significativa dele vai pesquisar o nome do hotel diretamente no Google antes de confirmar a reserva. Estudo da Cornell University indica que entre 15% e 25% dos usuários que veem um hotel em uma OTA pesquisam o hotel diretamente em seguida.</p>
 <p><strong>A OTA está pagando para te tornar conhecido. Sua missão é capturar esse hóspede no canal direto antes que ele confirme pelo Booking.</strong></p>
 <p>Para isso funcionar, você precisa de: site rápido e com boa experiência, garantia de melhor preço no canal direto (paridade tarifária ou preço exclusivo), e campanhas de Google Ads capturando buscas pelo nome do seu hotel.</p>
 
@@ -217,7 +217,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Qual é uma meta realista</h2>
-<p>Para um hotel urbano ou resort com boa presença digital, migrar de 20% para 40% de canal direto em 12 meses é uma meta conservadora e alcançável. Entenda <a href="/public/blog/quanto-custa-marketing-digital-hotel">quanto investir em marketing hoteleiro</a> para chegar lá com orçamento proporcional ao seu porte. Alguns hotéis independentes bem gerenciados chegam a 60% ou mais de canal direto.</p>
+<p>Para um hotel urbano ou resort com boa presença digital, migrar de 20% para 40% de canal direto em 12 meses é uma meta conservadora e alcançável. Entenda <a href="/blog/quanto-custa-marketing-digital-hotel">quanto investir em marketing hoteleiro</a> para chegar lá com orçamento proporcional ao seu porte. Alguns hotéis independentes bem gerenciados chegam a 60% ou mais de canal direto.</p>
 <p>O que não é realista: esperar que isso aconteça sem investimento em marketing e tecnologia. Canal direto não cresce por inércia — cresce por estratégia.</p>
     `,
   },
@@ -263,7 +263,7 @@ export const blogPosts: BlogPost[] = [
 <p>Faz a conta:</p>
 <ul>
   <li>OTA: 15% a 25% de comissão por reserva</li>
-  <li><a href="/public/blog/google-hotel-ads-guia-completo">Google Hotel Ads</a> bem gerenciado: 5% a 8% do valor da reserva</li>
+  <li><a href="/blog/google-hotel-ads-guia-completo">Google Hotel Ads</a> bem gerenciado: 5% a 8% do valor da reserva</li>
   <li>Google Search Ads pelo nome do hotel: R$ 3 a R$ 15 por clique, conversão de 3% a 6% — custo por reserva geralmente entre R$ 50 e R$ 200</li>
   <li>E-mail marketing para base própria: custo marginal quase zero</li>
 </ul>
@@ -308,7 +308,7 @@ export const blogPosts: BlogPost[] = [
 <p>SEO para hotéis tem retorno em dois horizontes:</p>
 <p><strong>Curto prazo (30-90 dias):</strong> Otimização do Google Business Profile e das páginas do site gera ganhos rápidos em buscas locais e pelo nome do hotel.</p>
 <p><strong>Médio e longo prazo (3-12 meses):</strong> Produção de conteúdo, link building e autoridade de domínio crescem gradualmente. Um blog ativo e bem estruturado pode triplicar o tráfego orgânico de um hotel em 12 meses.</p>
-<p>SEO não substitui tráfego pago — veja como o <a href="/public/blog/google-hotel-ads-guia-completo">Google Hotel Ads</a> complementa o SEO capturando demanda imediata. Mas no longo prazo, Um hotel que investe em SEO por 2 anos tem um canal que gera reservas praticamente sem custo variável. É a diferença entre alugar tráfego e possuí-lo.</p>
+<p>SEO não substitui tráfego pago — veja como o <a href="/blog/google-hotel-ads-guia-completo">Google Hotel Ads</a> complementa o SEO capturando demanda imediata. Mas no longo prazo, Um hotel que investe em SEO por 2 anos tem um canal que gera reservas praticamente sem custo variável. É a diferença entre alugar tráfego e possuí-lo.</p>
 
 <h2>SEO local: o ativo mais subutilizado dos hotéis</h2>
 <p>O Google Maps é uma das principais fontes de descoberta de hotéis para viajantes nacionais, especialmente em destinos de turismo de lazer. Hotéis com perfil bem gerenciado no Google Business Profile aparecem no "pacote local" — o mapa com 3 resultados que aparece no topo das buscas de destino.</p>
@@ -386,7 +386,7 @@ export const blogPosts: BlogPost[] = [
 <p><strong>3. Presença no Instagram com consistência mínima.</strong> Não precisa postar todo dia. Uma pousada com 3 posts semanais de qualidade (fotos reais, textos que falam para o hóspede ideal) constrói audiência qualificada ao longo do tempo. Consistência importa mais do que frequência.</p>
 
 <h2>Como priorizar o orçamento com R$ 2.000 a R$ 4.000/mês</h2>
-<p>Com orçamento limitado, a prioridade deve ser canais de alta intenção. Antes de decidir onde investir, entenda <a href="/public/blog/quanto-custa-marketing-digital-hotel">quanto custa o marketing digital para hotéis e pousadas</a>. A prioridade são canais que alcançam pessoas já procurando se hospedar no seu destino:</p>
+<p>Com orçamento limitado, a prioridade deve ser canais de alta intenção. Antes de decidir onde investir, entenda <a href="/blog/quanto-custa-marketing-digital-hotel">quanto custa o marketing digital para hotéis e pousadas</a>. A prioridade são canais que alcançam pessoas já procurando se hospedar no seu destino:</p>
 <ol>
   <li><strong>Google Ads pelo nome da pousada</strong> — garante que ninguém que pesquisa seu nome caia em anúncio de OTA antes de chegar ao seu site. Custo baixo, impacto alto.</li>
   <li><strong>Google Ads para termos de destino</strong> — "pousada em [cidade]", "hospedagem [destino] com café da manhã". Capturam demanda ativa no destino.</li>
@@ -447,7 +447,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Por que isso importa para hotéis independentes</h2>
 <p>Redes hoteleiras têm times dedicados para isso. Hotéis independentes podem e devem aplicar os mesmos princípios de forma simplificada. Começa com um calendário de demanda (identificar feriados, eventos locais, sazonalidade histórica), uma política de tarifas por período (alta, média, baixa demanda) e a integração entre o responsável por campanhas e o responsável por precificação.</p>
-<p>Uma <a href="/public/blog/agencia-marketing-hoteleiro-vs-agencia-generica">agência de marketing hoteleiro especializada</a> não apenas gerencia campanhas — ela entende seu contexto de Revenue Management e alinha a estratégia de mídia com a estratégia de precificação. Essa visão integrada é o que separa marketing que gera resultado de marketing que apenas gera visibilidade.</p>
+<p>Uma <a href="/blog/agencia-marketing-hoteleiro-vs-agencia-generica">agência de marketing hoteleiro especializada</a> não apenas gerencia campanhas — ela entende seu contexto de Revenue Management e alinha a estratégia de mídia com a estratégia de precificação. Essa visão integrada é o que separa marketing que gera resultado de marketing que apenas gera visibilidade.</p>
     `,
   },
 ];

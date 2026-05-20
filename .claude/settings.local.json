@@ -14,7 +14,11 @@
       "WebFetch(domain:blog.websocorro.com.br)",
       "WebFetch(domain:blog.focomultimidia.com)",
       "Bash(npm run *)",
-      "Bash(grep -v \"docs\\\\\\\\\")"
+      "Bash(grep -v \"docs\\\\\\\\\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\gabri\\\\OneDrive\\\\Documents\\\\GitHub\\\\naturmarketing\" -Force)",
+      "Bash(Select-Object Name, FullName)",
+      "Bash(cat)",
+      "Bash(bash \"/tmp/check_images.sh\")"
     ]
   }
 }

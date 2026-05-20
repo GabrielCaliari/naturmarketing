@@ -39,6 +39,8 @@ export default function CookieConsent() {
         STORAGE_KEY,
         JSON.stringify({ ...prefs, savedAt: new Date().toISOString() })
       );
+      // Notify MetaPixel and other listeners that consent was updated
+      window.dispatchEvent(new Event("reserve:consent"));
     } catch {
       // silently fail in private browsing
     }
@@ -90,7 +92,7 @@ export default function CookieConsent() {
               Usamos cookies essenciais e opcionais para melhorar sua
               experiência.{" "}
               <Link
-                href="/public/privacy-policy"
+                href="/privacy-policy"
                 className="text-zinc-700 underline underline-offset-2 hover:text-zinc-900 transition-colors"
               >
                 Privacidade

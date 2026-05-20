@@ -4,22 +4,82 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/useMobileDevice";
 import { IconMenu3, IconX } from "@tabler/icons-react";
+import { useLocale } from "@/context/LocaleContext";
 
-const navLinks = [
+const navLinksPt = [
   { label: "Início", href: "/" },
   { label: "Serviços", id: "services" },
-  // { label: "Quem Somos", id: "about" },
-  // { label: "Blog", href: "/public/blog" },
   { label: "Contato", id: "contact" },
 ];
+
+const navLinksEn = [
+  { label: "Home", href: "/" },
+  { label: "Services", id: "services" },
+  { label: "Contact", id: "contact" },
+];
+
+const LanguageSwitcher = ({ compact = false }: { compact?: boolean }) => {
+  const { locale, setLocale } = useLocale();
+
+  return (
+    <div
+      className="flex items-center gap-1 rounded-full overflow-hidden"
+      style={{
+        border: "1px solid rgba(196,164,142,0.4)",
+        background: "rgba(255,255,255,0.06)",
+        padding: "2px",
+      }}
+    >
+      <button
+        onClick={() => setLocale("pt")}
+        title="Português"
+        className="flex items-center gap-1 rounded-full transition-all duration-200"
+        style={{
+          padding: compact ? "3px 7px" : "4px 10px",
+          fontSize: compact ? "11px" : "12px",
+          fontWeight: locale === "pt" ? 600 : 400,
+          background: locale === "pt" ? "#994f2a" : "transparent",
+          color: locale === "pt" ? "#fff" : "rgba(255,255,255,0.55)",
+          letterSpacing: "0.03em",
+        }}
+      >
+        🇧🇷 PT
+      </button>
+      <button
+        onClick={() => setLocale("en")}
+        title="English"
+        className="flex items-center gap-1 rounded-full transition-all duration-200"
+        style={{
+          padding: compact ? "3px 7px" : "4px 10px",
+          fontSize: compact ? "11px" : "12px",
+          fontWeight: locale === "en" ? 600 : 400,
+          background: locale === "en" ? "#994f2a" : "transparent",
+          color: locale === "en" ? "#fff" : "rgba(255,255,255,0.55)",
+          letterSpacing: "0.03em",
+        }}
+      >
+        🇺🇸 EN
+      </button>
+    </div>
+  );
+};
 
 const Header = () => {
   const { isMobile } = useIsMobile({ breakpoint: 1080 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { locale } = useLocale();
+  const navLinks = locale === "en" ? navLinksEn : navLinksPt;
 
   useEffect(() => {
     if (!isMobile) setIsMobileMenuOpen(false);
   }, [isMobile]);
+
+  const ctaText = locale === "en" ? "Free Diagnosis" : "Diagnóstico Gratuito";
+  const ctaTextMobile = locale === "en" ? "Diagnosis" : "Diagnóstico";
+  const ctaWa =
+    locale === "en"
+      ? "https://wa.me/553597742984?text=Hello!%20I%20would%20like%20to%20receive%20a%20free%20strategic%20diagnosis%20for%20my%20property."
+      : "https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.";
 
   return (
     <header className="main-header fixed-header">
@@ -61,32 +121,37 @@ const Header = () => {
               </div>
             )}
 
-            {isMobile && (
-              <a
-                href="https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header-cta-btn-mobile"
-              >
-                Diagnóstico
-              </a>
-            )}
-
+            {/* Language switcher — desktop */}
             {!isMobile && (
-              <a
-                href="https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="header-cta-btn"
-              >
-                Diagnóstico Gratuito
-              </a>
+              <div className="flex items-center gap-3">
+                <LanguageSwitcher />
+                <a
+                  href={ctaWa}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="header-cta-btn"
+                >
+                  {ctaText}
+                </a>
+              </div>
             )}
 
+            {/* Mobile: CTA + hamburger */}
             {isMobile && (
-              <button onClick={() => setIsMobileMenuOpen(true)} className="mobile-nav-toggler">
-                <IconMenu3 size={24} />
-              </button>
+              <div className="flex items-center gap-2">
+                <LanguageSwitcher compact />
+                <a
+                  href={ctaWa}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="header-cta-btn-mobile"
+                >
+                  {ctaTextMobile}
+                </a>
+                <button onClick={() => setIsMobileMenuOpen(true)} className="mobile-nav-toggler">
+                  <IconMenu3 size={24} />
+                </button>
+              </div>
             )}
           </div>
         </div>
@@ -94,14 +159,22 @@ const Header = () => {
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <MobileMenu onClose={() => setIsMobileMenuOpen(false)} />
+          <MobileMenu onClose={() => setIsMobileMenuOpen(false)} navLinks={navLinks} locale={locale} />
         )}
       </AnimatePresence>
     </header>
   );
 };
 
-const MobileMenu = ({ onClose }: { onClose: () => void }) => {
+const MobileMenu = ({
+  onClose,
+  navLinks,
+  locale,
+}: {
+  onClose: () => void;
+  navLinks: typeof navLinksPt;
+  locale: string;
+}) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
@@ -115,9 +188,14 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
     }, 300);
   };
 
+  const ctaWa =
+    locale === "en"
+      ? "https://wa.me/553597742984?text=Hello!%20I%20would%20like%20to%20receive%20a%20free%20strategic%20diagnosis%20for%20my%20property."
+      : "https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.";
+  const ctaLabel = locale === "en" ? "Free Diagnosis" : "Diagnóstico Gratuito";
+
   return (
     <div className="mobile-menu-overlay">
-      {/* Backdrop */}
       <motion.div
         className="mobile-menu-backdrop"
         initial={{ opacity: 0 }}
@@ -127,7 +205,6 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
         onClick={onClose}
       />
 
-      {/* Panel */}
       <motion.div
         className="mobile-menu-panel"
         initial={{ x: "100%" }}
@@ -135,7 +212,6 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
         exit={{ x: "100%" }}
         transition={{ type: "tween", duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        {/* Header */}
         <div className="mobile-menu-header">
           <Link href="/" className="header-logo" onClick={onClose}>
             <span className="header-logo-brand">réserve</span>
@@ -146,7 +222,6 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
           </button>
         </div>
 
-        {/* Nav */}
         <nav className="mobile-menu-nav">
           {navLinks.map((item, i) => (
             <motion.div
@@ -167,8 +242,7 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
             </motion.div>
           ))}
         </nav>
-        
-        {/* CTA Button at the bottom of Mobile Menu */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -176,14 +250,14 @@ const MobileMenu = ({ onClose }: { onClose: () => void }) => {
           className="absolute bottom-8 left-0 right-0 px-6"
         >
           <a
-            href="https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
+            href={ctaWa}
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full text-center px-6 py-3.5 rounded-full text-[14px] font-medium text-white transition-all duration-300 shadow-lg"
             style={{ background: "#994f2a", letterSpacing: "0.04em" }}
             onClick={onClose}
           >
-            Diagnóstico Gratuito
+            {ctaLabel}
           </a>
         </motion.div>
       </motion.div>

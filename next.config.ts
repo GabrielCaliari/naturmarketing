@@ -14,8 +14,19 @@ interface WebpackConfig {
 }
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactStrictMode: true,
+  async redirects() {
+    return [
+      { source: '/public/home', destination: '/', permanent: true },
+      { source: '/public/blog', destination: '/blog', permanent: true },
+      { source: '/public/blog/:slug', destination: '/blog/:slug', permanent: true },
+      { source: '/public/empresa', destination: '/empresa', permanent: true },
+      { source: '/public/contact-us', destination: '/contact-us', permanent: true },
+      { source: '/public/privacy-policy', destination: '/privacy-policy', permanent: true },
+      { source: '/public/terms-and-conditions', destination: '/terms-and-conditions', permanent: true },
+      { source: '/public/consultoria-sucesso', destination: '/consultoria-sucesso', permanent: true },
+    ]
+  },
   webpack: (config: WebpackConfig) => {
     // Encontra regras CSS e exclui node_modules do PostCSS
     const rules = config.module.rules;

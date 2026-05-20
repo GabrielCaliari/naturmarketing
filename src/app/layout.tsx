@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
 import Script from 'next/script'
-// import { Suspense } from 'react'
 
 // Importar estilos CSS essenciais
 import "@/styles/globals.css";
@@ -115,27 +114,7 @@ export default function RootLayout({
           />
         )}
         
-        {/* Meta Pixel - Lazy Loading */}
-        {process.env.NEXT_PUBLIC_META_PIXEL_ID && (
-          <Script
-            id="meta-pixel"
-            strategy="lazyOnload"
-            dangerouslySetInnerHTML={{
-              __html: `
-                !function(f,b,e,v,n,t,s)
-                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '${process.env.NEXT_PUBLIC_META_PIXEL_ID}');
-                fbq('track', 'PageView');
-              `,
-            }}
-          />
-        )}
+        {/* Meta Pixel is loaded client-side after LGPD consent — see MetaPixel.tsx */}
       </head>
       <body suppressHydrationWarning={true}>
         {/* GTM NoScript Fallback - Descomente quando configurar NEXT_PUBLIC_GTM_ID */}

@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${siteBase}/public/blog`,
+      url: `${siteBase}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${siteBase}/public/contact-us`,
+      url: `${siteBase}/contact-us`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -42,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog articles
   const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${siteBase}/public/blog/${post.slug}`,
+    url: `${siteBase}/blog/${post.slug}`,
     lastModified: new Date(post.publishedAt),
     changeFrequency: 'monthly',
     priority: 0.8,
