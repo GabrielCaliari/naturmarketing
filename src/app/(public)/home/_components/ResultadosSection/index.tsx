@@ -1,32 +1,10 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
-
-const stats = [
-  {
-    value: "+40%",
-    label: "Redução de dependência de OTAs",
-    desc: "Média alcançada pelos hotéis que estruturam canal próprio de reservas com a Réserve.",
-  },
-  {
-    value: "3×",
-    label: "Aumento em reservas diretas",
-    desc: "Hotéis com estratégia integrada triplicam o volume de reservas sem intermediários.",
-  },
-  {
-    value: "90 dias",
-    label: "Para resultados mensuráveis",
-    desc: "Prazo médio para consolidar presença digital e colher retorno consistente sobre o investimento.",
-  },
-  {
-    value: "100%",
-    label: "Foco exclusivo em hotelaria",
-    desc: "Não atendemos outros segmentos. Todo o nosso conhecimento é aplicado ao mercado hoteleiro.",
-  },
-];
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -39,6 +17,15 @@ const stagger: Variants = {
 };
 
 export default function ResultadosSection() {
+  const { t } = useLocale();
+
+  const stats = [
+    { value: "+40%", label: t('results.stat1.label'), desc: t('results.stat1.desc') },
+    { value: "3×",   label: t('results.stat2.label'), desc: t('results.stat2.desc') },
+    { value: "90d",  label: t('results.stat3.label'), desc: t('results.stat3.desc') },
+    { value: "100%", label: t('results.stat4.label'), desc: t('results.stat4.desc') },
+  ];
+
   return (
     <section className="py-10 md:py-16" style={{ background: "#F0EBE3" }}>
       <motion.div
@@ -48,37 +35,33 @@ export default function ResultadosSection() {
         viewport={{ once: true, amount: 0.2 }}
         variants={stagger}
       >
-        {/* Header */}
         <motion.div variants={fadeUp} className="flex flex-col items-center text-center mb-10 gap-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
             <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>
-              Resultados
+              {t('results.label')}
             </span>
             <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
           </div>
           <h2 className="h2" style={{ color: "#1A0F08", fontWeight: 400 }}>
-            Números que{" "}
+            {t('results.h2')}{" "}
             <strong className="font-semibold" style={{ color: BRAND_BROWN }}>
-              falam por si
+              {t('results.h2.strong')}
             </strong>
           </h2>
           <p className="paragraph max-w-lg" style={{ fontWeight: 300, color: "#7a6a5e" }}>
-            Médias baseadas na performance dos hotéis que adotam estratégia integrada de marketing hoteleiro.
+            {t('results.desc')}
           </p>
         </motion.div>
 
-        {/* Grid desktop */}
+        {/* Desktop grid */}
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
               className="flex flex-col gap-3 px-7 py-8 rounded-2xl transition-all duration-500 cursor-default hover:shadow-lg hover:-translate-y-1"
-              style={{
-                background: BRAND_GREEN,
-                border: "none",
-              }}
+              style={{ background: BRAND_GREEN }}
             >
               <span className="text-[52px] font-light leading-none tracking-tight" style={{ color: "#ffffff" }}>
                 {stat.value}
@@ -93,25 +76,22 @@ export default function ResultadosSection() {
           ))}
         </div>
 
-        {/* Mobile — 1 col */}
+        {/* Mobile */}
         <div className="sm:hidden flex flex-col gap-3">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
               className="flex items-center gap-5 px-5 py-6 rounded-2xl transition-all duration-500"
-              style={{ background: BRAND_GREEN, border: "none" }}
+              style={{ background: BRAND_GREEN }}
             >
-              {/* Valor à esquerda */}
               <span
                 className="text-[42px] font-light leading-none tracking-tight shrink-0 w-28 text-center"
                 style={{ color: "#ffffff" }}
               >
                 {stat.value}
               </span>
-              {/* Divisor vertical */}
               <div className="w-px self-stretch" style={{ background: "rgba(255,255,255,0.2)" }} />
-              {/* Texto à direita */}
               <div className="flex flex-col gap-1">
                 <span className="text-[11px] font-semibold tracking-wide uppercase" style={{ color: "rgba(255,255,255,0.85)" }}>
                   {stat.label}

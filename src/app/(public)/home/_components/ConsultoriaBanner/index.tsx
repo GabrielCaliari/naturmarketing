@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import { trackButtonClick } from "@/lib/analytics";
+import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_BROWN = "#994f2a";
 
@@ -16,12 +17,11 @@ const stagger: Variants = {
 };
 
 export default function ConsultoriaBanner() {
+  const { t } = useLocale();
+
   const handleClick = () => {
     trackButtonClick("cta_diagnostico", "/");
-    window.open(
-      "https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.",
-      "_blank"
-    );
+    window.open(t('cta.wa'), "_blank");
   };
 
   return (
@@ -30,20 +30,11 @@ export default function ConsultoriaBanner() {
       className="relative flex flex-col overflow-hidden px-6 md:px-16"
       style={{ minHeight: "80svh", background: "#2a1f14" }}
     >
-      {/* Background image */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        <img
-          src="/img/resource/seedsbackground.png"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: "rgba(20,12,6,0.45)" }}
-        />
+        <img src="/img/resource/seedsbackground.png" alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "rgba(20,12,6,0.45)" }} />
       </div>
 
-      {/* Conteúdo */}
       <motion.div
         className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-5xl mx-auto w-full"
         style={{ paddingTop: "100px", paddingBottom: "80px" }}
@@ -63,11 +54,11 @@ export default function ConsultoriaBanner() {
             }}
           >
             <span className="w-1 h-1 rounded-full bg-white/60" />
-            Diagnóstico Gratuito
+            {t('cta.badge')}
           </span>
         </motion.div>
 
-        {/* Título — mesmo tamanho do Banner hero */}
+        {/* Título */}
         <motion.h2
           variants={fadeUp}
           style={{
@@ -80,14 +71,12 @@ export default function ConsultoriaBanner() {
             textAlign: "center",
           }}
         >
-          Descubra por que seu<br/> hotel{" "}
-         
-            perde reservas<br/>
-          
-          todos os dias
+          {t('cta.title.1')}<br /> {t('cta.title.2')}{" "}
+          {t('cta.title.3')}<br />
+          {t('cta.title.4')}
         </motion.h2>
 
-        {/* Subtítulo — mesmo tamanho do Banner hero */}
+        {/* Subtítulo */}
         <motion.p
           variants={fadeUp}
           style={{
@@ -100,23 +89,20 @@ export default function ConsultoriaBanner() {
             lineHeight: 1.7,
           }}
         >
-          Solicite uma análise estratégica gratuita e receba um plano de ação personalizado.<br />
+          {t('cta.body')}<br />
           <strong style={{ fontWeight: 600, color: "#ffffff" }}>
-            Aumente seu faturamento direto agora.
+            {t('cta.body.strong')}
           </strong>
         </motion.p>
 
         {/* CTA */}
-        <motion.div
-          variants={fadeUp}
-          className="flex flex-wrap items-center justify-center gap-5"
-        >
+        <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-5">
           <button
             onClick={handleClick}
             className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-medium tracking-[0.1em] uppercase text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: BRAND_BROWN, letterSpacing: "0.08em" }}
           >
-            Diagnóstico Gratuito
+            {t('cta.btn')}
           </button>
         </motion.div>
       </motion.div>

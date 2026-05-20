@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: '%s | Réserve Marketing'
   },
   description: 'Agência especializada em Marketing Hoteleiro. Google Hotel Ads, gestão de tráfego, SEO e motor de reservas para hotéis, resorts e pousadas aumentarem reservas diretas e reduzirem OTAs.',
-  keywords: 'marketing hoteleiro, agência de marketing para hotéis, agência marketing hoteleiro, marketing digital para hotéis, marketing digital para pousadas, gestão de tráfego para resorts, Google Hotel Ads, SEO para hotéis, motor de reservas, reservas diretas, reduzir OTAs, marketing para pousadas, aumentar ocupação hoteleira, como reduzir comissão OTA hotel, tráfego pago para hotel, consultoria marketing hoteleiro, agência especializada em hotelaria, como aumentar reservas diretas hotel',
+  keywords: 'marketing hoteleiro, agência de marketing para hotéis, agência marketing hoteleiro, marketing digital para hotéis, marketing digital para pousadas, gestão de tráfego para resorts, Google Hotel Ads, SEO para hotéis, motor de reservas, reservas diretas, reduzir OTAs, marketing para pousadas, aumentar ocupação hoteleira, como reduzir comissão OTA hotel, tráfego pago para hotel, consultoria marketing hoteleiro, agência especializada em hotelaria, como aumentar reservas diretas hotel, agencia de marketing para hoteis boutique, Google Hotel Ads para pousadas, estrategia de reservas diretas hotel, como reduzir dependencia de OTA, consultoria marketing hoteleiro brasil, marketing digital para resorts brasil, hotel marketing agency, hospitality marketing agency, hotel digital marketing, hotel marketing consultant Brazil, increase direct bookings hotel, reduce OTA commissions hotel, hotel revenue marketing, boutique hotel digital marketing strategy, Google Hotel Ads management agency, reduce Booking.com commission hotel, hotel SEO agency, direct booking strategy hotel, hotel marketing agency direct bookings',
   authors: [{ name: COMPANY_NAP.name, url: siteUrl }],
   creator: COMPANY_NAP.name,
   publisher: COMPANY_NAP.name,
@@ -52,28 +52,35 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
+    alternateLocale: ['en_US'],
     url: siteUrl,
     siteName: COMPANY_NAP.name,
     title: 'Réserve | Agência de Marketing para Hotéis',
     description: 'Especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts. Mais reservas diretas, mais autonomia, mais receita.',
     images: [
       {
-        url: '/og-image.jpg', // Add this image to public folder
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Réserve - Agência de Marketing para Hotéis',
+        alt: 'Réserve - Hotel Marketing Agency',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Réserve | Agência de Marketing para Hotéis',
-    description: 'Especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts. Mais reservas diretas, mais autonomia, mais receita.',
-    images: ['/og-image.jpg'], // Add this image to public folder
-    creator: '@reservemarketing', // Update with real Twitter handle
+    title: 'Réserve | Hotel Marketing Agency',
+    description: 'Hotel marketing specialists. Google Hotel Ads, SEO, and direct booking strategies for hotels, resorts and pousadas.',
+    images: ['/og-image.jpg'],
+  },
+  alternates: {
+    canonical: siteUrl,
+    languages: {
+      'pt-BR': siteUrl,
+      'en-US': siteUrl,
+    },
   },
   // verification: {
-  //   google: 'ADD_REAL_CODE_HERE',
+  //   google: 'ADD_REAL_CODE_HERE', // Cole aqui o código do Google Search Console
   // },
 }
 

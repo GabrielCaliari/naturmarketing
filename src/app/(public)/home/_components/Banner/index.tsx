@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import BackgroundImage from "./../../../../../../public/img/resource/background.png";
+import { useLocale } from "@/context/LocaleContext";
 
 const Banner = () => {
+  const { t } = useLocale();
+
   const handleScroll = () => {
     document.getElementById("transform")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -14,7 +17,6 @@ const Banner = () => {
       className="relative flex flex-col overflow-hidden banner-section"
       style={{ minHeight: "100svh" }}
     >
-      {/* Imagem de fundo com blur */}
       <div className="absolute inset-0" aria-hidden="true">
         <Image
           src={BackgroundImage}
@@ -27,14 +29,12 @@ const Banner = () => {
           className="object-cover object-center"
           placeholder="blur"
         />
-        {/* Overlay marrom para contraste */}
         <div
           className="absolute inset-0"
           style={{ background: "rgba(90, 45, 15, 0.62)" }}
         />
       </div>
 
-      {/* Conteúdo centralizado */}
       <div
         className="relative z-10 flex-1 flex flex-col justify-center items-center text-center section-container"
         style={{ paddingTop: "120px", paddingBottom: "80px" }}
@@ -55,11 +55,11 @@ const Banner = () => {
             }}
           >
             <span className="w-1 h-1 rounded-full bg-white/70" />
-            Agência de Marketing Hoteleiro
+            {t('banner.badge')}
           </span>
         </motion.div>
 
-        {/* Título principal */}
+        {/* Título */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,9 +73,9 @@ const Banner = () => {
             lineHeight: "1.05",
           }}
         >
-          A agência de<br /> marketing
-          para hotéis<br /> que{" "}
-          converte.
+          {t('banner.title.1')}<br /> {t('banner.title.2')}
+          <br />{t('banner.title.3')}<br /> {t('banner.title.4')}{" "}
+          {t('banner.title.5')}
         </motion.h1>
 
         {/* Subtítulo */}
@@ -92,9 +92,9 @@ const Banner = () => {
             lineHeight: 1.7,
           }}
         >
-          Mais reservas diretas. Menos OTAs.<br />{" "}
+          {t('banner.subtitle')}<br />{" "}
           <strong style={{ fontWeight: 600, color: "#ffffff" }}>
-            Canal próprio trabalhando pelo seu hotel 24h.
+            {t('banner.subtitle.strong')}
           </strong>
         </motion.p>
 
@@ -106,13 +106,13 @@ const Banner = () => {
           className="flex flex-wrap items-center justify-center gap-5"
         >
           <a
-            href="https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem."
+            href={t('banner.wa')}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
             style={{ background: "#ffffff", color: "#1A0F08", letterSpacing: "0.08em" }}
           >
-            Diagnóstico Gratuito
+            {t('banner.cta.primary')}
           </a>
 
           <button
@@ -139,7 +139,7 @@ const Banner = () => {
                 <path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </motion.span>
-            Explorar
+            {t('banner.cta.secondary')}
           </button>
         </motion.div>
       </div>

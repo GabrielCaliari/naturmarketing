@@ -20,45 +20,52 @@ const navLinksEn = [
 
 const LanguageSwitcher = ({ compact = false }: { compact?: boolean }) => {
   const { locale, setLocale } = useLocale();
+  const size = compact ? "2rem" : "2.25rem";
+  const fontSize = compact ? "1.1rem" : "1.25rem";
 
   return (
-    <div
-      className="flex items-center gap-1 rounded-full overflow-hidden"
-      style={{
-        border: "1px solid rgba(196,164,142,0.4)",
-        background: "rgba(255,255,255,0.06)",
-        padding: "2px",
-      }}
-    >
+    <div className="flex items-center gap-1.5">
       <button
         onClick={() => setLocale("pt")}
         title="Português"
-        className="flex items-center gap-1 rounded-full transition-all duration-200"
+        aria-label="Mudar para Português"
         style={{
-          padding: compact ? "3px 7px" : "4px 10px",
-          fontSize: compact ? "11px" : "12px",
-          fontWeight: locale === "pt" ? 600 : 400,
-          background: locale === "pt" ? "#994f2a" : "transparent",
-          color: locale === "pt" ? "#fff" : "rgba(255,255,255,0.55)",
-          letterSpacing: "0.03em",
+          width: size,
+          height: size,
+          fontSize,
+          borderRadius: "50%",
+          border: locale === "pt" ? "2px solid #994f2a" : "2px solid transparent",
+          background: locale === "pt" ? "rgba(153,79,42,0.18)" : "rgba(255,255,255,0.08)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "all 0.2s",
+          cursor: "pointer",
+          lineHeight: 1,
         }}
       >
-        🇧🇷 PT
+        🇧🇷
       </button>
       <button
         onClick={() => setLocale("en")}
         title="English"
-        className="flex items-center gap-1 rounded-full transition-all duration-200"
+        aria-label="Switch to English"
         style={{
-          padding: compact ? "3px 7px" : "4px 10px",
-          fontSize: compact ? "11px" : "12px",
-          fontWeight: locale === "en" ? 600 : 400,
-          background: locale === "en" ? "#994f2a" : "transparent",
-          color: locale === "en" ? "#fff" : "rgba(255,255,255,0.55)",
-          letterSpacing: "0.03em",
+          width: size,
+          height: size,
+          fontSize,
+          borderRadius: "50%",
+          border: locale === "en" ? "2px solid #994f2a" : "2px solid transparent",
+          background: locale === "en" ? "rgba(153,79,42,0.18)" : "rgba(255,255,255,0.08)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "all 0.2s",
+          cursor: "pointer",
+          lineHeight: 1,
         }}
       >
-        🇺🇸 EN
+        🇺🇸
       </button>
     </div>
   );
@@ -67,19 +74,14 @@ const LanguageSwitcher = ({ compact = false }: { compact?: boolean }) => {
 const Header = () => {
   const { isMobile } = useIsMobile({ breakpoint: 1080 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { locale } = useLocale();
+  const { locale, t } = useLocale();
   const navLinks = locale === "en" ? navLinksEn : navLinksPt;
 
   useEffect(() => {
     if (!isMobile) setIsMobileMenuOpen(false);
   }, [isMobile]);
 
-  const ctaText = locale === "en" ? "Free Diagnosis" : "Diagnóstico Gratuito";
-  const ctaTextMobile = locale === "en" ? "Diagnosis" : "Diagnóstico";
-  const ctaWa =
-    locale === "en"
-      ? "https://wa.me/553597742984?text=Hello!%20I%20would%20like%20to%20receive%20a%20free%20strategic%20diagnosis%20for%20my%20property."
-      : "https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.";
+  const ctaWa = t('banner.wa');
 
   return (
     <header className="main-header fixed-header">
@@ -121,7 +123,6 @@ const Header = () => {
               </div>
             )}
 
-            {/* Language switcher — desktop */}
             {!isMobile && (
               <div className="flex items-center gap-3">
                 <LanguageSwitcher />
@@ -131,12 +132,11 @@ const Header = () => {
                   rel="noopener noreferrer"
                   className="header-cta-btn"
                 >
-                  {ctaText}
+                  {t('nav.cta')}
                 </a>
               </div>
             )}
 
-            {/* Mobile: CTA + hamburger */}
             {isMobile && (
               <div className="flex items-center gap-2">
                 <LanguageSwitcher compact />
@@ -146,7 +146,7 @@ const Header = () => {
                   rel="noopener noreferrer"
                   className="header-cta-btn-mobile"
                 >
-                  {ctaTextMobile}
+                  {locale === "en" ? "Diagnosis" : "Diagnóstico"}
                 </a>
                 <button onClick={() => setIsMobileMenuOpen(true)} className="mobile-nav-toggler">
                   <IconMenu3 size={24} />
@@ -190,7 +190,7 @@ const MobileMenu = ({
 
   const ctaWa =
     locale === "en"
-      ? "https://wa.me/553597742984?text=Hello!%20I%20would%20like%20to%20receive%20a%20free%20strategic%20diagnosis%20for%20my%20property."
+      ? "https://wa.me/553597742984?text=Hello!%20I%20would%20like%20a%20free%20strategic%20diagnosis%20for%20my%20property."
       : "https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.";
   const ctaLabel = locale === "en" ? "Free Diagnosis" : "Diagnóstico Gratuito";
 

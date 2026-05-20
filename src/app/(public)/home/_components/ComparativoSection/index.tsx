@@ -2,23 +2,10 @@
 
 import { motion, type Variants } from "framer-motion";
 import { IconX, IconCheck } from "@tabler/icons-react";
+import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
-
-const semItems = [
-  "Altas taxas de comissão nas OTAs",
-  "Comunicação genérica sem identidade",
-  "Marketing reativo e sem estratégia",
-  "Dependência total de intermediários",
-];
-
-const comItems = [
-  "Reservas diretas com zero comissão",
-  "Posicionamento premium e diferenciado",
-  "Estratégia integrada com ROI mensurável",
-  "Canal próprio de aquisição de hóspedes",
-];
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -31,11 +18,18 @@ const stagger: Variants = {
 };
 
 export default function ComparativoSection() {
+  const { t } = useLocale();
+
+  const semItems = [
+    t('comp.sem1'), t('comp.sem2'), t('comp.sem3'), t('comp.sem4'),
+  ];
+  const comItems = [
+    t('comp.com1'), t('comp.com2'), t('comp.com3'), t('comp.com4'),
+  ];
+
   return (
     <section className="py-10 md:py-16" style={{ background: "#F7F3EE" }}>
       <div className="section-container">
-
-        {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -46,14 +40,13 @@ export default function ComparativoSection() {
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
             <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>
-              O Comparativo
+              {t('comp.label')}
             </span>
             <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
           </div>
-          <h2 className="h1">A diferença é clara</h2>
+          <h2 className="h1">{t('comp.h2')}</h2>
         </motion.div>
 
-        {/* Colunas */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -61,14 +54,11 @@ export default function ComparativoSection() {
           variants={stagger}
           className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto"
         >
-          {/* Coluna esquerda — Sem estrutura */}
+          {/* Sem estrutura */}
           <div className="flex flex-col gap-3">
             <motion.div variants={fadeUp} className="mb-3">
-              <span
-                className="text-[32px] font-light"
-                style={{ color: "rgba(26,15,8,0.35)", fontFamily: "var(--font-rubik), sans-serif" }}
-              >
-                Sem estrutura
+              <span className="text-[32px] font-light" style={{ color: "rgba(26,15,8,0.35)", fontFamily: "var(--font-rubik), sans-serif" }}>
+                {t('comp.left')}
               </span>
             </motion.div>
             {semItems.map((item, i) => (
@@ -76,32 +66,22 @@ export default function ComparativoSection() {
                 key={i}
                 variants={fadeUp}
                 className="flex items-center gap-3 px-4 py-3.5 rounded-xl"
-                style={{
-                  background: "#FDFAF7",
-                  border: "1px solid rgba(196,164,142,0.22)",
-                }}
+                style={{ background: "#FDFAF7", border: "1px solid rgba(196,164,142,0.22)" }}
               >
                 <div className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(180,80,65,0.1)", color: "rgba(180,80,65,0.7)" }}>
                   <IconX size={13} stroke={2.5} />
                 </div>
-                <span className="text-[15px] font-light" style={{ color: "rgba(26,15,8,0.6)" }}>
-                  {item}
-                </span>
+                <span className="text-[15px] font-light" style={{ color: "rgba(26,15,8,0.6)" }}>{item}</span>
               </motion.div>
             ))}
           </div>
 
-          {/* Coluna direita — Com a Réserve */}
+          {/* Com a Réserve */}
           <div className="flex flex-col gap-3">
             <motion.div variants={fadeUp} className="mb-3">
-              <span
-                className="text-[32px]"
-                style={{ color: BRAND_GREEN, fontWeight: 400 }}
-              >
-                Com a{" "}
-                <span style={{ fontFamily: "PP Hatton Medium, Georgia, serif", fontWeight: 400 }}>
-                  réserve
-                </span>
+              <span className="text-[32px]" style={{ color: BRAND_GREEN, fontWeight: 400 }}>
+                {t('comp.right')}{" "}
+                <span style={{ fontFamily: "PP Hatton Medium, Georgia, serif", fontWeight: 400 }}>réserve</span>
               </span>
             </motion.div>
             {comItems.map((item, i) => (
@@ -109,22 +89,16 @@ export default function ComparativoSection() {
                 key={i}
                 variants={fadeUp}
                 className="flex items-center gap-3 px-4 py-3.5 rounded-xl"
-                style={{
-                  background: BRAND_GREEN,
-                  border: "none",
-                }}
+                style={{ background: BRAND_GREEN }}
               >
                 <div className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(255,255,255,0.2)", color: "#ffffff" }}>
                   <IconCheck size={13} stroke={2.5} />
                 </div>
-                <span className="text-[15px] font-light" style={{ color: "rgba(255,255,255,0.92)" }}>
-                  {item}
-                </span>
+                <span className="text-[15px] font-light" style={{ color: "rgba(255,255,255,0.92)" }}>{item}</span>
               </motion.div>
             ))}
           </div>
         </motion.div>
-
       </div>
     </section>
   );

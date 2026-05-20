@@ -22,43 +22,43 @@ export const COMPANY_NAP = {
     raw: "553597742984",
     schema: "+55-35-9774-2984"
   },
-  
+
   // Address Information
   address: {
-    street: "Rua das Flores, 123", // Update with real address
-    city: "São Paulo",
-    state: "SP",
-    zip: "01234-567", // Update with real ZIP
+    street: "Rua Barbosa Lima, 200",
+    city: "Lavras",
+    state: "MG",
+    zip: "37177-200",
     country: "Brasil",
-    full: "Rua das Flores, 123, São Paulo, SP, 01234-567, Brasil" // Update with real address
+    full: "Rua Barbosa Lima, 200, Lavras, MG, 37177-200, Brasil"
   },
-  
+
   // Geographic Coordinates (for LocalBusiness schema)
   geo: {
-    latitude: -23.5505, // Update with real coordinates
-    longitude: -46.6333 // Update with real coordinates
+    latitude: -21.2440,
+    longitude: -45.0002
   },
-  
+
   // Business Hours
   hours: {
     display: "Segunda a Sexta: 9h às 18h",
     displayUpper: "SEGUNDA A SEXTA: 9H ÀS 18H",
-    schema: "Mo-Fr 09:00-18:00" // Schema.org format
+    schema: "Mo-Fr 09:00-18:00"
   },
-  
+
   // Business Details
-  foundingYear: 2024, // Update with real founding year
-  
+  foundingYear: 2024,
+
   // URLs and Digital Presence
-  url: "https://www.reservemkt.com.br", // Update with real domain
-  
+  url: "https://www.reservemkt.com.br",
+
   // Social Media Profiles
   social: {
-    instagram: "https://www.instagram.com/reserve.mkt/", // Update with real profile
-    facebook: "https://facebook.com/reservemarketing", // Update with real profile
-    linkedin: "https://linkedin.com/company/reservemarketing", // Update with real profile
-    googleMaps: "https://maps.google.com/place/reservemarketing", // Update with real Google Maps URL
-    googleMapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12...", // Update with real embed URL
+    instagram: "https://www.instagram.com/reserve.mkt/",
+    facebook: "",
+    linkedin: "",
+    googleMaps: "",
+    googleMapsEmbed: "",
   },
   
   // Service Areas

@@ -5,10 +5,16 @@ import Link from "next/link";
 
 const BRAND_GREEN = "#84936f";
 
-const menuLinks = [
-  // { label: "Expertise", id: "services" },
-  { label: "Serviços", id: "services" },
-  { label: "Para quem fazemos", id: "para-quem-fazemos" },
+const serviceLinks = [
+  { label: "Google Hotel Ads", href: "/google-hotel-ads" },
+  { label: "SEO para Hotéis", href: "/seo-para-hoteis" },
+  { label: "Reservas Diretas", href: "/reservas-diretas" },
+  { label: "Sites para Hotéis", href: "/sites-para-hoteis" },
+];
+
+const contentLinks = [
+  { label: "Blog", href: "/blog" },
+  { label: "Nossa Empresa", href: "/empresa" },
 ];
 
 const socialLinks = [
@@ -30,10 +36,6 @@ const legalLinks = [
 ];
 
 const Footer = () => {
-  const handleNav = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <footer style={{ background: "#F0EBE3", borderTop: "1px solid rgba(196,164,142,0.35)" }}>
       <div
@@ -83,34 +85,45 @@ const Footer = () => {
           </div>
 
           {/* Colunas de links */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
 
-            {/* Menu */}
-            <div className="flex flex-col gap-5">
-              <span
-                className="text-[11px] font-bold tracking-[0.25em] uppercase"
-                style={{ color: "rgba(26,15,8,0.3)" }}
-              >
-                Menu
+            {/* Serviços */}
+            <div className="flex flex-col gap-4">
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
+                Serviços
               </span>
-              {menuLinks.map((item) => (
-                <button
+              {serviceLinks.map((item) => (
+                <Link
                   key={item.label}
-                  onClick={() => handleNav(item.id)}
-                  className="text-left text-[14px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
+                  href={item.href}
+                  className="text-left text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#7a6a5e", fontWeight: 400 }}
                 >
                   {item.label}
-                </button>
+                </Link>
+              ))}
+            </div>
+
+            {/* Conteúdo */}
+            <div className="flex flex-col gap-4">
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
+                Conteúdo
+              </span>
+              {contentLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
+                  style={{ color: "#7a6a5e", fontWeight: 400 }}
+                >
+                  {item.label}
+                </Link>
               ))}
             </div>
 
             {/* Social */}
-            <div className="flex flex-col gap-5">
-              <span
-                className="text-[11px] font-bold tracking-[0.25em] uppercase"
-                style={{ color: "rgba(26,15,8,0.3)" }}
-              >
+            <div className="flex flex-col gap-4">
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
                 Social
               </span>
               {socialLinks.map((s) => (
@@ -119,7 +132,7 @@ const Footer = () => {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[14px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
+                  className="text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#7a6a5e", fontWeight: 400 }}
                 >
                   {s.label}
@@ -128,18 +141,15 @@ const Footer = () => {
             </div>
 
             {/* Legal */}
-            <div className="flex flex-col gap-5">
-              <span
-                className="text-[11px] font-bold tracking-[0.25em] uppercase"
-                style={{ color: "rgba(26,15,8,0.3)" }}
-              >
+            <div className="flex flex-col gap-4">
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
                 Legal
               </span>
               {legalLinks.map((l) => (
                 <Link
                   key={l.label}
                   href={l.href}
-                  className="text-[14px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
+                  className="text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#7a6a5e", fontWeight: 400 }}
                 >
                   {l.label}

@@ -138,25 +138,25 @@ export function ServiceJsonLd() {
     "provider": {
       "@id": `${siteUrl}/#organization`
     },
-    "areaServed": {
-      "@type": "Country",
-      "name": "Brasil"
-    },
+    "areaServed": [
+      { "@type": "Country", "name": "Brasil" },
+      { "@type": "Country", "name": "Brazil" }
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Serviços de Marketing Hoteleiro",
+      "name": "Serviços de Marketing Hoteleiro / Hotel Marketing Services",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Hotel Ads" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tráfego Pago para Hotéis (Google Ads e Meta Ads)" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO para Hotéis e Pousadas" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Criação de Site Hoteleiro com Motor de Reservas" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestão de Redes Sociais para Hotéis" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Estratégia de Reservas Diretas" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Email Marketing Hoteleiro" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tráfego Pago para Hotéis / Paid Traffic for Hotels" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO para Hotéis e Pousadas / Hotel SEO" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Site Hoteleiro com Motor de Reservas / Hotel Website with Booking Engine" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestão de Redes Sociais para Hotéis / Hotel Social Media Management" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reservas Diretas / Direct Booking Strategy" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Redução de OTAs / OTA Commission Reduction" } }
       ]
     },
-    "serviceType": "Marketing Digital",
-    "category": "Marketing Hoteleiro"
+    "serviceType": "Marketing Digital / Hotel Digital Marketing",
+    "category": "Marketing Hoteleiro / Hotel Marketing Agency"
   }
 
   return <JsonLd data={serviceData} id="service-schema" />

@@ -14,6 +14,7 @@ const ParaQuemFazemos = lazy(() => import("./_components/ParaQuemFazemos"));
 const PlataformasSection = lazy(() => import("./_components/PlataformasSection"));
 const ComparativoSection = lazy(() => import("./_components/ComparativoSection"));
 const ResultadosSection = lazy(() => import("./_components/ResultadosSection"));
+const BlogPreview = lazy(() => import("./_components/BlogPreview"));
 const FAQ = lazy(() => import("./_components/FAQ"));
 const ConsultoriaBanner = lazy(() => import("./_components/ConsultoriaBanner"));
 
@@ -65,6 +66,10 @@ const Home = () => {
           <ComparativoSection />
         </Suspense>
 
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <BlogPreview />
+        </Suspense>
 
         <Suspense fallback={<SectionSkeleton />}>
           <FAQ />
