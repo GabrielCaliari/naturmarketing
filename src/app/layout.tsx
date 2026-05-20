@@ -6,10 +6,11 @@ import Script from 'next/script'
 import "@/styles/globals.css";
 
 // Analytics e Rastreamento
-// import { GTMScript, GTMNoScript } from '@/components/Analytics/GTMScript';
-// import MetaPixel from '@/components/Analytics/MetaPixel';
+import { GTMScript, GTMNoScript } from '@/components/Analytics/GTMScript';
+import MetaPixel from '@/components/Analytics/MetaPixel';
 import CookieConsent from '@/components/CookieConsent';
 import AutoTrack from '@/components/Analytics/AutoTrack';
+import MicrosoftClarity from '@/components/Analytics/MicrosoftClarity';
 
 // SEO Components
 import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/SEO/JsonLd';
@@ -124,9 +125,12 @@ export default function RootLayout({
         {/* Meta Pixel is loaded client-side after LGPD consent — see MetaPixel.tsx */}
       </head>
       <body suppressHydrationWarning={true}>
-        {/* GTM NoScript Fallback - Descomente quando configurar NEXT_PUBLIC_GTM_ID */}
-        {/* <GTMNoScript /> */}
+        {/* GTM NoScript Fallback */}
+        <GTMNoScript />
         
+        {/* Meta Pixel */}
+        <MetaPixel />
+
         {/* Conteúdo principal */}
         {children}
         
@@ -135,6 +139,9 @@ export default function RootLayout({
         
         {/* Rastreamento Automático */}
         <AutoTrack />
+
+        {/* Microsoft Clarity — gravação de sessão e mapa de calor */}
+        <MicrosoftClarity />
       </body>
     </html>
   )
