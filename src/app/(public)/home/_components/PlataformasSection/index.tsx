@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
+import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -73,7 +74,9 @@ const stagger: Variants = {
   visible: { transition: { staggerChildren: 0.07 } },
 };
 
-const PlataformasSection = () => (
+const PlataformasSection = () => {
+  const { t } = useLocale();
+  return (
   <section style={{ background: "#F0EBE3" }} className="py-10 md:py-16">
 
     {/* ── Bloco Canais Próprios ── */}
@@ -92,7 +95,7 @@ const PlataformasSection = () => (
           className="text-[9px] font-semibold tracking-[0.3em] uppercase"
           style={{ color: BRAND_BROWN }}
         >
-          Canal próprio de aquisição
+          {t('plat.own.label')}
         </span>
       </motion.div>
 
@@ -106,7 +109,7 @@ const PlataformasSection = () => (
           marginBottom: "48px",
         }}
       >
-        Canais onde construímos o seu ecossistema de reservas diretas
+        {t('plat.own.title')}
       </motion.h3>
 
       {/* Chips de plataformas - Desktop */}
@@ -224,7 +227,7 @@ const PlataformasSection = () => (
           className="text-[9px] font-semibold tracking-[0.3em] uppercase"
           style={{ color: BRAND_GREEN }}
         >
-          Intermediários que gerenciamos
+          {t('plat.ota.label')}
         </span>
       </motion.div>
 
@@ -238,7 +241,7 @@ const PlataformasSection = () => (
           marginBottom: "48px",
         }}
       >
-        Canais onde otimizamos o posicionamento do seu hotel
+        {t('plat.ota.title')}
       </motion.h3>
 
       {/* Cards OTAs - Desktop */}
@@ -324,6 +327,7 @@ const PlataformasSection = () => (
     </motion.div>
 
   </section>
-);
+  );
+};
 
 export default PlataformasSection;

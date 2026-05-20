@@ -2,6 +2,7 @@
 
 import { IconBrandInstagram, IconBrandWhatsapp } from "@tabler/icons-react";
 import Link from "next/link";
+import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_GREEN = "#84936f";
 
@@ -36,6 +37,7 @@ const legalLinks = [
 ];
 
 const Footer = () => {
+  const { t } = useLocale();
   return (
     <footer style={{ background: "#F0EBE3", borderTop: "1px solid rgba(196,164,142,0.35)" }}>
       <div
@@ -60,8 +62,7 @@ const Footer = () => {
               className="text-[16px] font-light leading-[1.85]"
               style={{ color: "#7a6a5e" }}
             >
-              Agência especializada em Marketing Hoteleiro. Transformamos hotéis, 
-              pousadas e resorts em marcas fortes com reservas diretas e menos dependência de OTAs.
+              {t('footer.desc')}
             </p>
             <div className="flex items-center gap-4 pt-1">
               {socialLinks.map((s) => (
@@ -90,7 +91,7 @@ const Footer = () => {
             {/* Serviços */}
             <div className="flex flex-col gap-4">
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
-                Serviços
+                {t('footer.col.services')}
               </span>
               {serviceLinks.map((item) => (
                 <Link
@@ -107,7 +108,7 @@ const Footer = () => {
             {/* Conteúdo */}
             <div className="flex flex-col gap-4">
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
-                Conteúdo
+                {t('footer.col.content')}
               </span>
               {contentLinks.map((item) => (
                 <Link
@@ -124,7 +125,7 @@ const Footer = () => {
             {/* Social */}
             <div className="flex flex-col gap-4">
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
-                Social
+                {t('footer.col.social')}
               </span>
               {socialLinks.map((s) => (
                 <a
@@ -143,7 +144,7 @@ const Footer = () => {
             {/* Legal */}
             <div className="flex flex-col gap-4">
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
-                Legal
+                {t('footer.col.legal')}
               </span>
               {legalLinks.map((l) => (
                 <Link

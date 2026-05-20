@@ -1,93 +1,262 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/useMobileDevice";
-import { IconMenu3, IconX } from "@tabler/icons-react";
+import { IconMenu3, IconX, IconChevronDown, IconCheck } from "@tabler/icons-react";
 import { useLocale } from "@/context/LocaleContext";
 
-const navLinksPt = [
-  { label: "Início", href: "/" },
-  { label: "Serviços", id: "services" },
-  { label: "Contato", id: "contact" },
-];
+// ── Flag SVGs ─────────────────────────────────────────────────────────────────
+const FlagBR = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={Math.round(size * 0.68)} viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+    <rect width="20" height="14" fill="#009c3b" rx="2" />
+    <polygon points="10,1.2 18.6,7 10,12.8 1.4,7" fill="#ffdf00" />
+    <circle cx="10" cy="7" r="3.3" fill="#002776" />
+    <rect x="6.8" y="6.5" width="6.4" height="1" fill="#fff" opacity="0.9" />
+  </svg>
+);
 
-const navLinksEn = [
-  { label: "Home", href: "/" },
-  { label: "Services", id: "services" },
-  { label: "Contact", id: "contact" },
-];
+const FlagUS = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={Math.round(size * 0.68)} viewBox="0 0 20 14" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+    <rect width="20" height="14" fill="#fff" rx="2" />
+    {[0, 2.15, 4.31, 6.46, 8.62, 10.77, 12.92].map((y, i) => (
+      <rect key={i} x="0" width="20" height="1.08" y={y} fill="#b22234" />
+    ))}
+    <rect width="8" height="7.5" fill="#3c3b6e" rx="0" />
+    {[1.2, 2.5, 3.8, 5.1, 6.4].map((y, row) =>
+      [0, 1, 2, 3].map((col) => (
+        <circle
+          key={`${row}-${col}`}
+          cx={1 + col * 2 + (row % 2 === 0 ? 0 : 1)}
+          cy={y}
+          r="0.5"
+          fill="#fff"
+        />
+      ))
+    )}
+  </svg>
+);
 
+// ── Language Dropdown ─────────────────────────────────────────────────────────
 const LanguageSwitcher = ({ compact = false }: { compact?: boolean }) => {
   const { locale, setLocale } = useLocale();
-  const size = compact ? "2rem" : "2.25rem";
-  const fontSize = compact ? "1.1rem" : "1.25rem";
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const options = [
+    { code: "pt" as const, label: "Português", Flag: FlagBR },
+    { code: "en" as const, label: "English",   Flag: FlagUS },
+  ];
+  const current = options.find((o) => o.code === locale)!;
 
   return (
-    <div className="flex items-center gap-1.5">
+    <div ref={ref} style={{ position: "relative" }}>
       <button
-        onClick={() => setLocale("pt")}
-        title="Português"
-        aria-label="Mudar para Português"
+        onClick={() => setOpen((v) => !v)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
         style={{
-          width: size,
-          height: size,
-          fontSize,
-          borderRadius: "50%",
-          border: locale === "pt" ? "2px solid #994f2a" : "2px solid transparent",
-          background: locale === "pt" ? "rgba(153,79,42,0.18)" : "rgba(255,255,255,0.08)",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          transition: "all 0.2s",
+          gap: "6px",
+          background: open ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.07)",
+          border: "1px solid rgba(255,255,255,0.18)",
+          borderRadius: "8px",
+          padding: compact ? "5px 8px" : "6px 10px",
           cursor: "pointer",
-          lineHeight: 1,
+          outline: "none",
+          transition: "background 0.2s",
         }}
       >
-        🇧🇷
+        <current.Flag size={compact ? 18 : 20} />
+        <span style={{ color: "rgba(255,255,255,0.88)", fontSize: "12px", fontWeight: 500, letterSpacing: "0.04em" }}>
+          {locale === "pt" ? "PT" : "EN"}
+        </span>
+        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.18 }} style={{ display: "flex", color: "rgba(255,255,255,0.55)" }}>
+          <IconChevronDown size={12} stroke={2.5} />
+        </motion.span>
       </button>
-      <button
-        onClick={() => setLocale("en")}
-        title="English"
-        aria-label="Switch to English"
-        style={{
-          width: size,
-          height: size,
-          fontSize,
-          borderRadius: "50%",
-          border: locale === "en" ? "2px solid #994f2a" : "2px solid transparent",
-          background: locale === "en" ? "rgba(153,79,42,0.18)" : "rgba(255,255,255,0.08)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          transition: "all 0.2s",
-          cursor: "pointer",
-          lineHeight: 1,
-        }}
-      >
-        🇺🇸
-      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.ul
+            role="listbox"
+            initial={{ opacity: 0, y: 6, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 4, scale: 0.97 }}
+            transition={{ duration: 0.15 }}
+            style={{
+              position: "absolute",
+              top: "calc(100% + 8px)",
+              right: 0,
+              minWidth: "150px",
+              background: "#1a1108",
+              border: "1px solid rgba(196,164,142,0.22)",
+              borderRadius: "12px",
+              padding: "6px",
+              zIndex: 200,
+              boxShadow: "0 16px 40px rgba(0,0,0,0.4)",
+              listStyle: "none",
+              margin: 0,
+            }}
+          >
+            {options.map(({ code, label, Flag }) => {
+              const active = locale === code;
+              return (
+                <li key={code}>
+                  <button
+                    role="option"
+                    aria-selected={active}
+                    onClick={() => { setLocale(code); setOpen(false); }}
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      padding: "8px 12px",
+                      borderRadius: "8px",
+                      background: active ? "rgba(153,79,42,0.18)" : "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={(e) => { if (!active) (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.07)"; }}
+                    onMouseLeave={(e) => { if (!active) (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+                  >
+                    <Flag size={20} />
+                    <span style={{ color: active ? "#ffffff" : "rgba(255,255,255,0.7)", fontSize: "13px", fontWeight: active ? 500 : 400, flex: 1, textAlign: "left" }}>
+                      {label}
+                    </span>
+                    {active && <IconCheck size={13} stroke={2.5} style={{ color: "#994f2a" }} />}
+                  </button>
+                </li>
+              );
+            })}
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
+// ── Dropdown de serviços ──────────────────────────────────────────────────────
+const ServicesDropdown = () => {
+  const { t } = useLocale();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const services = [
+    { label: t('nav.service1.label'), desc: t('nav.service1.desc'), href: "/google-hotel-ads" },
+    { label: t('nav.service2.label'), desc: t('nav.service2.desc'), href: "/seo-para-hoteis" },
+    { label: t('nav.service3.label'), desc: t('nav.service3.desc'), href: "/reservas-diretas" },
+    { label: t('nav.service4.label'), desc: t('nav.service4.desc'), href: "/sites-para-hoteis" },
+  ];
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div ref={ref} style={{ position: "relative" }}>
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="flex items-center gap-1 transition-colors duration-200 hover:text-white"
+        style={{
+          color: open ? "#ffffff" : "rgba(255,255,255,0.8)",
+          fontSize: "14px",
+          fontWeight: 400,
+          letterSpacing: "0.03em",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          padding: "6px 0",
+        }}
+      >
+        {t('nav.services')}
+        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
+          <IconChevronDown size={14} stroke={2} />
+        </motion.span>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 8, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 6, scale: 0.97 }}
+            transition={{ duration: 0.18 }}
+            style={{
+              position: "absolute",
+              top: "calc(100% + 12px)",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "240px",
+              background: "#1a1108",
+              border: "1px solid rgba(196,164,142,0.2)",
+              borderRadius: "16px",
+              padding: "8px",
+              zIndex: 100,
+              boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+            }}
+          >
+            {services.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                onClick={() => setOpen(false)}
+                style={{ textDecoration: "none" }}
+              >
+                <div
+                  className="flex flex-col gap-0.5 px-4 py-3 rounded-xl transition-all duration-200 hover:bg-white/8"
+                  style={{ cursor: "pointer" }}
+                >
+                  <span style={{ color: "#ffffff", fontSize: "13px", fontWeight: 500 }}>
+                    {s.label}
+                  </span>
+                  <span style={{ color: "rgba(255,255,255,0.45)", fontSize: "11px" }}>
+                    {s.desc}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// ── Header principal ──────────────────────────────────────────────────────────
 const Header = () => {
   const { isMobile } = useIsMobile({ breakpoint: 1080 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { locale, t } = useLocale();
-  const navLinks = locale === "en" ? navLinksEn : navLinksPt;
 
   useEffect(() => {
     if (!isMobile) setIsMobileMenuOpen(false);
   }, [isMobile]);
 
-  const ctaWa = t('banner.wa');
+  const ctaWa = t("banner.wa");
 
   return (
     <header className="main-header fixed-header">
       <div className="auto-container">
         <div className="header-lower">
           <div className="inner-container">
+
+            {/* Logo */}
             <div className="logo-box">
               <Link href="/" className="logo header-logo">
                 <span className="header-logo-brand">réserve</span>
@@ -95,36 +264,49 @@ const Header = () => {
               </Link>
             </div>
 
+            {/* Desktop nav */}
             {!isMobile && (
-              <div className="nav-outer">
-                <nav className="main-menu">
+              <nav className="nav-outer">
+                <div className="main-menu">
                   <div className="navbar-collapse">
-                    <ul className="navigation">
-                      {navLinks.map((item) => (
-                        <li key={item.label}>
-                          {item.href ? (
-                            <Link href={item.href}>{item.label}</Link>
-                          ) : (
-                            <a
-                              href={`#${item.id}`}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                document.getElementById(item.id!)?.scrollIntoView({ behavior: "smooth" });
-                              }}
-                            >
-                              {item.label}
-                            </a>
-                          )}
-                        </li>
-                      ))}
+                    <ul className="navigation" style={{ display: "flex", alignItems: "center", gap: "28px", listStyle: "none", margin: 0, padding: 0 }}>
+                      <li>
+                        <Link href="/" style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
+                          {t('nav.home')}
+                        </Link>
+                      </li>
+                      <li style={{ position: "relative" }}>
+                        <ServicesDropdown />
+                      </li>
+                      <li>
+                        <Link href="/blog" style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
+                          {t('nav.blog')}
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/empresa" style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
+                          {t('nav.empresa')}
+                        </Link>
+                      </li>
+                      <li>
+                        <a
+                          href={ctaWa}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", fontWeight: 400, textDecoration: "none", cursor: "pointer" }}
+                        >
+                          {t('nav.contact')}
+                        </a>
+                      </li>
                     </ul>
                   </div>
-                </nav>
-              </div>
+                </div>
+              </nav>
             )}
 
+            {/* Desktop: language switcher + CTA */}
             {!isMobile && (
-              <div className="flex items-center gap-3">
+              <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
                 <LanguageSwitcher />
                 <a
                   href={ctaWa}
@@ -132,13 +314,14 @@ const Header = () => {
                   rel="noopener noreferrer"
                   className="header-cta-btn"
                 >
-                  {t('nav.cta')}
+                  {t("nav.cta")}
                 </a>
               </div>
             )}
 
+            {/* Mobile: language switcher + CTA pequeno + hamburguer */}
             {isMobile && (
-              <div className="flex items-center gap-2">
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <LanguageSwitcher compact />
                 <a
                   href={ctaWa}
@@ -159,40 +342,52 @@ const Header = () => {
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <MobileMenu onClose={() => setIsMobileMenuOpen(false)} navLinks={navLinks} locale={locale} />
+          <MobileMenu
+            onClose={() => setIsMobileMenuOpen(false)}
+            locale={locale}
+            ctaWa={ctaWa}
+            ctaLabel={t("nav.cta")}
+            t={t}
+          />
         )}
       </AnimatePresence>
     </header>
   );
 };
 
+// ── Menu mobile ───────────────────────────────────────────────────────────────
 const MobileMenu = ({
   onClose,
-  navLinks,
-  locale,
+  locale: _locale,
+  ctaWa,
+  ctaLabel,
+  t,
 }: {
   onClose: () => void;
-  navLinks: typeof navLinksPt;
   locale: string;
+  ctaWa: string;
+  ctaLabel: string;
+  t: (key: string) => string;
 }) => {
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  const services = [
+    { label: t('nav.service1.label'), desc: t('nav.service1.desc'), href: "/google-hotel-ads" },
+    { label: t('nav.service2.label'), desc: t('nav.service2.desc'), href: "/seo-para-hoteis" },
+    { label: t('nav.service3.label'), desc: t('nav.service3.desc'), href: "/reservas-diretas" },
+    { label: t('nav.service4.label'), desc: t('nav.service4.desc'), href: "/sites-para-hoteis" },
+  ];
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = ""; };
   }, []);
 
-  const handleNav = (id?: string) => {
-    onClose();
-    if (!id) return;
-    setTimeout(() => {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }, 300);
-  };
-
-  const ctaWa =
-    locale === "en"
-      ? "https://wa.me/553597742984?text=Hello!%20I%20would%20like%20a%20free%20strategic%20diagnosis%20for%20my%20property."
-      : "https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.";
-  const ctaLabel = locale === "en" ? "Free Diagnosis" : "Diagnóstico Gratuito";
+  const navItems = [
+    { label: t('nav.home'), href: "/" },
+    { label: t('nav.blog'), href: "/blog" },
+    { label: t('nav.empresa'), href: "/empresa" },
+  ];
 
   return (
     <div className="mobile-menu-overlay">
@@ -223,30 +418,83 @@ const MobileMenu = ({
         </div>
 
         <nav className="mobile-menu-nav">
-          {navLinks.map((item, i) => (
+          {navItems.map((item, i) => (
             <motion.div
               key={item.label}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 + i * 0.06, duration: 0.25 }}
+              transition={{ delay: 0.05 + i * 0.05, duration: 0.22 }}
             >
-              {item.href ? (
-                <Link href={item.href} className="mobile-menu-link" onClick={onClose}>
-                  {item.label}
-                </Link>
-              ) : (
-                <button className="mobile-menu-link" onClick={() => handleNav(item.id)}>
-                  {item.label}
-                </button>
-              )}
+              <Link href={item.href} className="mobile-menu-link" onClick={onClose}>
+                {item.label}
+              </Link>
             </motion.div>
           ))}
+
+          {/* Serviços acordeão */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.22 }}
+          >
+            <button
+              className="mobile-menu-link flex items-center justify-between w-full"
+              onClick={() => setServicesOpen((v) => !v)}
+            >
+              <span>{t('nav.services')}</span>
+              <motion.span animate={{ rotate: servicesOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                <IconChevronDown size={16} stroke={2} />
+              </motion.span>
+            </button>
+            <AnimatePresence>
+              {servicesOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  style={{ overflow: "hidden" }}
+                >
+                  {services.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      onClick={onClose}
+                      className="flex flex-col gap-0.5 px-4 py-2.5"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <span style={{ color: "#1A0F08", fontSize: "14px", fontWeight: 500 }}>{s.label}</span>
+                      <span style={{ color: "#7a6a5e", fontSize: "11px" }}>{s.desc}</span>
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Contato → WhatsApp */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.25, duration: 0.22 }}
+          >
+            <a
+              href={ctaWa}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mobile-menu-link block"
+              onClick={onClose}
+            >
+              {t('nav.contact')}
+            </a>
+          </motion.div>
         </nav>
 
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 + navLinks.length * 0.06, duration: 0.25 }}
+          transition={{ delay: 0.3, duration: 0.25 }}
           className="absolute bottom-8 left-0 right-0 px-6"
         >
           <a

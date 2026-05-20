@@ -18,7 +18,9 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\gabri\\\\OneDrive\\\\Documents\\\\GitHub\\\\naturmarketing\" -Force)",
       "Bash(Select-Object Name, FullName)",
       "Bash(cat)",
-      "Bash(bash \"/tmp/check_images.sh\")"
+      "Bash(bash \"/tmp/check_images.sh\")",
+      "Bash(Remove-Item -Recurse -Force \"C:\\\\Users\\\\gabri\\\\OneDrive\\\\Documents\\\\GitHub\\\\naturmarketing\\\\.next\" -ErrorAction SilentlyContinue)",
+      "Bash(Write-Host \"Cache limpo\")"
     ]
   }
 }

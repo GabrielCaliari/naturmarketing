@@ -1,0 +1,147 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { blogPosts } from "@/data/blog-posts";
+import { useLocale } from "@/context/LocaleContext";
+
+const BRAND_GREEN = "#84936f";
+const BRAND_BROWN = "#994f2a";
+const BG_CARD = "#FDFAF7";
+const BORDER = "rgba(196,164,142,0.2)";
+const TEXT_HEAD = "#1A0F08";
+const TEXT_BODY = "#7a6a5e";
+
+function formatDate(dateStr: string, locale: string) {
+  return new Date(dateStr).toLocaleDateString(locale === "en" ? "en-US" : "pt-BR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+export default function BlogPageContent() {
+  const { locale, t } = useLocale();
+  const featured = blogPosts.filter((p) => p.featured);
+  const rest = blogPosts.filter((p) => !p.featured);
+
+  return (
+    <main style={{ background: "#F0EBE3", minHeight: "100vh" }}>
+      {/* Hero */}
+      <section className="pt-32 pb-14 px-6 md:px-16" style={{ background: "#F0EBE3" }}>
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="flex items-center justify-center gap-3 mb-5">
+            <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>
+              {t("blog.listing.label")}
+            </span>
+            <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+          </div>
+          <h1 className="h2 mb-4" style={{ color: TEXT_HEAD, fontWeight: 400 }}>
+            {t("blog.listing.h1")}{" "}
+            <strong className="font-semibold">{t("blog.listing.h1strong")}</strong>
+          </h1>
+          <p className="paragraph max-w-xl mx-auto" style={{ color: TEXT_BODY, fontWeight: 300 }}>
+            {t("blog.listing.body")}
+          </p>
+        </div>
+      </section>
+
+      {/* Destaques */}
+      <section className="pb-10 px-6 md:px-16">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-[10px] font-medium tracking-[0.3em] uppercase mb-6" style={{ color: BRAND_GREEN }}>
+            {t("blog.listing.featured")}
+          </p>
+          <div className="grid md:grid-cols-3 gap-5">
+            {featured.map((post) => (
+              <BlogCard key={post.slug} post={post} highlight locale={locale} t={t} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Todos os artigos */}
+      <section className="pb-20 px-6 md:px-16">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-[10px] font-medium tracking-[0.3em] uppercase mb-6" style={{ color: BRAND_GREEN }}>
+            {t("blog.listing.all")}
+          </p>
+          <div className="grid md:grid-cols-3 gap-5">
+            {rest.map((post) => (
+              <BlogCard key={post.slug} post={post} locale={locale} t={t} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function BlogCard({
+  post,
+  highlight = false,
+  locale,
+  t,
+}: {
+  post: (typeof blogPosts)[0];
+  highlight?: boolean;
+  locale: string;
+  t: (key: string) => string;
+}) {
+  return (
+    <Link
+      href={`/blog/${post.slug}`}
+      className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+      style={{ background: BG_CARD, border: `1px solid ${BORDER}`, textDecoration: "none" }}
+    >
+      <div className="w-full relative overflow-hidden" style={{ height: "190px" }}>
+        <Image
+          src={post.coverImage}
+          alt={post.coverAlt}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%)" }} />
+        <span
+          className="absolute bottom-3 left-4 text-[10px] font-semibold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full"
+          style={{ background: highlight ? BRAND_GREEN : BRAND_BROWN, color: "#fff" }}
+        >
+          {post.category}
+        </span>
+      </div>
+
+      <div className="flex flex-col gap-3 p-5 flex-1">
+        <div className="flex items-center gap-2" style={{ color: TEXT_BODY }}>
+          <span className="text-[11px]">{post.readTime} {t("blog.readmin")}</span>
+          <span className="w-1 h-1 rounded-full" style={{ background: TEXT_BODY }} />
+          <span className="text-[11px]">{formatDate(post.publishedAt, locale)}</span>
+        </div>
+
+        <h2
+          className="text-[16px] font-semibold leading-snug transition-colors duration-300 group-hover:text-[#994f2a]"
+          style={{ color: TEXT_HEAD }}
+        >
+          {post.title}
+        </h2>
+
+        <p className="text-[13px] leading-[1.7] font-light flex-1" style={{ color: TEXT_BODY }}>
+          {post.excerpt}
+        </p>
+
+        <div className="flex items-center justify-between mt-2 pt-3" style={{ borderTop: `1px solid ${BORDER}` }}>
+          <span className="text-[11px]" style={{ color: TEXT_BODY }}>
+            {formatDate(post.publishedAt, locale)}
+          </span>
+          <span
+            className="text-[11px] font-medium transition-colors duration-300 group-hover:text-[#994f2a]"
+            style={{ color: BRAND_BROWN }}
+          >
+            {t("blog.read")}
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}

@@ -6,84 +6,75 @@ import { Footer } from "@/components/Footer";
 import { Banner } from "./_components/Banner";
 import { LocalBusinessJsonLd, ServiceJsonLd } from "@/components/SEO/JsonLd";
 import FloatingSocial from "@/components/FloatingSocial";
+import { useLocale } from "@/context/LocaleContext";
 
-// Lazy load components below the fold
-const TransformSection = lazy(() => import("./_components/TransformSection"));
-const OQueFazemos = lazy(() => import("./_components/OQueFazemos"));
-const ParaQuemFazemos = lazy(() => import("./_components/ParaQuemFazemos"));
+const TransformSection   = lazy(() => import("./_components/TransformSection"));
+const OQueFazemos        = lazy(() => import("./_components/OQueFazemos"));
+const ParaQuemFazemos    = lazy(() => import("./_components/ParaQuemFazemos"));
 const PlataformasSection = lazy(() => import("./_components/PlataformasSection"));
 const ComparativoSection = lazy(() => import("./_components/ComparativoSection"));
-const ResultadosSection = lazy(() => import("./_components/ResultadosSection"));
-const BlogPreview = lazy(() => import("./_components/BlogPreview"));
-const FAQ = lazy(() => import("./_components/FAQ"));
-const ConsultoriaBanner = lazy(() => import("./_components/ConsultoriaBanner"));
+const ResultadosSection  = lazy(() => import("./_components/ResultadosSection"));
+const BlogPreview        = lazy(() => import("./_components/BlogPreview"));
+const FAQ                = lazy(() => import("./_components/FAQ"));
+const ConsultoriaBanner  = lazy(() => import("./_components/ConsultoriaBanner"));
 
-// Loading skeleton component
 const SectionSkeleton = () => (
   <div className="w-full h-96 bg-gray-100 animate-pulse rounded-lg" />
 );
 
 const Home = () => {
+  const { locale } = useLocale();
+
   return (
     <>
-      {/* Structured Data for Homepage */}
       <LocalBusinessJsonLd />
       <ServiceJsonLd />
-      
+
       <Header />
       <FloatingSocial />
+
       <main className="overflow-x-hidden">
-        {/* Above the fold - load immediately */}
-        <Banner />
-        
-        {/* Below the fold - lazy load with suspense */}
-        <Suspense fallback={<SectionSkeleton />}>
-          <TransformSection />
-        </Suspense>
-        
+        {/* key={locale} em cada seção força remount individual ao trocar idioma */}
+        <Banner key={`banner-${locale}`} />
 
         <Suspense fallback={<SectionSkeleton />}>
-          <ResultadosSection />
+          <TransformSection key={`transform-${locale}`} />
         </Suspense>
 
         <Suspense fallback={<SectionSkeleton />}>
-          <OQueFazemos />
-        </Suspense>
-        
-        <Suspense fallback={<SectionSkeleton />}>
-          <ParaQuemFazemos />
-        </Suspense>
-        
-        <Suspense fallback={<SectionSkeleton />}>
-          <PlataformasSection />
-        </Suspense>
-
-        {/* <Suspense fallback={<SectionSkeleton />}>
-          <QuemSomosSection />
-        </Suspense> */}
-
-        <Suspense fallback={<SectionSkeleton />}>
-          <ComparativoSection />
-        </Suspense>
-
-
-        <Suspense fallback={<SectionSkeleton />}>
-          <BlogPreview />
+          <ResultadosSection key={`results-${locale}`} />
         </Suspense>
 
         <Suspense fallback={<SectionSkeleton />}>
-          <FAQ />
+          <OQueFazemos key={`services-${locale}`} />
         </Suspense>
 
         <Suspense fallback={<SectionSkeleton />}>
-          <ConsultoriaBanner />
+          <ParaQuemFazemos key={`para-${locale}`} />
         </Suspense>
 
-        {/* <Suspense fallback={<SectionSkeleton />}>
-          <Contact />
-        </Suspense> */}
+        <Suspense fallback={<SectionSkeleton />}>
+          <PlataformasSection key={`plat-${locale}`} />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <ComparativoSection key={`comp-${locale}`} />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <BlogPreview key={`blog-${locale}`} />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <FAQ key={`faq-${locale}`} />
+        </Suspense>
+
+        <Suspense fallback={<SectionSkeleton />}>
+          <ConsultoriaBanner key={`cta-${locale}`} />
+        </Suspense>
       </main>
-      <Footer />
+
+      <Footer key={`footer-${locale}`} />
     </>
   );
 };

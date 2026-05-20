@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { getFeaturedPosts } from "@/data/blog-posts";
 import { useLocale } from "@/context/LocaleContext";
 
@@ -39,19 +40,17 @@ function formatDate(dateStr: string, locale: string) {
 }
 
 export default function BlogPreview() {
-  const { locale } = useLocale();
+  const { locale, t } = useLocale(); // locale usado no formatDate
   const posts = getFeaturedPosts(3);
 
   const labels = {
-    section: locale === "en" ? "From the Blog" : "Do Blog",
-    h2: locale === "en" ? "Insights for" : "Conteúdo para",
-    h2strong: locale === "en" ? "Hotel Marketing" : "Marketing Hoteleiro",
-    body: locale === "en"
-      ? "Strategies, tools and data for hotels that want to grow through direct bookings."
-      : "Estratégias, ferramentas e dados para hotéis que querem crescer com reservas diretas.",
-    read: locale === "en" ? "Read article →" : "Ler artigo →",
-    readmin: locale === "en" ? "min read" : "min",
-    cta: locale === "en" ? "See all articles" : "Ver todos os artigos",
+    section: t('blog.label'),
+    h2: t('blog.h2'),
+    h2strong: t('blog.h2.strong'),
+    body: t('blog.body'),
+    read: t('blog.read'),
+    readmin: t('blog.readmin'),
+    cta: t('blog.cta'),
   };
 
   return (
@@ -92,20 +91,19 @@ export default function BlogPreview() {
                   className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full"
                   style={{ background: BG_CARD, border: `1px solid ${BORDER}`, textDecoration: "none" }}
                 >
-                  {/* Cover colorido com categoria */}
-                  <div
-                    className="w-full flex flex-col items-start justify-end px-5 py-4 relative overflow-hidden"
-                    style={{ height: "140px", background: catColor }}
-                  >
-                    <div
-                      className="absolute inset-0 opacity-10"
-                      style={{
-                        backgroundImage: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.4) 0%, transparent 60%)",
-                      }}
+                  {/* Cover com imagem real */}
+                  <div className="w-full relative overflow-hidden" style={{ height: "180px" }}>
+                    <Image
+                      src={post.coverImage}
+                      alt={post.coverAlt}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 60%)" }} />
                     <span
-                      className="relative z-10 text-[10px] font-semibold tracking-[0.25em] uppercase px-3 py-1.5 rounded-full"
-                      style={{ background: "rgba(255,255,255,0.2)", color: "#fff" }}
+                      className="absolute bottom-3 left-4 text-[10px] font-semibold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full"
+                      style={{ background: catColor, color: "#fff" }}
                     >
                       {post.category}
                     </span>

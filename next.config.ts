@@ -15,6 +15,11 @@ interface WebpackConfig {
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+    ],
+  },
   async redirects() {
     return [
       { source: '/public/home', destination: '/', permanent: true },

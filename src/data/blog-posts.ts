@@ -8,6 +8,7 @@ export interface BlogPost {
   readTime: number;
   publishedAt: string;
   featured: boolean;
+  coverImage: string;
   coverAlt: string;
 }
 
@@ -27,7 +28,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 6,
     publishedAt: "2025-03-10",
     featured: true,
-    coverAlt: "Lobby de hotel sofisticado com recepcionista atendendo hóspede",
+    coverImage: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Reunião de negócios estratégica com duas pessoas analisando relatórios e gráficos",
     content: `
 <h2>O problema começa antes da primeira campanha</h2>
 <p>Quando um hoteleiro decide investir em marketing digital, a primeira tentação é contratar a agência mais próxima, mais barata ou mais conhecida. O raciocínio parece lógico: "marketing é marketing, qualquer agência sabe fazer anúncio no Google". O problema aparece nas primeiras semanas, quando o orçamento está sendo gasto e as reservas não chegam.</p>
@@ -73,7 +75,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 8,
     publishedAt: "2025-03-24",
     featured: true,
-    coverAlt: "Resultados de busca do Google mostrando Google Hotel Ads com preços e disponibilidade",
+    coverImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Pessoa usando smartphone com tela de busca do Google aberta",
     content: `
 <h2>O que é o Google Hotel Ads</h2>
 <p>Quando alguém pesquisa "hotel em Gramado" no Google, os primeiros resultados que aparecem — antes de qualquer site orgânico — são os preços comparativos de vários canais de reserva para aquele destino. Isso é o Google Hotel Ads. É onde o Booking.com, o Expedia, o Hotels.com e, potencialmente, o <em>seu próprio site</em> aparecem lado a lado com tarifas em tempo real.</p>
@@ -129,7 +132,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 7,
     publishedAt: "2025-04-07",
     featured: true,
-    coverAlt: "Pessoa analisando relatório de marketing digital com gráficos de resultado",
+    coverImage: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Calculadora, notas de dinheiro e caderno com planejamento financeiro em mesa",
     content: `
 <h2>Por que ninguém fala de preço no marketing hoteleiro</h2>
 <p>Se você já pesquisou sobre agências de marketing para hotéis, percebeu que nenhuma fala de preço. "Solicite um orçamento", "planos personalizados", "entre em contato" — e você, hoteleiro, fica sem referência nenhuma para comparar e decidir.</p>
@@ -185,7 +189,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 7,
     publishedAt: "2025-04-21",
     featured: false,
-    coverAlt: "Recepcionista de hotel olhando para tablet com dashboard de reservas",
+    coverImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Pessoa fazendo reserva online em laptop com cartão de crédito na mão",
     content: `
 <h2>O problema real das OTAs não é a existência delas</h2>
 <p>O Booking.com, o Expedia e o Airbnb existem porque resolvem um problema real: distribuição. Eles levam seu hotel para milhões de viajantes que nunca ouviriam falar de você de outra forma. O problema não é usá-los — é depender deles.</p>
@@ -236,7 +241,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 6,
     publishedAt: "2025-05-05",
     featured: false,
-    coverAlt: "Dashboard de hotel mostrando distribuição de canais de reserva",
+    coverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Gráficos e dashboard de analytics em monitor mostrando distribuição de canais",
     content: `
 <h2>A dicotomia que paralisa hoteleiros</h2>
 <p>De um lado, gestores que tratam OTAs como o inimigo e querem eliminá-las completamente. Do outro, hotéis que cruzaram os braços e aceitaram pagar 20% de comissão em 80% das reservas como "custo do negócio". Nenhuma das duas posições é estratégica.</p>
@@ -285,7 +291,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 8,
     publishedAt: "2025-05-19",
     featured: false,
-    coverAlt: "Resultados de pesquisa do Google para hotéis em destino turístico",
+    coverImage: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Pessoa digitando em laptop com tela mostrando análise de SEO e posicionamento",
     content: `
 <h2>A batalha impossível — e como vencê-la de outro jeito</h2>
 <p>Competir com o Booking.com por termos genéricos como "hotel em Florianópolis" é uma batalha que nenhum hotel independente vai ganhar no curto prazo. As OTAs têm domain authority acumulado por anos, orçamentos de link building imensos e equipes dedicadas exclusivamente ao SEO.</p>
@@ -330,7 +337,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 7,
     publishedAt: "2025-06-02",
     featured: false,
-    coverAlt: "Hotel com piscina vazia em período de baixa temporada com céu limpo",
+    coverImage: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Resort com piscina tranquila em período de baixa temporada com paisagem natural",
     content: `
 <h2>O erro clássico da baixa temporada</h2>
 <p>A reação mais comum de hoteleiros na baixa temporada é cortar o investimento em marketing. "Não adianta investir, as pessoas não viajam nessa época." O resultado é previsível: menos visibilidade, menos reservas, necessidade de reduzir preços para preencher mínimos, e um ciclo que se repete todo ano.</p>
@@ -374,7 +382,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 6,
     publishedAt: "2025-06-16",
     featured: false,
-    coverAlt: "Pousada charmosa com jardim e varanda com decoração aconchegante",
+    coverImage: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Pousada charmosa com varanda aconchegante e decoração rústica com jardim",
     content: `
 <h2>A vantagem que pousadas pequenas têm mas não usam</h2>
 <p>Hotéis grandes têm orçamento, mas têm burocracia, impessoalidade e dificuldade de comunicar autenticidade. Pousadas pequenas têm exatamente o que o viajante moderno mais valoriza: história real, atendimento personalizado, identidade genuína, conexão com o lugar.</p>
@@ -418,7 +427,8 @@ export const blogPosts: BlogPost[] = [
     readTime: 7,
     publishedAt: "2025-06-30",
     featured: false,
-    coverAlt: "Gestor de hotel analisando gráficos de ocupação e tarifas em tela de computador",
+    coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Analista de dados analisando gráficos de revenue e ocupação em dashboard de computador",
     content: `
 <h2>Dois mundos que raramente conversam</h2>
 <p>Em muitos hotéis, o time de marketing e o responsável por Revenue Management (quando existe essa função) trabalham em silos separados. Marketing decide campanhas sem saber a estratégia de tarifas. Revenue Management sobe e baixa preços sem comunicar com as campanhas ativas. O resultado é uma operação descoordenada que ora atrai o hóspede errado, ora perde ocupação em períodos de alta demanda.</p>
