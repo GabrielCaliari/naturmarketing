@@ -159,8 +159,8 @@ export default function PrivacyPolicy() {
                   </p>
                   <p className="text-gray-700 text-sm mt-2">
                     <strong>Instagram:</strong>{" "}
-                    <a href="https://www.instagram.com/reserve.mkt/" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#84936f" }}>
-                      @reserve.mkt
+                    <a href="https://www.instagram.com/reserve.marketinghoteleiro/" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#84936f" }}>
+                      @reserve.marketinghoteleiro
                     </a>
                   </p>
                 </div>

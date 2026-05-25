@@ -54,7 +54,7 @@ export const COMPANY_NAP = {
 
   // Social Media Profiles
   social: {
-    instagram: "https://www.instagram.com/reserve.mkt/",
+    instagram: "https://www.instagram.com/reserve.marketinghoteleiro/",
     facebook: "",
     linkedin: "",
     googleMaps: "",

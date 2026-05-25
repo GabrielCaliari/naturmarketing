@@ -46,7 +46,7 @@ export const blogPosts: BlogPost[] = [
 <h2>Quatro sinais de que sua agência não entende hotelaria</h2>
 <ul>
   <li><strong>Relatório cheio de métricas de alcance e engajamento, sem mencionar custo por reserva.</strong> Se sua agência não sabe calcular o CPA (custo por aquisição) das campanhas de tráfego pago voltadas para reservas, ela não está medindo o que importa.</li>
-  <li><strong>Nunca falou em Google Hotel Ads.</strong> Esse canal é um dos de maior ROI para hotelaria — <a href="/blog/google-hotel-ads-guia-completo">entenda como funciona o Google Hotel Ads</a>. Uma agência especializada coloca ele na primeira conversa.</li>
+  <li><strong>Nunca falou em Google Hotel Ads.</strong> Esse canal é um dos de maior ROI para hotelaria — <a href="/google-hotel-ads">veja como a Réserve gerencia Google Hotel Ads para hotéis</a>. Uma agência especializada coloca ele na primeira conversa.</li>
   <li><strong>Trata OTAs como inimigo, não como ferramenta.</strong> O modelo correto é usar OTAs como vitrine e capturar a demanda no canal direto — não ignorá-las ou depender delas cegamente.</li>
   <li><strong>Não tem cases do setor hoteleiro.</strong> Marketing para hotel não é marketing para varejo. Cases de outras indústrias não servem como prova de competência para o seu negócio.</li>
 </ul>
@@ -152,10 +152,10 @@ export const blogPosts: BlogPost[] = [
 <h2>O que está incluído no investimento</h2>
 <p>Uma estratégia de marketing hoteleiro completa geralmente inclui:</p>
 <ul>
-  <li><strong>Gestão de Google Hotel Ads</strong> — o canal de maior ROI para reservas diretas</li>
+  <li><strong><a href="/google-hotel-ads">Gestão de Google Hotel Ads</a></strong> — o canal de maior ROI para reservas diretas</li>
   <li><strong>Campanhas de tráfego pago</strong> (Google Search + Meta Ads) para capturar demanda ativa e passiva</li>
-  <li><strong>SEO para hotéis</strong> — posicionamento orgânico que gera tráfego sem custo por clique</li>
-  <li><strong>Gestão e otimização do site</strong> com foco em conversão</li>
+  <li><strong><a href="/seo-para-hoteis">SEO para hotéis</a></strong> — posicionamento orgânico que gera tráfego sem custo por clique</li>
+  <li><strong><a href="/sites-para-hoteis">Site hoteleiro otimizado</a></strong> com motor de reservas e foco em conversão</li>
   <li><strong>Relatórios de performance</strong> com métricas que importam (custo por reserva, ROAS, taxa de conversão)</li>
 </ul>
 
@@ -197,7 +197,7 @@ export const blogPosts: BlogPost[] = [
 <p>Quando 70%, 80% das suas reservas vêm de plataformas que cobram entre 15% e 25% por reserva, você está operando com uma margem artificialmente comprimida. Cada reserva que poderia ter ido diretamente para o seu canal é uma comissão que saiu do seu resultado.</p>
 
 <h2>O efeito billboard: transforme o problema em solução</h2>
-<p>Existe um conceito bem documentado no setor chamado "efeito billboard". Para isso funcionar, você precisa de uma estratégia integrada de <a href="/blog/google-hotel-ads-guia-completo">Google Hotel Ads</a> e canal direto. Quando um viajante encontra seu hotel no Booking, uma parcela significativa dele vai pesquisar o nome do hotel diretamente no Google antes de confirmar a reserva. Estudo da Cornell University indica que entre 15% e 25% dos usuários que veem um hotel em uma OTA pesquisam o hotel diretamente em seguida.</p>
+<p>Existe um conceito bem documentado no setor chamado "efeito billboard". Para isso funcionar, você precisa de uma estratégia integrada de <a href="/google-hotel-ads">Google Hotel Ads</a> e canal direto. Quando um viajante encontra seu hotel no Booking, uma parcela significativa dele vai pesquisar o nome do hotel diretamente no Google antes de confirmar a reserva. Estudo da Cornell University indica que entre 15% e 25% dos usuários que veem um hotel em uma OTA pesquisam o hotel diretamente em seguida.</p>
 <p><strong>A OTA está pagando para te tornar conhecido. Sua missão é capturar esse hóspede no canal direto antes que ele confirme pelo Booking.</strong></p>
 <p>Para isso funcionar, você precisa de: site rápido e com boa experiência, garantia de melhor preço no canal direto (paridade tarifária ou preço exclusivo), e campanhas de Google Ads capturando buscas pelo nome do seu hotel.</p>
 
@@ -222,7 +222,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h2>Qual é uma meta realista</h2>
-<p>Para um hotel urbano ou resort com boa presença digital, migrar de 20% para 40% de canal direto em 12 meses é uma meta conservadora e alcançável. Entenda <a href="/blog/quanto-custa-marketing-digital-hotel">quanto investir em marketing hoteleiro</a> para chegar lá com orçamento proporcional ao seu porte. Alguns hotéis independentes bem gerenciados chegam a 60% ou mais de canal direto.</p>
+<p>Para um hotel urbano ou resort com boa presença digital, migrar de 20% para 40% de canal direto em 12 meses é uma meta conservadora e alcançável. Entenda <a href="/blog/quanto-custa-marketing-digital-hotel">quanto investir em marketing hoteleiro</a> e conheça nossa estratégia de <a href="/reservas-diretas">reservas diretas</a> para chegar lá com orçamento proporcional ao seu porte. Alguns hotéis independentes bem gerenciados chegam a 60% ou mais de canal direto.</p>
 <p>O que não é realista: esperar que isso aconteça sem investimento em marketing e tecnologia. Canal direto não cresce por inércia — cresce por estratégia.</p>
     `,
   },
@@ -269,7 +269,7 @@ export const blogPosts: BlogPost[] = [
 <p>Faz a conta:</p>
 <ul>
   <li>OTA: 15% a 25% de comissão por reserva</li>
-  <li><a href="/blog/google-hotel-ads-guia-completo">Google Hotel Ads</a> bem gerenciado: 5% a 8% do valor da reserva</li>
+  <li><a href="/google-hotel-ads">Google Hotel Ads</a> bem gerenciado: 5% a 8% do valor da reserva</li>
   <li>Google Search Ads pelo nome do hotel: R$ 3 a R$ 15 por clique, conversão de 3% a 6% — custo por reserva geralmente entre R$ 50 e R$ 200</li>
   <li>E-mail marketing para base própria: custo marginal quase zero</li>
 </ul>
@@ -315,7 +315,7 @@ export const blogPosts: BlogPost[] = [
 <p>SEO para hotéis tem retorno em dois horizontes:</p>
 <p><strong>Curto prazo (30-90 dias):</strong> Otimização do Google Business Profile e das páginas do site gera ganhos rápidos em buscas locais e pelo nome do hotel.</p>
 <p><strong>Médio e longo prazo (3-12 meses):</strong> Produção de conteúdo, link building e autoridade de domínio crescem gradualmente. Um blog ativo e bem estruturado pode triplicar o tráfego orgânico de um hotel em 12 meses.</p>
-<p>SEO não substitui tráfego pago — veja como o <a href="/blog/google-hotel-ads-guia-completo">Google Hotel Ads</a> complementa o SEO capturando demanda imediata. Mas no longo prazo, Um hotel que investe em SEO por 2 anos tem um canal que gera reservas praticamente sem custo variável. É a diferença entre alugar tráfego e possuí-lo.</p>
+<p>SEO não substitui tráfego pago — veja como o <a href="/google-hotel-ads">serviço de Google Hotel Ads da Réserve</a> complementa o SEO capturando demanda imediata. Mas no longo prazo, Um hotel que investe em SEO por 2 anos tem um canal que gera reservas praticamente sem custo variável. É a diferença entre alugar tráfego e possuí-lo. Conheça nosso <a href="/seo-para-hoteis">serviço de SEO para hotéis</a> e como aplicamos isso na prática.</p>
 
 <h2>SEO local: o ativo mais subutilizado dos hotéis</h2>
 <p>O Google Maps é uma das principais fontes de descoberta de hotéis para viajantes nacionais, especialmente em destinos de turismo de lazer. Hotéis com perfil bem gerenciado no Google Business Profile aparecem no "pacote local" — o mapa com 3 resultados que aparece no topo das buscas de destino.</p>
@@ -391,7 +391,7 @@ export const blogPosts: BlogPost[] = [
 
 <h2>Os três pilares que toda pousada precisa ter</h2>
 <p><strong>1. Google Business Profile impecável.</strong> Gratuito. Sem desculpa para não estar bem feito. Fotos profissionais (ou bem feitas com celular bom), descrição detalhada com keywords do destino, resposta a todas as avaliações, informações atualizadas. Isso sozinho já impacta o posicionamento no Google Maps e gera reservas diretas por telefone e link de reserva.</p>
-<p><strong>2. Site próprio funcional e rápido.</strong> Não precisa ser caro — precisa ser rápido, bonito e com motor de reservas integrado. Um site de pousada que carrega em menos de 3 segundos, tem fotos que vendem experiência e um botão de reserva visível converte mais do que sites elaborados e lentos.</p>
+<p><strong>2. <a href="/sites-para-hoteis">Site próprio funcional e rápido</a>.</strong> Não precisa ser caro — precisa ser rápido, bonito e com motor de reservas integrado. Um site de pousada que carrega em menos de 3 segundos, tem fotos que vendem experiência e um botão de reserva visível converte mais do que sites elaborados e lentos.</p>
 <p><strong>3. Presença no Instagram com consistência mínima.</strong> Não precisa postar todo dia. Uma pousada com 3 posts semanais de qualidade (fotos reais, textos que falam para o hóspede ideal) constrói audiência qualificada ao longo do tempo. Consistência importa mais do que frequência.</p>
 
 <h2>Como priorizar o orçamento com R$ 2.000 a R$ 4.000/mês</h2>

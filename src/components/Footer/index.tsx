@@ -21,7 +21,7 @@ const contentLinks = [
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/reserve.mkt/",
+    href: "https://www.instagram.com/reserve.marketinghoteleiro/",
     icon: <IconBrandInstagram size={16} />,
   },
   {

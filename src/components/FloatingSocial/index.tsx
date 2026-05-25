@@ -7,7 +7,7 @@ const BRAND_GREEN = "#84936f";
 const buttons = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/reserve.mkt/",
+    href: "https://www.instagram.com/reserve.marketinghoteleiro/",
     icon: <IconBrandInstagram size={24} stroke={1.5} />,
   },
   {
