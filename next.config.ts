@@ -22,6 +22,15 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Non-www → www (handles both http and https via Vercel host matching)
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'reservemkt.com.br' }],
+        destination: 'https://www.reservemkt.com.br/:path*',
+        permanent: true,
+      },
+      // Literal /$  → / (Google crawled this malformed URL)
+      { source: '/$', destination: '/', permanent: true },
       { source: '/public/home', destination: '/', permanent: true },
       { source: '/public/blog', destination: '/blog', permanent: true },
       { source: '/public/blog/:slug', destination: '/blog/:slug', permanent: true },
