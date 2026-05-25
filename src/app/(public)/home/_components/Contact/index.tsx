@@ -88,7 +88,7 @@ export default function Contact() {
                 className="text-[19px] md:text-[22px] font-semibold leading-snug"
                 style={{ color: BRAND_BROWN }}
               >
-                Especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts
+                Especialistas em Marketing Hoteleiro e Estratégia de Reservas Diretas
               </h3>
               <p
                 className="text-[15px] font-light leading-[1.85]"

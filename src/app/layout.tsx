@@ -31,11 +31,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Réserve | Agência de Marketing para Hotéis — Gestão de Tráfego para Resorts',
+    default: 'RÉSERVE | Agência de Marketing Hoteleiro — Diagnóstico, Estratégia e Reservas Diretas',
     template: '%s | Réserve Marketing'
   },
-  description: 'Agência especializada em Marketing Hoteleiro. Google Hotel Ads, gestão de tráfego, SEO e motor de reservas para hotéis, resorts e pousadas aumentarem reservas diretas e reduzirem OTAs.',
-  keywords: 'marketing hoteleiro, agência de marketing para hotéis, agência marketing hoteleiro, marketing digital para hotéis, marketing digital para pousadas, gestão de tráfego para resorts, Google Hotel Ads, SEO para hotéis, motor de reservas, reservas diretas, reduzir OTAs, marketing para pousadas, aumentar ocupação hoteleira, como reduzir comissão OTA hotel, tráfego pago para hotel, consultoria marketing hoteleiro, agência especializada em hotelaria, como aumentar reservas diretas hotel, agencia de marketing para hoteis boutique, Google Hotel Ads para pousadas, estrategia de reservas diretas hotel, como reduzir dependencia de OTA, consultoria marketing hoteleiro brasil, marketing digital para resorts brasil, hotel marketing agency, hospitality marketing agency, hotel digital marketing, hotel marketing consultant Brazil, increase direct bookings hotel, reduce OTA commissions hotel, hotel revenue marketing, boutique hotel digital marketing strategy, Google Hotel Ads management agency, reduce Booking.com commission hotel, hotel SEO agency, direct booking strategy hotel, hotel marketing agency direct bookings',
+  description: 'A RÉSERVE é especialista em marketing hoteleiro. Diagnóstico preciso, estratégia personalizada e sistema de reservas diretas para hotéis, pousadas e lodges. Menos OTA. Mais margem.',
+  keywords: 'marketing hoteleiro, agência de marketing hoteleiro, especialista em marketing para hotéis, diagnóstico marketing hoteleiro, estratégia hoteleira, reservas diretas hotel, reduzir dependência OTA, marketing para pousadas, marketing para lodges, marketing para hotéis boutique, consultoria marketing hoteleiro, agência especializada em hotelaria, como aumentar reservas diretas hotel, como reduzir comissão OTA hotel, Google Hotel Ads, SEO para hotéis, tráfego pago para hotel, motor de reservas, agencia de marketing para hoteis, Google Hotel Ads para pousadas, estrategia de reservas diretas hotel, como reduzir dependencia de OTA, consultoria marketing hoteleiro brasil, hotel marketing agency, hospitality marketing agency, hotel digital marketing, hotel marketing consultant Brazil, increase direct bookings hotel, reduce OTA commissions hotel, boutique hotel digital marketing strategy, hotel SEO agency, direct booking strategy hotel',
   authors: [{ name: COMPANY_NAP.name, url: siteUrl }],
   creator: COMPANY_NAP.name,
   publisher: COMPANY_NAP.name,
@@ -56,8 +56,8 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US'],
     url: siteUrl,
     siteName: COMPANY_NAP.name,
-    title: 'Réserve | Agência de Marketing para Hotéis',
-    description: 'Especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts. Mais reservas diretas, mais autonomia, mais receita.',
+    title: 'RÉSERVE — Agência de Marketing Hoteleiro Especializada',
+    description: 'Não somos uma gestora de tráfego. Somos especialistas em marketing hoteleiro: diagnóstico, estratégia e reservas diretas para hotéis, pousadas e lodges de experiência.',
     images: [
       {
         url: '/og-image.jpg',

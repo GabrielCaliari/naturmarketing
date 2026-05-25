@@ -46,7 +46,7 @@ const valores = [
   {
     icon: <IconRocket size={20} stroke={1.5} />,
     titulo: "Inovação Constante",
-    desc: "As estratégias de gestão de tráfego para resorts e hotéis evoluem constantemente — e nós evoluímos junto.",
+    desc: "As estratégias de marketing hoteleiro evoluem constantemente e nós evoluímos junto para sempre entregar o que gera resultado real.",
   },
   {
     icon: <IconAward size={20} stroke={1.5} />,
@@ -80,7 +80,7 @@ const equipe = [
   },
   {
     titulo: "Estrategistas de Tráfego",
-    desc: "Especialistas em gestão de tráfego para resorts e hotéis que constroem funis de conversão com ROI mensurável.",
+    desc: "Especialistas em estratégia e tráfego pago para hotelaria que constroem funis de conversão com ROI mensurável para cada tipo de negócio.",
   },
 ];
 
@@ -134,7 +134,7 @@ const Empresa = () => {
               className="text-[15px] md:text-base font-light leading-[1.85]"
               style={{ color: "rgba(255,255,255,0.65)", maxWidth: "560px", margin: "0 auto" }}
             >
-              Conheça o time de especialistas em Marketing Hoteleiro e Gestão de Tráfego para Resorts
+              Conheça o time de especialistas em Marketing Hoteleiro e Estratégia de Reservas Diretas
             </motion.p>
           </motion.div>
         </section>
@@ -177,7 +177,7 @@ const Empresa = () => {
               }}
             >
               {[
-                "A RÉSERVE é uma agência de Marketing Hoteleiro especializada em gestão de tráfego para resorts, hotéis e pousadas, com expertise em transformar presença digital em reservas diretas e receita real.",
+                "A RÉSERVE é uma agência de Marketing Hoteleiro especializada em diagnóstico, estratégia e reservas diretas para hotéis, pousadas e lodges de experiência. Nossa expertise é transformar presença digital em reservas diretas e receita real.",
                 "Fundada com a missão de libertar os empreendimentos hoteleiros da dependência de OTAs, a RÉSERVE combina estratégia de marketing de alto nível com um conhecimento profundo das particularidades do setor hoteleiro brasileiro.",
                 "Nossa equipe de especialistas atua de forma integrada — unindo tráfego pago, Google Hotel Ads, branding, conteúdo e tecnologia para construir canais próprios de aquisição que trabalham pelo seu hotel 24 horas por dia.",
                 "Com metodologias exclusivas de marketing hoteleiro, já ajudamos dezenas de estabelecimentos a aumentarem suas reservas diretas, reduzirem custos com comissões e consolidarem sua marca como referência de mercado.",
