@@ -154,10 +154,14 @@ const ServicesDropdown = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const services = [
-    { label: t('nav.service1.label'), desc: t('nav.service1.desc'), href: "/google-hotel-ads" },
-    { label: t('nav.service2.label'), desc: t('nav.service2.desc'), href: "/seo-para-hoteis" },
-    { label: t('nav.service3.label'), desc: t('nav.service3.desc'), href: "/reservas-diretas" },
-    { label: t('nav.service4.label'), desc: t('nav.service4.desc'), href: "/sites-para-hoteis" },
+    { label: t('nav.service1.label'), desc: t('nav.service1.desc'), href: "/gestao-de-canais" },
+    { label: t('nav.service2.label'), desc: t('nav.service2.desc'), href: "/producao-audiovisual" },
+    { label: t('nav.service3.label'), desc: t('nav.service3.desc'), href: "/sites-para-hoteis" },
+    { label: t('nav.service4.label'), desc: t('nav.service4.desc'), href: "/google-hotel-ads" },
+    { label: t('nav.service5.label'), desc: t('nav.service5.desc'), href: "/meta-ads" },
+    { label: t('nav.service6.label'), desc: t('nav.service6.desc'), href: "/seo-para-hoteis" },
+    { label: t('nav.service7.label'), desc: t('nav.service7.desc'), href: "/relatorios-performance" },
+    { label: t('nav.service8.label'), desc: t('nav.service8.desc'), href: "/automacao-atendimento" },
   ];
 
   useEffect(() => {
@@ -202,13 +206,15 @@ const ServicesDropdown = () => {
               top: "calc(100% + 12px)",
               left: "50%",
               transform: "translateX(-50%)",
-              width: "240px",
+              width: "480px",
               background: "#1a1108",
               border: "1px solid rgba(196,164,142,0.2)",
               borderRadius: "16px",
               padding: "8px",
               zIndex: 100,
               boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
             }}
           >
             {services.map((s) => (
@@ -372,10 +378,14 @@ const MobileMenu = ({
   const [servicesOpen, setServicesOpen] = useState(false);
 
   const services = [
-    { label: t('nav.service1.label'), desc: t('nav.service1.desc'), href: "/google-hotel-ads" },
-    { label: t('nav.service2.label'), desc: t('nav.service2.desc'), href: "/seo-para-hoteis" },
-    { label: t('nav.service3.label'), desc: t('nav.service3.desc'), href: "/reservas-diretas" },
-    { label: t('nav.service4.label'), desc: t('nav.service4.desc'), href: "/sites-para-hoteis" },
+    { label: t('nav.service1.label'), desc: t('nav.service1.desc'), href: "/gestao-de-canais" },
+    { label: t('nav.service2.label'), desc: t('nav.service2.desc'), href: "/producao-audiovisual" },
+    { label: t('nav.service3.label'), desc: t('nav.service3.desc'), href: "/sites-para-hoteis" },
+    { label: t('nav.service4.label'), desc: t('nav.service4.desc'), href: "/google-hotel-ads" },
+    { label: t('nav.service5.label'), desc: t('nav.service5.desc'), href: "/meta-ads" },
+    { label: t('nav.service6.label'), desc: t('nav.service6.desc'), href: "/seo-para-hoteis" },
+    { label: t('nav.service7.label'), desc: t('nav.service7.desc'), href: "/relatorios-performance" },
+    { label: t('nav.service8.label'), desc: t('nav.service8.desc'), href: "/automacao-atendimento" },
   ];
 
   useEffect(() => {

@@ -7,10 +7,14 @@ import { useLocale } from "@/context/LocaleContext";
 const BRAND_GREEN = "#84936f";
 
 const serviceLinks = [
-  { label: "Google Hotel Ads", href: "/google-hotel-ads" },
-  { label: "SEO para Hotéis", href: "/seo-para-hoteis" },
-  { label: "Reservas Diretas", href: "/reservas-diretas" },
+  { label: "Gestão de Canais", href: "/gestao-de-canais" },
+  { label: "Produção Audiovisual", href: "/producao-audiovisual" },
   { label: "Sites para Hotéis", href: "/sites-para-hoteis" },
+  { label: "Google Ads & Hotel Ads", href: "/google-hotel-ads" },
+  { label: "Meta Ads", href: "/meta-ads" },
+  { label: "SEO para Hotéis", href: "/seo-para-hoteis" },
+  { label: "Relatórios de Performance", href: "/relatorios-performance" },
+  { label: "Automação de Atendimento", href: "/automacao-atendimento" },
 ];
 
 const contentLinks = [
