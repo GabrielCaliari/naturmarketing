@@ -15,7 +15,7 @@ export const COMPANY_NAP = {
   tagline: "Agência de Marketing Hoteleiro — Diagnóstico, Estratégia e Reservas Diretas",
   
   // Contact Information
-  email: "contato@reservemarketing.com.br",
+  email: "contato@reservemkt.com.br",
   phone: {
     display: "(35) 9774-2984",
     href: "tel:+553597742984",

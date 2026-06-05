@@ -100,7 +100,8 @@ export default function ReservasDiretasPage() {
               <span style={{ color: BRAND_GREEN }}>em cada reserva</span>
             </h1>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
-              Construímos o canal direto do seu hotel — site, motor de reservas, campanhas e estratégia integrada. Reservas sem intermediário, margem que fica com você.
+              Construímos o canal direto do seu hotel — site,{" "}
+              <Link href="/motor-de-reservas" style={{ color: BRAND_GREEN, textDecoration: "underline" }}>motor de reservas</Link>, campanhas e estratégia integrada. Reservas sem intermediário, margem que fica com você.
             </p>
             <a
               href="https://wa.me/553597742984?text=Olá! Quero aumentar as reservas diretas do meu hotel."

@@ -22,7 +22,14 @@
       "Bash(Remove-Item -Recurse -Force \"C:\\\\Users\\\\gabri\\\\OneDrive\\\\Documents\\\\GitHub\\\\naturmarketing\\\\.next\" -ErrorAction SilentlyContinue)",
       "Bash(Write-Host \"Cache limpo\")",
       "Bash(npx tsc *)",
-      "Bash(npx eslint *)"
+      "Bash(npx eslint *)",
+      "Read(//c/Users/gabri/**)",
+      "Read(//c/Users/gabri/Downloads/reservemkt.com.br-Performance-on-Search-2026-06-04\" 2>/dev/**)",
+      "Bash(grep -rn 'href=\"/\\\\$\"\\\\|/\\\\$\"\\\\|\"/\\\\$\\\\|/\\\\${' src/)",
+      "Bash(grep -rn 'href={`\\\\|href=\"/' src/)",
+      "Bash(grep -F '$')",
+      "Bash(grep -rn '/\\\\$' src/)",
+      "Bash(grep -v '\\\\${')"
     ]
   }
 }

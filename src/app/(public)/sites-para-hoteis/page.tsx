@@ -92,7 +92,8 @@ export default function SitesHoteisPage() {
               <span style={{ color: BRAND_GREEN }}>realmente vendem</span>
             </h1>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
-              Design premium com motor de reservas integrado. Rápido, otimizado para SEO e construído para converter visitante em hóspede — sem comissão para ninguém.
+              Design premium com{" "}
+              <Link href="/motor-de-reservas" style={{ color: BRAND_GREEN, textDecoration: "underline" }}>motor de reservas integrado</Link>. Rápido, otimizado para SEO e construído para converter visitante em hóspede — sem comissão para ninguém.
             </p>
             <a
               href="https://wa.me/553597742984?text=Olá! Tenho interesse em criar um site para o meu hotel."

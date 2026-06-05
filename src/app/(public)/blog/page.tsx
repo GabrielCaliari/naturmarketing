@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import BlogPageContent from "./_components/BlogPageContent";
+import { COMPANY_NAP } from "@/constants/company";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.reservemarketing.com.br";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
   title: "Blog | Réserve — Marketing Hoteleiro",

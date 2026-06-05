@@ -11,6 +11,7 @@ const serviceLinks = [
   { label: "Gestão de Canais", href: "/gestao-de-canais" },
   { label: "Produção Audiovisual", href: "/producao-audiovisual" },
   { label: "Sites para Hotéis", href: "/sites-para-hoteis" },
+  { label: "Motor de Reservas", href: "/motor-de-reservas" },
   { label: "Google Ads & Hotel Ads", href: "/google-hotel-ads" },
   { label: "Meta Ads", href: "/meta-ads" },
   { label: "SEO para Hotéis", href: "/seo-para-hoteis" },

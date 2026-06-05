@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBlogPost, getAllSlugs, blogPosts } from "@/data/blog-posts";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
+import { COMPANY_NAP } from "@/constants/company";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import ArticleContent from "./_components/ArticleContent";
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getBlogPost(slug);
   if (!post) return { title: "Artigo não encontrado | Réserve" };
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.reservemarketing.com.br";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
   return {
     title: `${post.title} | Réserve Blog`,
@@ -32,8 +33,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.excerpt,
       type: "article",
+      url: `${siteUrl}/blog/${post.slug}`,
       publishedTime: post.publishedAt,
-      authors: ["Réserve Marketing"],
+      modifiedTime: post.publishedAt,
+      authors: [COMPANY_NAP.name],
+      images: [{ url: post.coverImage, alt: post.coverAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [post.coverImage],
     },
   };
 }
@@ -47,21 +57,36 @@ export default async function ArticlePage({ params }: Props) {
     .filter((p) => p.slug !== slug && p.category === post.category)
     .slice(0, 2);
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
+  const postUrl = `${siteUrl}/blog/${post.slug}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${postUrl}#article`,
     headline: post.title,
     description: post.excerpt,
+    image: post.coverImage,
     datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
     keywords: post.keywords.join(", "),
+    inLanguage: "pt-BR",
+    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
     publisher: {
       "@type": "Organization",
-      name: "Réserve Marketing",
-      url: "https://www.reservemarketing.com.br",
+      "@id": `${siteUrl}/#organization`,
+      name: COMPANY_NAP.name,
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/og-image.jpg`,
+      },
     },
     author: {
       "@type": "Organization",
-      name: "Réserve Marketing",
+      "@id": `${siteUrl}/#organization`,
+      name: COMPANY_NAP.name,
+      url: siteUrl,
     },
   };
 
