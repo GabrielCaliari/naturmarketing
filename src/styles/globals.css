@@ -4,6 +4,19 @@
 @import "swiper/css/navigation";
 
 /* ============================
+   Self-hosted brand font (no render-blocking external request)
+   ============================ */
+@font-face {
+  font-family: "PP Hatton Medium";
+  src:
+    url("/fonts/pp-hatton-medium.woff2") format("woff2"),
+    url("/fonts/pp-hatton-medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================
    CSS Variables
    ============================ */
 :root {

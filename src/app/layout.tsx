@@ -73,13 +73,10 @@ export const metadata: Metadata = {
     description: 'Hotel marketing specialists. Google Hotel Ads, SEO, and direct booking strategies for hotels, resorts and pousadas.',
     images: ['/og-image.jpg'],
   },
-  alternates: {
-    canonical: siteUrl,
-    languages: {
-      'pt-BR': siteUrl,
-      'en-US': siteUrl,
-    },
-  },
+  // NOTE: never set `alternates.canonical` here. The App Router shallow-merges
+  // layout metadata into every child page that lacks its own `alternates`,
+  // which would emit the homepage canonical on every route (SEO Master §3/§18.5).
+  // Canonicals are defined per-page in each leaf page.tsx.
   // verification: {
   //   google: 'ADD_REAL_CODE_HERE', // Cole aqui o código do Google Search Console
   // },
@@ -95,12 +92,16 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
+
+        {/* Self-hosted brand font (PP Hatton) — @font-face in globals.css */}
         <link
-          href="https://db.onlinewebfonts.com/c/9e65328448e32690935f5e0dec7e40be?family=PP+Hatton+Medium"
-          rel="stylesheet"
+          rel="preload"
+          href="/fonts/pp-hatton-medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
         />
-        
+
         {/* Structured Data */}
         <OrganizationJsonLd />
         <WebSiteJsonLd />

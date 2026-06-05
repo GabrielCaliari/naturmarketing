@@ -33,6 +33,8 @@ export default function FAQ() {
   }));
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
+  // No mobile exibimos menos itens para não ficar extenso; o schema FAQPage
+  // abaixo usa exatamente `faqs` para nunca divergir do que está visível (§18.a.2).
   const faqs = isMobile ? allFaqs.slice(0, 5) : allFaqs;
 
   return (
@@ -44,7 +46,7 @@ export default function FAQ() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: allFaqs.map((f) => ({
+            mainEntity: faqs.map((f) => ({
               "@type": "Question",
               name: f.pergunta,
               acceptedAnswer: { "@type": "Answer", text: f.resposta },

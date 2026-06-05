@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import EmpresaContent from "./_components/EmpresaContent";
+import { COMPANY_NAP } from "@/constants/company";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.reservemkt.com.br";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
   title: "Nossa Empresa | Réserve — Agência de Marketing Hoteleiro",

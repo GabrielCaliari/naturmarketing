@@ -3,8 +3,9 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
+import { COMPANY_NAP } from "@/constants/company";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.reservemkt.com.br";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
   title: "Gestão de Canais Digitais para Hotéis | Réserve — Marketing Hoteleiro Integrado",
@@ -36,7 +37,7 @@ const channels = [
   { name: "E-mail Marketing", desc: "Réguas de relacionamento, pré-estadia, pós-estadia e campanhas de reativação para hóspedes recorrentes." },
 ];
 
-const process = [
+const processSteps = [
   { n: "01", title: "Diagnóstico de Canais", desc: "Mapeamos todos os canais ativos do hotel, identificamos gaps e oportunidades de posicionamento." },
   { n: "02", title: "Estratégia Integrada", desc: "Criamos um plano unificado onde cada canal tem papel definido na jornada do hóspede." },
   { n: "03", title: "Produção e Execução", desc: "Gerenciamos conteúdo, moderação, atualização de tarifas e otimizações contínuas em todos os canais." },
@@ -143,7 +144,7 @@ export default function GestaoDeCanaisPage() {
               Do diagnóstico à execução contínua
             </h2>
             <div className="flex flex-col gap-4">
-              {process.map((s) => (
+              {processSteps.map((s) => (
                 <div key={s.n} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.25)" }}>{s.n}</span>
                   <div>

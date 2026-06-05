@@ -3,8 +3,9 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
+import { COMPANY_NAP } from "@/constants/company";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.reservemkt.com.br";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
   title: "Automação de Atendimento para Hotéis | Réserve — WhatsApp e Reservas 24h",

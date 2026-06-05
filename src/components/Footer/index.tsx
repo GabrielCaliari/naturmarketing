@@ -3,6 +3,7 @@
 import { IconBrandInstagram, IconBrandWhatsapp } from "@tabler/icons-react";
 import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
+import { COMPANY_NAP, WHATSAPP_LINK } from "@/constants/company";
 
 const BRAND_GREEN = "#84936f";
 
@@ -25,12 +26,12 @@ const contentLinks = [
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/reserve.marketinghoteleiro/",
+    href: COMPANY_NAP.social.instagram,
     icon: <IconBrandInstagram size={16} />,
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/553597742984",
+    href: WHATSAPP_LINK,
     icon: <IconBrandWhatsapp size={16} />,
   },
 ];

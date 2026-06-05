@@ -20,7 +20,9 @@
       "Bash(cat)",
       "Bash(bash \"/tmp/check_images.sh\")",
       "Bash(Remove-Item -Recurse -Force \"C:\\\\Users\\\\gabri\\\\OneDrive\\\\Documents\\\\GitHub\\\\naturmarketing\\\\.next\" -ErrorAction SilentlyContinue)",
-      "Bash(Write-Host \"Cache limpo\")"
+      "Bash(Write-Host \"Cache limpo\")",
+      "Bash(npx tsc *)",
+      "Bash(npx eslint *)"
     ]
   }
 }

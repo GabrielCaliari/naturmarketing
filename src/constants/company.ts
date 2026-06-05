@@ -104,3 +104,6 @@ export const COMPANY_EMAIL = COMPANY_NAP.email;
 export const COMPANY_PHONE = COMPANY_NAP.phone;
 export const COMPANY_ADDRESS = COMPANY_NAP.address;
 export const AREAS_SERVED = COMPANY_NAP.areasServed;
+
+// WhatsApp deep link derived from the SSOT phone number (no hardcoded numbers elsewhere)
+export const WHATSAPP_LINK = `https://wa.me/${COMPANY_NAP.phone.raw}`;
