@@ -17,10 +17,10 @@ export const COMPANY_NAP = {
   // Contact Information
   email: "contato@reservemkt.com.br",
   phone: {
-    display: "(35) 9774-2984",
-    href: "tel:+553597742984",
-    raw: "553597742984",
-    schema: "+55-35-9774-2984"
+    display: "(35) 99806-7432",
+    href: "tel:+5535998067432",
+    raw: "5535998067432",
+    schema: "+55-35-99806-7432"
   },
 
   // Address Information
@@ -39,15 +39,15 @@ export const COMPANY_NAP = {
     longitude: -45.0002
   },
 
-  // Business Hours
+  // Business Hours (fonte: Google Meu Negócio)
   hours: {
-    display: "Segunda a Sexta: 9h às 18h",
-    displayUpper: "SEGUNDA A SEXTA: 9H ÀS 18H",
-    schema: "Mo-Fr 09:00-18:00"
+    display: "Segunda a Sexta: 9h às 17h",
+    displayUpper: "SEGUNDA A SEXTA: 9H ÀS 17H",
+    schema: "Mo-Fr 09:00-17:00"
   },
 
-  // Business Details
-  foundingYear: 2024,
+  // Business Details (data de abertura no Google Meu Negócio: 24/11/2025)
+  foundingYear: 2025,
 
   // URLs and Digital Presence
   url: "https://www.reservemkt.com.br",
@@ -57,7 +57,7 @@ export const COMPANY_NAP = {
     instagram: "https://www.instagram.com/reserve.marketinghoteleiro/",
     facebook: "",
     linkedin: "",
-    googleMaps: "",
+    googleMaps: "https://www.google.com/maps?cid=17744566139406589035",
     googleMapsEmbed: "",
   },
   

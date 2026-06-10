@@ -27,8 +27,8 @@ const ptBR: Record<string, string> = {
 
   // ── Banner ─────────────────────────────────────────────────────────────────
   'banner.badge': 'Agência de Marketing Hoteleiro',
-  'banner.title.1': 'Marketing feito',
-  'banner.title.2': 'para hotéis.',
+  'banner.title.1': 'Agência de',
+  'banner.title.2': 'marketing hoteleiro.',
   'banner.title.3': 'Resultados em',
   'banner.title.4': 'reservas',
   'banner.title.5': 'diretas.',
@@ -36,7 +36,7 @@ const ptBR: Record<string, string> = {
   'banner.subtitle.strong': 'canais próprios trabalhando pelo seu hotel 24h.',
   'banner.cta.primary': 'Diagnóstico Gratuito',
   'banner.cta.secondary': 'Explorar',
-  'banner.wa': 'https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.',
+  'banner.wa': 'https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.',
 
   // ── Transform ──────────────────────────────────────────────────────────────
   'transform.label': 'Nossa Especialidade',
@@ -70,7 +70,7 @@ const ptBR: Record<string, string> = {
   'services.cta.text': 'Quer uma estratégia completa e integrada para o seu hotel?',
   'services.cta.strong': 'Solicite um diagnóstico gratuito.',
   'services.cta.btn': 'Falar com Especialista',
-  'services.wa': 'https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.',
+  'services.wa': 'https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.',
   's1.title': 'Gestão de Canais Digitais',
   's1.desc': 'Redes sociais, OTAs e plataformas digitais gerenciadas de forma integrada — do Instagram ao Booking, do Google ao WhatsApp.',
   's2.title': 'Produção Audiovisual',
@@ -177,7 +177,7 @@ const ptBR: Record<string, string> = {
   'cta.body': 'Solicite uma análise estratégica gratuita e receba um plano de ação personalizado.',
   'cta.body.strong': 'Aumente seu faturamento direto agora.',
   'cta.btn': 'Diagnóstico Gratuito',
-  'cta.wa': 'https://wa.me/553597742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.',
+  'cta.wa': 'https://wa.me/5535998067432?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.',
 
   // ── Footer ─────────────────────────────────────────────────────────────────
   'footer.desc': 'Agência especializada em Marketing Hoteleiro. Transformamos hotéis, pousadas e resorts em marcas fortes com reservas diretas e menos dependência de OTAs.',

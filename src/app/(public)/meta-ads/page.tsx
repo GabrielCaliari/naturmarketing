@@ -102,7 +102,7 @@ export default function MetaAdsPage() {
               Campanhas no Facebook e Instagram que alcançam viajantes no perfil exato do seu hóspede ideal — e convertem em reservas diretas com custo previsível.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Tenho interesse no serviço de Meta Ads para o meu hotel."
+              href="https://wa.me/5535998067432?text=Olá! Tenho interesse no serviço de Meta Ads para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
@@ -188,7 +188,7 @@ export default function MetaAdsPage() {
               Solicite um diagnóstico gratuito e descubra quanto seu hotel pode ganhar com campanhas bem estruturadas no Facebook e Instagram.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Tenho interesse no serviço de Meta Ads para o meu hotel."
+              href="https://wa.me/5535998067432?text=Olá! Tenho interesse no serviço de Meta Ads para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}

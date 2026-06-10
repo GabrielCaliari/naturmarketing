@@ -14,6 +14,8 @@ export default function robots(): MetadataRoute.Robots {
           '/_next/data/',
           '/maintenance',
           '/admin',
+          '/consultoria-sucesso', // thank-you page, no SEO value
+          '/contact-us',          // 301-redirects to /
         ],
       },
       // Allow AI crawlers for referral traffic

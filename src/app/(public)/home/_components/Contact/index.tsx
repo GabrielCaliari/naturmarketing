@@ -122,7 +122,7 @@ export default function Contact() {
             </div>
 
             <a
-              href="https://wa.me/553597742984?text=Olá! Gostaria de saber mais sobre os serviços de marketing digital para meu hotel."
+              href="https://wa.me/5535998067432?text=Olá! Gostaria de saber mais sobre os serviços de marketing digital para meu hotel."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackButtonClick("whatsapp_contact", "/")}

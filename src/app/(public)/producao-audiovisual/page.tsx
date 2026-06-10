@@ -102,7 +102,7 @@ export default function ProducaoAudiovisualPage() {
               Produção audiovisual de alto padrão especializada em hotelaria — capturamos a alma e a atmosfera única do seu hotel para transformar visitantes em hóspedes.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Tenho interesse na produção audiovisual para o meu hotel."
+              href="https://wa.me/5535998067432?text=Olá! Tenho interesse na produção audiovisual para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_GREEN }}
@@ -188,7 +188,7 @@ export default function ProducaoAudiovisualPage() {
               Solicite um diagnóstico gratuito e descubra como fotos e vídeos profissionais podem aumentar suas reservas diretas.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Tenho interesse na produção audiovisual para o meu hotel."
+              href="https://wa.me/5535998067432?text=Olá! Tenho interesse na produção audiovisual para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_GREEN }}

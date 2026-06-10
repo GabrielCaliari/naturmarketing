@@ -100,7 +100,7 @@ export default function SEOHoteisPage() {
               Otimizamos seu hotel para aparecer organicamente no Google e Google Maps — atraindo hóspedes que nunca precisaram passar pelo Booking.com.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Tenho interesse no serviço de SEO para hotéis da Réserve."
+              href="https://wa.me/5535998067432?text=Olá! Tenho interesse no serviço de SEO para hotéis da Réserve."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_GREEN }}
@@ -180,7 +180,7 @@ export default function SEOHoteisPage() {
               Solicite um diagnóstico de SEO gratuito e descubra como seu hotel está posicionado frente às OTAs e concorrentes.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Tenho interesse no serviço de SEO para hotéis da Réserve."
+              href="https://wa.me/5535998067432?text=Olá! Tenho interesse no serviço de SEO para hotéis da Réserve."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90"
               style={{ background: BRAND_GREEN }}

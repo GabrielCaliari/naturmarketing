@@ -29,18 +29,11 @@ export function OrganizationJsonLd() {
     "email": COMPANY_NAP.email,
     "telephone": COMPANY_NAP.phone.schema,
     "foundingDate": COMPANY_NAP.foundingYear.toString(),
+    // Service-area business (sem local físico no Google Meu Negócio):
+    // não expomos endereço de rua nem geo; o atendimento é em todo o Brasil.
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": COMPANY_NAP.address.street,
-      "addressLocality": COMPANY_NAP.address.city,
-      "addressRegion": COMPANY_NAP.address.state,
-      "postalCode": COMPANY_NAP.address.zip,
       "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": COMPANY_NAP.geo.latitude,
-      "longitude": COMPANY_NAP.geo.longitude
     },
     "sameAs": [
       COMPANY_NAP.social.instagram,
@@ -70,18 +63,11 @@ export function LocalBusinessJsonLd() {
     "url": siteUrl,
     "email": COMPANY_NAP.email,
     "telephone": COMPANY_NAP.phone.schema,
+    // Service-area business (sem local físico no Google Meu Negócio):
+    // não expomos endereço de rua nem geo; o atendimento é em todo o Brasil.
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": COMPANY_NAP.address.street,
-      "addressLocality": COMPANY_NAP.address.city,
-      "addressRegion": COMPANY_NAP.address.state,
-      "postalCode": COMPANY_NAP.address.zip,
       "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": COMPANY_NAP.geo.latitude,
-      "longitude": COMPANY_NAP.geo.longitude
     },
     "openingHours": [COMPANY_NAP.hours.schema],
     "areaServed": COMPANY_NAP.areasServed.map(area => ({

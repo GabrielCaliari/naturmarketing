@@ -46,9 +46,13 @@ const benefits = [
 ];
 
 const faqs = [
+  { q: "O que são reservas diretas?", a: "Reservas diretas são as hospedagens que o hóspede fecha pelos canais próprios do hotel — site com motor de reservas, WhatsApp, telefone ou recepção — sem passar por uma OTA como Booking, Expedia ou Decolar. Por isso, não há comissão: o valor integral fica com o hotel." },
+  { q: "Como aumentar as reservas diretas do meu hotel?", a: "O caminho combina quatro frentes: um site rápido com motor de reservas integrado, Google Hotel Ads e Google Ads para capturar quem já busca o destino, uma garantia de melhor tarifa no canal direto e uma base de e-mail/WhatsApp para remarketing. É exatamente o sistema que montamos na Réserve." },
   { q: "Em quanto tempo posso reduzir a dependência das OTAs?", a: "Uma meta conservadora e alcançável é migrar de 20% para 40% de canal direto em 12 meses. Alguns hotéis chegam a 60% com estratégia bem executada." },
   { q: "Preciso sair do Booking.com para ter reservas diretas?", a: "Não. A estratégia é usar as OTAs como vitrine (distribuição) e capturar a demanda gerada por elas no canal direto. Os dois canais trabalham juntos." },
   { q: "Qual benefício devo oferecer para o hóspede reservar direto?", a: "As táticas mais eficazes: melhor tarifa garantida no site, early check-in, café da manhã incluso, upgrade sujeito a disponibilidade. A garantia de melhor preço é a mais simples e mais poderosa." },
+  { q: "Reservas diretas valem a pena para pousadas e resorts pequenos?", a: "Sim, e muitas vezes ainda mais. Empreendimentos menores sentem o peso da comissão de OTA com mais força na margem. Um canal direto bem estruturado é o que torna a operação sustentável — vale tanto para pousadas quanto para resorts." },
+  { q: "Reserva direta é mais barata que pelo Booking?", a: "Para o hotel, sim: não há comissão de 15% a 25%. Para o hóspede, costuma ser igual ou mais vantajosa, porque o hotel pode repassar parte da economia da comissão como melhor preço ou benefícios exclusivos no canal direto." },
 ];
 
 const jsonLd = {
@@ -104,7 +108,7 @@ export default function ReservasDiretasPage() {
               <Link href="/motor-de-reservas" style={{ color: BRAND_GREEN, textDecoration: "underline" }}>motor de reservas</Link>, campanhas e estratégia integrada. Reservas sem intermediário, margem que fica com você.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Quero aumentar as reservas diretas do meu hotel."
+              href="https://wa.me/5535998067432?text=Olá! Quero aumentar as reservas diretas do meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
@@ -200,7 +204,7 @@ export default function ReservasDiretasPage() {
               Solicite um diagnóstico gratuito e receba uma análise do seu canal direto atual com plano de ação personalizado.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Quero aumentar as reservas diretas do meu hotel."
+              href="https://wa.me/5535998067432?text=Olá! Quero aumentar as reservas diretas do meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90"
               style={{ background: BRAND_BROWN }}

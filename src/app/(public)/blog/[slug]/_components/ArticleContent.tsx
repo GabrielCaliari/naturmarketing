@@ -109,7 +109,7 @@ export default function ArticleContent({
               </p>
             </div>
             <a
-              href="https://wa.me/553597742984?text=Olá! Li um artigo do blog da Réserve e gostaria de receber um diagnóstico estratégico gratuito."
+              href="https://wa.me/5535998067432?text=Olá! Li um artigo do blog da Réserve e gostaria de receber um diagnóstico estratégico gratuito."
               target="_blank"
               rel="noopener noreferrer"
               className="shrink-0 inline-flex items-center px-7 py-3 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"

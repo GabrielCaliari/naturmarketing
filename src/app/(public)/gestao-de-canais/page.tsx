@@ -102,7 +102,7 @@ export default function GestaoDeCanaisPage() {
               Do Instagram ao Booking, do Google Meu Negócio ao WhatsApp — gerenciamos todos os pontos de contato digitais do seu hotel com uma única estratégia integrada.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Tenho interesse na gestão de canais digitais para o meu hotel."
+              href="https://wa.me/5535998067432?text=Olá! Tenho interesse na gestão de canais digitais para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
@@ -188,7 +188,7 @@ export default function GestaoDeCanaisPage() {
               Solicite um diagnóstico gratuito e descubra como unificar todos os canais do seu hotel em uma estratégia que gera reservas diretas.
             </p>
             <a
-              href="https://wa.me/553597742984?text=Olá! Tenho interesse na gestão de canais digitais para o meu hotel."
+              href="https://wa.me/5535998067432?text=Olá! Tenho interesse na gestão de canais digitais para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}

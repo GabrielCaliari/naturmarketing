@@ -54,6 +54,9 @@ const faqs = [
   { q: "O motor de reservas substitui as OTAs?", a: "Não substitui, equilibra. As OTAs trazem visibilidade; o motor de reservas garante que parte dessa demanda venha pelo canal direto, sem comissão. A estratégia é usar as OTAs como vitrine e converter o máximo de reservas no seu próprio site." },
   { q: "Preciso trocar o meu site para ter um motor de reservas?", a: "Nem sempre. Em muitos casos integramos o motor ao site existente. Quando o site atual prejudica a conversão (lento, sem mobile, sem confiança), recomendamos um site hoteleiro novo já com o motor integrado." },
   { q: "Quanto custa implantar um motor de reservas?", a: "Há motores com mensalidade fixa e outros que cobram um percentual por reserva (bem menor que a comissão de OTA). No diagnóstico mostramos o custo real e o quanto você economiza em comissões ao migrar reservas para o canal direto." },
+  { q: "Como funciona um motor de reservas na prática?", a: "O hóspede entra no site do hotel, escolhe as datas e vê a disponibilidade e as tarifas em tempo real (sincronizadas com o seu PMS). Ele seleciona o quarto, preenche os dados e paga online (Pix, cartão ou parcelamento). A reserva cai automaticamente no sistema de gestão do hotel, sem intervenção manual e sem risco de overbooking." },
+  { q: "Existe motor de reservas para pousadas pequenas?", a: "Sim. Há motores leves e acessíveis pensados para pousadas e hotéis independentes, com mensalidade baixa e sem complexidade. Para empreendimentos pequenos, o motor de reservas é justamente o que reduz o peso da comissão de OTA na margem." },
+  { q: "Motor de reservas serve para resort?", a: "Serve e é altamente recomendado. Resorts têm ticket médio mais alto e pacotes complexos (diárias, all-inclusive, experiências), e um bom motor de reservas suporta tarifas, pacotes e upsell — aumentando a receita por reserva direta." },
 ];
 
 const jsonLd = {

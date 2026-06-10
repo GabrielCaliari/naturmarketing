@@ -27,8 +27,8 @@ const enUS: Record<string, string> = {
 
   // ── Banner ─────────────────────────────────────────────────────────────────
   'banner.badge': 'Hotel Marketing Agency',
-  'banner.title.1': 'Marketing built',
-  'banner.title.2': 'for hotels.',
+  'banner.title.1': 'Hotel',
+  'banner.title.2': 'marketing agency.',
   'banner.title.3': 'Results in',
   'banner.title.4': 'direct',
   'banner.title.5': 'bookings.',
@@ -36,7 +36,7 @@ const enUS: Record<string, string> = {
   'banner.subtitle.strong': 'your own channels working for your hotel 24/7.',
   'banner.cta.primary': 'Free Diagnosis',
   'banner.cta.secondary': 'Explore',
-  'banner.wa': 'https://wa.me/553597742984?text=Hello!%20I%20would%20like%20a%20free%20strategic%20diagnosis%20for%20my%20property.',
+  'banner.wa': 'https://wa.me/5535998067432?text=Hello!%20I%20would%20like%20a%20free%20strategic%20diagnosis%20for%20my%20property.',
 
   // ── Transform ──────────────────────────────────────────────────────────────
   'transform.label': 'Our Specialty',
@@ -70,7 +70,7 @@ const enUS: Record<string, string> = {
   'services.cta.text': 'Want a complete, integrated strategy for your hotel?',
   'services.cta.strong': 'Request a free diagnosis.',
   'services.cta.btn': 'Talk to a Specialist',
-  'services.wa': 'https://wa.me/553597742984?text=Hello!%20I%20would%20like%20a%20free%20strategic%20diagnosis%20for%20my%20property.',
+  'services.wa': 'https://wa.me/5535998067432?text=Hello!%20I%20would%20like%20a%20free%20strategic%20diagnosis%20for%20my%20property.',
   's1.title': 'Digital Channel Management',
   's1.desc': 'Social media, OTAs and digital platforms managed in an integrated way — from Instagram to Booking, from Google to WhatsApp.',
   's2.title': 'Audiovisual Production',
@@ -177,7 +177,7 @@ const enUS: Record<string, string> = {
   'cta.body': 'Request a free strategic analysis and receive a personalized action plan.',
   'cta.body.strong': 'Increase your direct revenue now.',
   'cta.btn': 'Free Diagnosis',
-  'cta.wa': 'https://wa.me/553597742984?text=Hello!%20I%20would%20like%20a%20free%20strategic%20diagnosis%20for%20my%20property.',
+  'cta.wa': 'https://wa.me/5535998067432?text=Hello!%20I%20would%20like%20a%20free%20strategic%20diagnosis%20for%20my%20property.',
 
   // ── Footer ─────────────────────────────────────────────────────────────────
   'footer.desc': 'Agency specializing in Hotel Marketing. We transform hotels, pousadas and resorts into strong brands with direct bookings and less OTA dependency.',

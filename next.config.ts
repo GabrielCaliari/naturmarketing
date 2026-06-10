@@ -29,13 +29,19 @@ const nextConfig: NextConfig = {
         destination: 'https://www.reservemkt.com.br/:path*',
         permanent: true,
       },
-      // Literal /$  → / (Google crawled this malformed URL)
+      // Malformed URLs Google crawled (reported as 404 in Search Console) → /
       { source: '/$', destination: '/', permanent: true },
+      { source: '/&', destination: '/', permanent: true },
+      // /home is a duplicate of / (route group leak). Consolidate to the canonical /.
+      { source: '/home', destination: '/', permanent: true },
+      // /contact-us was a thin client-side stub that JS-redirected to / (soft 404).
+      // Serve a real 301 instead and keep it out of the sitemap.
+      { source: '/contact-us', destination: '/', permanent: true },
       { source: '/public/home', destination: '/', permanent: true },
       { source: '/public/blog', destination: '/blog', permanent: true },
       { source: '/public/blog/:slug', destination: '/blog/:slug', permanent: true },
       { source: '/public/empresa', destination: '/empresa', permanent: true },
-      { source: '/public/contact-us', destination: '/contact-us', permanent: true },
+      { source: '/public/contact-us', destination: '/', permanent: true },
       { source: '/public/privacy-policy', destination: '/privacy-policy', permanent: true },
       { source: '/public/terms-and-conditions', destination: '/terms-and-conditions', permanent: true },
       { source: '/public/consultoria-sucesso', destination: '/consultoria-sucesso', permanent: true },

@@ -53,9 +53,17 @@ export default async function ArticlePage({ params }: Props) {
   const post = getBlogPost(slug);
   if (!post) notFound();
 
-  const related = blogPosts
-    .filter((p) => p.slug !== slug && p.category === post.category)
-    .slice(0, 2);
+  // Related posts: prefer same category, then fill with the most recent others.
+  // The recency fallback guarantees every article links out to 2 others, so
+  // single-post categories (e.g. "Pousadas") still receive internal links and
+  // don't end up orphaned / "crawled, currently not indexed".
+  const sameCategory = blogPosts.filter(
+    (p) => p.slug !== slug && p.category === post.category
+  );
+  const fillers = blogPosts
+    .filter((p) => p.slug !== slug && !sameCategory.includes(p))
+    .sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
+  const related = [...sameCategory, ...fillers].slice(0, 2);
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
   const postUrl = `${siteUrl}/blog/${post.slug}`;
