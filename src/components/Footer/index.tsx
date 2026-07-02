@@ -22,6 +22,8 @@ const serviceLinks = [
 const contentLinks = [
   { label: "Blog", href: "/blog" },
   { label: "Nossa Empresa", href: "/marketing-hoteleiro" },
+  { label: "Ecossistema", href: "/ecossistema" },
+  { label: "Diagnóstico Gratuito", href: "/diagnostico" },
 ];
 
 const socialLinks = [

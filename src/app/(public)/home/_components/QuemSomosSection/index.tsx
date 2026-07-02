@@ -65,7 +65,7 @@ export default function QuemSomosSection() {
           {/* CTA */}
           <div className="flex justify-center lg:justify-start pt-2">
             <a
-              href="https://wa.me/5535998067432?text=Olá! Gostaria de saber mais sobre a Réserve."
+              href="https://wa.me/5535997742984?text=Olá! Gostaria de saber mais sobre a Réserve."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"

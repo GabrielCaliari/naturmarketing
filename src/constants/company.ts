@@ -17,10 +17,10 @@ export const COMPANY_NAP = {
   // Contact Information
   email: "contato@reservemkt.com.br",
   phone: {
-    display: "(35) 99806-7432",
-    href: "tel:+5535998067432",
-    raw: "5535998067432",
-    schema: "+55-35-99806-7432"
+    display: "(35) 99774-2984",
+    href: "tel:+5535997742984",
+    raw: "5535997742984",
+    schema: "+55-35-99774-2984"
   },
 
   // Address Information

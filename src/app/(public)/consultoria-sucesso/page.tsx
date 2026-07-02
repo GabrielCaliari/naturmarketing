@@ -93,7 +93,7 @@ export default function ConsultoriaSucesso() {
                 </p>
                 <div className="flex justify-center">
                   <a
-                    href="https://wa.me/5535998067432?text=Olá! Acabei de enviar uma solicitação de consultoria pelo site."
+                    href="https://wa.me/5535997742984?text=Olá! Acabei de enviar uma solicitação de consultoria pelo site."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"

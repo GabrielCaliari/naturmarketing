@@ -12,7 +12,7 @@ const buttons = [
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/5535998067432",
+    href: "https://wa.me/5535997742984",
     icon: <IconBrandWhatsapp size={24} stroke={1.5} />,
   },
 ];

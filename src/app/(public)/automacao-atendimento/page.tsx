@@ -102,7 +102,7 @@ export default function AutomacaoAtendimentoPage() {
               Automação inteligente que captura leads, responde dúvidas e converte reservas diretas enquanto sua equipe descansa — sem perder nenhuma oportunidade.
             </p>
             <a
-              href="https://wa.me/5535998067432?text=Olá! Tenho interesse na automação de atendimento para o meu hotel."
+              href="https://wa.me/5535997742984?text=Olá! Tenho interesse na automação de atendimento para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
@@ -188,7 +188,7 @@ export default function AutomacaoAtendimentoPage() {
               Solicite um diagnóstico gratuito e descubra quantas reservas seu hotel pode converter com automação inteligente no WhatsApp.
             </p>
             <a
-              href="https://wa.me/5535998067432?text=Olá! Tenho interesse na automação de atendimento para o meu hotel."
+              href="https://wa.me/5535997742984?text=Olá! Tenho interesse na automação de atendimento para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}

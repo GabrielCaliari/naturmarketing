@@ -154,7 +154,7 @@ const content = {
 const Empresa = () => {
   const { locale } = useLocale();
   const c = content[locale === "en" ? "en" : "pt"];
-  const waHref = `https://wa.me/5535998067432?text=${encodeURIComponent(c.ctaWaText)}`;
+  const waHref = `https://wa.me/5535997742984?text=${encodeURIComponent(c.ctaWaText)}`;
 
   return (
     <>

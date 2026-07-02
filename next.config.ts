@@ -15,12 +15,16 @@ interface WebpackConfig {
 
 // Terceiros permitidos: GTM/GA4, Meta Pixel e Microsoft Clarity (todos gated
 // por consentimento LGPD). Testar em staging antes de apertar mais a política.
+// Em dev o webpack/HMR precisa de eval() — sem isso a CSP bloqueia todo o JS
+// e a página fica "em branco" (animações presas em opacity 0).
+const isDev = process.env.NODE_ENV === 'development';
+
 const securityHeaders = [
   {
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://www.clarity.ms https://*.clarity.ms",
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://www.googletagmanager.com https://connect.facebook.net https://www.clarity.ms https://*.clarity.ms`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://*.clarity.ms https://images.unsplash.com",
       "font-src 'self'",

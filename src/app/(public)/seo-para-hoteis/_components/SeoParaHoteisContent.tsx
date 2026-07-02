@@ -13,7 +13,7 @@ const BORDER = "rgba(196,164,142,0.2)";
 const TEXT_HEAD = "#1A0F08";
 const TEXT_BODY = "#6e5e52";
 
-const WA = "https://wa.me/5535998067432";
+const WA = "https://wa.me/5535997742984";
 
 const content = {
   pt: {

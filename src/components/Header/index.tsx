@@ -290,6 +290,11 @@ const Header = () => {
                         <ServicesDropdown />
                       </li>
                       <li>
+                        <Link href="/ecossistema" style={{ color: "rgba(255,255,255,0.92)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
+                          {t('nav.ecossistema')}
+                        </Link>
+                      </li>
+                      <li>
                         <Link href="/blog" style={{ color: "rgba(255,255,255,0.92)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
                           {t('nav.blog')}
                         </Link>
@@ -319,14 +324,9 @@ const Header = () => {
             {!isMobile && (
               <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
                 <LanguageSwitcher />
-                <a
-                  href={ctaWa}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="header-cta-btn"
-                >
+                <Link href="/diagnostico" className="header-cta-btn">
                   {t("nav.cta")}
-                </a>
+                </Link>
               </div>
             )}
 
@@ -334,14 +334,9 @@ const Header = () => {
             {isMobile && (
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <LanguageSwitcher compact />
-                <a
-                  href={ctaWa}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="header-cta-btn-mobile"
-                >
+                <Link href="/diagnostico" className="header-cta-btn-mobile">
                   {locale === "en" ? "Diagnosis" : "Diagnóstico"}
-                </a>
+                </Link>
                 <button
                   onClick={() => setIsMobileMenuOpen(true)}
                   className="mobile-nav-toggler"
@@ -405,6 +400,7 @@ const MobileMenu = ({
 
   const navItems = [
     { label: t('nav.home'), href: "/" },
+    { label: t('nav.ecossistema'), href: "/ecossistema" },
     { label: t('nav.blog'), href: "/blog" },
     { label: t('nav.empresa'), href: "/marketing-hoteleiro" },
   ];
@@ -517,16 +513,14 @@ const MobileMenu = ({
           transition={{ delay: 0.3, duration: 0.25 }}
           className="absolute bottom-8 left-0 right-0 px-6"
         >
-          <a
-            href={ctaWa}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/diagnostico"
             className="block w-full text-center px-6 py-3.5 rounded-full text-[14px] font-medium text-white transition-all duration-300 shadow-lg"
             style={{ background: "#994f2a", letterSpacing: "0.04em" }}
             onClick={onClose}
           >
             {ctaLabel}
-          </a>
+          </Link>
         </motion.div>
       </motion.div>
     </div>

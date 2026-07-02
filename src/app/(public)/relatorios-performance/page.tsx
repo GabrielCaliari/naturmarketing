@@ -102,7 +102,7 @@ export default function RelatoriosPerformancePage() {
               Análise profunda de ROI, métricas de desempenho por canal e relatórios estratégicos mensais — para você saber exatamente o retorno de cada real investido.
             </p>
             <a
-              href="https://wa.me/5535998067432?text=Olá! Tenho interesse nos relatórios de performance para o meu hotel."
+              href="https://wa.me/5535997742984?text=Olá! Tenho interesse nos relatórios de performance para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
@@ -188,7 +188,7 @@ export default function RelatoriosPerformancePage() {
               Solicite um diagnóstico gratuito e descubra como estruturar a análise de dados do seu hotel para tomar decisões de marketing baseadas em resultados reais.
             </p>
             <a
-              href="https://wa.me/5535998067432?text=Olá! Tenho interesse nos relatórios de performance para o meu hotel."
+              href="https://wa.me/5535997742984?text=Olá! Tenho interesse nos relatórios de performance para o meu hotel."
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
