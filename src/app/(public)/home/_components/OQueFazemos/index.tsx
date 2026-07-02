@@ -13,7 +13,7 @@ const BRAND_BROWN = "#994f2a";
 const BG_CARD     = "#FDFAF7";
 const BORDER      = "rgba(196,164,142,0.2)";
 const TEXT_HEAD   = "#1A0F08";
-const TEXT_BODY   = "#7a6a5e";
+const TEXT_BODY   = "#6e5e52";
 const TEXT_LABEL  = "#84936f";
 
 const InstagramIcon = () => (
@@ -197,19 +197,24 @@ export default function OQueFazemos() {
             ))}
           </div>
 
-          <div className="flex items-center justify-center gap-2 mt-5">
+          <div className="flex items-center justify-center mt-5">
             {servicos.map((_, i) => (
               <button
                 key={i}
                 onClick={() => scrollTo(i)}
                 aria-label={`Slide ${i + 1}`}
-                className="rounded-full transition-all duration-300"
-                style={{
-                  width: activeIndex === i ? "20px" : "6px",
-                  height: "6px",
-                  background: activeIndex === i ? BRAND_BROWN : "rgba(153,79,42,0.25)",
-                }}
-              />
+                className="flex items-center justify-center"
+                style={{ width: "24px", height: "24px", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+              >
+                <span
+                  className="rounded-full transition-all duration-300 block"
+                  style={{
+                    width: activeIndex === i ? "20px" : "6px",
+                    height: "6px",
+                    background: activeIndex === i ? BRAND_BROWN : "rgba(153,79,42,0.25)",
+                  }}
+                />
+              </button>
             ))}
           </div>
         </div>

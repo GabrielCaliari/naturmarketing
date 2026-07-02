@@ -2,19 +2,9 @@
 @import "swiper/css";
 @import "swiper/css/pagination";
 @import "swiper/css/navigation";
+@import "react-toastify/dist/ReactToastify.css";
 
-/* ============================
-   Self-hosted brand font (no render-blocking external request)
-   ============================ */
-@font-face {
-  font-family: "PP Hatton Medium";
-  src:
-    url("/fonts/pp-hatton-medium.woff2") format("woff2"),
-    url("/fonts/pp-hatton-medium.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+/* PP Hatton is self-hosted via next/font/local (--font-hatton) in app/layout.tsx */
 
 /* ============================
    CSS Variables
@@ -27,9 +17,16 @@
   --color-bg-warm: #EDE8E0;
   --color-bg-offwhite: #F7F3EE;
   --color-bg-surface: #FDFAF7;
+
+  /* Pares de contraste validados (WCAG AA: 4.5:1 para texto < 18px).
+     Usar SEMPRE estes tokens para texto sobre os respectivos fundos: */
+  --color-text-on-cream: #5C4F45;            /* sobre #F0EBE3 / #F7F3EE */
+  --color-text-muted-on-cream: rgba(26,15,8,0.62);
+  --color-text-on-dark: rgba(255,255,255,0.92); /* sobre header/fundos escuros */
+  --color-text-muted-on-dark: rgba(255,255,255,0.65);
   --font-heading: var(--font-rubik), sans-serif;
   --font-body: var(--font-rubik), sans-serif;
-  --font-display: "PP Hatton Medium", "Georgia", serif;
+  --font-display: var(--font-hatton), "Georgia", serif;
   
   /* Container limits */
   --container-max-width: 1440px;
@@ -160,7 +157,7 @@ main {
 .article-content {
   font-size: 17px;
   line-height: 1.8;
-  color: #7a6a5e;
+  color: #6e5e52;
 }
 
 .article-content h2 {
@@ -275,7 +272,8 @@ main {
 .header-logo-sub {
   font-size: 9px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.65);
+  /* mínimo 4.5:1 sobre o fundo escuro do header (WCAG AA, texto < 18px) */
+  color: rgba(255, 255, 255, 0.92);
   letter-spacing: 2.5px;
   text-transform: uppercase;
 }
@@ -642,8 +640,11 @@ main {
 .mobile-menu-nav {
   display: flex;
   flex-direction: column;
-  padding: 16px 0;
+  padding: 16px 0 110px;
   flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobile-menu-link {

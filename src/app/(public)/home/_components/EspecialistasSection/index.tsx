@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 
 const BRAND_BROWN = "#994f2a";
 
@@ -102,15 +103,22 @@ const EspecialistasSection = () => (
             background: `linear-gradient(to top, ${BRAND_BROWN} 0%, transparent 100%)`,
           }}
         />
-        <motion.img
-          src="/img/resource/resersecao5.png"
-          alt="Especialistas em marketing hoteleiro — Equipe Réserve"
-          className="w-full h-full object-cover object-top"
+        <motion.div
+          className="absolute inset-0"
           initial={{ opacity: 0, scale: 1.04 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true }}
-        />
+        >
+          <Image
+            src="/img/resource/resersecao5.webp"
+            alt="Especialistas em marketing hoteleiro — Equipe Réserve"
+            fill
+            quality={85}
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover object-top"
+          />
+        </motion.div>
       </div>
 
     </div>

@@ -81,7 +81,7 @@ export default function ComparativoSection() {
             <motion.div variants={fadeUp} className="mb-3">
               <span className="text-[32px]" style={{ color: BRAND_GREEN, fontWeight: 400 }}>
                 {t('comp.right')}{" "}
-                <span style={{ fontFamily: "PP Hatton Medium, Georgia, serif", fontWeight: 400 }}>réserve</span>
+                <span style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>réserve</span>
               </span>
             </motion.div>
             {comItems.map((item, i) => (

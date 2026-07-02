@@ -26,7 +26,7 @@ const BG = "#F0EBE3";
 const BG_CARD = "#FDFAF7";
 const BORDER = "rgba(196,164,142,0.2)";
 const TEXT_HEAD = "#1A0F08";
-const TEXT_BODY = "#7a6a5e";
+const TEXT_BODY = "#6e5e52";
 
 const features = [
   { title: "Atendimento 24/7 no WhatsApp", desc: "Respostas automáticas inteligentes fora do horário comercial — nenhum lead perde a chance de reservar por falta de atendimento." },

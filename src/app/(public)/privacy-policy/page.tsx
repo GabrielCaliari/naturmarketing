@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LEGAL_CONFIG } from "@/constants/legal-pages";
+import { COMPANY_NAP } from "@/constants/company";
+
+export const metadata: Metadata = {
+  title: "Política de Privacidade | Réserve — Agência de Marketing para Hotéis",
+  description:
+    "Política de Privacidade da Réserve Marketing Digital, agência especializada em marketing hoteleiro. Saiba como coletamos, usamos e protegemos seus dados conforme a LGPD.",
+  alternates: { canonical: "/privacy-policy" },
+  robots: { index: true, follow: true },
+};
 
 export default function PrivacyPolicy() {
   const today = new Date().toLocaleDateString("pt-BR", {
@@ -159,7 +169,7 @@ export default function PrivacyPolicy() {
                   </p>
                   <p className="text-gray-700 text-sm mt-2">
                     <strong>Instagram:</strong>{" "}
-                    <a href="https://www.instagram.com/reserve.marketinghoteleiro/" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#84936f" }}>
+                    <a href={COMPANY_NAP.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: "#84936f" }}>
                       @reserve.marketinghoteleiro
                     </a>
                   </p>

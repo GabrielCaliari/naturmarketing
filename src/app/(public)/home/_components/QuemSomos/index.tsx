@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -9,25 +10,25 @@ const steps = [
   {
     num: "01",
     label: "Diagnóstico",
-    image: "/img/resource/secao2-img1.png",
+    image: "/img/resource/secao2-img1.webp",
     text: "Auditamos toda a operação digital do seu hotel para identificar oportunidades ocultas de receita e pontos de perda.",
   },
   {
     num: "02",
     label: "Direcionamento",
-    image: "/img/resource/icon1.png",
+    image: "/img/resource/icon1.webp",
     text: "Estruturamos um plano exclusivo de gestão de tráfego e conversão desenhado para o seu empreendimento.",
   },
   {
     num: "03",
     label: "Implementação",
-    image: "/img/resource/icon2.png",
+    image: "/img/resource/icon2.webp",
     text: "Executamos marketing hoteleiro de alta performance de forma integrada e orientada a resultados concretos.",
   },
   {
     num: "04",
     label: "Otimização",
-    image: "/img/resource/icon3.png",
+    image: "/img/resource/icon3.webp",
     text: "Monitoramos, analisamos e otimizamos continuamente para maximizar o ROI do seu hotel mês a mês.",
   },
 ];
@@ -67,7 +68,7 @@ export default function QuemSomos() {
                 </span>
                 <span
                   className="text-[11px] font-medium tracking-[0.15em] uppercase"
-                  style={{ color: "#7a6a5e" }}
+                  style={{ color: "#6e5e52" }}
                 >
                   {step.label}
                 </span>
@@ -149,13 +150,16 @@ export default function QuemSomos() {
                 {step.num}
               </span>
               <div
-                className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-white"
+                className="relative w-14 h-14 rounded-full overflow-hidden flex items-center justify-center bg-white"
                 style={{ border: `2px solid rgba(153,79,42,0.4)` }}
               >
-                <img
+                <Image
                   src={step.image}
                   alt={step.label}
-                  className="w-full h-full object-cover"
+                  fill
+                  quality={85}
+                  sizes="56px"
+                  className="object-cover"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -165,7 +169,7 @@ export default function QuemSomos() {
                 >
                   {step.label}
                 </span>
-                <p className="text-[12.5px] leading-[1.75] font-light" style={{ color: "#7a6a5e" }}>
+                <p className="text-[12.5px] leading-[1.75] font-light" style={{ color: "#6e5e52" }}>
                   {step.text}
                 </p>
               </div>

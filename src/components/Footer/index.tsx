@@ -21,7 +21,7 @@ const serviceLinks = [
 
 const contentLinks = [
   { label: "Blog", href: "/blog" },
-  { label: "Nossa Empresa", href: "/empresa" },
+  { label: "Nossa Empresa", href: "/marketing-hoteleiro" },
 ];
 
 const socialLinks = [
@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="flex flex-col gap-6 max-w-sm">
             <span
               style={{
-                fontFamily: "PP Hatton Medium, Georgia, serif",
+                fontFamily: "var(--font-display)",
                 fontSize: "32px",
                 fontWeight: 400,
                 color: "#1A0F08",
@@ -66,7 +66,7 @@ const Footer = () => {
             </span>
             <p
               className="text-[16px] font-light leading-[1.85]"
-              style={{ color: "#7a6a5e" }}
+              style={{ color: "#5C4F45" }}
             >
               {t('footer.desc')}
             </p>
@@ -92,28 +92,30 @@ const Footer = () => {
           </div>
 
           {/* Colunas de links */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-10 lg:gap-12">
 
             {/* Serviços */}
-            <div className="flex flex-col gap-4">
-              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
+            <div className="flex flex-col gap-4 col-span-2">
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.62)" }}>
                 {t('footer.col.services')}
               </span>
-              {serviceLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-left text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
-                  style={{ color: "#7a6a5e", fontWeight: 400 }}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+                {serviceLinks.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="text-left text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
+                    style={{ color: "#5C4F45", fontWeight: 400 }}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Conteúdo */}
             <div className="flex flex-col gap-4">
-              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.62)" }}>
                 {t('footer.col.content')}
               </span>
               {contentLinks.map((item) => (
@@ -121,7 +123,7 @@ const Footer = () => {
                   key={item.label}
                   href={item.href}
                   className="text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
-                  style={{ color: "#7a6a5e", fontWeight: 400 }}
+                  style={{ color: "#5C4F45", fontWeight: 400 }}
                 >
                   {item.label}
                 </Link>
@@ -130,7 +132,7 @@ const Footer = () => {
 
             {/* Social */}
             <div className="flex flex-col gap-4">
-              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.62)" }}>
                 {t('footer.col.social')}
               </span>
               {socialLinks.map((s) => (
@@ -140,7 +142,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
-                  style={{ color: "#7a6a5e", fontWeight: 400 }}
+                  style={{ color: "#5C4F45", fontWeight: 400 }}
                 >
                   {s.label}
                 </a>
@@ -149,7 +151,7 @@ const Footer = () => {
 
             {/* Legal */}
             <div className="flex flex-col gap-4">
-              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.3)" }}>
+              <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.62)" }}>
                 {t('footer.col.legal')}
               </span>
               {legalLinks.map((l) => (
@@ -157,7 +159,7 @@ const Footer = () => {
                   key={l.label}
                   href={l.href}
                   className="text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
-                  style={{ color: "#7a6a5e", fontWeight: 400 }}
+                  style={{ color: "#5C4F45", fontWeight: 400 }}
                 >
                   {l.label}
                 </Link>
@@ -174,14 +176,16 @@ const Footer = () => {
         >
           <span
             className="text-[12px] tracking-[0.18em] uppercase"
-            style={{ color: "rgba(26,15,8,0.35)" }}
+            style={{ color: "rgba(26,15,8,0.62)" }}
+            // O HTML estático é gerado no build; o ano pode divergir no cliente
+            suppressHydrationWarning
           >
             © {new Date().getFullYear()} RÉSERVE · Marketing Hoteleiro
           </span>
           <Link
             href="/privacy-policy"
             className="text-[12px] tracking-[0.15em] uppercase transition-colors duration-300 hover:text-[#994f2a]"
-            style={{ color: "rgba(26,15,8,0.35)" }}
+            style={{ color: "rgba(26,15,8,0.62)" }}
           >
             Política de Privacidade
           </Link>

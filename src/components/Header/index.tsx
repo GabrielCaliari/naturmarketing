@@ -178,14 +178,16 @@ const ServicesDropdown = () => {
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-1 transition-colors duration-200 hover:text-white"
         style={{
-          color: open ? "#ffffff" : "rgba(255,255,255,0.8)",
+          color: open ? "#ffffff" : "rgba(255,255,255,0.92)",
+          fontFamily: "inherit",
           fontSize: "14px",
           fontWeight: 400,
-          letterSpacing: "0.03em",
+          textTransform: "uppercase",
+          letterSpacing: "1.8px",
           background: "none",
           border: "none",
           cursor: "pointer",
-          padding: "6px 0",
+          padding: 0,
         }}
       >
         {t('nav.services')}
@@ -206,15 +208,18 @@ const ServicesDropdown = () => {
               top: "calc(100% + 12px)",
               left: "50%",
               transform: "translateX(-50%)",
-              width: "480px",
+              width: "640px",
+              maxWidth: "calc(100vw - 32px)",
+              boxSizing: "border-box",
               background: "#1a1108",
               border: "1px solid rgba(196,164,142,0.2)",
               borderRadius: "16px",
-              padding: "8px",
+              padding: "10px",
               zIndex: 100,
               boxShadow: "0 20px 40px rgba(0,0,0,0.35)",
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
+              columnGap: "6px",
             }}
           >
             {services.map((s) => (
@@ -231,7 +236,7 @@ const ServicesDropdown = () => {
                   <span style={{ color: "#ffffff", fontSize: "13px", fontWeight: 500 }}>
                     {s.label}
                   </span>
-                  <span style={{ color: "rgba(255,255,255,0.45)", fontSize: "11px" }}>
+                  <span style={{ color: "rgba(255,255,255,0.65)", fontSize: "11px" }}>
                     {s.desc}
                   </span>
                 </div>
@@ -277,7 +282,7 @@ const Header = () => {
                   <div className="navbar-collapse">
                     <ul className="navigation" style={{ display: "flex", alignItems: "center", gap: "28px", listStyle: "none", margin: 0, padding: 0 }}>
                       <li>
-                        <Link href="/" style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
+                        <Link href="/" style={{ color: "rgba(255,255,255,0.92)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
                           {t('nav.home')}
                         </Link>
                       </li>
@@ -285,12 +290,12 @@ const Header = () => {
                         <ServicesDropdown />
                       </li>
                       <li>
-                        <Link href="/blog" style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
+                        <Link href="/blog" style={{ color: "rgba(255,255,255,0.92)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
                           {t('nav.blog')}
                         </Link>
                       </li>
                       <li>
-                        <Link href="/empresa" style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
+                        <Link href="/marketing-hoteleiro" style={{ color: "rgba(255,255,255,0.92)", fontSize: "14px", fontWeight: 400, textDecoration: "none" }}>
                           {t('nav.empresa')}
                         </Link>
                       </li>
@@ -299,7 +304,7 @@ const Header = () => {
                           href={ctaWa}
                           target="_blank"
                           rel="noopener noreferrer"
-                          style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", fontWeight: 400, textDecoration: "none", cursor: "pointer" }}
+                          style={{ color: "rgba(255,255,255,0.92)", fontSize: "14px", fontWeight: 400, textDecoration: "none", cursor: "pointer" }}
                         >
                           {t('nav.contact')}
                         </a>
@@ -337,7 +342,12 @@ const Header = () => {
                 >
                   {locale === "en" ? "Diagnosis" : "Diagnóstico"}
                 </a>
-                <button onClick={() => setIsMobileMenuOpen(true)} className="mobile-nav-toggler">
+                <button
+                  onClick={() => setIsMobileMenuOpen(true)}
+                  className="mobile-nav-toggler"
+                  aria-label={locale === "en" ? "Open navigation menu" : "Abrir menu de navegação"}
+                  aria-expanded={isMobileMenuOpen}
+                >
                   <IconMenu3 size={24} />
                 </button>
               </div>
@@ -396,7 +406,7 @@ const MobileMenu = ({
   const navItems = [
     { label: t('nav.home'), href: "/" },
     { label: t('nav.blog'), href: "/blog" },
-    { label: t('nav.empresa'), href: "/empresa" },
+    { label: t('nav.empresa'), href: "/marketing-hoteleiro" },
   ];
 
   return (
@@ -422,7 +432,7 @@ const MobileMenu = ({
             <span className="header-logo-brand">réserve</span>
             <span className="header-logo-sub">marketing agency</span>
           </Link>
-          <button onClick={onClose} className="mobile-menu-close">
+          <button onClick={onClose} className="mobile-menu-close" aria-label={_locale === "en" ? "Close menu" : "Fechar menu"}>
             <IconX size={22} />
           </button>
         </div>
@@ -474,7 +484,7 @@ const MobileMenu = ({
                       style={{ textDecoration: "none" }}
                     >
                       <span style={{ color: "#1A0F08", fontSize: "14px", fontWeight: 500 }}>{s.label}</span>
-                      <span style={{ color: "#7a6a5e", fontSize: "11px" }}>{s.desc}</span>
+                      <span style={{ color: "#6e5e52", fontSize: "11px" }}>{s.desc}</span>
                     </Link>
                   ))}
                 </motion.div>

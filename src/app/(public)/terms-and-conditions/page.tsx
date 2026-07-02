@@ -16,7 +16,7 @@ export default function TermsAndConditions() {
       <h1 className="text-3xl font-bold mb-2" style={{ color: "#1A0F08" }}>
         Termos e Condições de Uso
       </h1>
-      <p className="text-sm mb-10" style={{ color: "#7a6a5e" }}>
+      <p className="text-sm mb-10" style={{ color: "#6e5e52" }}>
         Última atualização: 25 de maio de 2026
       </p>
 

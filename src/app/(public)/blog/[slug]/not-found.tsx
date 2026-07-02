@@ -19,7 +19,7 @@ export default function BlogNotFound() {
         <h1 className="h2 mb-4" style={{ color: "#1A0F08", fontWeight: 400 }}>
           Artigo não encontrado
         </h1>
-        <p className="paragraph mb-8 max-w-sm" style={{ color: "#7a6a5e", fontWeight: 300 }}>
+        <p className="paragraph mb-8 max-w-sm" style={{ color: "#6e5e52", fontWeight: 300 }}>
           O artigo que você procura não existe ou foi movido.
         </p>
         <Link

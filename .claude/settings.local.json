@@ -29,7 +29,12 @@
       "Bash(grep -rn 'href={`\\\\|href=\"/' src/)",
       "Bash(grep -F '$')",
       "Bash(grep -rn '/\\\\$' src/)",
-      "Bash(grep -v '\\\\${')"
+      "Bash(grep -v '\\\\${')",
+      "PowerShell(Get-ChildItem \"public\\\\img\\\\resource\" | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB\\)}} | Sort-Object KB -Descending)",
+      "PowerShell(node \"C:\\\\Users\\\\gabri\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-gabri-OneDrive-Documents-GitHub-naturmarketing\\\\ae1aba9a-7538-48df-b648-2a6b933c3fe3\\\\scratchpad\\\\optimize-images.mjs\")",
+      "PowerShell(node \"C:\\\\Users\\\\gabri\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-gabri-OneDrive-Documents-GitHub-naturmarketing\\\\ae1aba9a-7538-48df-b648-2a6b933c3fe3\\\\scratchpad\\\\fix-icons.mjs\")",
+      "PowerShell(Remove-Item *)",
+      "PowerShell(node \"C:\\\\Users\\\\gabri\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-gabri-OneDrive-Documents-GitHub-naturmarketing\\\\ae1aba9a-7538-48df-b648-2a6b933c3fe3\\\\scratchpad\\\\hero-bg.mjs\")"
     ]
   }
 }

@@ -111,7 +111,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
                     style={{ overflow: "hidden" }}
                   >
-                    <p className="px-6 pb-6 text-[16px] font-light leading-[1.85]" style={{ color: "#7a6a5e" }}>
+                    <p className="px-6 pb-6 text-[16px] font-light leading-[1.85]" style={{ color: "#6e5e52" }}>
                       {faq.resposta}
                     </p>
                   </motion.div>

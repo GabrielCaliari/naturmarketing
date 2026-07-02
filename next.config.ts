@@ -13,12 +13,52 @@ interface WebpackConfig {
   };
 }
 
+// Terceiros permitidos: GTM/GA4, Meta Pixel e Microsoft Clarity (todos gated
+// por consentimento LGPD). Testar em staging antes de apertar mais a política.
+const securityHeaders = [
+  {
+    key: 'Content-Security-Policy',
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://www.clarity.ms https://*.clarity.ms",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.facebook.com https://*.clarity.ms https://images.unsplash.com",
+      "font-src 'self'",
+      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://*.clarity.ms",
+      "frame-src https://www.googletagmanager.com",
+      "frame-ancestors 'none'",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+      'upgrade-insecure-requests',
+    ].join('; '),
+  },
+  { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+  { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
+  { key: 'X-Frame-Options', value: 'DENY' },
+  { key: 'X-Content-Type-Options', value: 'nosniff' },
+  { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+  { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+];
+
+const immutableCache = [
+  { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+];
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
+    qualities: [85],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
+  },
+  async headers() {
+    return [
+      { source: '/(.*)', headers: securityHeaders },
+      { source: '/img/:path*', headers: immutableCache },
+      { source: '/fonts/:path*', headers: immutableCache },
+    ]
   },
   async redirects() {
     return [
@@ -37,10 +77,12 @@ const nextConfig: NextConfig = {
       // /contact-us was a thin client-side stub that JS-redirected to / (soft 404).
       // Serve a real 301 instead and keep it out of the sitemap.
       { source: '/contact-us', destination: '/', permanent: true },
+      // /empresa renamed to /marketing-hoteleiro (better keyword match). 301 the old URL.
+      { source: '/empresa', destination: '/marketing-hoteleiro', permanent: true },
       { source: '/public/home', destination: '/', permanent: true },
       { source: '/public/blog', destination: '/blog', permanent: true },
       { source: '/public/blog/:slug', destination: '/blog/:slug', permanent: true },
-      { source: '/public/empresa', destination: '/empresa', permanent: true },
+      { source: '/public/empresa', destination: '/marketing-hoteleiro', permanent: true },
       { source: '/public/contact-us', destination: '/', permanent: true },
       { source: '/public/privacy-policy', destination: '/privacy-policy', permanent: true },
       { source: '/public/terms-and-conditions', destination: '/terms-and-conditions', permanent: true },

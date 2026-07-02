@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     "A Réserve é a agência de marketing para hotéis especializada em reservas diretas. Conheça o time e como reduzimos a dependência de OTAs com Google Hotel Ads, SEO e tráfego pago.",
   keywords:
     "agência de marketing para hotel, agência de marketing hoteleiro, quem somos Réserve, equipe marketing hoteleiro, especialistas marketing para hotéis, agência marketing hotéis Brasil, sobre a Réserve",
-  alternates: { canonical: `${siteUrl}/empresa` },
+  alternates: { canonical: `${siteUrl}/marketing-hoteleiro` },
   openGraph: {
     title: "Agência de Marketing para Hotéis | Réserve — Quem Somos",
     description:
       "A Réserve é a agência de marketing hoteleiro especializada em transformar presença digital em reservas diretas. Conheça o time e a missão.",
     type: "website",
-    url: `${siteUrl}/empresa`,
+    url: `${siteUrl}/marketing-hoteleiro`,
   },
 };
 

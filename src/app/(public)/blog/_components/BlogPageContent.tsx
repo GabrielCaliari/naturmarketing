@@ -4,26 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { blogPosts } from "@/data/blog-posts";
 import { useLocale } from "@/context/LocaleContext";
+import { formatDate } from "@/lib/format-date";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
 const BG_CARD = "#FDFAF7";
 const BORDER = "rgba(196,164,142,0.2)";
 const TEXT_HEAD = "#1A0F08";
-const TEXT_BODY = "#7a6a5e";
-
-function formatDate(dateStr: string, locale: string) {
-  return new Date(dateStr).toLocaleDateString(locale === "en" ? "en-US" : "pt-BR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
-}
+const TEXT_BODY = "#6e5e52";
 
 export default function BlogPageContent() {
   const { locale, t } = useLocale();
-  const featured = blogPosts.filter((p) => p.featured);
-  const rest = blogPosts.filter((p) => !p.featured);
+  const byDateDesc = (a: typeof blogPosts[number], b: typeof blogPosts[number]) =>
+    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+  const featured = blogPosts.filter((p) => p.featured).sort(byDateDesc);
+  const rest = blogPosts.filter((p) => !p.featured).sort(byDateDesc);
 
   return (
     <main style={{ background: "#F0EBE3", minHeight: "100vh" }}>

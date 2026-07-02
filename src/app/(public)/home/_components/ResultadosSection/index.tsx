@@ -49,7 +49,7 @@ export default function ResultadosSection() {
               {t('results.h2.strong')}
             </strong>
           </h2>
-          <p className="paragraph max-w-lg" style={{ fontWeight: 300, color: "#7a6a5e" }}>
+          <p className="paragraph max-w-lg" style={{ fontWeight: 300, color: "#6e5e52" }}>
             {t('results.desc')}
           </p>
         </motion.div>

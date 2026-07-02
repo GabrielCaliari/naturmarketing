@@ -1,0 +1,5 @@
+# Navegadores modernos — evita polyfills legados (Array.at, flat, Object.fromEntries etc.)
+>0.3%
+last 2 versions
+not dead
+not op_mini all

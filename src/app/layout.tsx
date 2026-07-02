@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
+import localFont from 'next/font/local'
 import Script from 'next/script'
 
 // Importar estilos CSS essenciais
 import "@/styles/globals.css";
 
 // Analytics e Rastreamento
-import { GTMScript, GTMNoScript } from '@/components/Analytics/GTMScript';
+import { GTMNoScript } from '@/components/Analytics/GTMScript';
 import MetaPixel from '@/components/Analytics/MetaPixel';
 import CookieConsent from '@/components/CookieConsent';
 import AutoTrack from '@/components/Analytics/AutoTrack';
@@ -24,6 +25,17 @@ const rubik = Rubik({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-rubik',
   display: 'swap',
+})
+
+// Brand display font (PP Hatton) — next/font/local self-hosts with automatic
+// preload, hashed immutable URL and zero render-blocking @font-face CSS
+const hatton = localFont({
+  src: '../../public/fonts/pp-hatton-medium.woff2',
+  weight: '400',
+  style: 'normal',
+  variable: '--font-hatton',
+  display: 'swap',
+  fallback: ['Georgia', 'serif'],
 })
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url
@@ -88,19 +100,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={rubik.variable}>
+    <html lang="pt-BR" className={`${rubik.variable} ${hatton.variable}`}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {/* Self-hosted brand font (PP Hatton) — @font-face in globals.css */}
-        <link
-          rel="preload"
-          href="/fonts/pp-hatton-medium.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
 
         {/* Structured Data */}
         <OrganizationJsonLd />

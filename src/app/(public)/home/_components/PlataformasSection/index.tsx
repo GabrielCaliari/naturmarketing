@@ -100,7 +100,7 @@ const PlataformasSection = () => {
       </motion.div>
 
       {/* Título */}
-      <motion.h3
+      <motion.h2
         variants={fadeUp}
         className="h2"
         style={{
@@ -110,7 +110,7 @@ const PlataformasSection = () => {
         }}
       >
         {t('plat.own.title')}
-      </motion.h3>
+      </motion.h2>
 
       {/* Chips de plataformas - Desktop */}
       <motion.div
@@ -232,7 +232,7 @@ const PlataformasSection = () => {
       </motion.div>
 
       {/* Título */}
-      <motion.h3
+      <motion.h2
         variants={fadeUp}
         className="h2"
         style={{
@@ -242,7 +242,7 @@ const PlataformasSection = () => {
         }}
       >
         {t('plat.ota.title')}
-      </motion.h3>
+      </motion.h2>
 
       {/* Cards OTAs - Desktop */}
       <motion.div

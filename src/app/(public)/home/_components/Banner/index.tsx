@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import BackgroundImage from "./../../../../../../public/img/resource/background.png";
+import BackgroundImage from "./../../../../../../public/img/resource/background.webp";
 import { useLocale } from "@/context/LocaleContext";
 
 const Banner = () => {

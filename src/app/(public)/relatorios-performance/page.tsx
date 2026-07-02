@@ -26,7 +26,7 @@ const BG = "#F0EBE3";
 const BG_CARD = "#FDFAF7";
 const BORDER = "rgba(196,164,142,0.2)";
 const TEXT_HEAD = "#1A0F08";
-const TEXT_BODY = "#7a6a5e";
+const TEXT_BODY = "#6e5e52";
 
 const metrics = [
   { title: "Custo por Reserva", desc: "Quanto cada canal (Google Ads, Meta Ads, SEO, direto) gasta para gerar uma reserva confirmada — a métrica mais importante do marketing hoteleiro." },

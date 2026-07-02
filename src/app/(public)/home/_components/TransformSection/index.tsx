@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_GREEN = "#84936f";
@@ -41,14 +42,14 @@ const TransformSection = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h3 className="h3" style={{ color: "#1A0F08" }}>
+            <h2 className="h3" style={{ color: "#1A0F08" }}>
               {t('transform.h3.1')}
-            </h3>
-            <h3 className="h3" style={{ color: "#1A0F08" }}>
+            </h2>
+            <h2 className="h3" style={{ color: "#1A0F08" }}>
               {t('transform.h3.2')}{" "}
               <span style={{ color: BRAND_GREEN }}>{t('transform.h3.highlight')}</span>{" "}
               {t('transform.h3.end')}
-            </h3>
+            </h2>
           </div>
 
           <p className="paragraph" style={{ fontWeight: 300, color: "#6b5c50" }}>
@@ -82,9 +83,13 @@ const TransformSection = () => {
               className="relative z-10 w-full max-w-sm mx-auto rounded-3xl overflow-hidden"
               style={{ boxShadow: "0 20px 50px rgba(26,15,8,0.15)" }}
             >
-              <img
-                src="/img/resource/check.png"
+              <Image
+                src="/img/resource/check.webp"
                 alt="Check-in em hotel — Marketing Hoteleiro Réserve"
+                width={768}
+                height={1024}
+                quality={85}
+                sizes="(min-width: 1024px) 384px, 100vw"
                 className="w-full object-cover"
                 style={{ aspectRatio: "3/4", objectPosition: "center" }}
               />

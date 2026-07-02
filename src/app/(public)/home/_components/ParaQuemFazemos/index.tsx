@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 import { IconBuilding, IconHome, IconBrandAirbnb, IconArrowRight } from "@tabler/icons-react";
 import { useLocale } from "@/context/LocaleContext";
 
@@ -22,21 +23,21 @@ export default function ParaQuemFazemos() {
 
   const publicos = [
     {
-      image: "/img/resource/hotel&resort.webp",
+      image: "/img/resource/hotel-resort.webp",
       icon: <IconBuilding size={13} stroke={1.8} />,
       labelKey: 'para.p1.label',
       titleKey: 'para.p1.title',
       descKey: 'para.p1.desc',
     },
     {
-      image: "/img/resource/pousada.png",
+      image: "/img/resource/pousada.webp",
       icon: <IconHome size={13} stroke={1.8} />,
       labelKey: 'para.p2.label',
       titleKey: 'para.p2.title',
       descKey: 'para.p2.desc',
     },
     {
-      image: "/img/resource/airnb.png",
+      image: "/img/resource/airnb.webp",
       icon: <IconBrandAirbnb size={13} stroke={1.8} />,
       labelKey: 'para.p3.label',
       titleKey: 'para.p3.title',
@@ -84,10 +85,13 @@ export default function ParaQuemFazemos() {
               }}
             >
               <div className="relative overflow-hidden" style={{ height: "240px" }}>
-                <img
+                <Image
                   src={p.image}
                   alt={t(p.titleKey)}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  quality={85}
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0" style={{ background: "rgba(26,15,8,0.06)" }} />
               </div>
@@ -112,7 +116,7 @@ export default function ParaQuemFazemos() {
                   {t(p.titleKey)}
                 </h3>
 
-                <p className="text-[13px] font-light leading-[1.85] flex-1" style={{ color: "#7a6a5e" }}>
+                <p className="text-[13px] font-light leading-[1.85] flex-1" style={{ color: "#6e5e52" }}>
                   {t(p.descKey)}
                 </p>
 

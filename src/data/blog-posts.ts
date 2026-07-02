@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "google-hotel-ads-guia-completo",
-    title: "Google Hotel Ads: o guia completo para hotéis e pousadas em 2025",
+    title: "Google Hotel Ads: o guia completo para hotéis e pousadas em 2026",
     excerpt:
       "O Google Hotel Ads coloca seu hotel lado a lado com o Booking e o Expedia no momento exato em que o viajante está pronto para reservar. Entenda como funciona, como aparecer e como transformar esse canal no seu principal gerador de reservas diretas.",
     category: "Google Ads",
@@ -73,7 +73,7 @@ export const blogPosts: BlogPost[] = [
       "reservas diretas hotel Google",
     ],
     readTime: 8,
-    publishedAt: "2025-03-24",
+    publishedAt: "2025-08-18",
     featured: true,
     coverImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=700&h=400&fit=crop&q=80",
     coverAlt: "Pessoa usando smartphone com tela de busca do Google aberta",
@@ -131,7 +131,7 @@ export const blogPosts: BlogPost[] = [
     ],
     readTime: 7,
     publishedAt: "2025-04-07",
-    featured: true,
+    featured: false,
     coverImage: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=700&h=400&fit=crop&q=80",
     coverAlt: "Calculadora, notas de dinheiro e caderno com planejamento financeiro em mesa",
     content: `
@@ -239,7 +239,7 @@ export const blogPosts: BlogPost[] = [
       "como aumentar reservas diretas hotel",
     ],
     readTime: 6,
-    publishedAt: "2025-05-05",
+    publishedAt: "2025-09-08",
     featured: false,
     coverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&h=400&fit=crop&q=80",
     coverAlt: "Gráficos e dashboard de analytics em monitor mostrando distribuição de canais",
@@ -289,7 +289,7 @@ export const blogPosts: BlogPost[] = [
       "marketing digital hotéis SEO",
     ],
     readTime: 8,
-    publishedAt: "2025-05-19",
+    publishedAt: "2025-10-20",
     featured: false,
     coverImage: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=700&h=400&fit=crop&q=80",
     coverAlt: "Pessoa digitando em laptop com tela mostrando análise de SEO e posicionamento",
@@ -335,7 +335,7 @@ export const blogPosts: BlogPost[] = [
       "marketing para hotel fora de temporada",
     ],
     readTime: 7,
-    publishedAt: "2025-06-02",
+    publishedAt: "2025-12-01",
     featured: false,
     coverImage: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&h=400&fit=crop&q=80",
     coverAlt: "Resort com piscina tranquila em período de baixa temporada com paisagem natural",
@@ -380,7 +380,7 @@ export const blogPosts: BlogPost[] = [
       "agência marketing para pousada",
     ],
     readTime: 6,
-    publishedAt: "2025-06-16",
+    publishedAt: "2026-01-19",
     featured: false,
     coverImage: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&h=400&fit=crop&q=80",
     coverAlt: "Pousada charmosa com varanda aconchegante e decoração rústica com jardim",
@@ -425,7 +425,7 @@ export const blogPosts: BlogPost[] = [
       "estratégia de precificação hotel",
     ],
     readTime: 7,
-    publishedAt: "2025-06-30",
+    publishedAt: "2026-02-23",
     featured: false,
     coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&h=400&fit=crop&q=80",
     coverAlt: "Analista de dados analisando gráficos de revenue e ocupação em dashboard de computador",
@@ -458,6 +458,229 @@ export const blogPosts: BlogPost[] = [
 <h2>Por que isso importa para hotéis independentes</h2>
 <p>Redes hoteleiras têm times dedicados para isso. Hotéis independentes podem e devem aplicar os mesmos princípios de forma simplificada. Começa com um calendário de demanda (identificar feriados, eventos locais, sazonalidade histórica), uma política de tarifas por período (alta, média, baixa demanda) e a integração entre o responsável por campanhas e o responsável por precificação.</p>
 <p>Uma <a href="/blog/agencia-marketing-hoteleiro-vs-agencia-generica">agência de marketing hoteleiro especializada</a> não apenas gerencia campanhas — ela entende seu contexto de Revenue Management e alinha a estratégia de mídia com a estratégia de precificação. Essa visão integrada é o que separa marketing que gera resultado de marketing que apenas gera visibilidade.</p>
+    `,
+  },
+  {
+    slug: "panorama-hotelaria-2026-novos-hoteis",
+    title: "Panorama da Hotelaria 2026: R$ 13,6 bilhões em novos hotéis e o que isso muda no seu marketing",
+    excerpt:
+      "O Panorama da Hotelaria Brasileira 2026 projeta R$ 13,6 bilhões em 178 novos hotéis e mais de 26 mil novas unidades até 2030 — 66% delas fora dos grandes centros. Mais oferta significa mais concorrência por atenção. Entenda o que isso exige da sua estratégia de marketing hoteleiro.",
+    category: "Mercado",
+    keywords: [
+      "panorama da hotelaria brasileira 2026",
+      "novos hotéis no Brasil",
+      "marketing hoteleiro 2026",
+      "concorrência hoteleira marketing",
+    ],
+    readTime: 6,
+    publishedAt: "2026-03-16",
+    featured: false,
+    coverImage: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Fachada moderna de hotel recém-construído ao entardecer",
+    content: `
+<h2>O número que muda o jogo: R$ 13,6 bilhões em novos hotéis</h2>
+<p>O Panorama da Hotelaria Brasileira 2026, produzido pela HotelInvest em parceria com o FOHB, projeta <strong>R$ 13,6 bilhões investidos em 178 novos hotéis</strong> — um crescimento de 17% sobre o ano anterior. São mais de 26 mil novas unidades habitacionais previstas até 2030, e o dado mais relevante para quem pensa estratégia: <strong>66% desses empreendimentos ficam fora dos grandes centros</strong>.</p>
+<p>Para o hoteleiro que já opera, isso tem uma leitura imediata: o destino que hoje tem pouca oferta vai ter muito mais concorrência nos próximos anos. E a disputa não será só por hóspede — será por <strong>atenção e visibilidade digital</strong>.</p>
+
+<h2>Mais oferta = mais concorrência por atenção, não só por diária</h2>
+<p>Quando um destino recebe novos hotéis, o efeito não é apenas dividir a demanda existente. É dividir o espaço nos resultados de busca, no Google Maps, no Google Hotel Ads e nas redes sociais. O hotel que já está bem posicionado quando os novos chegam parte com uma vantagem difícil de reverter: autoridade acumulada.</p>
+<p>É exatamente por isso que a janela de ação é agora. Construir <a href="/seo-para-hoteis">posicionamento orgânico (SEO)</a> e presença consolidada leva meses — e quem começar depois que o destino lotar de concorrentes vai pagar mais caro por cada clique e cada reserva.</p>
+
+<h2>O hoteleiro estreante: um público enorme e despreparado</h2>
+<p>Há um segundo efeito desse boom. São centenas de novos empreendimentos abrindo as portas com equipes que <strong>nunca estruturaram uma operação de marketing digital</strong>. Muitos vão abrir dependendo 80%, 90% das reservas do Booking — e só vão perceber o custo dessa dependência quando a primeira fatura de comissão chegar.</p>
+<p>Para quem já entende o jogo, essa é a hora de se posicionar como referência. Conteúdo que explica o básico bem feito — <a href="/blog/quanto-custa-marketing-digital-hotel">quanto custa o marketing digital para um hotel</a>, <a href="/blog/como-reduzir-comissoes-booking-sem-perder-ocupacao">como reduzir a dependência das OTAs</a> — é o que constrói autoridade num mercado em expansão.</p>
+
+<h2>O que fazer com essa informação (3 movimentos)</h2>
+<ol>
+  <li><strong>Consolide seu posicionamento orgânico antes da concorrência crescer.</strong> SEO e Google Business Profile são ativos que se valorizam com o tempo — quem planta primeiro colhe por mais tempo.</li>
+  <li><strong>Ative os canais de alta intenção agora.</strong> <a href="/google-hotel-ads">Google Hotel Ads</a> e campanhas de busca pelo nome do hotel garantem que você capture a demanda que já existe antes que ela se dilua entre mais opções.</li>
+  <li><strong>Construa canal direto desde já.</strong> Quanto mais cedo você reduzir a dependência de OTAs, menor o impacto quando a concorrência empurrar os custos de aquisição para cima. Veja como estruturamos <a href="/reservas-diretas">reservas diretas</a> na prática.</li>
+</ol>
+
+<h2>A leitura estratégica</h2>
+<p>Um mercado em crescimento é boa notícia — desde que você não seja apenas mais um na lista. O Panorama 2026 não é um dado distante de relatório: é o aviso de que o custo de ser invisível vai subir. Hotéis que tratam marketing como investimento estruturado, e não como gasto pontual, são os que vão sair na frente nessa nova fase do setor.</p>
+    `,
+  },
+  {
+    slug: "reserva-direta-lidera-valor-dados-mercado",
+    title: "Reserva direta lidera em valor, não só no discurso: o que os dados de 2025 provam",
+    excerpt:
+      "Relatórios de mercado mostram que a reserva direta se manteve estável em 95% dos mercados e que os sites próprios lideraram em valor médio por reserva. 'O futuro é direto' deixou de ser slogan e virou dado. Entenda o que isso significa para a margem do seu hotel.",
+    category: "OTAs & Canal Direto",
+    keywords: [
+      "reserva direta hotel",
+      "valor médio por reserva direta",
+      "reservas diretas vs OTAs",
+      "canal direto hotelaria dados",
+    ],
+    readTime: 6,
+    publishedAt: "2026-04-13",
+    featured: false,
+    coverImage: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Mão segurando smartphone com gráfico de crescimento financeiro na tela",
+    content: `
+<h2>Quando o discurso vira dado</h2>
+<p>"O futuro é direto" virou quase um clichê no marketing hoteleiro. O problema dos clichês é que perdem força — até que um dado concreto os sustenta. E é exatamente isso que os relatórios mais recentes de distribuição hoteleira mostraram: a reserva direta não é só uma narrativa de quem vende marketing. É a operação mais rentável, comprovada por número.</p>
+<p>Relatórios globais de distribuição apontam que as reservas diretas se mantiveram estáveis em torno de 95% dos mercados em 2025 e que <strong>os sites próprios dos hotéis lideraram em valor médio por reserva</strong> — com ticket médio em torno de US$ 516, à frente das principais OTAs.</p>
+
+<h2>Por que a reserva direta vale mais (e não é coincidência)</h2>
+<p>O hóspede que reserva diretamente no site do hotel tende a gastar mais por uma combinação de motivos estruturais:</p>
+<ul>
+  <li><strong>Sem intermediário disputando o preço.</strong> Na OTA, a lógica é encontrar o menor preço entre opções. No site do hotel, o hóspede já escolheu — ele compra valor, não desconto.</li>
+  <li><strong>Mais espaço para upsell.</strong> Upgrades de quarto, pacotes, experiências, late check-out — o canal direto permite oferecer adicionais que a OTA não comporta.</li>
+  <li><strong>Relação direta com a marca.</strong> Quem reserva direto costuma já confiar no hotel, o que se traduz em estadias mais longas e maior gasto no local.</li>
+</ul>
+<p>Some a isso o fato de que essa reserva <strong>não paga 15% a 18% de comissão</strong> — e a diferença de margem entre uma reserva direta e uma reserva de OTA fica brutal.</p>
+
+<h2>A conta que o dado escancara</h2>
+<p>Imagine duas reservas do mesmo valor de diária. A da OTA chega com ticket menor (o hóspede comparou e escolheu o mais barato) e ainda deixa 18% pelo caminho. A direta chega com ticket médio maior e margem cheia. Não é uma vantagem marginal — é uma diferença que define a saúde financeira do hotel ao longo do ano.</p>
+<p>É por isso que insistimos: <a href="/blog/reservas-diretas-vs-otas-como-equilibrar">equilibrar OTAs e canal direto</a> não é uma preferência ideológica. É a decisão financeira mais importante da operação.</p>
+
+<h2>O que separa quem fala de quem faz</h2>
+<p>Ter dado a favor não basta. Capturar valor no canal direto exige infraestrutura: um <a href="/sites-para-hoteis">site rápido e otimizado para conversão</a>, um <a href="/motor-de-reservas">motor de reservas</a> sem atrito, paridade tarifária garantida e campanhas que tragam o hóspede para o seu domínio em vez de empurrá-lo para a OTA.</p>
+<p>O dado de mercado confirma a tese. A execução é o que transforma a tese em margem. Conheça nossa estratégia de <a href="/reservas-diretas">reservas diretas</a> e veja como sair do discurso para o resultado.</p>
+    `,
+  },
+  {
+    slug: "video-simples-vende-mais-hotelaria",
+    title: "Por que o vídeo simples vende mais que o produzido na hotelaria",
+    excerpt:
+      "Reels gravados no celular, com luz natural e fala direta para a câmera, vêm superando produções elaboradas em alcance e engajamento. O algoritmo premia autenticidade e retenção — não orçamento de produção. Veja como aplicar isso no marketing do seu hotel.",
+    category: "Conteúdo & Redes",
+    keywords: [
+      "marketing de conteúdo para hotéis",
+      "reels para hotel",
+      "vídeo para redes sociais hotel",
+      "produção audiovisual hotelaria",
+    ],
+    readTime: 5,
+    publishedAt: "2026-05-11",
+    featured: false,
+    coverImage: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Pessoa gravando vídeo com smartphone em ambiente de hotel com luz natural",
+    content: `
+<h2>A inversão que pegou o setor de surpresa</h2>
+<p>Por anos, a lógica do conteúdo hoteleiro foi clara: quanto mais produzido, melhor. Vídeo institucional com drone, trilha sonora cinematográfica, color grading caprichado. Esse material continua tendo seu lugar — mas deixou de ser o que mais converte nas redes sociais.</p>
+<p>O que domina alcance e engajamento hoje são <strong>Reels gravados no celular, com luz natural e fala direta para a câmera</strong>. O algoritmo não premia orçamento de produção. Premia retenção e autenticidade. E conteúdo "perfeito demais" muitas vezes parece anúncio — e anúncio o espectador pula.</p>
+
+<h2>Por que o algoritmo prefere o simples</h2>
+<p>Plataformas como Instagram e TikTok otimizam para uma única coisa: manter o usuário assistindo. O vídeo vertical, espontâneo, que parece feito por uma pessoa real, gera mais identificação e retenção do que uma peça publicitária polida. Quanto mais gente assiste até o fim e interage, mais a plataforma distribui.</p>
+<p>Para o hotel, isso é uma boa notícia: significa que você não precisa de um orçamento de grande produtora para crescer nas redes. Precisa de <strong>consistência, ideias boas e ritmo de publicação</strong> — gravar mais e editar menos.</p>
+
+<h2>O gancho decide tudo nos primeiros 3 segundos</h2>
+<p>Existe uma regra que vale para qualquer vídeo curto: se metade dos espectadores pula antes do terceiro segundo, o algoritmo congela a distribuição. O começo é tudo. Cada Reel precisa abrir com um <strong>gancho de choque, uma pergunta ou um dado provocador</strong> — sem introdução, sem "oi gente, tudo bem?".</p>
+<p>Exemplos de abertura para hotelaria que funcionam:</p>
+<ul>
+  <li>"Esse é o erro que faz seu hotel perder reserva direta todo dia."</li>
+  <li>"Por que esse quarto tem fila de espera e o do lado não?"</li>
+  <li>"Você está pagando 18% de comissão por algo que poderia ser seu."</li>
+</ul>
+
+<h2>Como aplicar isso sem virar um estúdio</h2>
+<p>O equilíbrio ideal para um hotel: vídeo simples e frequente para alimentar o relacionamento e o alcance nas redes, combinado com <a href="/producao-audiovisual">produção audiovisual profissional</a> para os ativos que vivem mais tempo — o site, as OTAs, as campanhas de branding. Um não substitui o outro; eles cumprem funções diferentes.</p>
+<p>O conteúdo de redes constrói audiência e topo de funil. As imagens e vídeos profissionais sustentam a percepção de valor no momento da decisão. E é o conjunto que alimenta as campanhas de <a href="/meta-ads">Meta Ads</a> com criativos que realmente convertem.</p>
+
+<h2>A regra de ouro</h2>
+<p>Grave mais, edite menos, e nunca publique um vídeo cujos 3 primeiros segundos você mesmo pularia. Autenticidade com intenção estratégica — esse é o conteúdo que faz o hotel crescer nas redes sem depender de grande orçamento.</p>
+    `,
+  },
+  {
+    slug: "ia-busca-hospedagem-como-aparecer",
+    title: "A IA já decide onde as pessoas se hospedam: como aparecer no ChatGPT e no Google AI Overviews",
+    excerpt:
+      "Uma parcela relevante das buscas por hospedagem hoje passa por motores de IA antes do Google tradicional. Hotéis invisíveis nesses canais perdem reservas que nem sabem que existiram. Entenda o que muda e como posicionar seu hotel para a busca por IA.",
+    category: "SEO",
+    keywords: [
+      "SEO para IA hotéis",
+      "como aparecer no ChatGPT hotel",
+      "Google AI Overviews hotelaria",
+      "busca por IA hospedagem",
+    ],
+    readTime: 7,
+    publishedAt: "2026-05-25",
+    featured: false,
+    coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Tela de computador com interface de inteligência artificial conversacional",
+    content: `
+<h2>A descoberta de hospedagem mudou de porta de entrada</h2>
+<p>Durante 20 anos, a jornada começava igual: o viajante digitava "hotel em [destino]" no Google. Isso ainda acontece — mas uma parcela crescente das pessoas hoje pergunta a um assistente de IA. "Qual a melhor pousada romântica perto de Gramado com café da manhã?" é uma pergunta que muita gente faz ao ChatGPT, ao Gemini ou vê respondida nos AI Overviews do próprio Google, antes de chegar à lista azul de links tradicional.</p>
+<p>A consequência é direta: <strong>se o seu hotel não é "compreendido" por esses sistemas, ele simplesmente não aparece na recomendação</strong> — e você perde uma reserva sem nunca saber que ela existiu.</p>
+
+<h2>Como a IA escolhe o que recomendar</h2>
+<p>Motores de IA não "rankeiam" exatamente como o Google clássico. Eles sintetizam respostas a partir de fontes que consideram confiáveis, estruturadas e consistentes. Na prática, eles favorecem:</p>
+<ul>
+  <li><strong>Informação consistente em toda a web.</strong> Nome, endereço, telefone e categoria do hotel iguais no site, no Google Business Profile, nas OTAs e em diretórios. Inconsistência gera desconfiança da máquina.</li>
+  <li><strong>Conteúdo que responde perguntas reais.</strong> Páginas e artigos que respondem diretamente "o que fazer", "qual o melhor para", "como chegar" — em linguagem clara.</li>
+  <li><strong>Dados estruturados (schema markup).</strong> Marcação que diz explicitamente à máquina "isto é um hotel, com estas amenidades, nesta localização, com estas avaliações".</li>
+  <li><strong>Reputação e avaliações.</strong> Volume e qualidade de avaliações continuam sendo um sinal forte de confiança.</li>
+</ul>
+
+<h2>Por que essa é uma janela rara de oportunidade</h2>
+<p>Quase ninguém no nicho hoteleiro brasileiro está otimizando para busca por IA com método. Isso significa que o esforço aqui tem retorno desproporcional: enquanto a maioria ainda disputa as mesmas palavras-chave do jeito antigo, quem se estrutura para ser citado pela IA ocupa um espaço que praticamente não tem concorrência consciente.</p>
+<p>E a boa notícia: muito do que faz o seu hotel aparecer na IA é o mesmo que faz ele ranquear no <a href="/seo-para-hoteis">SEO tradicional</a> — conteúdo de qualidade, dados estruturados e autoridade. Você constrói os dois ativos com o mesmo trabalho.</p>
+
+<h2>O que fazer agora (checklist prático)</h2>
+<ol>
+  <li><strong>Padronize seus dados (NAP) em toda a web.</strong> Nome, endereço e telefone idênticos em site, Google Business Profile e OTAs.</li>
+  <li><strong>Implemente schema markup de hotel</strong> no site — amenidades, localização, faixa de preço, avaliações.</li>
+  <li><strong>Produza conteúdo que responde perguntas de destino</strong> — guias, roteiros, "melhor época para", "o que fazer em". É o que a IA cita.</li>
+  <li><strong>Mantenha o Google Business Profile impecável</strong> e acumule avaliações respondidas.</li>
+  <li><strong>Garanta um site rápido e bem estruturado.</strong> Conteúdo que a máquina não consegue ler ou que carrega devagar é conteúdo que não é citado. Veja como tratamos <a href="/sites-para-hoteis">sites para hotéis</a>.</li>
+</ol>
+
+<h2>A leitura estratégica</h2>
+<p>A busca por IA não substituiu o Google da noite para o dia — mas mudou a porta de entrada para uma parcela relevante e crescente dos viajantes. Hotéis que tratam isso como prioridade hoje estarão presentes na recomendação quando essa parcela virar maioria. E essa é a definição de sair na frente: agir enquanto ainda é vantagem, não quando virar obrigação.</p>
+    `,
+  },
+  {
+    slug: "booking-comissao-18-porcento-o-que-fazer",
+    title: "Booking sobe a comissão para 18% em julho de 2026: o que o seu hotel precisa fazer agora",
+    excerpt:
+      "Em 2026 a Booking.com comunicou aos parceiros brasileiros uma comissão preferencial de 18%, com vigência prevista para 1º de julho. Em uma diária de R$ 500, a comissão sobe de R$ 75 para R$ 90. Entenda o impacto real e o plano de ação para proteger sua margem.",
+    category: "OTAs & Canal Direto",
+    keywords: [
+      "comissão booking 18%",
+      "aumento comissão booking 2026",
+      "como reduzir comissão booking",
+      "reserva direta hotel comissão OTA",
+    ],
+    readTime: 7,
+    publishedAt: "2026-06-09",
+    featured: true,
+    coverImage: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Aperto de mãos sobre mesa de negociação com documentos e calculadora",
+    content: `
+<h2>O que aconteceu</h2>
+<p>Em 2026, a Booking.com comunicou aos parceiros hoteleiros brasileiros uma <strong>comissão preferencial de 18%</strong>, com vigência prevista para <strong>1º de julho de 2026</strong>. Historicamente, as taxas no Brasil variavam entre 10% e 15%. O reajuste foi recebido com forte reação do setor: entidades como FBHA, FOHB, ABIH e Resorts Brasil se posicionaram contra e pediram o adiamento da medida para janeiro de 2027.</p>
+<p>Independentemente de quando entre em vigor, a direção está dada — e a conta do hoteleiro acabou de ficar mais pesada.</p>
+
+<h2>O impacto em número, não em discurso</h2>
+<p>Vamos ao concreto. Em uma diária de R$ 500:</p>
+<ul>
+  <li>Com comissão de 15%: o Booking fica com <strong>R$ 75</strong>.</li>
+  <li>Com comissão de 18%: o Booking fica com <strong>R$ 90</strong>.</li>
+</ul>
+<p>São R$ 15 a mais por diária — que parecem pouco até você multiplicar. Um hotel que faz 600 diárias por mês via Booking a R$ 500 passa a pagar <strong>R$ 9.000 a mais por mês</strong> só de incremento de comissão. R$ 108 mil por ano que saem direto da sua margem, sem que você receba nada novo em troca.</p>
+
+<h2>Por que esse é o gancho do ano para o canal direto</h2>
+<p>O argumento da reserva direta sempre existiu. O que mudou é que a dor agora está nas manchetes e na fatura. O hoteleiro que adiava a estratégia de canal direto porque "o Booking ainda compensava" acabou de receber um motivo concreto para agir. E os <a href="/blog/reserva-direta-lidera-valor-dados-mercado">dados de mercado já provam que a reserva direta lidera em valor</a> — não é só economia de comissão, é ticket médio maior.</p>
+<p>Cada ponto percentual de comissão a mais aumenta o retorno de qualquer real investido em canal direto. A matemática que antes era boa ficou ainda melhor.</p>
+
+<h2>O que NÃO fazer</h2>
+<p>Tirar o hotel do Booking de um dia para o outro é suicídio comercial — você perde distribuição e ocupação antes de ter um canal direto maduro para compensar. A reação ao aumento não é abandonar a OTA. É <strong>reduzir a dependência dela de forma planejada</strong>, capturando no seu domínio a demanda que o próprio Booking ajuda a gerar.</p>
+
+<h2>O plano de ação (na ordem certa)</h2>
+<ol>
+  <li><strong>Garanta paridade ou vantagem no canal direto.</strong> Se o seu site não oferece preço igual ou melhor que o Booking, nenhuma campanha vai funcionar. Esse é o passo zero.</li>
+  <li><strong>Ative o <a href="/google-hotel-ads">Google Hotel Ads</a>.</strong> É o canal de maior ROI e captura o viajante no momento exato da decisão — a um custo muito menor que 18%.</li>
+  <li><strong>Capture quem busca seu nome.</strong> Campanhas de busca pelo nome do hotel garantem que você apareça antes do anúncio da OTA quando alguém já te conhece (o "efeito billboard").</li>
+  <li><strong>Otimize site e motor de reservas.</strong> Um <a href="/motor-de-reservas">motor de reservas</a> sem atrito e um <a href="/sites-para-hoteis">site rápido</a> transformam o tráfego capturado em reserva confirmada.</li>
+  <li><strong>Construa base própria.</strong> E-mail e WhatsApp dos hóspedes anteriores convertem a custo quase zero — o oposto da comissão crescente.</li>
+</ol>
+<p>Esse é exatamente o caminho que detalhamos em <a href="/blog/como-reduzir-comissoes-booking-sem-perder-ocupacao">como reduzir as comissões do Booking sem perder ocupação</a>.</p>
+
+<h2>A janela é agora</h2>
+<p>Reposicionar a operação para o canal direto leva alguns meses — e o aumento chega em julho. Quem começar a estruturar <a href="/reservas-diretas">reservas diretas</a> agora chega na nova realidade com a margem protegida. Quem esperar vai simplesmente pagar mais e seguir refém. O aumento da Booking não é só uma má notícia: é o empurrão que o seu canal direto precisava para deixar de ser plano e virar prioridade.</p>
     `,
   },
 ];

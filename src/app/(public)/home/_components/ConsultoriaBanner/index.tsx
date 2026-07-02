@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import Image from "next/image";
 import { trackButtonClick } from "@/lib/analytics";
 import { useLocale } from "@/context/LocaleContext";
 
@@ -31,7 +32,14 @@ export default function ConsultoriaBanner() {
       style={{ minHeight: "80svh", background: "#2a1f14" }}
     >
       <div className="absolute inset-0 z-0" aria-hidden="true">
-        <img src="/img/resource/seedsbackground.png" alt="" className="w-full h-full object-cover" />
+        <Image
+          src="/img/resource/seedsbackground.webp"
+          alt=""
+          fill
+          quality={85}
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0" style={{ background: "rgba(20,12,6,0.45)" }} />
       </div>
 

@@ -81,7 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: `${siteBase}/empresa`,
+      url: `${siteBase}/marketing-hoteleiro`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
