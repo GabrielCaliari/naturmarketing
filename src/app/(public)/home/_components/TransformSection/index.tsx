@@ -88,8 +88,8 @@ const TransformSection = () => {
                 alt="Check-in em hotel — Marketing Hoteleiro Réserve"
                 width={768}
                 height={1024}
-                quality={85}
-                sizes="(min-width: 1024px) 384px, 100vw"
+                quality={70}
+                sizes="384px"
                 className="w-full object-cover"
                 style={{ aspectRatio: "3/4", objectPosition: "center" }}
               />

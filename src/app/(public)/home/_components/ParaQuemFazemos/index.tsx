@@ -89,7 +89,7 @@ export default function ParaQuemFazemos() {
                   src={p.image}
                   alt={t(p.titleKey)}
                   fill
-                  quality={85}
+                  quality={70}
                   sizes="(min-width: 768px) 33vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />

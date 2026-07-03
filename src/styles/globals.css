@@ -686,6 +686,57 @@ main {
 }
 
 /* ============================
+   Hero entrance (CSS-only: paints before JS hydration, unlike framer-motion)
+   ============================ */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-up {
+  animation: hero-fade-up 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.hero-delay-1 {
+  animation-delay: 0.08s;
+}
+
+.hero-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.hero-delay-3 {
+  animation-delay: 0.32s;
+}
+
+@keyframes hero-arrow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.hero-arrow-bounce {
+  animation: hero-arrow-bounce 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-up,
+  .hero-arrow-bounce {
+    animation: none;
+  }
+}
+
+/* ============================
    Infinite Scroll Animation
    ============================ */
 @keyframes scroll-infinite-seamless {

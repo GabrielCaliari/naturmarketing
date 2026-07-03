@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import BackgroundImage from "./../../../../../../public/img/resource/background.webp";
 import { useLocale } from "@/context/LocaleContext";
@@ -40,12 +39,7 @@ const Banner = () => {
         style={{ paddingTop: "120px", paddingBottom: "80px" }}
       >
         {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          style={{ marginBottom: "1.75rem" }}
-        >
+        <div className="hero-fade-up" style={{ marginBottom: "1.75rem" }}>
           <span
             className="inline-flex items-center gap-2 text-[10px] font-medium tracking-[0.25em] uppercase px-5 py-2.5 rounded-full"
             style={{
@@ -57,13 +51,11 @@ const Banner = () => {
             <span className="w-1 h-1 rounded-full bg-white/70" />
             {t('banner.badge')}
           </span>
-        </motion.div>
+        </div>
 
         {/* Título */}
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+        <h1
+          className="hero-fade-up hero-delay-1"
           style={{
             color: "#ffffff",
             marginBottom: "1.5rem",
@@ -76,13 +68,11 @@ const Banner = () => {
           {t('banner.title.1')}<br /> {t('banner.title.2')}
           <br />{t('banner.title.3')}<br /> {t('banner.title.4')}{" "}
           {t('banner.title.5')}
-        </motion.h1>
+        </h1>
 
         {/* Subtítulo */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+        <p
+          className="hero-fade-up hero-delay-2"
           style={{
             fontWeight: 300,
             color: "rgba(255,255,255,0.75)",
@@ -96,15 +86,10 @@ const Banner = () => {
           <strong style={{ fontWeight: 600, color: "#ffffff" }}>
             {t('banner.subtitle.strong')}
           </strong>
-        </motion.p>
+        </p>
 
         {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.38 }}
-          className="flex flex-wrap items-center justify-center gap-5"
-        >
+        <div className="hero-fade-up hero-delay-3 flex flex-wrap items-center justify-center gap-5">
           <a
             href={t('banner.wa')}
             target="_blank"
@@ -120,7 +105,8 @@ const Banner = () => {
             className="inline-flex items-center gap-3 text-[11px] font-medium tracking-[0.18em] uppercase transition-colors duration-300 hover:text-white"
             style={{ color: "rgba(255,255,255,0.7)" }}
           >
-            <motion.span
+            <span
+              className="hero-arrow-bounce"
               style={{
                 borderColor: "rgba(255,255,255,0.35)",
                 display: "inline-flex",
@@ -132,16 +118,14 @@ const Banner = () => {
                 border: "1px solid rgba(255,255,255,0.35)",
                 flexShrink: 0,
               }}
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
             >
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </motion.span>
+            </span>
             {t('banner.cta.secondary')}
           </button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
