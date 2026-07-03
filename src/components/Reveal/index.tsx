@@ -51,19 +51,21 @@ export default function Reveal({
       setVisible(true);
       return;
     }
-    // Já está (parcialmente) na tela? Não esconde — evita piscar o conteúdo above-the-fold.
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      setVisible(true);
-      return;
-    }
-    setVisible(false);
+    // Usa apenas o próprio IntersectionObserver para decidir se o elemento já
+    // está na tela — evita um getBoundingClientRect() síncrono por instância
+    // (dezenas na home) que força reflow intercalado com os demais efeitos
+    // de montagem. O primeiro callback do observer chega com o estado atual
+    // de interseção, então não há piscar de conteúdo above-the-fold.
+    let first = true;
     const io = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
           setVisible(true);
           io.disconnect();
+        } else if (first) {
+          setVisible(false);
         }
+        first = false;
       },
       { rootMargin: "0px 0px -8% 0px" }
     );

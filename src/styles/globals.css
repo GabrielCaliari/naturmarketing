@@ -1,8 +1,4 @@
 @import "tailwindcss";
-@import "swiper/css";
-@import "swiper/css/pagination";
-@import "swiper/css/navigation";
-@import "react-toastify/dist/ReactToastify.css";
 
 /* PP Hatton is self-hosted via next/font/local (--font-hatton) in app/layout.tsx */
 
