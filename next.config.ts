@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 interface WebpackRule {
   test?: RegExp;
@@ -10,6 +11,9 @@ interface WebpackRule {
 interface WebpackConfig {
   module: {
     rules: WebpackRule[];
+  };
+  resolve: {
+    alias: Record<string, string | false>;
   };
 }
 
@@ -52,7 +56,7 @@ const immutableCache = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    qualities: [85],
+    qualities: [70, 85],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
@@ -94,6 +98,13 @@ const nextConfig: NextConfig = {
     ]
   },
   webpack: (config: WebpackConfig) => {
+    // Remove os micro-polyfills do Next (Array.at, Object.hasOwn etc.) do bundle:
+    // o .browserslistrc só cobre navegadores que já têm esses métodos nativos,
+    // e o Lighthouse aponta esse módulo como "JavaScript legado".
+    config.resolve.alias[
+      path.resolve(__dirname, "node_modules/next/dist/build/polyfills/polyfill-module.js")
+    ] = false;
+
     // Encontra regras CSS e exclui node_modules do PostCSS
     const rules = config.module.rules;
     const oneOfRule = rules.find((rule: WebpackRule) => rule.oneOf);

@@ -2,8 +2,6 @@
 
 import { IconBrandInstagram, IconBrandWhatsapp } from "@tabler/icons-react";
 
-const BRAND_GREEN = "#84936f";
-
 const buttons = [
   {
     label: "Instagram",

@@ -220,7 +220,8 @@ main {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #84936f;
+  /* verde escurecido: garante contraste >= 4.5:1 (WCAG AA) com o texto branco do menu */
+  background: #61704e;
   box-shadow: none;
 }
 
@@ -296,7 +297,7 @@ main {
 }
 
 .main-menu .navigation li a {
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.92);
   text-decoration: none;
   font-weight: 400;
   font-size: 14px;
@@ -700,19 +701,173 @@ main {
 }
 
 .hero-fade-up {
-  animation: hero-fade-up 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: hero-fade-up 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* LCP (h1): anima só transform — sem fade, o texto pinta no primeiro frame
+   e o LCP não é adiado pela animação de opacity */
+@keyframes hero-rise {
+  from {
+    transform: translateY(28px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .hero-delay-1 {
-  animation-delay: 0.08s;
+  animation-delay: 0.05s;
 }
 
 .hero-delay-2 {
-  animation-delay: 0.2s;
+  animation-delay: 0.12s;
 }
 
 .hero-delay-3 {
-  animation-delay: 0.32s;
+  animation-delay: 0.2s;
+}
+
+/* Animações CSS de menus/overlays — substituem framer-motion */
+@keyframes menu-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.menu-pop-in {
+  animation: menu-pop-in 0.18s ease-out both;
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.overlay-fade-in {
+  animation: overlay-fade-in 0.25s ease-out both;
+}
+
+@keyframes panel-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.panel-slide-in {
+  animation: panel-slide-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes menu-item-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.menu-item-in {
+  animation: menu-item-in 0.22s ease-out both;
+}
+
+@keyframes pop-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.pop-up-in {
+  animation: pop-up-in 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-pop-in,
+  .overlay-fade-in,
+  .panel-slide-in,
+  .menu-item-in,
+  .pop-up-in {
+    animation: none;
+  }
+}
+
+/* Acordeão CSS (FAQ, menus) — substitui animação de height do framer-motion */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.accordion-panel.accordion-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.accordion-panel > .accordion-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Reveal on scroll (componente src/components/Reveal) */
+.reveal-pending {
+  opacity: 0;
+  transition:
+    opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-from-up {
+  transform: translateY(30px);
+}
+
+.reveal-from-right {
+  transform: translateX(40px);
+}
+
+.reveal-from-left {
+  transform: translateX(-40px);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending,
+  .reveal-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @keyframes hero-arrow-bounce {
@@ -731,6 +886,7 @@ main {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-fade-up,
+  .hero-rise,
   .hero-arrow-bounce {
     animation: none;
   }

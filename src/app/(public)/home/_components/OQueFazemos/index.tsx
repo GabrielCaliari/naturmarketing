@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, type Variants } from "framer-motion";
 import {
   IconBrandMeta,
   IconBrandGoogle,
 } from "@tabler/icons-react";
+import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_GREEN = "#84936f";
@@ -14,7 +14,8 @@ const BG_CARD     = "#FDFAF7";
 const BORDER      = "rgba(196,164,142,0.2)";
 const TEXT_HEAD   = "#1A0F08";
 const TEXT_BODY   = "#6e5e52";
-const TEXT_LABEL  = "#84936f";
+// Verde para TEXTO sobre fundos claros — >= 4.5:1 (WCAG AA)
+const TEXT_LABEL  = "#5d6b4c";
 
 const InstagramIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -72,16 +73,6 @@ const serviceIcons = [
 ];
 
 const serviceKeys = ['s1','s2','s3','s4','s5','s6','s7','s8'];
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.06 } },
-};
 
 function BentoCard({ icon, titulo, descricao }: { icon: React.ReactNode; titulo: string; descricao: string }) {
   return (
@@ -142,14 +133,8 @@ export default function OQueFazemos() {
 
   return (
     <section id="services" className="py-10 md:py-16" style={{ background: "#F0EBE3" }}>
-      <motion.div
-        className="section-container"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={stagger}
-      >
-        <motion.div variants={fadeUp} className="flex flex-col items-center text-center mb-10 gap-4">
+      <div className="section-container">
+        <Reveal className="flex flex-col items-center text-center mb-10 gap-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
             <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: TEXT_LABEL }}>
@@ -166,14 +151,14 @@ export default function OQueFazemos() {
           <p className="paragraph max-w-lg italic" style={{ fontWeight: 300, color: TEXT_BODY }}>
             {t('services.body')}
           </p>
-        </motion.div>
+        </Reveal>
 
         {/* Desktop grid */}
         <div className="hidden md:flex md:flex-wrap justify-center gap-4">
           {servicos.map((s, i) => (
-            <motion.div key={i} variants={fadeUp} style={{ width: "calc(25% - 12px)", minWidth: "200px" }}>
+            <Reveal key={i} delay={i * 60} style={{ width: "calc(25% - 12px)", minWidth: "200px" }}>
               <BentoCard icon={s.icon} titulo={s.titulo} descricao={s.descricao} />
-            </motion.div>
+            </Reveal>
           ))}
         </div>
 
@@ -220,8 +205,7 @@ export default function OQueFazemos() {
         </div>
 
         {/* CTA strip */}
-        <motion.div
-          variants={fadeUp}
+        <Reveal
           className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-5 px-6 py-5 rounded-2xl"
           style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}
         >
@@ -240,8 +224,8 @@ export default function OQueFazemos() {
           >
             {t('services.cta.btn')}
           </a>
-        </motion.div>
-      </motion.div>
+        </Reveal>
+      </div>
     </section>
   );
 }

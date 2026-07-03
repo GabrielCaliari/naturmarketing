@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/useMobileDevice";
 import { IconMenu3, IconX, IconChevronDown, IconCheck } from "@tabler/icons-react";
 import { useLocale } from "@/context/LocaleContext";
@@ -77,22 +76,25 @@ const LanguageSwitcher = ({ compact = false }: { compact?: boolean }) => {
         }}
       >
         <current.Flag size={compact ? 18 : 20} />
-        <span style={{ color: "rgba(255,255,255,0.88)", fontSize: "12px", fontWeight: 500, letterSpacing: "0.04em" }}>
+        <span style={{ color: "#ffffff", fontSize: "12px", fontWeight: 500, letterSpacing: "0.04em" }}>
           {locale === "pt" ? "PT" : "EN"}
         </span>
-        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.18 }} style={{ display: "flex", color: "rgba(255,255,255,0.55)" }}>
+        <span
+          style={{
+            display: "flex",
+            color: "rgba(255,255,255,0.55)",
+            transform: open ? "rotate(180deg)" : "none",
+            transition: "transform 0.18s",
+          }}
+        >
           <IconChevronDown size={12} stroke={2.5} />
-        </motion.span>
+        </span>
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <motion.ul
+      {open && (
+          <ul
             role="listbox"
-            initial={{ opacity: 0, y: 6, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 4, scale: 0.97 }}
-            transition={{ duration: 0.15 }}
+            className="menu-pop-in"
             style={{
               position: "absolute",
               top: "calc(100% + 8px)",
@@ -140,9 +142,8 @@ const LanguageSwitcher = ({ compact = false }: { compact?: boolean }) => {
                 </li>
               );
             })}
-          </motion.ul>
-        )}
-      </AnimatePresence>
+          </ul>
+      )}
     </div>
   );
 };
@@ -191,23 +192,19 @@ const ServicesDropdown = () => {
         }}
       >
         {t('nav.services')}
-        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.2 }}>
+        <span style={{ display: "inline-flex", transform: open ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>
           <IconChevronDown size={14} stroke={2} />
-        </motion.span>
+        </span>
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 6, scale: 0.97 }}
-            transition={{ duration: 0.18 }}
+      {open && (
+          <div
+            className="menu-pop-in"
             style={{
               position: "absolute",
               top: "calc(100% + 12px)",
               left: "50%",
-              transform: "translateX(-50%)",
+              marginLeft: "-320px",
               width: "640px",
               maxWidth: "calc(100vw - 32px)",
               boxSizing: "border-box",
@@ -242,9 +239,8 @@ const ServicesDropdown = () => {
                 </div>
               </Link>
             ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+      )}
     </div>
   );
 };
@@ -351,17 +347,15 @@ const Header = () => {
         </div>
       </div>
 
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <MobileMenu
-            onClose={() => setIsMobileMenuOpen(false)}
-            locale={locale}
-            ctaWa={ctaWa}
-            ctaLabel={t("nav.cta")}
-            t={t}
-          />
-        )}
-      </AnimatePresence>
+      {isMobileMenuOpen && (
+        <MobileMenu
+          onClose={() => setIsMobileMenuOpen(false)}
+          locale={locale}
+          ctaWa={ctaWa}
+          ctaLabel={t("nav.cta")}
+          t={t}
+        />
+      )}
     </header>
   );
 };
@@ -407,22 +401,9 @@ const MobileMenu = ({
 
   return (
     <div className="mobile-menu-overlay">
-      <motion.div
-        className="mobile-menu-backdrop"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        onClick={onClose}
-      />
+      <div className="mobile-menu-backdrop overlay-fade-in" onClick={onClose} />
 
-      <motion.div
-        className="mobile-menu-panel"
-        initial={{ x: "100%" }}
-        animate={{ x: 0 }}
-        exit={{ x: "100%" }}
-        transition={{ type: "tween", duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-      >
+      <div className="mobile-menu-panel panel-slide-in">
         <div className="mobile-menu-header">
           <Link href="/" className="header-logo" onClick={onClose}>
             <span className="header-logo-brand">réserve</span>
@@ -435,65 +416,55 @@ const MobileMenu = ({
 
         <nav className="mobile-menu-nav">
           {navItems.map((item, i) => (
-            <motion.div
+            <div
               key={item.label}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.05 + i * 0.05, duration: 0.22 }}
+              className="menu-item-in"
+              style={{ animationDelay: `${0.05 + i * 0.05}s` }}
             >
               <Link href={item.href} className="mobile-menu-link" onClick={onClose}>
                 {item.label}
               </Link>
-            </motion.div>
+            </div>
           ))}
 
           {/* Serviços acordeão */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.22 }}
-          >
+          <div className="menu-item-in" style={{ animationDelay: "0.2s" }}>
             <button
               className="mobile-menu-link flex items-center justify-between w-full"
               onClick={() => setServicesOpen((v) => !v)}
+              aria-expanded={servicesOpen}
             >
               <span>{t('nav.services')}</span>
-              <motion.span animate={{ rotate: servicesOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
+              <span
+                style={{
+                  display: "inline-flex",
+                  transform: servicesOpen ? "rotate(180deg)" : "none",
+                  transition: "transform 0.2s",
+                }}
+              >
                 <IconChevronDown size={16} stroke={2} />
-              </motion.span>
+              </span>
             </button>
-            <AnimatePresence>
-              {servicesOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25 }}
-                  style={{ overflow: "hidden" }}
-                >
-                  {services.map((s) => (
-                    <Link
-                      key={s.href}
-                      href={s.href}
-                      onClick={onClose}
-                      className="flex flex-col gap-0.5 px-4 py-2.5"
-                      style={{ textDecoration: "none" }}
-                    >
-                      <span style={{ color: "#1A0F08", fontSize: "14px", fontWeight: 500 }}>{s.label}</span>
-                      <span style={{ color: "#6e5e52", fontSize: "11px" }}>{s.desc}</span>
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+            <div className={`accordion-panel ${servicesOpen ? "accordion-open" : ""}`}>
+              <div className="accordion-inner">
+                {services.map((s) => (
+                  <Link
+                    key={s.href}
+                    href={s.href}
+                    onClick={onClose}
+                    className="flex flex-col gap-0.5 px-4 py-2.5"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <span style={{ color: "#1A0F08", fontSize: "14px", fontWeight: 500 }}>{s.label}</span>
+                    <span style={{ color: "#6e5e52", fontSize: "11px" }}>{s.desc}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
 
           {/* Contato → WhatsApp */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.25, duration: 0.22 }}
-          >
+          <div className="menu-item-in" style={{ animationDelay: "0.25s" }}>
             <a
               href={ctaWa}
               target="_blank"
@@ -503,15 +474,13 @@ const MobileMenu = ({
             >
               {t('nav.contact')}
             </a>
-          </motion.div>
+          </div>
         </nav>
 
         {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.25 }}
-          className="absolute bottom-8 left-0 right-0 px-6"
+        <div
+          className="pop-up-in absolute bottom-8 left-0 right-0 px-6"
+          style={{ animationDelay: "0.3s" }}
         >
           <Link
             href="/diagnostico"
@@ -521,8 +490,8 @@ const MobileMenu = ({
           >
             {ctaLabel}
           </Link>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 };

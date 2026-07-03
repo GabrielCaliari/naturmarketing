@@ -28,7 +28,11 @@ function initPixel(pixelId: string) {
   };
 
   const fbqFn: FbqFn = function (...args: unknown[]) {
-    fbqFn.callMethod ? fbqFn.callMethod(...args) : fbqFn.queue.push(args);
+    if (fbqFn.callMethod) {
+      fbqFn.callMethod(...args);
+    } else {
+      fbqFn.queue.push(args);
+    }
   } as FbqFn;
 
   window._fbq = fbqFn;

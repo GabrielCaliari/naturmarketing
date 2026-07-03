@@ -55,7 +55,7 @@ const Banner = () => {
 
         {/* Título */}
         <h1
-          className="hero-fade-up hero-delay-1"
+          className="hero-rise hero-delay-1"
           style={{
             color: "#ffffff",
             marginBottom: "1.5rem",

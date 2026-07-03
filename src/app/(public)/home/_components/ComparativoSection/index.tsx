@@ -1,21 +1,13 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
 import { IconX, IconCheck } from "@tabler/icons-react";
+import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 
-const BRAND_GREEN = "#84936f";
+// Verde escurecido: >= 4.5:1 (WCAG AA) tanto como texto em fundo claro
+// quanto como fundo de card com texto branco
+const BRAND_GREEN_DARK = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.08 } },
-};
 
 export default function ComparativoSection() {
   const { t } = useLocale();
@@ -30,13 +22,7 @@ export default function ComparativoSection() {
   return (
     <section className="py-10 md:py-16" style={{ background: "#F7F3EE" }}>
       <div className="section-container">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-          className="text-center mb-10 md:mb-12"
-        >
+        <Reveal className="text-center mb-10 md:mb-12">
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
             <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>
@@ -45,26 +31,20 @@ export default function ComparativoSection() {
             <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
           </div>
           <h2 className="h1">{t('comp.h2')}</h2>
-        </motion.div>
+        </Reveal>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
           {/* Sem estrutura */}
           <div className="flex flex-col gap-3">
-            <motion.div variants={fadeUp} className="mb-3">
-              <span className="text-[32px] font-light" style={{ color: "rgba(26,15,8,0.35)", fontFamily: "var(--font-rubik), sans-serif" }}>
+            <Reveal className="mb-3">
+              <span className="text-[32px] font-light" style={{ color: "rgba(26,15,8,0.5)", fontFamily: "var(--font-rubik), sans-serif" }}>
                 {t('comp.left')}
               </span>
-            </motion.div>
+            </Reveal>
             {semItems.map((item, i) => (
-              <motion.div
+              <Reveal
                 key={i}
-                variants={fadeUp}
+                delay={i * 80}
                 className="flex items-center gap-3 px-4 py-3.5 rounded-xl"
                 style={{ background: "#FDFAF7", border: "1px solid rgba(196,164,142,0.22)" }}
               >
@@ -72,33 +52,33 @@ export default function ComparativoSection() {
                   <IconX size={13} stroke={2.5} />
                 </div>
                 <span className="text-[15px] font-light" style={{ color: "rgba(26,15,8,0.6)" }}>{item}</span>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
 
           {/* Com a Réserve */}
           <div className="flex flex-col gap-3">
-            <motion.div variants={fadeUp} className="mb-3">
-              <span className="text-[32px]" style={{ color: BRAND_GREEN, fontWeight: 400 }}>
+            <Reveal className="mb-3">
+              <span className="text-[32px]" style={{ color: BRAND_GREEN_DARK, fontWeight: 400 }}>
                 {t('comp.right')}{" "}
                 <span style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>réserve</span>
               </span>
-            </motion.div>
+            </Reveal>
             {comItems.map((item, i) => (
-              <motion.div
+              <Reveal
                 key={i}
-                variants={fadeUp}
+                delay={i * 80}
                 className="flex items-center gap-3 px-4 py-3.5 rounded-xl"
-                style={{ background: BRAND_GREEN }}
+                style={{ background: BRAND_GREEN_DARK }}
               >
                 <div className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(255,255,255,0.2)", color: "#ffffff" }}>
                   <IconCheck size={13} stroke={2.5} />
                 </div>
                 <span className="text-[15px] font-light" style={{ color: "rgba(255,255,255,0.92)" }}>{item}</span>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

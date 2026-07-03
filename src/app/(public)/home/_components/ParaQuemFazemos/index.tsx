@@ -1,22 +1,14 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
 import { IconBuilding, IconHome, IconBrandAirbnb, IconArrowRight } from "@tabler/icons-react";
+import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_GREEN = "#84936f";
+// Verde para TEXTO sobre fundos claros — >= 4.5:1 (WCAG AA)
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 32 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
 
 export default function ParaQuemFazemos() {
   const { t } = useLocale();
@@ -51,17 +43,11 @@ export default function ParaQuemFazemos() {
 
   return (
     <section id="para-quem-fazemos" className="py-10 md:py-16" style={{ background: "#F7F3EE" }}>
-      <motion.div
-        className="section-container"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={stagger}
-      >
-        <motion.div variants={fadeUp} className="text-center mb-10 md:mb-12">
+      <div className="section-container">
+        <Reveal className="text-center mb-10 md:mb-12">
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>
               {t('para.label')}
             </span>
             <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
@@ -70,13 +56,14 @@ export default function ParaQuemFazemos() {
             {t('para.h2')}{" "}
             <strong className="font-semibold">{t('para.h2.strong')}</strong>
           </h2>
-        </motion.div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {publicos.map((p, i) => (
-            <motion.article
+            <Reveal
               key={i}
-              variants={fadeUp}
+              as="article"
+              delay={i * 100}
               className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1"
               style={{
                 background: "#FDFAF7",
@@ -127,7 +114,7 @@ export default function ParaQuemFazemos() {
                 >
                   <span
                     className="text-[10px] font-semibold tracking-[0.2em] uppercase transition-colors duration-300 group-hover/btn:text-[#994f2a]"
-                    style={{ color: BRAND_GREEN }}
+                    style={{ color: BRAND_GREEN_TEXT }}
                   >
                     {t('para.learnmore')}
                   </span>
@@ -135,14 +122,14 @@ export default function ParaQuemFazemos() {
                     size={13}
                     stroke={2}
                     className="transition-all duration-300 group-hover/btn:translate-x-1"
-                    style={{ color: BRAND_GREEN }}
+                    style={{ color: BRAND_GREEN_TEXT }}
                   />
                 </button>
               </div>
-            </motion.article>
+            </Reveal>
           ))}
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

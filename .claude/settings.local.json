@@ -34,7 +34,8 @@
       "PowerShell(node \"C:\\\\Users\\\\gabri\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-gabri-OneDrive-Documents-GitHub-naturmarketing\\\\ae1aba9a-7538-48df-b648-2a6b933c3fe3\\\\scratchpad\\\\optimize-images.mjs\")",
       "PowerShell(node \"C:\\\\Users\\\\gabri\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-gabri-OneDrive-Documents-GitHub-naturmarketing\\\\ae1aba9a-7538-48df-b648-2a6b933c3fe3\\\\scratchpad\\\\fix-icons.mjs\")",
       "PowerShell(Remove-Item *)",
-      "PowerShell(node \"C:\\\\Users\\\\gabri\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-gabri-OneDrive-Documents-GitHub-naturmarketing\\\\ae1aba9a-7538-48df-b648-2a6b933c3fe3\\\\scratchpad\\\\hero-bg.mjs\")"
+      "PowerShell(node \"C:\\\\Users\\\\gabri\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-gabri-OneDrive-Documents-GitHub-naturmarketing\\\\ae1aba9a-7538-48df-b648-2a6b933c3fe3\\\\scratchpad\\\\hero-bg.mjs\")",
+      "PowerShell($r = Get-Content \"$env:TEMP\\\\lh-home.json\" -Raw | ConvertFrom-Json; $a = $r.audits.'lcp-breakdown-insight'; if \\(-not $a\\) { $a = $r.audits.'largest-contentful-paint-element' }; $a | ConvertTo-Json -Depth 8 | Out-String -Width 300 | Select-Object -First 1)"
     ]
   }
 }

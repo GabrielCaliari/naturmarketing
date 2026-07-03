@@ -1,35 +1,28 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 import { getFeaturedPosts } from "@/data/blog-posts";
 import { useLocale } from "@/context/LocaleContext";
 import { formatDate } from "@/lib/format-date";
 
 const BRAND_GREEN = "#84936f";
+// Verde para TEXTO/fundo de badge — >= 4.5:1 com branco (WCAG AA)
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 const BG_CARD = "#FDFAF7";
 const BORDER = "rgba(196,164,142,0.2)";
 const TEXT_HEAD = "#1A0F08";
 const TEXT_BODY = "#6e5e52";
 
+// Fundos de badge com texto branco 10px: todos >= 4.5:1 (WCAG AA)
 const categoryColors: Record<string, string> = {
-  "Estratégia": "#84936f",
-  "Google Ads": "#4a7c9e",
+  "Estratégia": "#5d6b4c",
+  "Google Ads": "#3f6b8a",
   "OTAs & Canal Direto": "#994f2a",
   "SEO": "#5a7a4a",
   "Pousadas": "#8a6f4a",
-};
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 export default function BlogPreview() {
@@ -48,18 +41,12 @@ export default function BlogPreview() {
 
   return (
     <section className="py-10 md:py-16" style={{ background: "#F7F3EE" }}>
-      <motion.div
-        className="section-container"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={stagger}
-      >
+      <div className="section-container">
         {/* Header */}
-        <motion.div variants={fadeUp} className="flex flex-col items-center text-center mb-10 gap-4">
+        <Reveal className="flex flex-col items-center text-center mb-10 gap-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>
               {labels.section}
             </span>
             <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
@@ -71,14 +58,14 @@ export default function BlogPreview() {
           <p className="paragraph max-w-lg" style={{ fontWeight: 300, color: TEXT_BODY }}>
             {labels.body}
           </p>
-        </motion.div>
+        </Reveal>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {posts.map((post) => {
-            const catColor = categoryColors[post.category] || BRAND_GREEN;
+          {posts.map((post, i) => {
+            const catColor = categoryColors[post.category] || BRAND_GREEN_TEXT;
             return (
-              <motion.div key={post.slug} variants={fadeUp}>
+              <Reveal key={post.slug} delay={i * 100}>
                 <Link
                   href={`/blog/${post.slug}`}
                   className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full"
@@ -134,13 +121,13 @@ export default function BlogPreview() {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>
 
         {/* CTA */}
-        <motion.div variants={fadeUp} className="flex justify-center mt-10">
+        <Reveal className="flex justify-center mt-10">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[13px] font-medium transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
@@ -149,8 +136,8 @@ export default function BlogPreview() {
             {labels.cta}
             <span style={{ color: BRAND_BROWN }}>→</span>
           </Link>
-        </motion.div>
-      </motion.div>
+        </Reveal>
+      </div>
     </section>
   );
 }

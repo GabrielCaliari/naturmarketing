@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import { IconX } from "@tabler/icons-react";
 
 interface CookiePreferences {
@@ -50,16 +49,11 @@ export default function CookieConsent() {
   const acceptAll = () => save({ analytics: true, marketing: true });
   const acceptEssential = () => save({ analytics: false, marketing: false });
 
+  if (!visible) return null;
+
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          key="cookie-banner"
-          initial={{ opacity: 0, y: 16, scale: 0.97 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 12, scale: 0.96 }}
-          transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="fixed bottom-4 left-4 z-50"
+        <div
+          className="pop-up-in fixed bottom-4 left-4 z-50"
           style={{ width: "min(calc(100vw - 2rem), 320px)" }}
         >
           <div
@@ -122,8 +116,6 @@ export default function CookieConsent() {
               </button>
             </div>
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        </div>
   );
 }

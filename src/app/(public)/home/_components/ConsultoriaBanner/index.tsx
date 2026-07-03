@@ -1,21 +1,11 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 import { trackButtonClick } from "@/lib/analytics";
 import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_BROWN = "#994f2a";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
 
 export default function ConsultoriaBanner() {
   const { t } = useLocale();
@@ -36,23 +26,19 @@ export default function ConsultoriaBanner() {
           src="/img/resource/seedsbackground.webp"
           alt=""
           fill
-          quality={85}
+          quality={70}
           sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0" style={{ background: "rgba(20,12,6,0.45)" }} />
       </div>
 
-      <motion.div
+      <div
         className="relative z-10 flex-1 flex flex-col justify-center items-center text-center max-w-5xl mx-auto w-full"
         style={{ paddingTop: "100px", paddingBottom: "80px" }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={stagger}
       >
         {/* Badge */}
-        <motion.div variants={fadeUp} style={{ marginBottom: "1.75rem" }}>
+        <Reveal style={{ marginBottom: "1.75rem" }}>
           <span
             className="inline-flex items-center gap-2.5 text-[10px] font-medium tracking-[0.28em] uppercase px-5 py-2.5 rounded-full"
             style={{
@@ -64,11 +50,12 @@ export default function ConsultoriaBanner() {
             <span className="w-1 h-1 rounded-full bg-white/60" />
             {t('cta.badge')}
           </span>
-        </motion.div>
+        </Reveal>
 
         {/* Título */}
-        <motion.h2
-          variants={fadeUp}
+        <Reveal
+          as="h2"
+          delay={120}
           style={{
             color: "#ffffff",
             marginBottom: "1.5rem",
@@ -82,11 +69,12 @@ export default function ConsultoriaBanner() {
           {t('cta.title.1')}<br /> {t('cta.title.2')}{" "}
           {t('cta.title.3')}<br />
           {t('cta.title.4')}
-        </motion.h2>
+        </Reveal>
 
         {/* Subtítulo */}
-        <motion.p
-          variants={fadeUp}
+        <Reveal
+          as="p"
+          delay={240}
           style={{
             fontWeight: 300,
             color: "rgba(255,255,255,0.75)",
@@ -101,10 +89,10 @@ export default function ConsultoriaBanner() {
           <strong style={{ fontWeight: 600, color: "#ffffff" }}>
             {t('cta.body.strong')}
           </strong>
-        </motion.p>
+        </Reveal>
 
         {/* CTA */}
-        <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-5">
+        <Reveal delay={360} className="flex flex-wrap items-center justify-center gap-5">
           <button
             onClick={handleClick}
             className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-medium tracking-[0.1em] uppercase text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
@@ -112,8 +100,8 @@ export default function ConsultoriaBanner() {
           >
             {t('cta.btn')}
           </button>
-        </motion.div>
-      </motion.div>
+        </Reveal>
+      </div>
     </section>
   );
 }

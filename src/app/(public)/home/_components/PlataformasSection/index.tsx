@@ -1,10 +1,12 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_GREEN = "#84936f";
+// Verde para TEXTO sobre fundos claros — >= 4.5:1 (WCAG AA)
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 
 // OTAs com SVGs reais da pasta public/img/svg
@@ -64,32 +66,18 @@ const canais = [
   },
 ];
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.07 } },
-};
-
 const PlataformasSection = () => {
   const { t } = useLocale();
   return (
   <section style={{ background: "#F0EBE3" }} className="py-10 md:py-16">
 
     {/* ── Bloco Canais Próprios ── */}
-    <motion.div
+    <Reveal
       className="max-w-7xl mx-auto px-6 md:px-16 text-center"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={stagger}
       style={{ marginBottom: "60px" }}
     >
       {/* Label */}
-      <motion.div variants={fadeUp} className="flex items-center justify-center gap-3 mb-3">
+      <div className="flex items-center justify-center gap-3 mb-3">
         <div className="w-10 h-px" style={{ background: BRAND_BROWN }} />
         <span
           className="text-[9px] font-semibold tracking-[0.3em] uppercase"
@@ -97,11 +85,10 @@ const PlataformasSection = () => {
         >
           {t('plat.own.label')}
         </span>
-      </motion.div>
+      </div>
 
       {/* Título */}
-      <motion.h2
-        variants={fadeUp}
+      <h2
         className="h2"
         style={{
           fontWeight: 400,
@@ -110,13 +97,10 @@ const PlataformasSection = () => {
         }}
       >
         {t('plat.own.title')}
-      </motion.h2>
+      </h2>
 
       {/* Chips de plataformas - Desktop */}
-      <motion.div
-        variants={fadeUp}
-        className="hidden md:flex items-center justify-center gap-3 flex-wrap"
-      >
+      <div className="hidden md:flex items-center justify-center gap-3 flex-wrap">
         {canais.map((canal) => (
           <div
             key={canal.label}
@@ -142,13 +126,10 @@ const PlataformasSection = () => {
             </span>
           </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Carousel infinito - Mobile */}
-      <motion.div
-        variants={fadeUp}
-        className="md:hidden overflow-hidden relative"
-      >
+      <div className="md:hidden overflow-hidden relative">
         <div className="flex animate-scroll-infinite-seamless gap-3" style={{ width: "max-content" }}>
           {/* Primeira cópia */}
           {canais.map((canal, idx) => (
@@ -203,8 +184,8 @@ const PlataformasSection = () => {
             </div>
           ))}
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </Reveal>
 
     {/* ── Divisor ── */}
     <div
@@ -213,27 +194,20 @@ const PlataformasSection = () => {
     />
 
     {/* ── Bloco OTAs ── */}
-    <motion.div
-      className="max-w-7xl mx-auto px-6 md:px-16 text-center"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
-      variants={stagger}
-    >
+    <Reveal className="max-w-7xl mx-auto px-6 md:px-16 text-center">
       {/* Label */}
-      <motion.div variants={fadeUp} className="flex items-center justify-center gap-3 mb-3">
+      <div className="flex items-center justify-center gap-3 mb-3">
         <div className="w-10 h-px" style={{ background: BRAND_GREEN }} />
         <span
           className="text-[9px] font-semibold tracking-[0.3em] uppercase"
-          style={{ color: BRAND_GREEN }}
+          style={{ color: BRAND_GREEN_TEXT }}
         >
           {t('plat.ota.label')}
         </span>
-      </motion.div>
+      </div>
 
       {/* Título */}
-      <motion.h2
-        variants={fadeUp}
+      <h2
         className="h2"
         style={{
           fontWeight: 400,
@@ -242,13 +216,10 @@ const PlataformasSection = () => {
         }}
       >
         {t('plat.ota.title')}
-      </motion.h2>
+      </h2>
 
       {/* Cards OTAs - Desktop */}
-      <motion.div
-        variants={fadeUp}
-        className="hidden md:flex items-center justify-center gap-3 flex-wrap"
-      >
+      <div className="hidden md:flex items-center justify-center gap-3 flex-wrap">
         {otas.map((ota) => (
           <div
             key={ota.label}
@@ -270,13 +241,10 @@ const PlataformasSection = () => {
             />
           </div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Carousel infinito - Mobile */}
-      <motion.div
-        variants={fadeUp}
-        className="md:hidden overflow-hidden relative"
-      >
+      <div className="md:hidden overflow-hidden relative">
         <div className="flex animate-scroll-infinite-seamless gap-3" style={{ width: "max-content" }}>
           {/* Primeira cópia */}
           {otas.map((ota, idx) => (
@@ -323,8 +291,8 @@ const PlataformasSection = () => {
             </div>
           ))}
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </Reveal>
 
   </section>
   );
