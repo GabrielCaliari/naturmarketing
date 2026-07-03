@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { IconCheck, IconPhone, IconMail, IconBrandWhatsapp } from "@tabler/icons-react";
@@ -19,33 +18,24 @@ export default function ConsultoriaSucesso() {
       <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50 py-20">
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Ícone de Sucesso Animado */}
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, type: "spring" }}
-            className="flex justify-center mb-8"
-          >
+          <div className="pop-up-in flex justify-center mb-8">
             <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center shadow-xl">
               <IconCheck size={60} className="text-white" stroke={3} />
             </div>
-          </motion.div>
+          </div>
 
           {/* Título */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-4xl md:text-5xl font-bold text-center mb-6 text-[#003D5C]"
+          <h1
+            className="hero-fade-up text-4xl md:text-5xl font-bold text-center mb-6 text-[#003D5C]"
+            style={{ animationDelay: "0.2s" }}
           >
             Solicitação Enviada com Sucesso! 🎉
-          </motion.h1>
+          </h1>
 
           {/* Card Principal */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 mb-8 border-t-4 border-[#0066A1]"
+          <div
+            className="hero-fade-up bg-white rounded-2xl shadow-2xl p-8 md:p-12 mb-8 border-t-4 border-[#0066A1]"
+            style={{ animationDelay: "0.4s" }}
           >
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -104,14 +94,12 @@ export default function ConsultoriaSucesso() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Cards de Benefícios */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="grid md:grid-cols-3 gap-6 mb-8"
+          <div
+            className="hero-fade-up grid md:grid-cols-3 gap-6 mb-8"
+            style={{ animationDelay: "0.6s" }}
           >
             <div className="bg-white p-6 rounded-xl shadow-lg text-center">
               <div className="text-4xl mb-3">⏱️</div>
@@ -134,22 +122,17 @@ export default function ConsultoriaSucesso() {
                 Soluções personalizadas para seu hotel
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Botão Voltar */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="text-center"
-          >
+          <div className="hero-fade-up text-center" style={{ animationDelay: "0.8s" }}>
             <Link
               href="/"
               className="inline-block text-[#0066A1] hover:text-[#003D5C] font-semibold underline transition-colors"
             >
               ← Voltar para a página inicial
             </Link>
-          </motion.div>
+          </div>
         </div>
       </main>
       <Footer />

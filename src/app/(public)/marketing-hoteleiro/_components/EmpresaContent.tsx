@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Link from "next/link";
@@ -16,6 +16,8 @@ import {
 } from "@tabler/icons-react";
 
 const BRAND_GREEN = "#84936f";
+// Verde para TEXTO sobre fundos claros — >= 4.5:1 (WCAG AA)
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 const BG_CREAM = "#F7F3EE";
 const BG_LIGHT = "#F0EBE3";
@@ -23,16 +25,6 @@ const BG_CARD = "#FDFAF7";
 const TEXT_HEAD = "#1A0F08";
 const TEXT_BODY = "#6e5e52";
 const BORDER = "rgba(196,164,142,0.22)";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] } },
-};
-
-const stagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.09 } },
-};
 
 const valorIcons = [
   <IconTarget key="t" size={20} stroke={1.5} />,
@@ -173,73 +165,60 @@ const Empresa = () => {
                 "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 70%)",
             }}
           />
-          <motion.div
-            className="relative z-10 max-w-4xl mx-auto text-center"
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-          >
-            <motion.div variants={fadeUp} className="flex items-center justify-center gap-3 mb-6">
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
+            <div className="hero-fade-up flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-px" style={{ background: "rgba(255,255,255,0.25)" }} />
               <span
                 className="text-[10px] font-medium tracking-[0.3em] uppercase"
-                style={{ color: "rgba(255,255,255,0.5)" }}
+                style={{ color: "rgba(255,255,255,0.85)" }}
               >
                 {c.heroLabel}
               </span>
               <div className="w-8 h-px" style={{ background: "rgba(255,255,255,0.25)" }} />
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={fadeUp}
-              className="font-extralight text-white leading-[1.06] tracking-[-0.025em] mb-6"
+            <h1
+              className="hero-rise hero-delay-1 font-extralight text-white leading-[1.06] tracking-[-0.025em] mb-6"
               style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
             >
               {c.heroH1a}
               <strong className="font-semibold">{c.heroH1strong}</strong>
               <br />{c.heroH1b}
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-[15px] md:text-base font-light leading-[1.85]"
-              style={{ color: "rgba(255,255,255,0.65)", maxWidth: "560px", margin: "0 auto" }}
+            <p
+              className="hero-fade-up hero-delay-2 text-[15px] md:text-base font-light leading-[1.85]"
+              style={{ color: "rgba(255,255,255,0.85)", maxWidth: "560px", margin: "0 auto" }}
             >
               {c.heroP}
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </section>
 
         {/* ── Sobre ── */}
         <section className="py-20 md:py-28 px-6 md:px-16" style={{ background: BG_CREAM }}>
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={stagger}
-          >
-            <motion.div variants={fadeUp} className="flex items-center gap-3 mb-5">
+          <div className="max-w-4xl mx-auto">
+            <Reveal className="flex items-center gap-3 mb-5">
               <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
               <span
                 className="text-[10px] font-medium tracking-[0.3em] uppercase"
-                style={{ color: BRAND_GREEN }}
+                style={{ color: BRAND_GREEN_TEXT }}
               >
                 {c.sobreLabel}
               </span>
-            </motion.div>
+            </Reveal>
 
-            <motion.h2
-              variants={fadeUp}
+            <Reveal
+              as="h2"
               className="h2 mb-10"
               style={{ color: TEXT_HEAD, fontWeight: 400 }}
             >
               {c.sobreH2a}
               <strong className="font-semibold">{c.sobreH2strong}</strong>
-            </motion.h2>
+            </Reveal>
 
-            <motion.div
-              variants={fadeUp}
+            <Reveal
+              delay={100}
               className="flex flex-col gap-5 p-8 md:p-12 rounded-2xl"
               style={{
                 background: BG_CARD,
@@ -252,44 +231,39 @@ const Empresa = () => {
                   {p}
                 </p>
               ))}
-            </motion.div>
-          </motion.div>
+            </Reveal>
+          </div>
         </section>
 
         {/* ── Serviços ── */}
         <section className="py-20 md:py-24 px-6 md:px-16" style={{ background: BG_CREAM }}>
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={stagger}
-          >
-            <motion.div variants={fadeUp} className="flex items-center justify-center gap-3 mb-5">
+          <div className="max-w-4xl mx-auto text-center">
+            <Reveal className="flex items-center justify-center gap-3 mb-5">
               <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
               <span
                 className="text-[10px] font-medium tracking-[0.3em] uppercase"
-                style={{ color: BRAND_GREEN }}
+                style={{ color: BRAND_GREEN_TEXT }}
               >
                 {c.servLabel}
               </span>
               <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-            </motion.div>
+            </Reveal>
 
-            <motion.h2 variants={fadeUp} className="h2 mb-5" style={{ color: TEXT_HEAD, fontWeight: 400 }}>
+            <Reveal as="h2" className="h2 mb-5" style={{ color: TEXT_HEAD, fontWeight: 400 }}>
               {c.servH2a}
               <strong className="font-semibold">{c.servH2strong}</strong>
-            </motion.h2>
+            </Reveal>
 
-            <motion.p
-              variants={fadeUp}
+            <Reveal
+              as="p"
+              delay={90}
               className="text-[15px] font-light leading-[1.85] mb-9"
               style={{ color: TEXT_BODY, maxWidth: "560px", margin: "0 auto 2.25rem" }}
             >
               {c.servP}
-            </motion.p>
+            </Reveal>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-3">
+            <Reveal delay={180} className="flex flex-wrap items-center justify-center gap-3">
               {servicos.map((s) => (
                 <Link
                   key={s.href}
@@ -305,25 +279,19 @@ const Empresa = () => {
                   {s.label}
                 </Link>
               ))}
-            </motion.div>
-          </motion.div>
+            </Reveal>
+          </div>
         </section>
 
         {/* ── Valores ── */}
         <section className="py-20 md:py-28 px-6 md:px-16" style={{ background: BG_LIGHT }}>
-          <motion.div
-            className="max-w-6xl mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={stagger}
-          >
-            <motion.div variants={fadeUp} className="text-center mb-14">
+          <div className="max-w-6xl mx-auto">
+            <Reveal className="text-center mb-14">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span
                   className="text-[10px] font-medium tracking-[0.3em] uppercase"
-                  style={{ color: BRAND_GREEN }}
+                  style={{ color: BRAND_GREEN_TEXT }}
                 >
                   {c.valoresLabel}
                 </span>
@@ -333,16 +301,16 @@ const Empresa = () => {
                 {c.valoresH2a}
                 <strong className="font-semibold">{c.valoresH2strong}</strong>
               </h2>
-            </motion.div>
+            </Reveal>
 
             <div
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
               style={{ borderTop: `1px solid ${BORDER}`, borderLeft: `1px solid ${BORDER}` }}
             >
               {c.valores.map((v, i) => (
-                <motion.div
+                <Reveal
                   key={i}
-                  variants={fadeUp}
+                  delay={i * 70}
                   className="flex flex-col gap-4 p-7 md:p-8"
                   style={{
                     background: BG_CARD,
@@ -352,7 +320,7 @@ const Empresa = () => {
                 >
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center"
-                    style={{ background: "rgba(132,147,111,0.12)", color: BRAND_GREEN }}
+                    style={{ background: "rgba(132,147,111,0.12)", color: BRAND_GREEN_TEXT }}
                   >
                     {valorIcons[i]}
                   </div>
@@ -362,27 +330,21 @@ const Empresa = () => {
                   <p className="text-[13px] font-light leading-[1.8]" style={{ color: TEXT_BODY }}>
                     {v.desc}
                   </p>
-                </motion.div>
+                </Reveal>
               ))}
             </div>
-          </motion.div>
+          </div>
         </section>
 
         {/* ── Equipe ── */}
         <section className="py-20 md:py-28 px-6 md:px-16" style={{ background: BG_CREAM }}>
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={stagger}
-          >
-            <motion.div variants={fadeUp} className="text-center mb-12">
+          <div className="max-w-4xl mx-auto">
+            <Reveal className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-5">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span
                   className="text-[10px] font-medium tracking-[0.3em] uppercase"
-                  style={{ color: BRAND_GREEN }}
+                  style={{ color: BRAND_GREEN_TEXT }}
                 >
                   {c.timeLabel}
                 </span>
@@ -392,13 +354,13 @@ const Empresa = () => {
                 {c.timeH2a}
                 <strong className="font-semibold">{c.timeH2strong}</strong>
               </h2>
-            </motion.div>
+            </Reveal>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {c.equipe.map((e, i) => (
-                <motion.div
+                <Reveal
                   key={i}
-                  variants={fadeUp}
+                  delay={i * 80}
                   className="flex flex-col gap-3 p-7 rounded-2xl"
                   style={{
                     background: BG_CARD,
@@ -413,18 +375,18 @@ const Empresa = () => {
                   <p className="text-[13px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
                     {e.desc}
                   </p>
-                </motion.div>
+                </Reveal>
               ))}
             </div>
 
-            <motion.p
-              variants={fadeUp}
+            <Reveal
+              as="p"
               className="mt-12 text-center text-[15px] font-light italic"
               style={{ color: BRAND_BROWN }}
             >
               {c.quote}
-            </motion.p>
-          </motion.div>
+            </Reveal>
+          </div>
         </section>
 
         {/* ── CTA ── */}
@@ -444,15 +406,9 @@ const Empresa = () => {
             <div className="absolute inset-0" style={{ background: "rgba(20,12,6,0.5)" }} />
           </div>
 
-          <motion.div
-            className="relative z-10 max-w-3xl mx-auto text-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={stagger}
-          >
-            <motion.h2
-              variants={fadeUp}
+          <div className="relative z-10 max-w-3xl mx-auto text-center">
+            <Reveal
+              as="h2"
               className="font-semibold text-white leading-[1.08] tracking-[-0.025em] mb-5"
               style={{ fontSize: "clamp(1.75rem, 4vw, 3rem)" }}
             >
@@ -461,17 +417,18 @@ const Empresa = () => {
                 {c.ctaH2strong}
               </strong>
               {c.ctaH2b}
-            </motion.h2>
+            </Reveal>
 
-            <motion.p
-              variants={fadeUp}
+            <Reveal
+              as="p"
+              delay={100}
               className="text-[15px] font-light leading-[1.8] mb-8"
-              style={{ color: "rgba(255,255,255,0.55)", maxWidth: "480px", margin: "0 auto 2rem" }}
+              style={{ color: "rgba(255,255,255,0.75)", maxWidth: "480px", margin: "0 auto 2rem" }}
             >
               {c.ctaP}
-            </motion.p>
+            </Reveal>
 
-            <motion.div variants={fadeUp}>
+            <Reveal delay={200}>
               <Link
                 href={waHref}
                 target="_blank"
@@ -487,8 +444,8 @@ const Empresa = () => {
               >
                 {c.ctaSub}
               </p>
-            </motion.div>
-          </motion.div>
+            </Reveal>
+          </div>
         </section>
 
       </main>

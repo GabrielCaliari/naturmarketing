@@ -55,8 +55,15 @@ const immutableCache = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  experimental: {
+    // Inlina o CSS no HTML: elimina a requisição de CSS render-blocking
+    // apontada pelo Lighthouse (única no caminho crítico do LCP)
+    inlineCss: true,
+  },
   images: {
     qualities: [70, 85],
+    // 448 cobre os cards de ~406px exibidos no desktop (o padrão pulava de 384 p/ 640)
+    deviceSizes: [448, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
