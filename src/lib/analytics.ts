@@ -13,36 +13,20 @@ function generateEventId(): string {
 }
 
 // Verifica se o usuário consentiu com os cookies
+// O banner (CookieConsent) salva as preferências no localStorage
+// sob a chave 'reserve-cookie-consent' — see CookieConsent/index.tsx
 function hasConsent(): boolean {
   if (typeof window === 'undefined') return false;
-  
-  // Verifica cookie de consentimento diretamente
-  // O Klaro salva o consentimento no cookie 'klaro-consent'
-  const consentCookie = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('klaro-consent='));
-  
-  if (consentCookie) {
-    try {
-      // O cookie contém um objeto JSON com o consentimento de cada serviço
-      const cookieValue = consentCookie.split('=')[1];
-      const consent = JSON.parse(decodeURIComponent(cookieValue));
-      
-      // Retorna true se pelo menos um serviço foi aceito
-      // Verifica se o objeto tem valores true
-      if (consent && typeof consent === 'object') {
-        return Object.values(consent).some((v: unknown) => v === true);
-      }
-      
-      return false;
-    } catch {
-      // Se não conseguir parsear, assume que não há consentimento
-      return false;
-    }
+
+  try {
+    const raw = localStorage.getItem('reserve-cookie-consent');
+    if (!raw) return false;
+    const prefs = JSON.parse(raw) as { analytics?: boolean; marketing?: boolean };
+    return prefs.analytics === true || prefs.marketing === true;
+  } catch {
+    // Se não conseguir ler/parsear, assume que não há consentimento
+    return false;
   }
-  
-  // Se não houver cookie de consentimento, retorna false
-  return false;
 }
 
 // Envia evento para o dataLayer do GTM

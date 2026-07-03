@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
 import localFont from 'next/font/local'
-import Script from 'next/script'
 
 // Importar estilos CSS essenciais
 import "@/styles/globals.css";
@@ -11,7 +10,7 @@ import { GTMNoScript } from '@/components/Analytics/GTMScript';
 import MetaPixel from '@/components/Analytics/MetaPixel';
 import CookieConsent from '@/components/CookieConsent';
 import AutoTrack from '@/components/Analytics/AutoTrack';
-import MicrosoftClarity from '@/components/Analytics/MicrosoftClarity';
+import DeferredAnalytics from '@/components/Analytics/DeferredAnalytics';
 
 // SEO Components
 import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/SEO/JsonLd';
@@ -108,24 +107,8 @@ export default function RootLayout({
         {/* Structured Data */}
         <OrganizationJsonLd />
         <WebSiteJsonLd />
-        
-        {/* Google Tag Manager - Lazy Loading */}
-        {process.env.NEXT_PUBLIC_GTM_ID && (
-          <Script
-            id="gtm-script"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTM_ID}');
-              `,
-            }}
-          />
-        )}
-        
+
+        {/* GTM e Clarity são carregados na 1ª interação — see DeferredAnalytics.tsx */}
         {/* Meta Pixel is loaded client-side after LGPD consent — see MetaPixel.tsx */}
       </head>
       <body suppressHydrationWarning={true}>
@@ -144,8 +127,8 @@ export default function RootLayout({
         {/* Rastreamento Automático */}
         <AutoTrack />
 
-        {/* Microsoft Clarity — gravação de sessão e mapa de calor */}
-        <MicrosoftClarity />
+        {/* GTM + Microsoft Clarity carregados fora do caminho crítico */}
+        <DeferredAnalytics />
       </body>
     </html>
   )
