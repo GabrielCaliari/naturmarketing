@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Banner } from "./_components/Banner";
@@ -9,12 +10,16 @@ import { useLocale } from "@/context/LocaleContext";
 import TransformSection   from "./_components/TransformSection";
 import OQueFazemos        from "./_components/OQueFazemos";
 import ParaQuemFazemos    from "./_components/ParaQuemFazemos";
-import PlataformasSection from "./_components/PlataformasSection";
-import ComparativoSection from "./_components/ComparativoSection";
 import ResultadosSection  from "./_components/ResultadosSection";
-import BlogPreview        from "./_components/BlogPreview";
-import FAQ                from "./_components/FAQ";
-import ConsultoriaBanner  from "./_components/ConsultoriaBanner";
+
+// Abaixo da dobra: divididas em chunks separados para reduzir o JS avaliado
+// no carregamento inicial (Total Blocking Time / Speed Index). Continuam
+// renderizadas no servidor (ssr padrão = true), só o bundle é adiado.
+const PlataformasSection = dynamic(() => import("./_components/PlataformasSection"));
+const ComparativoSection = dynamic(() => import("./_components/ComparativoSection"));
+const BlogPreview        = dynamic(() => import("./_components/BlogPreview"));
+const FAQ                = dynamic(() => import("./_components/FAQ"));
+const ConsultoriaBanner  = dynamic(() => import("./_components/ConsultoriaBanner"));
 
 const Home = () => {
   const { locale } = useLocale();

@@ -2,7 +2,19 @@ import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
-  const resend = new Resend(process.env.RESEND_KEY || '');
+  const apiKey = process.env.RESEND_KEY;
+
+  if (!apiKey) {
+    console.error(
+      'RESEND_KEY não configurada. Defina RESEND_KEY em .env.local (dev) ou nas variáveis de ambiente do deploy (produção).'
+    );
+    return NextResponse.json(
+      { error: 'Serviço de email não configurado. Tente novamente mais tarde.' },
+      { status: 503 }
+    );
+  }
+
+  const resend = new Resend(apiKey);
   try {
     const body = await request.json();
     const { name, email, phone, message } = body;

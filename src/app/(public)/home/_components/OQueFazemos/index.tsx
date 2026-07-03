@@ -112,6 +112,7 @@ export default function OQueFazemos() {
   const { t } = useLocale();
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const scrollTicking = useRef(false);
 
   const servicos = serviceKeys.map((k, i) => ({
     icon: serviceIcons[i],
@@ -169,10 +170,15 @@ export default function OQueFazemos() {
             className="flex overflow-x-auto gap-3 pb-2 snap-x snap-mandatory"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             onScroll={() => {
-              const track = trackRef.current;
-              if (!track) return;
-              const cardWidth = (track.children[0] as HTMLElement)?.offsetWidth + 12;
-              setActiveIndex(Math.round((track.scrollLeft) / cardWidth));
+              if (scrollTicking.current) return;
+              scrollTicking.current = true;
+              window.requestAnimationFrame(() => {
+                scrollTicking.current = false;
+                const track = trackRef.current;
+                if (!track) return;
+                const cardWidth = (track.children[0] as HTMLElement)?.offsetWidth + 12;
+                setActiveIndex(Math.round((track.scrollLeft) / cardWidth));
+              });
             }}
           >
             {servicos.map((s, i) => (
