@@ -904,13 +904,21 @@ main {
   display: flex;
   width: max-content;
   animation: scroll-infinite-seamless 12s linear infinite;
+  /* Pausada até entrar na viewport (ver useAutoScrollVisible em PlataformasSection):
+     evita compositor rodando continuamente fora de tela durante a carga da página. */
+  animation-play-state: paused;
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
 }
 
+.animate-scroll-infinite-seamless.is-playing {
+  animation-play-state: running;
+}
+
 @media (max-width: 768px) {
   .animate-scroll-infinite-seamless {
     animation: scroll-infinite-seamless 10s linear infinite;
+    animation-play-state: paused;
   }
 }

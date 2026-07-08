@@ -28,9 +28,16 @@ export default function AutoTrack() {
 
   // Scroll depth tracking
   useEffect(() => {
+    // documentHeight só é recalculada em resize/ResizeObserver — lê-la a
+    // cada evento de scroll intercalava leitura de geometria com mutações
+    // de outros efeitos e forçava reflow.
+    let documentHeight = document.documentElement.scrollHeight;
+    const updateDocumentHeight = () => {
+      documentHeight = document.documentElement.scrollHeight;
+    };
+
     const handleScroll = () => {
       const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY;
       const scrollPercentage = Math.round(
         ((scrollTop + windowHeight) / documentHeight) * 100
@@ -38,7 +45,7 @@ export default function AutoTrack() {
 
       // Marcos de scroll: 25%, 50%, 75%, 100%
       const markers = [25, 50, 75, 100];
-      
+
       markers.forEach(marker => {
         if (
           scrollPercentage >= marker &&
@@ -63,9 +70,15 @@ export default function AutoTrack() {
     };
 
     window.addEventListener('scroll', throttledScroll, { passive: true });
+    window.addEventListener('resize', updateDocumentHeight, { passive: true });
+
+    const resizeObserver = new ResizeObserver(updateDocumentHeight);
+    resizeObserver.observe(document.body);
 
     return () => {
       window.removeEventListener('scroll', throttledScroll);
+      window.removeEventListener('resize', updateDocumentHeight);
+      resizeObserver.disconnect();
     };
   }, []);
 

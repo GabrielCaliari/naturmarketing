@@ -23,7 +23,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const saved = Cookies.get('locale') as Locale | undefined
     if (saved === 'en' || saved === 'pt') {
-      broadcast(saved)
+      if (saved !== _locale) broadcast(saved)
     } else if (navigator.language?.toLowerCase().startsWith('en')) {
       Cookies.set('locale', 'en', { expires: 365 })
       broadcast('en')
