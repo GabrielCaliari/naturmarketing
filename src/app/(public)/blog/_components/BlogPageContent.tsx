@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { blogPosts } from "@/data/blog-posts";
+import { blogPostsMeta as blogPosts } from "@/data/blog-meta";
 import { useLocale } from "@/context/LocaleContext";
 import { formatDate } from "@/lib/format-date";
 

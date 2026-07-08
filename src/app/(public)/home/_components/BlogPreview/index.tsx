@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { getFeaturedPosts } from "@/data/blog-posts";
+import { getFeaturedPostsMeta as getFeaturedPosts } from "@/data/blog-meta";
 import { useLocale } from "@/context/LocaleContext";
 import { formatDate } from "@/lib/format-date";
 

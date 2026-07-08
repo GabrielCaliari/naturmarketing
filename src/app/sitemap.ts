@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { COMPANY_NAP } from '@/constants/company'
-import { blogPosts } from '@/data/blog-posts'
+import { blogPostsMeta as blogPosts } from '@/data/blog-meta'
 
 export const revalidate = 86400 // Revalidate every 24 hours
 
