@@ -15,10 +15,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Diagnóstico Gratuito de Marketing Hoteleiro | Réserve",
     description:
-      "Descubra onde o seu hotel perde reservas — análise gratuita de presença digital, dependência de OTA e funil de reservas diretas.",
+      "Descubra onde o seu hotel perde reservas, análise gratuita de presença digital, dependência de OTA e funil de reservas diretas.",
     type: "website",
     url: `${siteUrl}/diagnostico`,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Réserve — Diagnóstico Gratuito de Marketing Hoteleiro" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Réserve | Diagnóstico Gratuito de Marketing Hoteleiro" }],
   },
 };
 
@@ -27,7 +27,7 @@ const jsonLd = {
   "@type": "Service",
   name: "Diagnóstico Gratuito de Marketing Hoteleiro",
   description:
-    "Análise gratuita da operação digital de hotéis e pousadas: presença digital, dependência de OTAs, site, motor de reservas, anúncios e atendimento — com plano de ação apresentado em reunião.",
+    "Análise gratuita da operação digital de hotéis e pousadas: presença digital, dependência de OTAs, site, motor de reservas, anúncios e atendimento, com plano de ação apresentado em reunião.",
   provider: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: COMPANY_NAP.name, url: siteUrl },
   areaServed: { "@type": "Country", name: "Brasil" },
   serviceType: "Diagnóstico de Marketing Hoteleiro",

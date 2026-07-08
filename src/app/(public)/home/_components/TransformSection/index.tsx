@@ -68,7 +68,7 @@ const TransformSection = () => {
             >
               <Image
                 src="/img/resource/check.webp"
-                alt="Check-in em hotel — Marketing Hoteleiro Réserve"
+                alt="Check-in em hotel, Marketing Hoteleiro Réserve"
                 width={768}
                 height={1024}
                 quality={70}

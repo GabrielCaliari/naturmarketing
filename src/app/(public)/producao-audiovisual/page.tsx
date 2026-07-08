@@ -8,7 +8,7 @@ import { COMPANY_NAP } from "@/constants/company";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Produção Audiovisual para Hotéis | Réserve — Fotografia e Vídeo Hoteleiro",
+  title: "Produção Audiovisual para Hotéis | Réserve | Fotografia e Vídeo Hoteleiro",
   description: "Produção audiovisual de alto padrão para hotéis, resorts e pousadas. Fotografia profissional e vídeos que capturam a essência do seu hotel e convertem visitantes em hóspedes.",
   keywords: "fotografia para hotéis, vídeo para hotéis, produção audiovisual hotelaria, foto hotel profissional, vídeo institucional hotel, fotografia pousada, tour virtual hotel",
   alternates: { canonical: `${siteUrl}/producao-audiovisual` },
@@ -29,23 +29,23 @@ const TEXT_HEAD = "#1A0F08";
 const TEXT_BODY = "#6e5e52";
 
 const deliverables = [
-  { title: "Fotografia de Ambientes", desc: "Imagens profissionais de quartos, áreas comuns, restaurante e espaços exclusivos — com iluminação natural e composição que valoriza cada detalhe." },
+  { title: "Fotografia de Ambientes", desc: "Imagens profissionais de quartos, áreas comuns, restaurante e espaços exclusivos, com iluminação natural e composição que valoriza cada detalhe." },
   { title: "Vídeo Institucional", desc: "Filme de 1 a 3 minutos que captura a atmosfera e identidade do hotel, ideal para site, redes sociais e campanhas de branding." },
-  { title: "Vídeo para Redes Sociais", desc: "Conteúdo vertical e horizontal adaptado para Instagram, Facebook e TikTok — otimizado para retenção e conversão em cada plataforma." },
+  { title: "Vídeo para Redes Sociais", desc: "Conteúdo vertical e horizontal adaptado para Instagram, Facebook e TikTok, otimizado para retenção e conversão em cada plataforma." },
   { title: "Fotografia Gastronômica", desc: "Imagens de pratos, bebidas e experiências gastronômicas que despertam desejo e valorizam o restaurante do hotel." },
-  { title: "Conteúdo de Experiências", desc: "Registro de atividades, amenities e experiências únicas que diferenciam seu hotel — da piscina ao spa, das trilhas ao pôr do sol." },
-  { title: "Tour Virtual 360°", desc: "Exploração imersiva de quartos e espaços do hotel — aumenta o tempo no site e a taxa de conversão em reservas." },
+  { title: "Conteúdo de Experiências", desc: "Registro de atividades, amenities e experiências únicas que diferenciam seu hotel, da piscina ao spa, das trilhas ao pôr do sol." },
+  { title: "Tour Virtual 360°", desc: "Exploração imersiva de quartos e espaços do hotel, aumenta o tempo no site e a taxa de conversão em reservas." },
 ];
 
 const steps = [
   { n: "01", title: "Briefing e Planejamento", desc: "Entendemos a identidade do hotel, o público-alvo e os diferenciais a destacar em cada material." },
-  { n: "02", title: "Produção no Hotel", desc: "Equipe especializada em hotelaria — sabemos os melhores horários, ângulos e condições de luz para cada tipo de espaço." },
+  { n: "02", title: "Produção no Hotel", desc: "Equipe especializada em hotelaria, sabemos os melhores horários, ângulos e condições de luz para cada tipo de espaço." },
   { n: "03", title: "Edição e Tratamento", desc: "Pós-produção com padrão editorial: retoque, correção de cor e edição de vídeo alinhados à identidade visual do hotel." },
-  { n: "04", title: "Entrega e Aplicação", desc: "Arquivos otimizados para cada canal — site, OTAs, redes sociais e materiais impressos — com guia de uso." },
+  { n: "04", title: "Entrega e Aplicação", desc: "Arquivos otimizados para cada canal (site, OTAs, redes sociais e materiais impressos), com guia de uso." },
 ];
 
 const faqs = [
-  { q: "Por que investir em fotografia profissional para o hotel?", a: "Hotéis com fotos profissionais recebem até 60% mais cliques nas OTAs e têm taxas de conversão significativamente maiores no site próprio. A imagem é o primeiro critério de decisão do hóspede — fotos amadoras custeiam reservas todos os dias." },
+  { q: "Por que investir em fotografia profissional para o hotel?", a: "Hotéis com fotos profissionais recebem até 60% mais cliques nas OTAs e têm taxas de conversão significativamente maiores no site próprio. A imagem é o primeiro critério de decisão do hóspede. Fotos amadoras custeiam reservas todos os dias." },
   { q: "Vocês produzem para qualquer tipo de hospedagem?", a: "Sim. Trabalhamos com hotéis, resorts, pousadas boutique, airbnbs de alto padrão e spas. O briefing é sempre personalizado para capturar a essência única de cada empreendimento." },
   { q: "Quanto tempo leva uma produção completa?", a: "Em média, uma produção completa de fotografia e vídeo é realizada em 1 a 2 dias na propriedade. A entrega dos materiais finais editados ocorre em 7 a 14 dias úteis após a produção." },
 ];
@@ -99,7 +99,7 @@ export default function ProducaoAudiovisualPage() {
               <span style={{ color: BRAND_GREEN }}>que vendem experiências</span>
             </h1>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
-              Produção audiovisual de alto padrão especializada em hotelaria — capturamos a alma e a atmosfera única do seu hotel para transformar visitantes em hóspedes.
+              Produção audiovisual de alto padrão especializada em hotelaria. Capturamos a alma e a atmosfera única do seu hotel para transformar visitantes em hóspedes.
             </p>
             <a
               href="https://wa.me/5535997742984?text=Olá! Tenho interesse na produção audiovisual para o meu hotel."

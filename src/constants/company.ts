@@ -12,7 +12,7 @@ export const COMPANY_NAP = {
   // Core Business Identity
   name: "Réserve",
   legalName: "Réserve Marketing Digital LTDA",
-  tagline: "Agência de Marketing Hoteleiro — Diagnóstico, Estratégia e Reservas Diretas",
+  tagline: "Agência de Marketing Hoteleiro | Diagnóstico, Estratégia e Reservas Diretas",
   
   // Contact Information
   email: "contato@reservemkt.com.br",

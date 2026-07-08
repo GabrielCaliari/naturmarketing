@@ -8,13 +8,13 @@ import { COMPANY_NAP } from "@/constants/company";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Gestão de Canais Digitais para Hotéis | Réserve — Marketing Hoteleiro Integrado",
-  description: "Gerenciamos redes sociais, OTAs e plataformas digitais do seu hotel de forma integrada. Do Instagram ao Booking, do Google ao WhatsApp — tudo alinhado para gerar reservas diretas.",
+  title: "Gestão de Canais Digitais para Hotéis | Réserve | Marketing Hoteleiro Integrado",
+  description: "Gerenciamos redes sociais, OTAs e plataformas digitais do seu hotel de forma integrada. Do Instagram ao Booking, do Google ao WhatsApp, tudo alinhado para gerar reservas diretas.",
   keywords: "gestão de canais digitais hotel, gestão OTA hotel, redes sociais para hotéis, marketing digital hoteleiro, gestão Instagram hotel, gestão Booking hotel, canais digitais pousada",
   alternates: { canonical: `${siteUrl}/gestao-de-canais` },
   openGraph: {
     title: "Gestão de Canais Digitais para Hotéis | Réserve",
-    description: "Gerenciamos redes sociais, OTAs e plataformas digitais do seu hotel de forma integrada — do Instagram ao Booking, do Google ao WhatsApp.",
+    description: "Gerenciamos redes sociais, OTAs e plataformas digitais do seu hotel de forma integrada, do Instagram ao Booking, do Google ao WhatsApp.",
     type: "website",
     url: `${siteUrl}/gestao-de-canais`,
   },
@@ -32,7 +32,7 @@ const channels = [
   { name: "Instagram & Facebook", desc: "Conteúdo estratégico, gestão de perfil, campanhas pagas e engajamento com potenciais hóspedes." },
   { name: "Google Meu Negócio", desc: "Perfil otimizado com fotos, posts, avaliações gerenciadas e informações atualizadas para máxima visibilidade local." },
   { name: "Booking.com & Expedia", desc: "Otimização de perfil, gestão de tarifas, paridade de preços e estratégias de ranqueamento nas OTAs." },
-  { name: "WhatsApp Business", desc: "Canal direto de atendimento e conversão — respondendo dúvidas e convertendo leads em reservas em tempo real." },
+  { name: "WhatsApp Business", desc: "Canal direto de atendimento e conversão, respondendo dúvidas e convertendo leads em reservas em tempo real." },
   { name: "Airbnb & Temporada", desc: "Otimização de anúncios, calendário de preços dinâmico e gestão de avaliações para maximizar ocupação." },
   { name: "E-mail Marketing", desc: "Réguas de relacionamento, pré-estadia, pós-estadia e campanhas de reativação para hóspedes recorrentes." },
 ];
@@ -46,7 +46,7 @@ const processSteps = [
 
 const faqs = [
   { q: "Por que gestão de canais integrada é mais eficiente que canais separados?", a: "Quando canais operam de forma isolada, a comunicação fica inconsistente e oportunidades são perdidas. Uma gestão integrada garante identidade de marca uniforme, paridade tarifária correta e uma estratégia onde Instagram, Google, OTAs e WhatsApp trabalham juntos para guiar o hóspede até a reserva direta." },
-  { q: "Vocês gerenciam as OTAs ou apenas as redes sociais?", a: "Gerenciamos todo o ecossistema digital do hotel — redes sociais, OTAs, Google Meu Negócio, WhatsApp e e-mail marketing. A estratégia integrada é justamente o que diferencia nossa abordagem: todos os canais trabalhando com o mesmo objetivo." },
+  { q: "Vocês gerenciam as OTAs ou apenas as redes sociais?", a: "Gerenciamos todo o ecossistema digital do hotel: redes sociais, OTAs, Google Meu Negócio, WhatsApp e e-mail marketing. A estratégia integrada é justamente o que diferencia nossa abordagem: todos os canais trabalhando com o mesmo objetivo." },
   { q: "Como funciona a gestão das avaliações online?", a: "Monitoramos e respondemos avaliações no Google, Booking.com, TripAdvisor e outros canais. Avaliações bem gerenciadas aumentam o ranqueamento nas plataformas e a taxa de conversão de visitantes em reservas." },
 ];
 
@@ -99,7 +99,7 @@ export default function GestaoDeCanaisPage() {
               <span style={{ color: BRAND_GREEN }}>integrada para o seu hotel</span>
             </h1>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
-              Do Instagram ao Booking, do Google Meu Negócio ao WhatsApp — gerenciamos todos os pontos de contato digitais do seu hotel com uma única estratégia integrada.
+              Do Instagram ao Booking, do Google Meu Negócio ao WhatsApp, gerenciamos todos os pontos de contato digitais do seu hotel com uma única estratégia integrada.
             </p>
             <a
               href="https://wa.me/5535997742984?text=Olá! Tenho interesse na gestão de canais digitais para o meu hotel."

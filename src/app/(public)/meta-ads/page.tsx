@@ -8,7 +8,7 @@ import { COMPANY_NAP } from "@/constants/company";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Meta Ads para Hotéis | Réserve — Facebook e Instagram Ads Hoteleiro",
+  title: "Meta Ads para Hotéis | Réserve | Facebook e Instagram Ads Hoteleiro",
   description: "Gestão especializada de Meta Ads para hotéis, resorts e pousadas. Anúncios no Facebook e Instagram que alcançam o público ideal e convertem em reservas diretas.",
   keywords: "Meta Ads hotel, Facebook Ads hotel, Instagram Ads hotel, anúncios Facebook pousada, tráfego pago hotelaria, campanhas Instagram hotel, Meta Ads hoteleiro, retargeting hotel",
   alternates: { canonical: `${siteUrl}/meta-ads` },
@@ -29,25 +29,25 @@ const TEXT_HEAD = "#1A0F08";
 const TEXT_BODY = "#6e5e52";
 
 const formats = [
-  { title: "Campanhas de Conversão", desc: "Anúncios otimizados para reserva direta — levam o viajante diretamente ao motor de reservas do hotel." },
+  { title: "Campanhas de Conversão", desc: "Anúncios otimizados para reserva direta, levam o viajante diretamente ao motor de reservas do hotel." },
   { title: "Retargeting Inteligente", desc: "Recuperamos visitantes que acessaram o site ou o perfil do hotel sem reservar, com criativos personalizados para cada etapa do funil." },
-  { title: "Lookalike de Hóspedes", desc: "Criamos públicos semelhantes aos seus melhores hóspedes — alcançando pessoas com alto potencial de conversão que ainda não conhecem o hotel." },
-  { title: "Campanhas Sazonais", desc: "Estratégia de alta temporada, feriados e datas especiais com antecedência — capturando demanda antes da concorrência." },
+  { title: "Lookalike de Hóspedes", desc: "Criamos públicos semelhantes aos seus melhores hóspedes, alcançando pessoas com alto potencial de conversão que ainda não conhecem o hotel." },
+  { title: "Campanhas Sazonais", desc: "Estratégia de alta temporada, feriados e datas especiais com antecedência, capturando demanda antes da concorrência." },
   { title: "Tráfego para OTAs e Site", desc: "Campanhas de awareness para construção de marca e tráfego qualificado, complementando as ações de conversão direta." },
-  { title: "Criativos para Redes Sociais", desc: "Produção de peças visuais e vídeos adaptados para cada formato do Meta — Feed, Stories, Reels e Carrossel." },
+  { title: "Criativos para Redes Sociais", desc: "Produção de peças visuais e vídeos adaptados para cada formato do Meta: Feed, Stories, Reels e Carrossel." },
 ];
 
 const steps = [
   { n: "01", title: "Pixel e Configuração", desc: "Instalação e configuração do Meta Pixel, Conversions API e eventos de conversão para rastreamento preciso." },
   { n: "02", title: "Mapeamento de Públicos", desc: "Definimos públicos por interesse, comportamento, localização e lookalike baseado em hóspedes reais." },
-  { n: "03", title: "Criação das Campanhas", desc: "Estrutura de campanha por objetivo — awareness, consideração e conversão — com testes A/B de criativos." },
+  { n: "03", title: "Criação das Campanhas", desc: "Estrutura de campanha por objetivo (awareness, consideração e conversão), com testes A/B de criativos." },
   { n: "04", title: "Otimização Contínua", desc: "Monitoramento diário de métricas, ajuste de lances e substituição de criativos para manter o ROAS crescente." },
 ];
 
 const faqs = [
   { q: "Meta Ads vale a pena para hotéis pequenos?", a: "Sim. Meta Ads é especialmente eficaz para pousadas e boutique hotels porque permite segmentação ultra-precisa por localização, interesse em viagens e perfil de renda. Com orçamentos a partir de R$1.500/mês em mídia, é possível gerar reservas mensuráveis." },
   { q: "Como medir o resultado das campanhas de Meta Ads?", a: "Acompanhamos custo por reserva gerada, ROAS (retorno sobre gasto em anúncios), taxa de conversão do landing page e impacto no volume de reservas diretas. O Meta Pixel e a Conversions API garantem rastreamento preciso de cada reserva originada em campanha." },
-  { q: "É possível usar Meta Ads junto com Google Ads?", a: "Sim — e a combinação é poderosa. O Google Ads captura quem já está buscando ativamente. O Meta Ads gera desejo e reconhecimento de marca, além de recuperar visitantes que ainda não reservaram. As duas estratégias são complementares." },
+  { q: "É possível usar Meta Ads junto com Google Ads?", a: "Sim, e a combinação é poderosa. O Google Ads captura quem já está buscando ativamente. O Meta Ads gera desejo e reconhecimento de marca, além de recuperar visitantes que ainda não reservaram. As duas estratégias são complementares." },
 ];
 
 const jsonLd = {
@@ -99,7 +99,7 @@ export default function MetaAdsPage() {
               <span style={{ color: BRAND_GREEN }}>reservas diretas via Facebook e Instagram</span>
             </h1>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
-              Campanhas no Facebook e Instagram que alcançam viajantes no perfil exato do seu hóspede ideal — e convertem em reservas diretas com custo previsível.
+              Campanhas no Facebook e Instagram que alcançam viajantes no perfil exato do seu hóspede ideal e convertem em reservas diretas com custo previsível.
             </p>
             <a
               href="https://wa.me/5535997742984?text=Olá! Tenho interesse no serviço de Meta Ads para o meu hotel."

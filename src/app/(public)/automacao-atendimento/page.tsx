@@ -8,7 +8,7 @@ import { COMPANY_NAP } from "@/constants/company";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Automação de Atendimento para Hotéis | Réserve — WhatsApp e Reservas 24h",
+  title: "Automação de Atendimento para Hotéis | Réserve | WhatsApp e Reservas 24h",
   description: "Automação inteligente de WhatsApp para hotéis, resorts e pousadas. Capturamos leads, respondemos dúvidas e convertemos reservas diretas 24 horas por dia, 7 dias por semana.",
   keywords: "automação WhatsApp hotel, chatbot hotel, atendimento automatizado pousada, WhatsApp Business hotel, automação reservas hotel, bot atendimento hotelaria, WhatsApp API hotel",
   alternates: { canonical: `${siteUrl}/automacao-atendimento` },
@@ -29,9 +29,9 @@ const TEXT_HEAD = "#1A0F08";
 const TEXT_BODY = "#6e5e52";
 
 const features = [
-  { title: "Atendimento 24/7 no WhatsApp", desc: "Respostas automáticas inteligentes fora do horário comercial — nenhum lead perde a chance de reservar por falta de atendimento." },
+  { title: "Atendimento 24/7 no WhatsApp", desc: "Respostas automáticas inteligentes fora do horário comercial, nenhum lead perde a chance de reservar por falta de atendimento." },
   { title: "Qualificação de Leads", desc: "Fluxo automatizado que identifica datas, tipo de acomodação e orçamento, entregando leads qualificados direto para a equipe." },
-  { title: "Envio de Proposta Automático", desc: "Após qualificação, o sistema envia disponibilidade, tarifas e link de reserva direta — acelerando o ciclo de conversão." },
+  { title: "Envio de Proposta Automático", desc: "Após qualificação, o sistema envia disponibilidade, tarifas e link de reserva direta, acelerando o ciclo de conversão." },
   { title: "Follow-up Inteligente", desc: "Sequências automáticas para leads que não responderam ou não finalizaram a reserva, com mensagens personalizadas por etapa." },
   { title: "Pré e Pós-Estadia", desc: "Mensagens automáticas de confirmação, instruções de check-in, boas-vindas personalizadas e solicitação de avaliação após a estadia." },
   { title: "Integração com CRM", desc: "Todos os contatos e histórico de conversas centralizado, com tagging automático por origem, status e tipo de reserva." },
@@ -41,13 +41,13 @@ const steps = [
   { n: "01", title: "Mapeamento de Fluxos", desc: "Identificamos os principais cenários de atendimento do hotel para construir fluxos que replicam o atendimento humano." },
   { n: "02", title: "Configuração e Integração", desc: "Configuração do WhatsApp Business API, construção dos fluxos e integração com o motor de reservas e CRM." },
   { n: "03", title: "Treinamento da Equipe", desc: "Capacitamos a equipe para gerenciar a plataforma, assumir conversas quando necessário e interpretar os relatórios." },
-  { n: "04", title: "Monitoramento e Refinamento", desc: "Análise contínua de taxa de resposta, conversão e satisfação — com otimizações mensais dos fluxos." },
+  { n: "04", title: "Monitoramento e Refinamento", desc: "Análise contínua de taxa de resposta, conversão e satisfação, com otimizações mensais dos fluxos." },
 ];
 
 const faqs = [
-  { q: "A automação substitui o atendimento humano?", a: "Não — ela complementa. A automação garante resposta imediata 24h e qualifica o lead, mas quando o hóspede prefere falar com uma pessoa ou a situação requer julgamento humano, a conversa é transferida facilmente para a equipe. O objetivo é que nenhum lead fique sem resposta, nunca." },
+  { q: "A automação substitui o atendimento humano?", a: "Não, ela complementa. A automação garante resposta imediata 24h e qualifica o lead, mas quando o hóspede prefere falar com uma pessoa ou a situação requer julgamento humano, a conversa é transferida facilmente para a equipe. O objetivo é que nenhum lead fique sem resposta, nunca." },
   { q: "Preciso de um número exclusivo para o WhatsApp Business API?", a: "Sim. O WhatsApp Business API exige um número dedicado, diferente do WhatsApp pessoal. Auxiliamos na configuração completa, incluindo a verificação do número e a aprovação do meta business." },
-  { q: "Como funciona a integração com o motor de reservas?", a: "Integramos a automação com os principais motores de reservas do mercado hoteleiro. O sistema consulta disponibilidade em tempo real e envia o link de reserva direta para o hóspede — sem precisar de atendente para essa etapa." },
+  { q: "Como funciona a integração com o motor de reservas?", a: "Integramos a automação com os principais motores de reservas do mercado hoteleiro. O sistema consulta disponibilidade em tempo real e envia o link de reserva direta para o hóspede, sem precisar de atendente para essa etapa." },
 ];
 
 const jsonLd = {
@@ -99,7 +99,7 @@ export default function AutomacaoAtendimentoPage() {
               <span style={{ color: BRAND_GREEN }}>reservas diretas 24h via WhatsApp</span>
             </h1>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
-              Automação inteligente que captura leads, responde dúvidas e converte reservas diretas enquanto sua equipe descansa — sem perder nenhuma oportunidade.
+              Automação inteligente que captura leads, responde dúvidas e converte reservas diretas enquanto sua equipe descansa, sem perder nenhuma oportunidade.
             </p>
             <a
               href="https://wa.me/5535997742984?text=Olá! Tenho interesse na automação de atendimento para o meu hotel."

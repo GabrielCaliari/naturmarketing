@@ -8,7 +8,7 @@ import { COMPANY_NAP } from "@/constants/company";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Sites para Hotéis e Pousadas | Réserve — Com Motor de Reservas",
+  title: "Sites para Hotéis e Pousadas | Réserve | Com Motor de Reservas",
   description: "Criação de sites para hotéis, resorts e pousadas com motor de reservas integrado. Design premium, carregamento rápido, otimizado para conversão e SEO hoteleiro.",
   keywords: "site para hotel, site para pousada, criação site hotel, site hoteleiro motor de reservas, website hotel com reservas online, landing page hotel, site resort, site boutique hotel",
   alternates: { canonical: `${siteUrl}/sites-para-hoteis` },
@@ -29,17 +29,17 @@ const TEXT_HEAD = "#1A0F08";
 const TEXT_BODY = "#6e5e52";
 
 const features = [
-  { title: "Motor de Reservas Integrado", desc: "Checkout direto sem sair do site — o hóspede reserva em menos de 3 cliques, sem comissão.", icon: "🏨" },
+  { title: "Motor de Reservas Integrado", desc: "Checkout direto sem sair do site, o hóspede reserva em menos de 3 cliques, sem comissão.", icon: "🏨" },
   { title: "Design Premium", desc: "Visual que transmite o posicionamento do hotel e converte visitantes em hóspedes.", icon: "✨" },
-  { title: "Carregamento Rápido", desc: "Core Web Vitals otimizados — menos de 2s de carregamento. Velocidade converte.", icon: "⚡" },
+  { title: "Carregamento Rápido", desc: "Core Web Vitals otimizados: menos de 2s de carregamento. Velocidade converte.", icon: "⚡" },
   { title: "SEO desde o início", desc: "Estrutura técnica otimizada, meta tags, schema markup e URLs amigáveis configurados.", icon: "🔍" },
-  { title: "100% Responsivo", desc: "Experiência perfeita no celular — onde mais de 60% das reservas são iniciadas.", icon: "📱" },
+  { title: "100% Responsivo", desc: "Experiência perfeita no celular, onde mais de 60% das reservas são iniciadas.", icon: "📱" },
   { title: "Integração com Analytics", desc: "Google Analytics, Google Tag Manager e Meta Pixel configurados para medir tudo.", icon: "📊" },
 ];
 
 const faqs = [
   { q: "Preciso de site próprio se já estou no Booking?", a: "Sim. Mais de 50% dos viajantes que encontram um hotel em OTA visita o site próprio antes de reservar. Sem site próprio você perde esse hóspede de volta para o Booking." },
-  { q: "Qual motor de reservas vocês indicam?", a: "Integramos com os principais sistemas homologados pelo Google — a escolha depende do porte do hotel, volume de quartos e necessidades operacionais. Avaliamos juntos." },
+  { q: "Qual motor de reservas vocês indicam?", a: "Integramos com os principais sistemas homologados pelo Google. A escolha depende do porte do hotel, volume de quartos e necessidades operacionais. Avaliamos juntos." },
   { q: "Quanto tempo leva para o site ficar pronto?", a: "Entre 4 e 8 semanas dependendo da complexidade. Sites simples de pousada ficam prontos em 3 a 4 semanas. Resorts com múltiplas categorias e idiomas levam 6 a 8 semanas." },
 ];
 
@@ -93,7 +93,7 @@ export default function SitesHoteisPage() {
             </h1>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
               Design premium com{" "}
-              <Link href="/motor-de-reservas" style={{ color: BRAND_GREEN, textDecoration: "underline" }}>motor de reservas integrado</Link>. Rápido, otimizado para SEO e construído para converter visitante em hóspede — sem comissão para ninguém.
+              <Link href="/motor-de-reservas" style={{ color: BRAND_GREEN, textDecoration: "underline" }}>motor de reservas integrado</Link>. Rápido, otimizado para SEO e construído para converter visitante em hóspede, sem comissão para ninguém.
             </p>
             <a
               href="https://wa.me/5535997742984?text=Olá! Tenho interesse em criar um site para o meu hotel."

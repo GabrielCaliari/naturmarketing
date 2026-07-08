@@ -7,7 +7,7 @@ import { COMPANY_NAP } from "@/constants/company";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Blog | Réserve — Marketing Hoteleiro",
+  title: "Blog | Réserve | Marketing Hoteleiro",
   description:
     "Artigos sobre marketing hoteleiro, Google Hotel Ads, reservas diretas, SEO para hotéis e estratégias para reduzir dependência de OTAs. Conteúdo especializado para hoteleiros.",
   keywords:

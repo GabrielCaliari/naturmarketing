@@ -5,7 +5,7 @@ import { LEGAL_CONFIG } from "@/constants/legal-pages";
 import { COMPANY_NAP } from "@/constants/company";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade | Réserve — Agência de Marketing para Hotéis",
+  title: "Política de Privacidade | Réserve | Agência de Marketing para Hotéis",
   description:
     "Política de Privacidade da Réserve Marketing Digital, agência especializada em marketing hoteleiro. Saiba como coletamos, usamos e protegemos seus dados conforme a LGPD.",
   alternates: { canonical: "/privacy-policy" },
@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
                   <p className="text-gray-700 text-sm">
                     <strong>Controlador dos Dados:</strong> A Réserve Marketing Digital, com sede em Minas Gerais,
                     é a responsável pelo tratamento dos dados pessoais coletados através dos nossos Serviços,
-                    nos termos da Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).
+                    nos termos da Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018).
                   </p>
                 </div>
               </section>

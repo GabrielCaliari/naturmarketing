@@ -42,7 +42,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'RÉSERVE | Agência de Marketing Hoteleiro — Diagnóstico, Estratégia e Reservas Diretas',
+    default: 'RÉSERVE | Agência de Marketing Hoteleiro | Diagnóstico, Estratégia e Reservas Diretas',
     template: '%s | Réserve Marketing'
   },
   description: 'A RÉSERVE é especialista em marketing hoteleiro. Diagnóstico preciso, estratégia personalizada e sistema de reservas diretas para hotéis, resorts, pousadas e lodges. Menos OTA. Mais margem.',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US'],
     url: siteUrl,
     siteName: COMPANY_NAP.name,
-    title: 'RÉSERVE — Agência de Marketing Hoteleiro Especializada',
+    title: 'RÉSERVE | Agência de Marketing Hoteleiro Especializada',
     description: 'Não somos uma gestora de tráfego. Somos especialistas em marketing hoteleiro: diagnóstico, estratégia e reservas diretas para hotéis, pousadas e lodges de experiência.',
     images: [
       {

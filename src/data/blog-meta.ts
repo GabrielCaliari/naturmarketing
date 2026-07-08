@@ -49,7 +49,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     "slug": "quanto-custa-marketing-digital-hotel",
     "title": "Quanto custa o marketing digital para um hotel? Tudo que você precisa saber",
-    "excerpt": "Ninguém responde essa pergunta diretamente. Mas a resposta existe — e quando você a compara com o que já paga de comissão para OTAs, o cálculo muda completamente.",
+    "excerpt": "Ninguém responde essa pergunta diretamente. Mas a resposta existe, e quando você a compara com o que já paga de comissão para OTAs, o cálculo muda completamente.",
     "category": "Estratégia",
     "keywords": [
       "quanto custa marketing digital para hotel",
@@ -66,7 +66,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     "slug": "como-reduzir-comissoes-booking-sem-perder-ocupacao",
     "title": "Como reduzir as comissões do Booking.com sem perder ocupação",
-    "excerpt": "A dependência de OTAs corrói sua margem reserva a reserva. Mas sair do Booking de forma abrupta é suicídio comercial. Existe um caminho gradual e estratégico — e começa mais cedo do que você imagina.",
+    "excerpt": "A dependência de OTAs corrói sua margem reserva a reserva. Mas sair do Booking de forma abrupta é suicídio comercial. Existe um caminho gradual e estratégico, e começa mais cedo do que você imagina.",
     "category": "OTAs & Canal Direto",
     "keywords": [
       "como reduzir comissão booking hotel",
@@ -83,7 +83,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     "slug": "reservas-diretas-vs-otas-como-equilibrar",
     "title": "Reservas diretas vs. OTAs: como equilibrar os dois canais e aumentar sua margem",
-    "excerpt": "Depender demais das OTAs corrói sua margem. Ignorá-las corta sua distribuição. O equilíbrio certo entre canais diretos e plataformas é onde os hotéis mais rentáveis operam — e chegar lá tem um método.",
+    "excerpt": "Depender demais das OTAs corrói sua margem. Ignorá-las corta sua distribuição. O equilíbrio certo entre canais diretos e plataformas é onde os hotéis mais rentáveis operam, e chegar lá tem um método.",
     "category": "OTAs & Canal Direto",
     "keywords": [
       "reservas diretas hotel",
@@ -100,7 +100,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     "slug": "seo-para-hoteis-aparecer-no-google",
     "title": "SEO para hotéis: como aparecer no Google antes das OTAs",
-    "excerpt": "As OTAs dominam os resultados de busca com orçamentos de marketing que nenhum hotel independente consegue igualar. Mas existem janelas de oportunidade no SEO hoteleiro que as grandes plataformas não conseguem ocupar — e é exatamente onde seu hotel deve estar.",
+    "excerpt": "As OTAs dominam os resultados de busca com orçamentos de marketing que nenhum hotel independente consegue igualar. Mas existem janelas de oportunidade no SEO hoteleiro que as grandes plataformas não conseguem ocupar, e é exatamente onde seu hotel deve estar.",
     "category": "SEO",
     "keywords": [
       "SEO para hotéis",
@@ -134,7 +134,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     "slug": "marketing-digital-pousadas-pequenas",
     "title": "Marketing digital para pousadas pequenas: por onde começar com pouco orçamento",
-    "excerpt": "Você não precisa de um orçamento de resort para ter uma presença digital que gera reservas. Pousadas pequenas têm vantagens que hotéis grandes não têm — e uma estratégia enxuta bem executada supera facilmente presença digital descuidada de qualquer tamanho.",
+    "excerpt": "Você não precisa de um orçamento de resort para ter uma presença digital que gera reservas. Pousadas pequenas têm vantagens que hotéis grandes não têm, e uma estratégia enxuta bem executada supera facilmente presença digital descuidada de qualquer tamanho.",
     "category": "Pousadas",
     "keywords": [
       "marketing digital para pousadas",
@@ -168,7 +168,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     "slug": "panorama-hotelaria-2026-novos-hoteis",
     "title": "Panorama da Hotelaria 2026: R$ 13,6 bilhões em novos hotéis e o que isso muda no seu marketing",
-    "excerpt": "O Panorama da Hotelaria Brasileira 2026 projeta R$ 13,6 bilhões em 178 novos hotéis e mais de 26 mil novas unidades até 2030 — 66% delas fora dos grandes centros. Mais oferta significa mais concorrência por atenção. Entenda o que isso exige da sua estratégia de marketing hoteleiro.",
+    "excerpt": "O Panorama da Hotelaria Brasileira 2026 projeta R$ 13,6 bilhões em 178 novos hotéis e mais de 26 mil novas unidades até 2030, 66% delas fora dos grandes centros. Mais oferta significa mais concorrência por atenção. Entenda o que isso exige da sua estratégia de marketing hoteleiro.",
     "category": "Mercado",
     "keywords": [
       "panorama da hotelaria brasileira 2026",
@@ -202,7 +202,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     "slug": "video-simples-vende-mais-hotelaria",
     "title": "Por que o vídeo simples vende mais que o produzido na hotelaria",
-    "excerpt": "Reels gravados no celular, com luz natural e fala direta para a câmera, vêm superando produções elaboradas em alcance e engajamento. O algoritmo premia autenticidade e retenção — não orçamento de produção. Veja como aplicar isso no marketing do seu hotel.",
+    "excerpt": "Reels gravados no celular, com luz natural e fala direta para a câmera, vêm superando produções elaboradas em alcance e engajamento. O algoritmo premia autenticidade e retenção, não orçamento de produção. Veja como aplicar isso no marketing do seu hotel.",
     "category": "Conteúdo & Redes",
     "keywords": [
       "marketing de conteúdo para hotéis",

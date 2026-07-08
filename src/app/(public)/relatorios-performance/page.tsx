@@ -8,7 +8,7 @@ import { COMPANY_NAP } from "@/constants/company";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Relatórios de Performance para Hotéis | Réserve — Análise e ROI Hoteleiro",
+  title: "Relatórios de Performance para Hotéis | Réserve | Análise e ROI Hoteleiro",
   description: "Relatórios de performance e análise de ROI especializados para hotéis, resorts e pousadas. Métricas reais, decisões baseadas em dados e visibilidade total sobre seus investimentos em marketing.",
   keywords: "relatório de performance hotel, ROI marketing hoteleiro, análise dados hotel, métricas hotel, dashboard hotel, relatório reservas hotel, KPI hoteleiro, analytics hotel",
   alternates: { canonical: `${siteUrl}/relatorios-performance` },
@@ -29,12 +29,12 @@ const TEXT_HEAD = "#1A0F08";
 const TEXT_BODY = "#6e5e52";
 
 const metrics = [
-  { title: "Custo por Reserva", desc: "Quanto cada canal (Google Ads, Meta Ads, SEO, direto) gasta para gerar uma reserva confirmada — a métrica mais importante do marketing hoteleiro." },
+  { title: "Custo por Reserva", desc: "Quanto cada canal (Google Ads, Meta Ads, SEO, direto) gasta para gerar uma reserva confirmada, a métrica mais importante do marketing hoteleiro." },
   { title: "ROAS por Canal", desc: "Retorno sobre o gasto em anúncios por plataforma, comparando performance entre Google Hotel Ads, Meta Ads e outros canais pagos." },
-  { title: "Taxa de Conversão do Site", desc: "Percentual de visitantes que iniciam e finalizam uma reserva — indica a eficácia do site e do motor de reservas." },
-  { title: "Receita Direta vs. OTAs", desc: "Evolução da participação de reservas diretas frente às OTAs ao longo do tempo — o indicador central da estratégia de independência." },
+  { title: "Taxa de Conversão do Site", desc: "Percentual de visitantes que iniciam e finalizam uma reserva, indica a eficácia do site e do motor de reservas." },
+  { title: "Receita Direta vs. OTAs", desc: "Evolução da participação de reservas diretas frente às OTAs ao longo do tempo, o indicador central da estratégia de independência." },
   { title: "Taxa de Ocupação por Período", desc: "Análise de ocupação por mês, canal e tipo de quarto para identificar oportunidades e gargalos de demanda." },
-  { title: "Lifetime Value do Hóspede", desc: "Valor gerado por cada hóspede ao longo do tempo, considerando recorrência e recomendações — base para estratégias de fidelização." },
+  { title: "Lifetime Value do Hóspede", desc: "Valor gerado por cada hóspede ao longo do tempo, considerando recorrência e recomendações, base para estratégias de fidelização." },
 ];
 
 const tools = [
@@ -99,7 +99,7 @@ export default function RelatoriosPerformancePage() {
               <span style={{ color: BRAND_GREEN }}>dados reais do seu hotel</span>
             </h1>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
-              Análise profunda de ROI, métricas de desempenho por canal e relatórios estratégicos mensais — para você saber exatamente o retorno de cada real investido.
+              Análise profunda de ROI, métricas de desempenho por canal e relatórios estratégicos mensais, para você saber exatamente o retorno de cada real investido.
             </p>
             <a
               href="https://wa.me/5535997742984?text=Olá! Tenho interesse nos relatórios de performance para o meu hotel."

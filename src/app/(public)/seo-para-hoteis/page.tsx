@@ -6,7 +6,7 @@ import SeoParaHoteisContent from "./_components/SeoParaHoteisContent";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "SEO para Hotéis e Pousadas | Réserve — Apareça no Google Antes das OTAs",
+  title: "SEO para Hotéis e Pousadas | Réserve | Apareça no Google Antes das OTAs",
   description: "Especialistas em SEO para hotéis, resorts e pousadas. Otimizamos seu site e Google Business Profile para você aparecer organicamente antes do Booking.com e Expedia.",
   keywords: "SEO para hotéis, SEO para pousadas, como aparecer no Google hotel, SEO hoteleiro, otimização site hotel, SEO para resorts, Google Business Profile hotel, SEO local hotel, marketing orgânico hotel",
   alternates: { canonical: `${siteUrl}/seo-para-hoteis` },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const faqs = [
   { q: "SEO para hotel é diferente de SEO normal?", a: "Sim. Hotelaria tem sazonalidade, buscas por destino, Google Hotel Ads integrado, Google Business Profile relevante e competição direta com OTAs bilionárias. Uma estratégia genérica de SEO não considera nenhuma dessas nuances." },
   { q: "Quanto tempo leva para aparecer no Google?", a: "Otimizações técnicas e de Google Business Profile geram resultados em 30 a 90 dias. Para ranquear termos competitivos do destino, 6 a 12 meses com estratégia consistente." },
-  { q: "Vale a pena investir em SEO sendo um hotel pequeno?", a: "Sim — especialmente para pousadas e boutique hotels. Termos long-tail do destino têm baixa concorrência e alta intenção. Um hotel pequeno pode dominar buscas específicas que grandes redes ignoram." },
+  { q: "Vale a pena investir em SEO sendo um hotel pequeno?", a: "Sim, especialmente para pousadas e boutique hotels. Termos long-tail do destino têm baixa concorrência e alta intenção. Um hotel pequeno pode dominar buscas específicas que grandes redes ignoram." },
 ];
 
 const jsonLd = {

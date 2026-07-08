@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { LEGAL_CONFIG } from "@/constants/legal-pages";
 
 export const metadata: Metadata = {
-  title: "Termos e Condições | Réserve — Agência de Marketing para Hotéis",
+  title: "Termos e Condições | Réserve | Agência de Marketing para Hotéis",
   description:
     "Termos e Condições de Uso do site e dos serviços da Réserve Marketing Digital, agência especializada em marketing hoteleiro.",
   alternates: { canonical: "/terms-and-conditions" },
@@ -29,7 +29,7 @@ export default function TermsAndConditions() {
           <strong>{LEGAL_CONFIG.COMPANY_NAME} Marketing Digital LTDA</strong>{" "}
           (&quot;Réserve&quot;, &quot;nós&quot; ou &quot;nosso&quot;), com sede em{" "}
           {LEGAL_CONFIG.COMPANY_ADDRESS.street},{" "}
-          {LEGAL_CONFIG.COMPANY_ADDRESS.city} –{" "}
+          {LEGAL_CONFIG.COMPANY_ADDRESS.city},{" "}
           {LEGAL_CONFIG.COMPANY_ADDRESS.state},{" "}
           {LEGAL_CONFIG.COMPANY_ADDRESS.zip}.
         </p>
@@ -113,9 +113,9 @@ export default function TermsAndConditions() {
           5. Propriedade Intelectual
         </h2>
         <p className="leading-relaxed" style={{ color: "#5a4a3e" }}>
-          Todo o conteúdo disponível neste site — incluindo textos, imagens,
+          Todo o conteúdo disponível neste site, incluindo textos, imagens,
           logotipos, vídeos, identidade visual, código-fonte e materiais de
-          marketing — é de propriedade exclusiva da Réserve ou de seus
+          marketing, é de propriedade exclusiva da Réserve ou de seus
           licenciantes, e está protegido pela legislação de direitos autorais e
           de propriedade intelectual (Lei nº 9.610/1998).
         </p>
@@ -177,7 +177,7 @@ export default function TermsAndConditions() {
         </h2>
         <p className="leading-relaxed" style={{ color: "#5a4a3e" }}>
           O tratamento de dados pessoais coletados neste site está sujeito à Lei
-          Geral de Proteção de Dados (Lei nº 13.709/2018 – LGPD). Acesse nossa{" "}
+          Geral de Proteção de Dados (Lei nº 13.709/2018, LGPD). Acesse nossa{" "}
           <a href="/privacy-policy" className="hover:underline" style={{ color: "#84936f" }}>
             Política de Privacidade
           </a>{" "}
@@ -203,7 +203,7 @@ export default function TermsAndConditions() {
         </h2>
         <p className="leading-relaxed" style={{ color: "#5a4a3e" }}>
           Estes Termos são regidos pelas leis da República Federativa do Brasil.
-          Fica eleito o foro da Comarca de Lavras – MG como competente para
+          Fica eleito o foro da Comarca de Lavras, MG, como competente para
           dirimir quaisquer controvérsias decorrentes deste instrumento, com
           renúncia expressa a qualquer outro, por mais privilegiado que seja.
         </p>

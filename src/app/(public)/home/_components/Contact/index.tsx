@@ -97,7 +97,7 @@ export default function Contact() {
                 style={{ color: "#6b5c50" }}
               >
                 Chega de perder receita para OTAs. Fale com nossa equipe e descubra como transformar
-                sua presença digital em reservas diretas — sem intermediários, sem enrolação.
+                sua presença digital em reservas diretas, sem intermediários, sem enrolação.
               </p>
             </div>
 

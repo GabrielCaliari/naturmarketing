@@ -18,14 +18,14 @@ export const metadata: Metadata = {
       "A metodologia da Réserve: demanda, conversão, atendimento e dados trabalhando juntos para gerar reservas diretas de forma previsível.",
     type: "website",
     url: `${siteUrl}/ecossistema`,
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Réserve — Ecossistema de Aquisição de Hóspedes" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Réserve | Ecossistema de Aquisição de Hóspedes" }],
   },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Ecossistema de Aquisição de Hóspedes — Metodologia Réserve",
+  name: "Ecossistema de Aquisição de Hóspedes | Metodologia Réserve",
   description:
     "Metodologia proprietária da Réserve para hotelaria: diagnóstico, geração de demanda, conversão no canal direto, atendimento com automação e otimização contínua por dados.",
   url: `${siteUrl}/ecossistema`,

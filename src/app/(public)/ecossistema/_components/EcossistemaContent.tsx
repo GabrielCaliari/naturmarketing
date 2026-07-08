@@ -28,10 +28,10 @@ const content = {
     badge: "A Metodologia Réserve",
     h1a: "Ecossistema de",
     h1b: "Aquisição de Hóspedes",
-    heroP: "Campanha isolada não sustenta ocupação. O nosso método conecta demanda, conversão, atendimento e dados em um sistema único — para que cada real investido volte em reserva direta, mês após mês.",
+    heroP: "Campanha isolada não sustenta ocupação. O nosso método conecta demanda, conversão, atendimento e dados em um sistema único, para que cada real investido volte em reserva direta, mês após mês.",
     heroCta: "Solicitar diagnóstico gratuito",
     introH2: "Por que campanhas isoladas falham na hotelaria",
-    introP1: "A maioria dos hotéis já tentou: um gestor de tráfego aqui, um site novo ali, um perfil ativo no Instagram. Cada peça até funciona sozinha — mas o hóspede não reserva em peças isoladas. Ele pesquisa no Google, compara na OTA, visita o site, pergunta no WhatsApp e só então decide. Se qualquer elo dessa corrente falha, a reserva vai para o concorrente ou para a comissão da OTA.",
+    introP1: "A maioria dos hotéis já tentou: um gestor de tráfego aqui, um site novo ali, um perfil ativo no Instagram. Cada peça até funciona sozinha, mas o hóspede não reserva em peças isoladas. Ele pesquisa no Google, compara na OTA, visita o site, pergunta no WhatsApp e só então decide. Se qualquer elo dessa corrente falha, a reserva vai para o concorrente ou para a comissão da OTA.",
     introP2: "O Ecossistema de Aquisição de Hóspedes existe para fechar esses elos. Não vendemos serviços avulsos: montamos o sistema completo, medimos cada etapa e otimizamos onde o dado mostrar que a reserva está escapando.",
     pillarsLabel: "Os 5 pilares",
     pillarsH2: "Como o ecossistema funciona",
@@ -39,7 +39,7 @@ const content = {
       {
         n: "01",
         title: "Diagnóstico e Estratégia",
-        desc: "Tudo começa com um raio-X da operação: presença digital, dependência de OTA, site, tarifas e atendimento. É o diagnóstico que define onde atacar primeiro — sem achismo.",
+        desc: "Tudo começa com um raio-X da operação: presença digital, dependência de OTA, site, tarifas e atendimento. É o diagnóstico que define onde atacar primeiro, sem achismo.",
         links: [{ label: "Diagnóstico Gratuito", href: "/diagnostico" }],
       },
       {
@@ -55,7 +55,7 @@ const content = {
       {
         n: "03",
         title: "Conversão no Canal Direto",
-        desc: "Demanda sem conversão alimenta OTA. Um site hoteleiro rápido, com motor de reservas integrado ao PMS, transforma o clique em reserva no seu canal — com o valor integral no seu caixa.",
+        desc: "Demanda sem conversão alimenta OTA. Um site hoteleiro rápido, com motor de reservas integrado ao PMS, transforma o clique em reserva no seu canal, com o valor integral no seu caixa.",
         links: [
           { label: "Sites para Hotéis", href: "/sites-para-hoteis" },
           { label: "Motor de Reservas", href: "/motor-de-reservas" },
@@ -65,13 +65,13 @@ const content = {
       {
         n: "04",
         title: "Atendimento que Fecha Reserva",
-        desc: "O gargalo real da hotelaria não é o anúncio — é o atendimento. Lead que espera mais de 5 minutos esfria. A automação com IA no WhatsApp responde na hora, qualifica e conduz até a reserva, 24 horas por dia.",
+        desc: "O gargalo real da hotelaria não é o anúncio. É o atendimento. Lead que espera mais de 5 minutos esfria. A automação com IA no WhatsApp responde na hora, qualifica e conduz até a reserva, 24 horas por dia.",
         links: [{ label: "Automação de Atendimento", href: "/automacao-atendimento" }],
       },
       {
         n: "05",
         title: "Dados e Otimização Contínua",
-        desc: "Cada reserva é rastreada até a origem. Relatórios claros mostram o que gera receita e o que desperdiça verba — e a gestão de canais equilibra OTA e canal direto para proteger a margem.",
+        desc: "Cada reserva é rastreada até a origem. Relatórios claros mostram o que gera receita e o que desperdiça verba, e a gestão de canais equilibra OTA e canal direto para proteger a margem.",
         links: [
           { label: "Relatórios de Performance", href: "/relatorios-performance" },
           { label: "Gestão de Canais", href: "/gestao-de-canais" },
@@ -80,7 +80,7 @@ const content = {
     ] as Pillar[],
     cycleLabel: "Na prática",
     cycleH2: "Um ciclo que se retroalimenta",
-    cycleP: "O ecossistema não é uma linha de montagem — é um ciclo. Os dados do atendimento alimentam os anúncios, os anúncios alimentam o site, o site alimenta a base de hóspedes, e a base volta a gerar reservas por remarketing e fidelização. Quanto mais tempo roda, mais barato fica adquirir cada hóspede.",
+    cycleP: "O ecossistema não é uma linha de montagem. É um ciclo. Os dados do atendimento alimentam os anúncios, os anúncios alimentam o site, o site alimenta a base de hóspedes, e a base volta a gerar reservas por remarketing e fidelização. Quanto mais tempo roda, mais barato fica adquirir cada hóspede.",
     cycleItems: [
       { title: "Mês 1–2", desc: "Diagnóstico, correção do canal direto (site + motor) e primeiras campanhas no ar." },
       { title: "Mês 3–4", desc: "Atendimento automatizado integrado, funil medido de ponta a ponta e otimização das campanhas por dado real." },
@@ -96,10 +96,10 @@ const content = {
     badge: "The Réserve Method",
     h1a: "Guest Acquisition",
     h1b: "Ecosystem",
-    heroP: "Isolated campaigns don't sustain occupancy. Our method connects demand, conversion, guest service and data into a single system — so every dollar invested comes back as a direct booking, month after month.",
+    heroP: "Isolated campaigns don't sustain occupancy. Our method connects demand, conversion, guest service and data into a single system, so every dollar invested comes back as a direct booking, month after month.",
     heroCta: "Request a free assessment",
     introH2: "Why isolated campaigns fail in hospitality",
-    introP1: "Most hotels have tried it: a traffic manager here, a new website there, an active Instagram profile. Each piece may even work on its own — but guests don't book in isolated pieces. They search on Google, compare on the OTA, visit the website, ask on WhatsApp and only then decide. If any link in that chain fails, the booking goes to a competitor or to the OTA's commission.",
+    introP1: "Most hotels have tried it: a traffic manager here, a new website there, an active Instagram profile. Each piece may even work on its own, but guests don't book in isolated pieces. They search on Google, compare on the OTA, visit the website, ask on WhatsApp and only then decide. If any link in that chain fails, the booking goes to a competitor or to the OTA's commission.",
     introP2: "The Guest Acquisition Ecosystem exists to close those links. We don't sell one-off services: we build the complete system, measure every stage and optimize wherever the data shows a booking slipping away.",
     pillarsLabel: "The 5 pillars",
     pillarsH2: "How the ecosystem works",
@@ -107,7 +107,7 @@ const content = {
       {
         n: "01",
         title: "Assessment and Strategy",
-        desc: "Everything starts with an X-ray of the operation: digital presence, OTA dependence, website, rates and guest service. The assessment defines where to strike first — no guesswork.",
+        desc: "Everything starts with an X-ray of the operation: digital presence, OTA dependence, website, rates and guest service. The assessment defines where to strike first, no guesswork.",
         links: [{ label: "Free Assessment", href: "/diagnostico" }],
       },
       {
@@ -123,7 +123,7 @@ const content = {
       {
         n: "03",
         title: "Direct Channel Conversion",
-        desc: "Demand without conversion feeds the OTAs. A fast hotel website with a booking engine integrated to your PMS turns the click into a booking on your own channel — with the full amount in your account.",
+        desc: "Demand without conversion feeds the OTAs. A fast hotel website with a booking engine integrated to your PMS turns the click into a booking on your own channel, with the full amount in your account.",
         links: [
           { label: "Hotel Websites", href: "/sites-para-hoteis" },
           { label: "Booking Engine", href: "/motor-de-reservas" },
@@ -133,13 +133,13 @@ const content = {
       {
         n: "04",
         title: "Guest Service that Closes Bookings",
-        desc: "Hospitality's real bottleneck isn't the ad — it's the response. A lead that waits more than 5 minutes goes cold. AI-powered WhatsApp automation replies instantly, qualifies and guides the guest to the booking, 24/7.",
+        desc: "Hospitality's real bottleneck isn't the ad. It's the response. A lead that waits more than 5 minutes goes cold. AI-powered WhatsApp automation replies instantly, qualifies and guides the guest to the booking, 24/7.",
         links: [{ label: "Service Automation", href: "/automacao-atendimento" }],
       },
       {
         n: "05",
         title: "Data and Continuous Optimization",
-        desc: "Every booking is traced back to its source. Clear reports show what generates revenue and what wastes budget — and channel management balances OTAs and the direct channel to protect your margin.",
+        desc: "Every booking is traced back to its source. Clear reports show what generates revenue and what wastes budget, and channel management balances OTAs and the direct channel to protect your margin.",
         links: [
           { label: "Performance Reports", href: "/relatorios-performance" },
           { label: "Channel Management", href: "/gestao-de-canais" },
@@ -148,7 +148,7 @@ const content = {
     ] as Pillar[],
     cycleLabel: "In practice",
     cycleH2: "A cycle that feeds itself",
-    cycleP: "The ecosystem isn't an assembly line — it's a cycle. Service data feeds the ads, the ads feed the website, the website feeds the guest base, and the base generates new bookings through remarketing and loyalty. The longer it runs, the cheaper each guest becomes to acquire.",
+    cycleP: "The ecosystem isn't an assembly line. It's a cycle. Service data feeds the ads, the ads feed the website, the website feeds the guest base, and the base generates new bookings through remarketing and loyalty. The longer it runs, the cheaper each guest becomes to acquire.",
     cycleItems: [
       { title: "Months 1–2", desc: "Assessment, direct-channel fixes (website + booking engine) and first campaigns live." },
       { title: "Months 3–4", desc: "Automated guest service integrated, funnel measured end to end and campaigns optimized on real data." },
