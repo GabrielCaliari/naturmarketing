@@ -1,8 +1,29 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
+
+// Só liga a animação (transform infinito) quando o carrossel está visível —
+// evita o compositor rodando continuamente fora de tela enquanto a página carrega.
+function useAutoScrollVisible<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
+    const io = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return { ref, visible };
+}
 
 const BRAND_GREEN = "#84936f";
 // Verde para TEXTO sobre fundos claros — >= 4.5:1 (WCAG AA)
@@ -68,6 +89,8 @@ const canais = [
 
 const PlataformasSection = () => {
   const { t } = useLocale();
+  const canaisScroll = useAutoScrollVisible<HTMLDivElement>();
+  const otasScroll = useAutoScrollVisible<HTMLDivElement>();
   return (
   <section style={{ background: "#F0EBE3" }} className="py-10 md:py-16">
 
@@ -129,8 +152,11 @@ const PlataformasSection = () => {
       </div>
 
       {/* Carousel infinito - Mobile */}
-      <div className="md:hidden overflow-hidden relative">
-        <div className="flex animate-scroll-infinite-seamless gap-3" style={{ width: "max-content" }}>
+      <div ref={canaisScroll.ref} className="md:hidden overflow-hidden relative">
+        <div
+          className={`flex animate-scroll-infinite-seamless gap-3${canaisScroll.visible ? " is-playing" : ""}`}
+          style={{ width: "max-content" }}
+        >
           {/* Primeira cópia */}
           {canais.map((canal, idx) => (
             <div
@@ -244,8 +270,11 @@ const PlataformasSection = () => {
       </div>
 
       {/* Carousel infinito - Mobile */}
-      <div className="md:hidden overflow-hidden relative">
-        <div className="flex animate-scroll-infinite-seamless gap-3" style={{ width: "max-content" }}>
+      <div ref={otasScroll.ref} className="md:hidden overflow-hidden relative">
+        <div
+          className={`flex animate-scroll-infinite-seamless gap-3${otasScroll.visible ? " is-playing" : ""}`}
+          style={{ width: "max-content" }}
+        >
           {/* Primeira cópia */}
           {otas.map((ota, idx) => (
             <div

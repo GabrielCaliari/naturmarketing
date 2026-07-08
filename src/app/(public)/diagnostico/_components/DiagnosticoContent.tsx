@@ -6,9 +6,9 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { IconBrandWhatsapp, IconArrowRight } from "@tabler/icons-react";
-import { WHATSAPP_LINK } from "@/constants/company";
 import { useLocale } from "@/context/LocaleContext";
-import { trackFormStart, trackFormSubmit, trackFormError, trackButtonClick } from "@/lib/analytics";
+import { trackFormStart, trackFormSubmit, trackButtonClick } from "@/lib/analytics";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -109,7 +109,7 @@ export default function DiagnosticoContent() {
   const router = useRouter();
   const { locale } = useLocale();
   const c = content[locale === "en" ? "en" : "pt"];
-  const waHref = `${WHATSAPP_LINK}?text=${encodeURIComponent(c.waText)}`;
+  const waHref = buildWhatsAppUrl(c.waText);
 
   const [formStarted, setFormStarted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -121,34 +121,40 @@ export default function DiagnosticoContent() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    try {
-      const formData = new FormData(e.currentTarget);
-      const hotel = formData.get("hotel") as string;
-      const challenge = formData.get("challenge") as string;
-      const data = {
-        name: formData.get("name") as string,
-        email: formData.get("email") as string,
-        phone: formData.get("phone") as string,
-        message: `[Diagnóstico Gratuito]\nHospedagem: ${hotel}\nDesafio: ${challenge}`,
-      };
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!response.ok) throw new Error("Erro ao enviar diagnóstico");
-      trackFormSubmit("diagnostico_form", true);
-      router.push("/consultoria-sucesso");
-    } catch (error) {
-      trackFormError("diagnostico_form", "Erro ao enviar formulário");
-      alert(c.error);
-      console.error("Erro:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
+
+    const formData = new FormData(e.currentTarget);
+    const name = (formData.get("name") as string).trim();
+    const email = (formData.get("email") as string).trim();
+    const phone = (formData.get("phone") as string).trim();
+    const hotel = (formData.get("hotel") as string).trim();
+    const challenge = (formData.get("challenge") as string).trim();
+
+    const greeting =
+      locale === "en"
+        ? `Hi! 👋 My name is *${name}*, from *${hotel}*.`
+        : `Olá! 👋 Boa tarde, me chamo *${name}*, da pousada *${hotel}*.`;
+    const askLine =
+      locale === "en"
+        ? "I'd like to request my free marketing assessment."
+        : "Gostaria de solicitar o meu diagnóstico gratuito de marketing.";
+    const challengeLabel = locale === "en" ? "Biggest challenge" : "Maior desafio hoje";
+
+    const message = [
+      greeting,
+      "",
+      askLine,
+      `${challengeLabel}: ${challenge}`,
+      "",
+      `📧 E-mail: ${email}`,
+      `📱 Telefone: ${phone}`,
+    ].join("\n");
+
+    trackFormSubmit("diagnostico_form", true);
+    window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+    router.push("/consultoria-sucesso");
   };
 
   const inputClass =

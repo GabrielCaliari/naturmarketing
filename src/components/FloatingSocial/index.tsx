@@ -1,6 +1,7 @@
 "use client";
 
 import { IconBrandInstagram, IconBrandWhatsapp } from "@tabler/icons-react";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const buttons = [
   {
@@ -10,7 +11,9 @@ const buttons = [
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/5535997742984",
+    href: buildWhatsAppUrl(
+      "Olá! 👋 Gostaria de saber mais sobre os serviços de marketing digital para a minha pousada/hotel."
+    ),
     icon: <IconBrandWhatsapp size={24} stroke={1.5} />,
   },
 ];

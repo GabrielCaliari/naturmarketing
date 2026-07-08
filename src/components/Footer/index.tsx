@@ -3,7 +3,8 @@
 import { IconBrandInstagram, IconBrandWhatsapp } from "@tabler/icons-react";
 import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
-import { COMPANY_NAP, WHATSAPP_LINK } from "@/constants/company";
+import { COMPANY_NAP } from "@/constants/company";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const BRAND_GREEN = "#84936f";
 
@@ -34,7 +35,9 @@ const socialLinks = [
   },
   {
     label: "WhatsApp",
-    href: WHATSAPP_LINK,
+    href: buildWhatsAppUrl(
+      "Olá! 👋 Gostaria de saber mais sobre os serviços de marketing digital para a minha pousada/hotel."
+    ),
     icon: <IconBrandWhatsapp size={16} />,
   },
 ];

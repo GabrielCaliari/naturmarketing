@@ -2,11 +2,16 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { IconBrandWhatsapp, IconArrowRight } from "@tabler/icons-react";
-import { trackFormStart, trackFormSubmit, trackFormError, trackButtonClick } from "@/lib/analytics";
+import { IconBrandWhatsapp } from "@tabler/icons-react";
+import { trackFormStart, trackFormSubmit, trackButtonClick } from "@/lib/analytics";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
+
+const GREETING_WA_URL = buildWhatsAppUrl(
+  "Olá! 👋 Gostaria de saber mais sobre os serviços de marketing digital para a minha pousada/hotel."
+);
 
 export default function Contact() {
   const router = useRouter();
@@ -20,32 +25,29 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    try {
-      const formData = new FormData(e.currentTarget);
-      const data = {
-        name: formData.get("name") as string,
-        email: formData.get("email") as string,
-        phone: formData.get("phone") as string,
-        message: formData.get("message") as string,
-      };
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!response.ok) throw new Error("Erro ao enviar mensagem");
-      trackFormSubmit("home_contact_form", true);
-      router.push("/consultoria-sucesso");
-    } catch (error) {
-      trackFormError("home_contact_form", "Erro ao enviar formulário");
-      alert("Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato via WhatsApp.");
-      console.error("Erro:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
+
+    const formData = new FormData(e.currentTarget);
+    const name = (formData.get("name") as string).trim();
+    const pousada = (formData.get("pousada") as string).trim();
+    const email = (formData.get("email") as string).trim();
+    const phone = (formData.get("phone") as string).trim();
+    const message = (formData.get("message") as string).trim();
+
+    const lines = [
+      `Olá! 👋 Boa tarde, me chamo *${name}*, da pousada *${pousada}*.`,
+      "",
+      message,
+      "",
+      `📧 E-mail: ${email}`,
+    ];
+    if (phone) lines.push(`📱 Telefone: ${phone}`);
+
+    trackFormSubmit("home_contact_form", true);
+    window.open(buildWhatsAppUrl(lines.join("\n")), "_blank", "noopener,noreferrer");
+    router.push("/consultoria-sucesso");
   };
 
   const inputClass =
@@ -122,7 +124,7 @@ export default function Contact() {
             </div>
 
             <a
-              href="https://wa.me/5535997742984?text=Olá! Gostaria de saber mais sobre os serviços de marketing digital para meu hotel."
+              href={GREETING_WA_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackButtonClick("whatsapp_contact", "/")}
@@ -166,6 +168,15 @@ export default function Contact() {
               required
             />
             <input
+              type="text"
+              name="pousada"
+              placeholder="Nome da sua pousada ou hotel"
+              className={inputClass}
+              onFocus={handleFormStart}
+              disabled={isSubmitting}
+              required
+            />
+            <input
               type="email"
               name="email"
               placeholder="seu@email.com"
@@ -196,10 +207,10 @@ export default function Contact() {
               className="w-full py-4 rounded-xl font-medium text-[13px] text-white transition-all duration-300 hover:shadow-md hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed mt-1 flex items-center justify-center gap-2"
               style={{ background: BRAND_BROWN, letterSpacing: "0.04em" }}
             >
-              {isSubmitting ? "Enviando..." : (
+              {isSubmitting ? "Abrindo WhatsApp..." : (
                 <>
-                  Enviar Mensagem
-                  <IconArrowRight size={15} stroke={2} />
+                  Enviar pelo WhatsApp
+                  <IconBrandWhatsapp size={15} />
                 </>
               )}
             </button>
