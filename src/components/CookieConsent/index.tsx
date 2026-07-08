@@ -59,9 +59,7 @@ export default function CookieConsent() {
           <div
             className="relative rounded-2xl border p-5"
             style={{
-              background: "rgba(255, 255, 255, 0.88)",
-              backdropFilter: "blur(24px) saturate(180%)",
-              WebkitBackdropFilter: "blur(24px) saturate(180%)",
+              background: "rgba(255, 255, 255, 0.97)",
               borderColor: "rgba(0, 0, 0, 0.07)",
               boxShadow:
                 "0 8px 32px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)",
