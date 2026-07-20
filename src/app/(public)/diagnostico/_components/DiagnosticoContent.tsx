@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { IconBrandWhatsapp, IconArrowRight } from "@tabler/icons-react";
 import { useLocale } from "@/context/LocaleContext";
-import { trackFormStart, trackFormSubmit, trackButtonClick } from "@/lib/analytics";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -106,60 +103,8 @@ const content = {
 };
 
 export default function DiagnosticoContent() {
-  const router = useRouter();
   const { locale } = useLocale();
   const c = content[locale === "en" ? "en" : "pt"];
-  const waHref = buildWhatsAppUrl(c.waText);
-
-  const [formStarted, setFormStarted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleFormStart = () => {
-    if (!formStarted) {
-      setFormStarted(true);
-      trackFormStart("diagnostico_form");
-    }
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
-    const name = (formData.get("name") as string).trim();
-    const email = (formData.get("email") as string).trim();
-    const phone = (formData.get("phone") as string).trim();
-    const hotel = (formData.get("hotel") as string).trim();
-    const challenge = (formData.get("challenge") as string).trim();
-
-    const greeting =
-      locale === "en"
-        ? `Hi! 👋 My name is *${name}*, from *${hotel}*.`
-        : `Olá! 👋 Boa tarde, me chamo *${name}*, da pousada *${hotel}*.`;
-    const askLine =
-      locale === "en"
-        ? "I'd like to request my free marketing assessment."
-        : "Gostaria de solicitar o meu diagnóstico gratuito de marketing.";
-    const challengeLabel = locale === "en" ? "Biggest challenge" : "Maior desafio hoje";
-
-    const message = [
-      greeting,
-      "",
-      askLine,
-      `${challengeLabel}: ${challenge}`,
-      "",
-      `📧 E-mail: ${email}`,
-      `📱 Telefone: ${phone}`,
-    ].join("\n");
-
-    trackFormSubmit("diagnostico_form", true);
-    window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer");
-    router.push("/consultoria-sucesso");
-  };
-
-  const inputClass =
-    "w-full bg-[#F7F3EE] border rounded-xl px-5 py-3.5 text-[14px] text-[#1A0F08] font-light placeholder:text-[#b0a099] outline-none transition-all duration-200 focus:bg-white disabled:opacity-50"
-  + " border-[rgba(196,164,142,0.3)] focus:border-[#84936f] focus:ring-2 focus:ring-[rgba(132,147,111,0.12)]";
 
   return (
     <>
@@ -185,15 +130,15 @@ export default function DiagnosticoContent() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "580px", lineHeight: 1.75 }}>
               {c.heroP}
             </p>
-            <a
-              href="#form"
-              onClick={(e) => { e.preventDefault(); document.getElementById("form")?.scrollIntoView({ behavior: "smooth" }); }}
+            <DiagnosticoCTA
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
+              trackId="cta_diag_page_hero"
+              source="/diagnostico"
             >
               {c.heroCta}
               <IconArrowRight size={15} stroke={2} />
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 
@@ -244,73 +189,54 @@ export default function DiagnosticoContent() {
 
         {/* Formulário */}
         <section id="form" className="py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
-          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-
-            {/* Trust column */}
-            <div className="flex flex-col gap-8">
-              <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-                {c.formTitle}
-              </h2>
-              <div
-                className="flex flex-col gap-3 p-6 rounded-2xl"
-                style={{ background: BG, border: `1px solid ${BORDER}` }}
-              >
-                {c.trust.map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: BRAND_GREEN }} />
-                    <span className="text-[13px] font-light" style={{ color: TEXT_BODY }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-col gap-3">
-                <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{c.orWa}</p>
-                <a
-                  href={waHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackButtonClick("whatsapp_diagnostico", "/diagnostico")}
-                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] w-fit"
-                  style={{ background: BRAND_GREEN, letterSpacing: "0.04em" }}
-                >
-                  <IconBrandWhatsapp size={17} />
-                  {c.waBtn}
-                </a>
-              </div>
-            </div>
-
-            {/* Form column */}
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col gap-4 rounded-2xl p-8 md:p-10"
+          <div className="max-w-3xl mx-auto">
+            <div
+              className="flex flex-col items-center text-center gap-6 rounded-2xl p-8 md:p-12"
               style={{
                 background: BG_CARD,
                 border: "1px solid rgba(196,164,142,0.25)",
                 boxShadow: "0 8px 40px rgba(26,15,8,0.06)",
               }}
             >
-              <p className="text-[12px] font-light -mb-1" style={{ color: "#9a8878" }}>
+              <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.formTitle}
+              </h2>
+              <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>
                 {c.formSub}
               </p>
-              <input type="text" name="name" placeholder={c.fName} className={inputClass} onFocus={handleFormStart} disabled={isSubmitting} required />
-              <input type="email" name="email" placeholder={c.fEmail} className={inputClass} onFocus={handleFormStart} disabled={isSubmitting} required />
-              <input type="tel" name="phone" placeholder={c.fPhone} className={inputClass} onFocus={handleFormStart} disabled={isSubmitting} required />
-              <input type="text" name="hotel" placeholder={c.fHotel} className={inputClass} onFocus={handleFormStart} disabled={isSubmitting} required />
-              <textarea name="challenge" placeholder={c.fChallenge} className={`${inputClass} h-28 resize-none`} onFocus={handleFormStart} disabled={isSubmitting} required />
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-4 rounded-xl font-medium text-[13px] text-white transition-all duration-300 hover:shadow-md hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed mt-1 flex items-center justify-center gap-2"
-                style={{ background: BRAND_BROWN, letterSpacing: "0.04em" }}
+              <div
+                className="flex flex-col gap-3 p-6 rounded-2xl w-full max-w-md"
+                style={{ background: BG, border: `1px solid ${BORDER}` }}
               >
-                {isSubmitting ? c.submitting : (
-                  <>
-                    {c.submit}
-                    <IconArrowRight size={15} stroke={2} />
-                  </>
-                )}
-              </button>
-            </form>
-
+                {c.trust.map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: BRAND_GREEN }} />
+                    <span className="text-[13px] font-light text-left" style={{ color: TEXT_BODY }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <DiagnosticoCTA
+                className="w-full max-w-md py-4 rounded-xl font-medium text-[13px] text-white transition-all duration-300 hover:shadow-md hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
+                style={{ background: BRAND_BROWN, letterSpacing: "0.04em" }}
+                trackId="cta_diag_page_form"
+                source="/diagnostico"
+              >
+                {c.submit}
+                <IconArrowRight size={15} stroke={2} />
+              </DiagnosticoCTA>
+              <div className="flex flex-col items-center gap-3">
+                <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{c.orWa}</p>
+                <DiagnosticoCTA
+                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] w-fit"
+                  style={{ background: BRAND_GREEN, letterSpacing: "0.04em" }}
+                  trackId="cta_diag_page_whatsapp"
+                  source="/diagnostico"
+                >
+                  <IconBrandWhatsapp size={17} />
+                  {c.waBtn}
+                </DiagnosticoCTA>
+              </div>
+            </div>
           </div>
         </section>
 

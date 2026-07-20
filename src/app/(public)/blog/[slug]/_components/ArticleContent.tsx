@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useLocale } from "@/context/LocaleContext";
 import { formatDate } from "@/lib/format-date";
 import type { BlogPost } from "@/data/blog-posts";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -101,15 +102,14 @@ export default function ArticleContent({
                 {t("blog.article.cta.body")}
               </p>
             </div>
-            <a
-              href="https://wa.me/5535997742984?text=Olá! Li um artigo do blog da Réserve e gostaria de receber um diagnóstico estratégico gratuito."
-              target="_blank"
-              rel="noopener noreferrer"
+            <DiagnosticoCTA
               className="shrink-0 inline-flex items-center px-7 py-3 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN, letterSpacing: "0.04em" }}
+              trackId="cta_blog"
+              source="/blog"
             >
               {t("blog.article.cta.btn")}
-            </a>
+            </DiagnosticoCTA>
           </div>
         </div>
       </section>

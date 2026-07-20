@@ -18,6 +18,13 @@ import { OrganizationJsonLd, WebSiteJsonLd } from '@/components/SEO/JsonLd';
 // Constants
 import { COMPANY_NAP } from '@/constants/company';
 
+// Global providers (shared by every route, including the root "/" page,
+// which re-exports (public)/home/page.tsx without going through the
+// (public) route-group layout)
+import { LocaleProvider } from '@/context/LocaleContext';
+import { LeadModalProvider } from '@/context/LeadModalContext';
+import { LeadModal } from '@/components/LeadModal';
+
 // Optimize fonts with next/font
 const rubik = Rubik({
   subsets: ['latin'],
@@ -119,8 +126,13 @@ export default function RootLayout({
         <MetaPixel />
 
         {/* Conteúdo principal */}
-        {children}
-        
+        <LocaleProvider>
+          <LeadModalProvider>
+            {children}
+            <LeadModal />
+          </LeadModalProvider>
+        </LocaleProvider>
+
         {/* Banner de Consentimento LGPD */}
         <CookieConsent />
         

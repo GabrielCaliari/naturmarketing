@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 import {
   IconUsers,
   IconTarget,
@@ -146,7 +147,6 @@ const content = {
 const Empresa = () => {
   const { locale } = useLocale();
   const c = content[locale === "en" ? "en" : "pt"];
-  const waHref = `https://wa.me/5535997742984?text=${encodeURIComponent(c.ctaWaText)}`;
 
   return (
     <>
@@ -429,15 +429,14 @@ const Empresa = () => {
             </Reveal>
 
             <Reveal delay={200}>
-              <Link
-                href={waHref}
-                target="_blank"
-                rel="noopener noreferrer"
+              <DiagnosticoCTA
                 className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] active:scale-[0.98]"
                 style={{ background: BRAND_BROWN, letterSpacing: "0.05em" }}
+                trackId="cta_empresa"
+                source="/marketing-hoteleiro"
               >
                 {c.ctaBtn}
-              </Link>
+              </DiagnosticoCTA>
               <p
                 className="mt-3 text-[11px] font-light"
                 style={{ color: "rgba(255,255,255,0.35)", letterSpacing: "0.05em" }}

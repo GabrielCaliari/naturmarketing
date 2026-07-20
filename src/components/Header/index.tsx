@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useIsMobile } from "@/hooks/useMobileDevice";
 import { IconMenu3, IconX, IconChevronDown, IconCheck } from "@tabler/icons-react";
 import { useLocale } from "@/context/LocaleContext";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 // ── Flag SVGs ─────────────────────────────────────────────────────────────────
 const FlagBR = ({ size = 20 }: { size?: number }) => (
@@ -320,9 +321,9 @@ const Header = () => {
             {!isMobile && (
               <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
                 <LanguageSwitcher />
-                <Link href="/diagnostico" className="header-cta-btn">
+                <DiagnosticoCTA className="header-cta-btn" trackId="cta_header" source="/">
                   {t("nav.cta")}
-                </Link>
+                </DiagnosticoCTA>
               </div>
             )}
 
@@ -330,9 +331,9 @@ const Header = () => {
             {isMobile && (
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <LanguageSwitcher compact />
-                <Link href="/diagnostico" className="header-cta-btn-mobile">
+                <DiagnosticoCTA className="header-cta-btn-mobile" trackId="cta_header_mobile" source="/">
                   {locale === "en" ? "Diagnosis" : "Diagnóstico"}
-                </Link>
+                </DiagnosticoCTA>
                 <button
                   onClick={() => setIsMobileMenuOpen(true)}
                   className="mobile-nav-toggler"
@@ -482,14 +483,17 @@ const MobileMenu = ({
           className="pop-up-in absolute bottom-8 left-0 right-0 px-6"
           style={{ animationDelay: "0.3s" }}
         >
-          <Link
-            href="/diagnostico"
-            className="block w-full text-center px-6 py-3.5 rounded-full text-[14px] font-medium text-white transition-all duration-300 shadow-lg"
-            style={{ background: "#994f2a", letterSpacing: "0.04em" }}
-            onClick={onClose}
-          >
-            {ctaLabel}
-          </Link>
+          <div onClick={onClose}>
+            <DiagnosticoCTA
+              className="block w-full text-center px-6 py-3.5 rounded-full text-[14px] font-medium text-white transition-all duration-300 shadow-lg"
+              style={{ background: "#994f2a", letterSpacing: "0.04em", cursor: "pointer" }}
+              trackId="cta_menu"
+              source="/"
+              ariaLabel={ctaLabel}
+            >
+              {ctaLabel}
+            </DiagnosticoCTA>
+          </div>
         </div>
       </div>
     </div>

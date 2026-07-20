@@ -2,18 +2,13 @@
 
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
-import { trackButtonClick } from "@/lib/analytics";
 import { useLocale } from "@/context/LocaleContext";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 const BRAND_BROWN = "#994f2a";
 
 export default function ConsultoriaBanner() {
   const { t } = useLocale();
-
-  const handleClick = () => {
-    trackButtonClick("cta_diagnostico", "/");
-    window.open(t('cta.wa'), "_blank");
-  };
 
   return (
     <section
@@ -93,13 +88,14 @@ export default function ConsultoriaBanner() {
 
         {/* CTA */}
         <Reveal delay={360} className="flex flex-wrap items-center justify-center gap-5">
-          <button
-            onClick={handleClick}
+          <DiagnosticoCTA
             className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-medium tracking-[0.1em] uppercase text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: BRAND_BROWN, letterSpacing: "0.08em" }}
+            trackId="cta_diagnostico"
+            source="/"
           >
             {t('cta.btn')}
-          </button>
+          </DiagnosticoCTA>
         </Reveal>
       </div>
     </section>

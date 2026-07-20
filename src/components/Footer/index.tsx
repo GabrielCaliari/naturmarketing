@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
 import { COMPANY_NAP } from "@/constants/company";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 const BRAND_GREEN = "#84936f";
 
@@ -24,7 +25,6 @@ const contentLinks = [
   { label: "Blog", href: "/blog" },
   { label: "Nossa Empresa", href: "/marketing-hoteleiro" },
   { label: "Ecossistema", href: "/ecossistema" },
-  { label: "Diagnóstico Gratuito", href: "/diagnostico" },
 ];
 
 const socialLinks = [
@@ -133,6 +133,14 @@ const Footer = () => {
                   {item.label}
                 </Link>
               ))}
+              <DiagnosticoCTA
+                className="text-left text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
+                style={{ color: "#5C4F45", fontWeight: 400, cursor: "pointer" }}
+                trackId="cta_footer"
+                source="/"
+              >
+                Diagnóstico Gratuito
+              </DiagnosticoCTA>
             </div>
 
             {/* Social */}

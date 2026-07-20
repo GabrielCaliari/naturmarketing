@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useLocale } from "@/context/LocaleContext";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -244,14 +245,14 @@ export default function ReservasDiretasContent() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.65)", fontWeight: 300, lineHeight: 1.75 }}>
               {c.ctaP}
             </p>
-            <a
-              href={waHref}
-              target="_blank" rel="noopener noreferrer"
+            <DiagnosticoCTA
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90"
               style={{ background: BRAND_BROWN }}
+              trackId="cta_reservas_diretas"
+              source="/reservas-diretas"
             >
               {c.ctaBtn}
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 

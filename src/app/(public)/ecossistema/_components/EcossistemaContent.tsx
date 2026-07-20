@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { IconArrowRight } from "@tabler/icons-react";
 import { useLocale } from "@/context/LocaleContext";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -188,14 +189,15 @@ export default function EcossistemaContent() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.75)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "580px", lineHeight: 1.75 }}>
               {c.heroP}
             </p>
-            <Link
-              href="/diagnostico"
+            <DiagnosticoCTA
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
+              trackId="cta_ecossistema_hero"
+              source="/ecossistema"
             >
               {c.heroCta}
               <IconArrowRight size={15} stroke={2} />
-            </Link>
+            </DiagnosticoCTA>
           </div>
         </section>
 
@@ -284,13 +286,14 @@ export default function EcossistemaContent() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.75)", fontWeight: 300, lineHeight: 1.75 }}>
               {c.ctaP}
             </p>
-            <Link
-              href="/diagnostico"
+            <DiagnosticoCTA
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
+              trackId="cta_ecossistema_footer"
+              source="/ecossistema"
             >
               {c.ctaBtn}
-            </Link>
+            </DiagnosticoCTA>
           </div>
         </section>
 

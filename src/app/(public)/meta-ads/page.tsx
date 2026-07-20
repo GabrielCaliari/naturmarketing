@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
 import { COMPANY_NAP } from "@/constants/company";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
@@ -187,14 +188,14 @@ export default function MetaAdsPage() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.65)", fontWeight: 300, lineHeight: 1.75 }}>
               Solicite um diagnóstico gratuito e descubra quanto seu hotel pode ganhar com campanhas bem estruturadas no Facebook e Instagram.
             </p>
-            <a
-              href="https://wa.me/5535997742984?text=Olá! Tenho interesse no serviço de Meta Ads para o meu hotel."
-              target="_blank" rel="noopener noreferrer"
+            <DiagnosticoCTA
               className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
               style={{ background: BRAND_BROWN }}
+              trackId="cta_meta_ads"
+              source="/meta-ads"
             >
               Diagnóstico Gratuito
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 
