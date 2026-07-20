@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   IconX,
@@ -47,6 +47,49 @@ const EMPTY: FormState = {
   challenge: "",
 };
 
+function ToggleRow({
+  active,
+  onYes,
+  onNo,
+  yesLabel,
+  noLabel,
+}: {
+  active: boolean;
+  onYes: () => void;
+  onNo: () => void;
+  yesLabel: string;
+  noLabel: string;
+}) {
+  return (
+    <div className="flex gap-2">
+      <button
+        type="button"
+        onClick={onYes}
+        className="flex-1 h-11 rounded-xl border text-[13px] font-medium transition-all cursor-pointer"
+        style={
+          active
+            ? { background: GREEN, borderColor: GREEN, color: "#fff" }
+            : { background: "#fff", borderColor: BORDER, color: TEXT_BODY }
+        }
+      >
+        {yesLabel}
+      </button>
+      <button
+        type="button"
+        onClick={onNo}
+        className="flex-1 h-11 rounded-xl border text-[13px] font-medium transition-all cursor-pointer"
+        style={
+          !active
+            ? { background: "#3a332c", borderColor: "#3a332c", color: "#fff" }
+            : { background: "#fff", borderColor: BORDER, color: TEXT_BODY }
+        }
+      >
+        {noLabel}
+      </button>
+    </div>
+  );
+}
+
 export function LeadModal() {
   const { isOpen, close } = useLeadModal();
   const { locale } = useLocale();
@@ -57,6 +100,9 @@ export function LeadModal() {
   const [form, setForm] = useState<FormState>(EMPTY);
   const [error, setError] = useState<string | null>(null);
   const [started, setStarted] = useState(false);
+
+  const panelRef = useRef<HTMLDivElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
 
   const set = <K extends keyof FormState>(key: K, value: FormState[K]) =>
     setForm((f) => ({ ...f, [key]: value }));
@@ -71,18 +117,50 @@ export function LeadModal() {
     }, 300);
   }, [close]);
 
-  // Esc + travar scroll enquanto aberto
+  // Enquanto aberto: Esc para fechar, focus-trap (Tab), scroll lock,
+  // foco inicial no primeiro campo e devolução do foco ao gatilho ao fechar.
   useEffect(() => {
     if (!isOpen) return;
+    openerRef.current = document.activeElement as HTMLElement | null;
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") handleClose();
+      if (e.key === "Escape") {
+        handleClose();
+        return;
+      }
+      if (e.key === "Tab" && panelRef.current) {
+        const focusables = panelRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+
+    // Foca o primeiro campo depois que o painel monta/anima.
+    const focusTimer = window.setTimeout(() => {
+      const target =
+        panelRef.current?.querySelector<HTMLElement>("input, select, textarea") ??
+        panelRef.current?.querySelector<HTMLElement>("button");
+      target?.focus();
+    }, 60);
+
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
+      window.clearTimeout(focusTimer);
+      openerRef.current?.focus?.();
     };
   }, [isOpen, handleClose]);
 
@@ -102,6 +180,23 @@ export function LeadModal() {
     setStep(2);
   };
 
+  const buildLeadData = (): LeadData => {
+    const serviceLabels = SERVICE_COMBOS.filter((s) => form.services.includes(s.id)).map(
+      (s) => s[lang]
+    );
+    return {
+      name: form.name.trim(),
+      propertyName: form.propertyName.trim(),
+      propertyType: form.propertyType || undefined,
+      hasSite: form.hasSite,
+      siteUrl: form.hasSite ? form.siteUrl.trim() || undefined : undefined,
+      hasInstagram: form.hasInstagram,
+      instagramHandle: form.hasInstagram ? form.instagramHandle.trim() || undefined : undefined,
+      serviceLabels,
+      challenge: form.challenge.trim() || undefined,
+    };
+  };
+
   const finish = () => {
     if (form.services.length === 0) {
       setError(c.servicesError);
@@ -109,84 +204,22 @@ export function LeadModal() {
     }
     setError(null);
 
-    const serviceLabels = SERVICE_COMBOS.filter((s) => form.services.includes(s.id)).map(
-      (s) => s[lang]
-    );
-    const data: LeadData = {
-      name: form.name.trim(),
-      propertyName: form.propertyName.trim(),
-      propertyType: form.propertyType || undefined,
-      hasSite: form.hasSite,
-      siteUrl: form.hasSite ? form.siteUrl.trim() || undefined : undefined,
-      hasInstagram: form.hasInstagram,
-      instagramHandle: form.hasInstagram ? form.instagramHandle.trim() || undefined : undefined,
-      serviceLabels,
-      challenge: form.challenge.trim() || undefined,
-    };
-
-    const url = buildWhatsAppUrl(buildDiagnosticoMessage(data, lang));
+    const url = buildWhatsAppUrl(buildDiagnosticoMessage(buildLeadData(), lang));
     trackFormSubmit("diagnostico_modal", true);
     window.open(url, "_blank", "noopener,noreferrer");
     setStep(3);
   };
 
   const openWhatsAppAgain = () => {
-    const serviceLabels = SERVICE_COMBOS.filter((s) => form.services.includes(s.id)).map(
-      (s) => s[lang]
+    window.open(
+      buildWhatsAppUrl(buildDiagnosticoMessage(buildLeadData(), lang)),
+      "_blank",
+      "noopener,noreferrer"
     );
-    const data: LeadData = {
-      name: form.name.trim(),
-      propertyName: form.propertyName.trim(),
-      propertyType: form.propertyType || undefined,
-      hasSite: form.hasSite,
-      siteUrl: form.hasSite ? form.siteUrl.trim() || undefined : undefined,
-      hasInstagram: form.hasInstagram,
-      instagramHandle: form.hasInstagram ? form.instagramHandle.trim() || undefined : undefined,
-      serviceLabels,
-      challenge: form.challenge.trim() || undefined,
-    };
-    window.open(buildWhatsAppUrl(buildDiagnosticoMessage(data, lang)), "_blank", "noopener,noreferrer");
   };
 
   const inputClass =
     "w-full bg-[#F7F3EE] border rounded-xl px-4 py-3 text-[14px] text-[#1A0F08] font-light placeholder:text-[#b0a099] outline-none transition-all duration-200 focus:bg-white border-[rgba(196,164,142,0.3)] focus:border-[#84936f] focus:ring-2 focus:ring-[rgba(132,147,111,0.12)]";
-
-  const ToggleRow = ({
-    active,
-    onYes,
-    onNo,
-  }: {
-    active: boolean;
-    onYes: () => void;
-    onNo: () => void;
-  }) => (
-    <div className="flex gap-2">
-      <button
-        type="button"
-        onClick={onYes}
-        className="flex-1 h-11 rounded-xl border text-[13px] font-medium transition-all"
-        style={
-          active
-            ? { background: GREEN, borderColor: GREEN, color: "#fff" }
-            : { background: "#fff", borderColor: BORDER, color: TEXT_BODY }
-        }
-      >
-        {c.yes}
-      </button>
-      <button
-        type="button"
-        onClick={onNo}
-        className="flex-1 h-11 rounded-xl border text-[13px] font-medium transition-all"
-        style={
-          !active
-            ? { background: "#3a332c", borderColor: "#3a332c", color: "#fff" }
-            : { background: "#fff", borderColor: BORDER, color: TEXT_BODY }
-        }
-      >
-        {c.no}
-      </button>
-    </div>
-  );
 
   return (
     <AnimatePresence>
@@ -202,8 +235,10 @@ export function LeadModal() {
           style={{ background: "rgba(21,17,13,0.55)", backdropFilter: "blur(2px)" }}
           role="dialog"
           aria-modal="true"
+          aria-labelledby="lead-modal-title"
         >
           <motion.div
+            ref={panelRef}
             key="panel"
             initial={{ opacity: 0, y: 24, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -217,7 +252,7 @@ export function LeadModal() {
             <div className="px-6 pt-6 pb-4" style={{ background: BG }}>
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-[20px] font-semibold" style={{ color: TEXT_HEAD }}>
+                  <h2 id="lead-modal-title" className="text-[20px] font-semibold" style={{ color: TEXT_HEAD }}>
                     {c.title}
                   </h2>
                   <p className="text-[13px] font-light mt-1" style={{ color: TEXT_BODY }}>
@@ -308,6 +343,8 @@ export function LeadModal() {
                       </label>
                       <ToggleRow
                         active={form.hasSite}
+                        yesLabel={c.yes}
+                        noLabel={c.no}
                         onYes={() => set("hasSite", true)}
                         onNo={() => {
                           set("hasSite", false);
@@ -330,6 +367,8 @@ export function LeadModal() {
                       </label>
                       <ToggleRow
                         active={form.hasInstagram}
+                        yesLabel={c.yes}
+                        noLabel={c.no}
                         onYes={() => set("hasInstagram", true)}
                         onNo={() => {
                           set("hasInstagram", false);
