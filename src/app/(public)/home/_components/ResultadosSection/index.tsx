@@ -51,7 +51,7 @@ export default function ResultadosSection() {
               <span className="text-[52px] font-light leading-none tracking-tight" style={{ color: "#ffffff" }}>
                 {stat.value}
               </span>
-              <span className="text-[12px] font-semibold tracking-wide uppercase" style={{ color: "rgba(255,255,255,0.9)" }}>
+              <span className="text-[18px] font-semibold leading-snug uppercase" style={{ color: "#ffffff", letterSpacing: "0.02em" }}>
                 {stat.label}
               </span>
               <p className="text-[14px] font-light leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>
@@ -78,7 +78,7 @@ export default function ResultadosSection() {
               </span>
               <div className="w-px self-stretch" style={{ background: "rgba(255,255,255,0.2)" }} />
               <div className="flex flex-col gap-1">
-                <span className="text-[11px] font-semibold tracking-wide uppercase" style={{ color: "rgba(255,255,255,0.9)" }}>
+                <span className="text-[16px] font-semibold leading-snug uppercase" style={{ color: "#ffffff", letterSpacing: "0.02em" }}>
                   {stat.label}
                 </span>
                 <p className="text-[13px] font-light leading-relaxed" style={{ color: "rgba(255,255,255,0.88)" }}>

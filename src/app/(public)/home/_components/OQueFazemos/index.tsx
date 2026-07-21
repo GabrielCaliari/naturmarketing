@@ -8,6 +8,7 @@ import {
 import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
+import ClientesCarousel from "../ClientesCarousel";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -79,27 +80,28 @@ function BentoCard({ icon, titulo, descricao }: { icon: React.ReactNode; titulo:
   return (
     <div
       className={[
-        "group flex flex-col items-center text-center gap-3 px-5 py-6 rounded-2xl h-full",
+        "group flex flex-col items-center text-center gap-4 md:gap-3 px-6 py-8 md:px-5 md:py-6 rounded-2xl h-full",
+        "min-h-[290px] md:min-h-[230px]",
         "transition-all duration-500 cursor-default",
         "hover:bg-[#84936f] hover:shadow-lg hover:-translate-y-1",
       ].join(" ")}
-      style={{ background: BG_CARD, border: `1px solid ${BORDER}`, minHeight: "220px" }}
+      style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}
     >
       <div
-        className="w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:bg-white/15"
+        className="w-14 h-14 md:w-12 md:h-12 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:bg-white/15"
         style={{ background: "rgba(132,147,111,0.12)", color: BRAND_GREEN }}
       >
         {icon}
       </div>
-      <div className="flex flex-col gap-1.5 flex-1">
+      <div className="flex flex-col gap-2 md:gap-1.5 flex-1">
         <h3
-          className="text-[15px] font-semibold leading-tight transition-colors duration-500 group-hover:text-white"
+          className="text-[20px] md:text-[18px] font-semibold leading-tight transition-colors duration-500 group-hover:text-white"
           style={{ color: TEXT_HEAD }}
         >
           {titulo}
         </h3>
         <p
-          className="text-[13px] leading-[1.65] font-light transition-colors duration-500 group-hover:text-white/80"
+          className="text-[15px] md:text-[13px] leading-[1.65] font-light transition-colors duration-500 group-hover:text-white/80"
           style={{ color: TEXT_BODY }}
         >
           {descricao}
@@ -210,10 +212,17 @@ export default function OQueFazemos() {
             ))}
           </div>
         </div>
+      </div>
 
+      {/* Carrossel de fotos de clientes — full-bleed entre os cards e o CTA */}
+      <div className="mt-10 md:mt-14">
+        <ClientesCarousel />
+      </div>
+
+      <div className="section-container">
         {/* CTA strip */}
         <Reveal
-          className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-5 px-6 py-5 rounded-2xl"
+          className="mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-between gap-5 px-6 py-5 rounded-2xl"
           style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}
         >
           <p className="paragraph text-center sm:text-left" style={{ fontWeight: 300, color: TEXT_BODY }}>
