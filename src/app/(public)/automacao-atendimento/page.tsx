@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
 import { COMPANY_NAP } from "@/constants/company";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
+import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
@@ -102,14 +103,15 @@ export default function AutomacaoAtendimentoPage() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
               Automação inteligente que captura leads, responde dúvidas e converte reservas diretas enquanto sua equipe descansa, sem perder nenhuma oportunidade.
             </p>
-            <a
-              href="https://wa.me/5535997742984?text=Olá! Tenho interesse na automação de atendimento para o meu hotel."
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+            <DiagnosticoCTA
+              preselect={SERVICE_PRESELECT["/automacao-atendimento"]}
+              trackId="cta_automacao_hero"
+              source="/automacao-atendimento"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               Quero automação para meu hotel
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 

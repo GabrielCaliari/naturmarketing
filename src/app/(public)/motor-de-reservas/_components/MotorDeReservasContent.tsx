@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { WHATSAPP_LINK } from "@/constants/company";
+import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
@@ -129,7 +129,6 @@ const content = {
 export default function MotorDeReservasContent() {
   const { locale } = useLocale();
   const c = content[locale === "en" ? "en" : "pt"];
-  const waHref = `${WHATSAPP_LINK}?text=${encodeURIComponent(c.waText)}`;
 
   return (
     <>
@@ -155,14 +154,15 @@ export default function MotorDeReservasContent() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "580px", lineHeight: 1.75 }}>
               {c.heroP}
             </p>
-            <a
-              href={waHref}
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+            <DiagnosticoCTA
+              preselect={SERVICE_PRESELECT["/motor-de-reservas"]}
+              trackId="cta_motor_reservas_hero"
+              source="/motor-de-reservas"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               {c.heroCta}
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 

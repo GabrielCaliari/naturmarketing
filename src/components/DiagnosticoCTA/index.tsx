@@ -10,9 +10,11 @@ type Props = {
   trackId?: string;
   source?: string;
   ariaLabel?: string;
+  /** Serviços (ids de SERVICE_COMBOS) já marcados na etapa 2 ao abrir o modal. */
+  preselect?: string[];
 };
 
-export function DiagnosticoCTA({ children, className, style, trackId, source, ariaLabel }: Props) {
+export function DiagnosticoCTA({ children, className, style, trackId, source, ariaLabel, preselect }: Props) {
   const { open } = useLeadModal();
   return (
     <button
@@ -22,7 +24,7 @@ export function DiagnosticoCTA({ children, className, style, trackId, source, ar
       aria-label={ariaLabel}
       onClick={() => {
         if (trackId) trackButtonClick(trackId, source ?? "modal");
-        open();
+        open(preselect);
       }}
     >
       {children}

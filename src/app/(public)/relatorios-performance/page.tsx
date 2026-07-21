@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
 import { COMPANY_NAP } from "@/constants/company";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
+import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
@@ -102,14 +103,15 @@ export default function RelatoriosPerformancePage() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
               Análise profunda de ROI, métricas de desempenho por canal e relatórios estratégicos mensais, para você saber exatamente o retorno de cada real investido.
             </p>
-            <a
-              href="https://wa.me/5535997742984?text=Olá! Tenho interesse nos relatórios de performance para o meu hotel."
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+            <DiagnosticoCTA
+              preselect={SERVICE_PRESELECT["/relatorios-performance"]}
+              trackId="cta_relatorios_hero"
+              source="/relatorios-performance"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               Quero visibilidade sobre meus resultados
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 

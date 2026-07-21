@@ -3,6 +3,7 @@
 import Image from "next/image";
 import BackgroundImage from "./../../../../../../public/img/resource/background.webp";
 import { useLocale } from "@/context/LocaleContext";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 const Banner = () => {
   const { t } = useLocale();
@@ -90,15 +91,14 @@ const Banner = () => {
 
         {/* CTAs */}
         <div className="hero-fade-up hero-delay-3 flex flex-wrap items-center justify-center gap-5">
-          <a
-            href={t('banner.wa')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+          <DiagnosticoCTA
+            trackId="cta_home_hero"
+            source="/"
+            className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
             style={{ background: "#ffffff", color: "#1A0F08", letterSpacing: "0.08em" }}
           >
             {t('banner.cta.primary')}
-          </a>
+          </DiagnosticoCTA>
 
           <button
             onClick={handleScroll}

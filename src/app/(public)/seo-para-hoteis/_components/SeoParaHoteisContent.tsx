@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
+import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -14,7 +15,6 @@ const BORDER = "rgba(196,164,142,0.2)";
 const TEXT_HEAD = "#1A0F08";
 const TEXT_BODY = "#6e5e52";
 
-const WA = "https://wa.me/5535997742984";
 
 const content = {
   pt: {
@@ -92,7 +92,6 @@ const content = {
 export default function SeoParaHoteisContent() {
   const { locale } = useLocale();
   const c = content[locale === "en" ? "en" : "pt"];
-  const waHref = `${WA}?text=${encodeURIComponent(c.waText)}`;
 
   return (
     <>
@@ -118,14 +117,15 @@ export default function SeoParaHoteisContent() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
               {c.heroP}
             </p>
-            <a
-              href={waHref}
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+            <DiagnosticoCTA
+              preselect={SERVICE_PRESELECT["/seo-para-hoteis"]}
+              trackId="cta_seo_hero"
+              source="/seo-para-hoteis"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
               style={{ background: BRAND_GREEN }}
             >
               {c.heroCta}
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 

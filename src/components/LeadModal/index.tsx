@@ -91,7 +91,7 @@ function ToggleRow({
 }
 
 export function LeadModal() {
-  const { isOpen, close } = useLeadModal();
+  const { isOpen, close, preselect } = useLeadModal();
   const { locale } = useLocale();
   const lang = locale === "en" ? "en" : "pt";
   const c = MODAL_CONTENT[lang];
@@ -163,6 +163,14 @@ export function LeadModal() {
       openerRef.current?.focus?.();
     };
   }, [isOpen, handleClose]);
+
+  // Ao abrir, semeia a etapa 2 com os serviços pré-selecionados pelo CTA de origem
+  // (ex.: quem entra pelo CTA da página de Meta Ads já chega com "anúncios" marcado).
+  useEffect(() => {
+    if (isOpen && preselect.length > 0) {
+      setForm((f) => ({ ...f, services: preselect }));
+    }
+  }, [isOpen, preselect]);
 
   const markStarted = () => {
     if (!started) {

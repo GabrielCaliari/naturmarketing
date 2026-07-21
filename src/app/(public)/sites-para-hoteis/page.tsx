@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
 import { COMPANY_NAP } from "@/constants/company";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
+import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
@@ -95,14 +97,15 @@ export default function SitesHoteisPage() {
               Design premium com{" "}
               <Link href="/motor-de-reservas" style={{ color: BRAND_GREEN, textDecoration: "underline" }}>motor de reservas integrado</Link>. Rápido, otimizado para SEO e construído para converter visitante em hóspede, sem comissão para ninguém.
             </p>
-            <a
-              href="https://wa.me/5535997742984?text=Olá! Tenho interesse em criar um site para o meu hotel."
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+            <DiagnosticoCTA
+              preselect={SERVICE_PRESELECT["/sites-para-hoteis"]}
+              trackId="cta_sites_hero"
+              source="/sites-para-hoteis"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               Quero um site para meu hotel
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 
@@ -154,14 +157,15 @@ export default function SitesHoteisPage() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.65)", fontWeight: 300, lineHeight: 1.75 }}>
               Avaliamos gratuitamente seu site atual e identificamos onde você perde hóspedes para as OTAs.
             </p>
-            <a
-              href="https://wa.me/5535997742984?text=Olá! Quero avaliar o site do meu hotel e criar um novo."
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90"
+            <DiagnosticoCTA
+              preselect={SERVICE_PRESELECT["/sites-para-hoteis"]}
+              trackId="cta_sites_bottom"
+              source="/sites-para-hoteis"
+              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               Avaliação Gratuita
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 

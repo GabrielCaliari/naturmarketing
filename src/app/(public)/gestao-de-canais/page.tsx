@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
 import { COMPANY_NAP } from "@/constants/company";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
+import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
@@ -102,14 +103,15 @@ export default function GestaoDeCanaisPage() {
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(1rem, 2vw, 1.2rem)", fontWeight: 300, maxWidth: "560px", lineHeight: 1.75 }}>
               Do Instagram ao Booking, do Google Meu Negócio ao WhatsApp, gerenciamos todos os pontos de contato digitais do seu hotel com uma única estratégia integrada.
             </p>
-            <a
-              href="https://wa.me/5535997742984?text=Olá! Tenho interesse na gestão de canais digitais para o meu hotel."
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+            <DiagnosticoCTA
+              preselect={SERVICE_PRESELECT["/gestao-de-canais"]}
+              trackId="cta_gestao_canais_hero"
+              source="/gestao-de-canais"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               Quero gestão integrada para meu hotel
-            </a>
+            </DiagnosticoCTA>
           </div>
         </section>
 

@@ -7,6 +7,7 @@ import {
 } from "@tabler/icons-react";
 import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
 const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
@@ -221,15 +222,14 @@ export default function OQueFazemos() {
               {t('services.cta.strong')}
             </strong>
           </p>
-          <a
-            href={t('services.wa')}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center px-6 py-3 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+          <DiagnosticoCTA
+            trackId="cta_services_strip"
+            source="/"
+            className="shrink-0 inline-flex items-center px-6 py-3 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             style={{ background: BRAND_BROWN, letterSpacing: "0.04em" }}
           >
             {t('services.cta.btn')}
-          </a>
+          </DiagnosticoCTA>
         </Reveal>
       </div>
     </section>
