@@ -28,8 +28,8 @@ export function buildDiagnosticoMessage(
   const typeSuffix = data.propertyType ? ` (${data.propertyType})` : "";
 
   const greeting = isEn
-    ? `Hi! 👋 My name is *${data.name}*, from *${data.propertyName}*${typeSuffix}.`
-    : `Olá! 👋 Me chamo *${data.name}*, da *${data.propertyName}*${typeSuffix}.`;
+    ? `Hi! My name is *${data.name}*, from *${data.propertyName}*${typeSuffix}.`
+    : `Olá! Me chamo *${data.name}*, da *${data.propertyName}*${typeSuffix}.`;
 
   const servicesTitle = isEn ? "Services I'm interested in:" : "Serviços de interesse:";
   const servicesBlock = [servicesTitle, ...data.serviceLabels.map((s) => `• ${s}`)].join("\n");
