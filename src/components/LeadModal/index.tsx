@@ -253,7 +253,7 @@ export function LeadModal() {
             exit={{ opacity: 0, y: 24, scale: 0.98 }}
             transition={{ duration: 0.25 }}
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl max-h-[92dvh] overflow-y-auto"
+            className="w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl max-h-[92dvh] overflow-y-auto"
             style={{ background: CARD, border: `1px solid ${BORDER}` }}
           >
             {/* Header */}
@@ -425,7 +425,7 @@ export function LeadModal() {
                       </p>
                     </div>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {SERVICE_COMBOS.map((s) => {
                         const selected = form.services.includes(s.id);
                         return (
@@ -440,14 +440,14 @@ export function LeadModal() {
                                   : [...form.services, s.id]
                               )
                             }
-                            className="w-full text-left px-4 py-3 rounded-xl border flex items-center gap-3 transition-all"
+                            className="w-full h-full text-left px-3.5 py-3 rounded-xl border flex items-start gap-2.5 transition-all cursor-pointer"
                             style={{
                               background: selected ? "rgba(132,147,111,0.12)" : "#fff",
                               borderColor: selected ? GREEN : BORDER,
                             }}
                           >
                             <span
-                              className="shrink-0 w-5 h-5 rounded-md flex items-center justify-center border"
+                              className="shrink-0 mt-0.5 w-5 h-5 rounded-md flex items-center justify-center border"
                               style={{
                                 background: selected ? GREEN : "transparent",
                                 borderColor: selected ? GREEN : BORDER,
@@ -455,7 +455,7 @@ export function LeadModal() {
                             >
                               {selected && <IconCheck size={14} color="#fff" />}
                             </span>
-                            <span className="text-[13px] font-light" style={{ color: TEXT_HEAD }}>
+                            <span className="text-[12.5px] font-light leading-snug" style={{ color: TEXT_HEAD }}>
                               {s[lang]}
                             </span>
                           </button>

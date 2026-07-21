@@ -1,38 +1,32 @@
 export type ServiceCombo = { id: string; pt: string; en: string };
 
-// Opções da etapa 2. Rótulos orientados a benefício, coerentes com os serviços
-// do header e da seção "Como Atuamos". Cada página de serviço pré-seleciona
-// uma ou mais destas opções (ver SERVICE_PRESELECT).
+// Opções da etapa 2 (exibidas em 2 colunas). Combos curados que cobrem todos os
+// serviços do header e da seção "Como Atuamos". Cada página de serviço
+// pré-seleciona a opção correspondente (ver SERVICE_PRESELECT).
 export const SERVICE_COMBOS: ServiceCombo[] = [
-  { id: "instagram", pt: "Gestão completa de Instagram — criação do perfil, conteúdo e estratégia", en: "Full Instagram management — profile setup, content and strategy" },
-  { id: "anuncios", pt: "Campanhas de anúncios pagos para gerar reservas diretas", en: "Paid ad campaigns to drive direct bookings" },
-  { id: "audiovisual", pt: "Produção de fotos e vídeos profissionais das unidades", en: "Professional photo and video production of your property" },
-  { id: "site-motor", pt: "Criação de site próprio com motor de reservas", en: "Custom website with a booking engine" },
-  { id: "otimizacao-otas", pt: "Otimização dos anúncios nas plataformas (Booking, Airbnb)", en: "Listing optimization on OTAs (Booking, Airbnb)" },
-  { id: "google-meu-negocio", pt: "Gestão do Google Meu Negócio", en: "Google Business Profile management" },
-  { id: "seo", pt: "SEO para hotéis — aparecer no topo do Google", en: "Hotel SEO — rank at the top of Google" },
-  { id: "atendimento", pt: "Estruturação do atendimento — scripts, funil e follow up", en: "Guest service setup — scripts, funnel and follow-up" },
-  { id: "automacao-wa", pt: "Automação de atendimento no WhatsApp (respostas e follow up automáticos)", en: "WhatsApp service automation (automatic replies and follow-up)" },
-  { id: "crm", pt: "Sistema de gestão de reservas (CRM)", en: "Booking management system (CRM)" },
-  { id: "fidelizacao", pt: "Estratégia de fidelização para o hóspede voltar direto", en: "Loyalty strategy so guests rebook directly" },
-  { id: "marca", pt: "Posicionamento e identidade da marca", en: "Brand positioning and identity" },
-  { id: "relatorios", pt: "Relatórios mensais de desempenho e acompanhamento estratégico", en: "Monthly performance reports and strategic follow-up" },
+  { id: "canal-direto", pt: "Reservas Diretas (Site + Motor)", en: "Direct bookings (Website + Booking engine)" },
+  { id: "trafego", pt: "Anúncios & Tráfego Pago (Meta + Google)", en: "Ads & Paid traffic (Meta + Google)" },
+  { id: "seo", pt: "SEO para Hotéis", en: "Hotel SEO" },
+  { id: "gestao-canais", pt: "Gestão de Canais & Redes Sociais (OTAs, Instagram, Airbnb)", en: "Channels & Social media (OTAs, Instagram, Airbnb)" },
+  { id: "atendimento", pt: "Automação de Atendimento (WhatsApp)", en: "Guest service automation (WhatsApp)" },
+  { id: "audiovisual", pt: "Conteúdo & Produção Audiovisual", en: "Content & Audiovisual production" },
+  { id: "relatorios", pt: "Relatórios & Performance", en: "Reports & Performance" },
   { id: "completo", pt: "Não sei ainda — quero um diagnóstico completo", en: "Not sure yet — I want a full assessment" },
 ];
 
-// Mapa página de serviço → opções pré-marcadas na etapa 2 quando o lead chega
+// Mapa página de serviço → opção pré-marcada na etapa 2 quando o lead chega
 // pelo CTA daquela página. As chaves são os pathnames das páginas de serviço.
 export const SERVICE_PRESELECT: Record<string, string[]> = {
-  "/gestao-de-canais": ["instagram", "otimizacao-otas", "google-meu-negocio"],
+  "/gestao-de-canais": ["gestao-canais"],
   "/producao-audiovisual": ["audiovisual"],
-  "/sites-para-hoteis": ["site-motor"],
-  "/motor-de-reservas": ["site-motor", "crm"],
-  "/reservas-diretas": ["site-motor"],
-  "/google-hotel-ads": ["anuncios", "google-meu-negocio"],
-  "/meta-ads": ["anuncios"],
-  "/seo-para-hoteis": ["seo", "google-meu-negocio"],
+  "/sites-para-hoteis": ["canal-direto"],
+  "/motor-de-reservas": ["canal-direto"],
+  "/reservas-diretas": ["canal-direto"],
+  "/google-hotel-ads": ["trafego"],
+  "/meta-ads": ["trafego"],
+  "/seo-para-hoteis": ["seo"],
   "/relatorios-performance": ["relatorios"],
-  "/automacao-atendimento": ["automacao-wa", "atendimento"],
+  "/automacao-atendimento": ["atendimento"],
 };
 
 export const PROPERTY_TYPES = {
