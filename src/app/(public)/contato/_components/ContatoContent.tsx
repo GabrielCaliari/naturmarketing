@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { IconPhone, IconMail, IconMapPin, IconClock, IconBrandInstagram } from "@tabler/icons-react";
+import { IconPhone, IconMail, IconClock, IconBrandInstagram } from "@tabler/icons-react";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LeadForm } from "@/components/LeadForm";
@@ -88,11 +88,6 @@ export default function ContatoContent() {
                 <a href={`mailto:${COMPANY_NAP.email}`} className="flex items-center gap-3 p-4 rounded-2xl transition-all hover:shadow-md" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
                   <IconMail size={20} color={BRAND_BROWN} />
                   <span className="text-[14px]" style={{ color: TEXT_HEAD }}>{COMPANY_NAP.email}</span>
-                </a>
-
-                <a href={COMPANY_NAP.social.googleMaps} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-2xl transition-all hover:shadow-md" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
-                  <IconMapPin size={20} color={BRAND_BROWN} />
-                  <span className="text-[14px]" style={{ color: TEXT_HEAD }}>{COMPANY_NAP.address.full}</span>
                 </a>
 
                 <div className="flex items-center gap-3 p-4 rounded-2xl" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
