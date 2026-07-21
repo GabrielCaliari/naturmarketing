@@ -8,6 +8,7 @@ import {
   IconArrowLeft,
   IconBrandWhatsapp,
   IconCheck,
+  IconChevronDown,
 } from "@tabler/icons-react";
 import { useLocale } from "@/context/LocaleContext";
 import { trackFormStart, trackFormSubmit } from "@/lib/analytics";
@@ -255,18 +256,26 @@ export function LeadForm({
                 <label className="text-[12px] font-light block mb-1.5" style={{ color: TEXT_BODY }}>
                   {c.typeLabel}
                 </label>
-                <select
-                  className={inputClass}
-                  value={form.propertyType}
-                  onChange={(e) => set("propertyType", e.target.value)}
-                >
-                  <option value="">{c.typePlaceholder}</option>
-                  {PROPERTY_TYPES[lang].map((t) => (
-                    <option key={t} value={t}>
-                      {t}
-                    </option>
-                  ))}
-                </select>
+                <div className="relative">
+                  <select
+                    className={`${inputClass} appearance-none pr-10 cursor-pointer`}
+                    value={form.propertyType}
+                    onChange={(e) => set("propertyType", e.target.value)}
+                    style={{ color: form.propertyType ? TEXT_HEAD : "#b0a099" }}
+                  >
+                    <option value="" style={{ color: "#b0a099" }}>{c.typePlaceholder}</option>
+                    {PROPERTY_TYPES[lang].map((t) => (
+                      <option key={t} value={t} style={{ color: TEXT_HEAD }}>
+                        {t}
+                      </option>
+                    ))}
+                  </select>
+                  <IconChevronDown
+                    size={18}
+                    className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2"
+                    style={{ color: TEXT_BODY }}
+                  />
+                </div>
               </div>
 
               <div>
