@@ -256,8 +256,6 @@ const Header = () => {
     if (!isMobile) setIsMobileMenuOpen(false);
   }, [isMobile]);
 
-  const ctaWa = t("banner.wa");
-
   return (
     <header className="main-header fixed-header">
       <div className="auto-container">
@@ -302,14 +300,12 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        <a
-                          href={ctaWa}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                        <Link
+                          href="/contato"
                           style={{ color: "rgba(255,255,255,0.92)", fontSize: "14px", fontWeight: 400, textDecoration: "none", cursor: "pointer" }}
                         >
                           {t('nav.contact')}
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -352,7 +348,6 @@ const Header = () => {
         <MobileMenu
           onClose={() => setIsMobileMenuOpen(false)}
           locale={locale}
-          ctaWa={ctaWa}
           ctaLabel={t("nav.cta")}
           t={t}
         />
@@ -365,13 +360,11 @@ const Header = () => {
 const MobileMenu = ({
   onClose,
   locale: _locale,
-  ctaWa,
   ctaLabel,
   t,
 }: {
   onClose: () => void;
   locale: string;
-  ctaWa: string;
   ctaLabel: string;
   t: (key: string) => string;
 }) => {
@@ -464,17 +457,15 @@ const MobileMenu = ({
             </div>
           </div>
 
-          {/* Contato → WhatsApp */}
+          {/* Contato → página /contato */}
           <div className="menu-item-in" style={{ animationDelay: "0.25s" }}>
-            <a
-              href={ctaWa}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contato"
               className="mobile-menu-link block"
               onClick={onClose}
             >
               {t('nav.contact')}
-            </a>
+            </Link>
           </div>
         </nav>
 
