@@ -29,9 +29,16 @@ const Banner = () => {
           className="object-cover object-center"
           placeholder="blur"
         />
+        {/* Gradiente em vez de overlay chapado: escurece só as faixas que
+            sustentam o texto (badge no topo, CTAs na base) e deixa a foto
+            aparecer no meio. Tom 60,30,10 é menos saturado que o marrom
+            anterior, então não tinge a imagem de laranja. */}
         <div
           className="absolute inset-0"
-          style={{ background: "rgba(90, 45, 15, 0.62)" }}
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(60,30,10,0.55) 0%, rgba(60,30,10,0.22) 45%, rgba(60,30,10,0.60) 100%)",
+          }}
         />
       </div>
 
@@ -64,6 +71,9 @@ const Banner = () => {
             fontSize: "clamp(2.25rem, 4.5vw, 4rem)",
             fontWeight: 700,
             lineHeight: "1.05",
+            // Compensa a faixa central clara do gradiente: garante contraste do
+            // branco sobre as regiões mais claras da foto.
+            textShadow: "0 1px 12px rgba(0,0,0,0.35)",
           }}
         >
           {t('banner.title.1')}<br /> {t('banner.title.2')}
@@ -81,6 +91,7 @@ const Banner = () => {
             maxWidth: "520px",
             fontSize: "clamp(1rem, 2vw, 1.25rem)",
             lineHeight: 1.7,
+            textShadow: "0 1px 10px rgba(0,0,0,0.35)",
           }}
         >
           {t('banner.subtitle')}<br />{" "}
