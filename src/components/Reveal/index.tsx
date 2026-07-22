@@ -67,7 +67,11 @@ export default function Reveal({
         }
         first = false;
       },
-      { rootMargin: "0px 0px -8% 0px" }
+      // -15% na base (era -8%): o elemento só revela depois de subir um pouco
+      // na tela, senão a animação acontece na borda inferior e passa
+      // despercebida. Mantemos threshold 0 de propósito — um threshold >0
+      // nunca dispara para elementos mais altos que a viewport.
+      { rootMargin: "0px 0px -15% 0px" }
     );
     io.observe(el);
     return () => io.disconnect();

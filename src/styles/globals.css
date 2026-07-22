@@ -832,31 +832,31 @@ main {
 }
 
 /* Reveal on scroll (componente src/components/Reveal) */
+/* Sem transition aqui de propósito: o conteúdo é renderizado visível no SSR e
+   .reveal-pending só entra depois da hidratação. Com transition, o elemento
+   fazia um fade-OUT de 0.65s no carregamento antes de esperar o scroll. */
 .reveal-pending {
   opacity: 0;
-  transition:
-    opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .reveal-from-up {
-  transform: translateY(30px);
+  transform: translateY(48px);
 }
 
 .reveal-from-right {
-  transform: translateX(40px);
+  transform: translateX(48px);
 }
 
 .reveal-from-left {
-  transform: translateX(-40px);
+  transform: translateX(-48px);
 }
 
 .reveal-in {
   opacity: 1;
   transform: none;
   transition:
-    opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @media (prefers-reduced-motion: reduce) {
