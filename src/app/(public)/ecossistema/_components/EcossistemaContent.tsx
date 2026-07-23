@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { IconArrowRight } from "@tabler/icons-react";
+import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
@@ -203,7 +204,7 @@ export default function EcossistemaContent() {
 
         {/* Intro */}
         <section className="py-16 px-6 md:px-16">
-          <div className="max-w-3xl mx-auto">
+          <Reveal className="max-w-3xl mx-auto">
             <h2 className="mb-5" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
               {c.introH2}
             </h2>
@@ -213,22 +214,24 @@ export default function EcossistemaContent() {
             <p className="text-[16px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
               {c.introP2}
             </p>
-          </div>
+          </Reveal>
         </section>
 
         {/* Pilares */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.pillarsLabel}</span>
-            </div>
-            <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              {c.pillarsH2}
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.pillarsLabel}</span>
+              </div>
+              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.pillarsH2}
+              </h2>
+            </Reveal>
             <div className="flex flex-col gap-4">
-              {c.pillars.map((p) => (
-                <div key={p.n} className="flex items-start gap-5 p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+              {c.pillars.map((p, i) => (
+                <Reveal key={p.n} delay={i * 60} className="flex items-start gap-5 p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.25)" }}>{p.n}</span>
                   <div>
                     <h3 className="font-semibold mb-2" style={{ color: TEXT_HEAD }}>{p.title}</h3>
@@ -247,7 +250,7 @@ export default function EcossistemaContent() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -256,22 +259,24 @@ export default function EcossistemaContent() {
         {/* Ciclo */}
         <section className="py-16 px-6 md:px-16">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.cycleLabel}</span>
-            </div>
-            <h2 className="mb-5" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              {c.cycleH2}
-            </h2>
-            <p className="text-[16px] font-light leading-[1.85] mb-10" style={{ color: TEXT_BODY }}>
-              {c.cycleP}
-            </p>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.cycleLabel}</span>
+              </div>
+              <h2 className="mb-5" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.cycleH2}
+              </h2>
+              <p className="text-[16px] font-light leading-[1.85] mb-10" style={{ color: TEXT_BODY }}>
+                {c.cycleP}
+              </p>
+            </Reveal>
             <div className="grid md:grid-cols-3 gap-5">
               {c.cycleItems.map((item, i) => (
-                <div key={i} className="p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+                <Reveal key={i} delay={i * 60} className="p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <h3 className="font-semibold mb-2" style={{ color: BRAND_GREEN }}>{item.title}</h3>
                   <p className="text-[14px] font-light leading-relaxed" style={{ color: TEXT_BODY }}>{item.desc}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -279,7 +284,7 @@ export default function EcossistemaContent() {
 
         {/* CTA */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#15110d" }}>
-          <div className="max-w-2xl mx-auto text-center">
+          <Reveal className="max-w-2xl mx-auto text-center">
             <h2 className="text-white mb-4" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 700 }}>
               {c.ctaH2}
             </h2>
@@ -294,7 +299,7 @@ export default function EcossistemaContent() {
             >
               {c.ctaBtn}
             </DiagnosticoCTA>
-          </div>
+          </Reveal>
         </section>
 
       </main>
