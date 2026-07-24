@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
+import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
@@ -168,7 +169,7 @@ export default function MotorDeReservasContent() {
 
         {/* Intro */}
         <section className="py-16 px-6 md:px-16">
-          <div className="max-w-3xl mx-auto">
+          <Reveal className="max-w-3xl mx-auto">
             <h2 className="mb-5" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
               {c.introH2}
             </h2>
@@ -178,25 +179,27 @@ export default function MotorDeReservasContent() {
             <p className="text-[16px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
               {c.introP2a}<Link href="/reservas-diretas" style={{ color: BRAND_BROWN }}>{c.introLink1}</Link>{c.introP2b}<Link href="/sites-para-hoteis" style={{ color: BRAND_BROWN }}>{c.introLink2}</Link>{c.introP2c}<Link href="/google-hotel-ads" style={{ color: BRAND_BROWN }}>{c.introLink3}</Link>{c.introP2d}
             </p>
-          </div>
+          </Reveal>
         </section>
 
         {/* Benefícios */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.benLabel}</span>
-            </div>
-            <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              {c.benH2}
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.benLabel}</span>
+              </div>
+              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.benH2}
+              </h2>
+            </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
               {c.benefits.map((b, i) => (
-                <div key={i} className="p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+                <Reveal key={i} delay={i * 60} className="p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <h3 className="font-semibold mb-2" style={{ color: TEXT_HEAD }}>{b.title}</h3>
                   <p className="text-[14px] font-light leading-relaxed" style={{ color: TEXT_BODY }}>{b.desc}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -205,22 +208,24 @@ export default function MotorDeReservasContent() {
         {/* Como implantamos */}
         <section className="py-16 px-6 md:px-16">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.stepsLabel}</span>
-            </div>
-            <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              {c.stepsH2}
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.stepsLabel}</span>
+              </div>
+              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.stepsH2}
+              </h2>
+            </Reveal>
             <div className="flex flex-col gap-4">
-              {c.steps.map((s) => (
-                <div key={s.n} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+              {c.steps.map((s, i) => (
+                <Reveal key={s.n} delay={i * 60} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.25)" }}>{s.n}</span>
                   <div>
                     <h3 className="font-semibold mb-1" style={{ color: TEXT_HEAD }}>{s.title}</h3>
                     <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{s.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -229,19 +234,21 @@ export default function MotorDeReservasContent() {
         {/* FAQ */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
           <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.faqLabel}</span>
-            </div>
-            <h2 className="mb-8" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              {c.faqH2}
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.faqLabel}</span>
+              </div>
+              <h2 className="mb-8" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.faqH2}
+              </h2>
+            </Reveal>
             <div className="flex flex-col gap-4">
               {c.faqs.map((f, i) => (
-                <div key={i} className="p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+                <Reveal key={i} delay={i * 60} className="p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <h3 className="font-semibold mb-2" style={{ color: TEXT_HEAD, fontSize: "15px" }}>{f.q}</h3>
                   <p className="text-[14px] font-light leading-relaxed" style={{ color: TEXT_BODY }}>{f.a}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -249,7 +256,7 @@ export default function MotorDeReservasContent() {
 
         {/* CTA */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#15110d" }}>
-          <div className="max-w-2xl mx-auto text-center">
+          <Reveal className="max-w-2xl mx-auto text-center">
             <h2 className="text-white mb-4" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 700 }}>
               {c.ctaH2}
             </h2>
@@ -264,7 +271,7 @@ export default function MotorDeReservasContent() {
             >
               {c.ctaBtn}
             </DiagnosticoCTA>
-          </div>
+          </Reveal>
         </section>
 
       </main>
