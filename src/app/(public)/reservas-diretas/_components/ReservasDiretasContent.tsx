@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
@@ -163,33 +164,35 @@ export default function ReservasDiretasContent() {
         {/* A conta */}
         <section className="py-16 px-6 md:px-16">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.contaLabel}</span>
-            </div>
-            <h2 className="mb-6" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              {c.contaH2}
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.contaLabel}</span>
+              </div>
+              <h2 className="mb-6" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.contaH2}
+              </h2>
+            </Reveal>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="p-6 rounded-2xl" style={{ background: "rgba(180,80,65,0.06)", border: "1px solid rgba(180,80,65,0.15)" }}>
+              <Reveal className="p-6 rounded-2xl" style={{ background: "rgba(180,80,65,0.06)", border: "1px solid rgba(180,80,65,0.15)" }}>
                 <p className="text-[11px] font-semibold tracking-widest uppercase mb-3" style={{ color: "rgba(180,80,65,0.7)" }}>{c.card1Label}</p>
                 <p className="text-[14px] font-light leading-relaxed" style={{ color: TEXT_BODY }}>
                   {c.card1Text1}<strong style={{ color: TEXT_HEAD }}>{c.card1Strong}</strong>{c.card1Text2}
                 </p>
-              </div>
-              <div className="p-6 rounded-2xl" style={{ background: "rgba(132,147,111,0.08)", border: `1px solid rgba(132,147,111,0.2)` }}>
+              </Reveal>
+              <Reveal delay={120} className="p-6 rounded-2xl" style={{ background: "rgba(132,147,111,0.08)", border: `1px solid rgba(132,147,111,0.2)` }}>
                 <p className="text-[11px] font-semibold tracking-widest uppercase mb-3" style={{ color: BRAND_GREEN }}>{c.card2Label}</p>
                 <p className="text-[14px] font-light leading-relaxed" style={{ color: TEXT_BODY }}>
                   {c.card2Text}
                 </p>
-              </div>
+              </Reveal>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {c.benefits.map((b, i) => (
-                <div key={i} className="flex items-center gap-2 p-3 rounded-xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+                <Reveal key={i} delay={i * 60} className="flex items-center gap-2 p-3 rounded-xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <span style={{ color: BRAND_GREEN }}>✓</span>
                   <span className="text-[13px] font-light" style={{ color: TEXT_HEAD }}>{b}</span>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -198,22 +201,24 @@ export default function ReservasDiretasContent() {
         {/* Roadmap */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.roadmapLabel}</span>
-            </div>
-            <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              {c.roadmapH2}
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.roadmapLabel}</span>
+              </div>
+              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.roadmapH2}
+              </h2>
+            </Reveal>
             <div className="flex flex-col gap-4">
               {c.etapas.map((e, i) => (
-                <div key={i} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+                <Reveal key={i} delay={i * 60} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <span className="text-[12px] font-semibold shrink-0 w-20 pt-0.5" style={{ color: BRAND_BROWN }}>{e.mes}</span>
                   <div>
                     <h3 className="font-semibold mb-1" style={{ color: TEXT_HEAD }}>{e.title}</h3>
                     <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{e.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -222,15 +227,15 @@ export default function ReservasDiretasContent() {
         {/* FAQ */}
         <section className="py-16 px-6 md:px-16">
           <div className="max-w-3xl mx-auto">
-            <h2 className="mb-8" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 400, color: TEXT_HEAD }}>
+            <Reveal as="h2" className="mb-8" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 400, color: TEXT_HEAD }}>
               {c.faqH2}
-            </h2>
+            </Reveal>
             <div className="flex flex-col gap-4">
               {c.faqs.map((f, i) => (
-                <div key={i} className="p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+                <Reveal key={i} delay={i * 60} className="p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <h3 className="font-semibold mb-2" style={{ color: TEXT_HEAD, fontSize: "15px" }}>{f.q}</h3>
                   <p className="text-[14px] font-light leading-relaxed" style={{ color: TEXT_BODY }}>{f.a}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -238,7 +243,7 @@ export default function ReservasDiretasContent() {
 
         {/* CTA */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#1f1410" }}>
-          <div className="max-w-2xl mx-auto text-center">
+          <Reveal className="max-w-2xl mx-auto text-center">
             <h2 className="text-white mb-4" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 700 }}>
               {c.ctaH2}
             </h2>
@@ -253,7 +258,7 @@ export default function ReservasDiretasContent() {
             >
               {c.ctaBtn}
             </DiagnosticoCTA>
-          </div>
+          </Reveal>
         </section>
 
       </main>
