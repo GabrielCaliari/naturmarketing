@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { IconBrandWhatsapp, IconArrowRight } from "@tabler/icons-react";
+import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 
@@ -145,19 +146,21 @@ export default function DiagnosticoContent() {
         {/* O que você recebe */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.recLabel}</span>
-            </div>
-            <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              {c.recH2}
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.recLabel}</span>
+              </div>
+              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.recH2}
+              </h2>
+            </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
               {c.receives.map((r, i) => (
-                <div key={i} className="p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+                <Reveal key={i} delay={i * 60} className="p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <h3 className="font-semibold mb-2" style={{ color: TEXT_HEAD }}>{r.title}</h3>
                   <p className="text-[14px] font-light leading-relaxed" style={{ color: TEXT_BODY }}>{r.desc}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -166,22 +169,24 @@ export default function DiagnosticoContent() {
         {/* Como funciona */}
         <section className="py-16 px-6 md:px-16">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.stepsLabel}</span>
-            </div>
-            <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              {c.stepsH2}
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.stepsLabel}</span>
+              </div>
+              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                {c.stepsH2}
+              </h2>
+            </Reveal>
             <div className="flex flex-col gap-4">
-              {c.steps.map((s) => (
-                <div key={s.n} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+              {c.steps.map((s, i) => (
+                <Reveal key={s.n} delay={i * 60} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.25)" }}>{s.n}</span>
                   <div>
                     <h3 className="font-semibold mb-1" style={{ color: TEXT_HEAD }}>{s.title}</h3>
                     <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{s.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -190,7 +195,7 @@ export default function DiagnosticoContent() {
         {/* Formulário */}
         <section id="form" className="py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
           <div className="max-w-3xl mx-auto">
-            <div
+            <Reveal
               className="flex flex-col items-center text-center gap-6 rounded-2xl p-8 md:p-12"
               style={{
                 background: BG_CARD,
@@ -236,7 +241,7 @@ export default function DiagnosticoContent() {
                   {c.waBtn}
                 </DiagnosticoCTA>
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
 
