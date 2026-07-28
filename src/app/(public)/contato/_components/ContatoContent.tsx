@@ -5,6 +5,7 @@ import { IconPhone, IconMail, IconClock, IconBrandInstagram } from "@tabler/icon
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LeadForm } from "@/components/LeadForm";
+import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 import { COMPANY_NAP } from "@/constants/company";
 
@@ -70,7 +71,7 @@ export default function ContatoContent() {
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
             {/* Coluna de informações */}
-            <div className="flex flex-col gap-8">
+            <Reveal from="left" className="flex flex-col gap-8">
               <p className="text-[15px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
                 {c.p}
               </p>
@@ -100,15 +101,17 @@ export default function ContatoContent() {
                   <span className="text-[14px]" style={{ color: TEXT_HEAD }}>{c.instagramLabel}</span>
                 </a>
               </div>
-            </div>
+            </Reveal>
 
             {/* Formulário embutido (mesmo wizard do modal, já aberto) */}
-            <div
+            <Reveal
+              from="right"
+              delay={180}
               className="rounded-3xl overflow-hidden shadow-xl"
               style={{ background: CARD, border: `1px solid ${BORDER}` }}
             >
               <LeadForm titleId="contato-form-title" analyticsId="contato_form" />
-            </div>
+            </Reveal>
 
           </div>
         </section>
