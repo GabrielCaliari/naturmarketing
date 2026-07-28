@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
 import { COMPANY_NAP } from "@/constants/company";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
@@ -118,19 +119,21 @@ export default function MetaAdsPage() {
         {/* Formatos */}
         <section className="py-16 px-6 md:px-16">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>Como atuamos</span>
-            </div>
-            <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              Campanhas para cada etapa da jornada do hóspede
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>Como atuamos</span>
+              </div>
+              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                Campanhas para cada etapa da jornada do hóspede
+              </h2>
+            </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
               {formats.map((f, i) => (
-                <div key={i} className="p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+                <Reveal key={i} delay={i * 60} className="p-6 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <h3 className="font-semibold mb-2" style={{ color: TEXT_HEAD }}>{f.title}</h3>
                   <p className="text-[14px] font-light leading-relaxed" style={{ color: TEXT_BODY }}>{f.desc}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -139,22 +142,24 @@ export default function MetaAdsPage() {
         {/* Stats */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#F7F3EE" }}>
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>Como trabalhamos</span>
-            </div>
-            <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              Da configuração técnica à otimização contínua
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>Como trabalhamos</span>
+              </div>
+              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                Da configuração técnica à otimização contínua
+              </h2>
+            </Reveal>
             <div className="flex flex-col gap-4">
-              {steps.map((s) => (
-                <div key={s.n} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+              {steps.map((s, i) => (
+                <Reveal key={s.n} delay={i * 60} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.25)" }}>{s.n}</span>
                   <div>
                     <h3 className="font-semibold mb-1" style={{ color: TEXT_HEAD }}>{s.title}</h3>
                     <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{s.desc}</p>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -163,19 +168,21 @@ export default function MetaAdsPage() {
         {/* FAQ */}
         <section className="py-16 px-6 md:px-16">
           <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-              <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>Dúvidas Frequentes</span>
-            </div>
-            <h2 className="mb-8" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 400, color: TEXT_HEAD }}>
-              Perguntas sobre Meta Ads para Hotéis
-            </h2>
+            <Reveal>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>Dúvidas Frequentes</span>
+              </div>
+              <h2 className="mb-8" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 400, color: TEXT_HEAD }}>
+                Perguntas sobre Meta Ads para Hotéis
+              </h2>
+            </Reveal>
             <div className="flex flex-col gap-4">
               {faqs.map((f, i) => (
-                <div key={i} className="p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
+                <Reveal key={i} delay={i * 60} className="p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <h3 className="font-semibold mb-2" style={{ color: TEXT_HEAD, fontSize: "15px" }}>{f.q}</h3>
                   <p className="text-[14px] font-light leading-relaxed" style={{ color: TEXT_BODY }}>{f.a}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -183,7 +190,7 @@ export default function MetaAdsPage() {
 
         {/* CTA */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#0f1525" }}>
-          <div className="max-w-2xl mx-auto text-center">
+          <Reveal className="max-w-2xl mx-auto text-center">
             <h2 className="text-white mb-4" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 700 }}>
               Pronto para reservas diretas via Meta Ads?
             </h2>
@@ -198,7 +205,7 @@ export default function MetaAdsPage() {
             >
               Diagnóstico Gratuito
             </DiagnosticoCTA>
-          </div>
+          </Reveal>
         </section>
 
       </main>
