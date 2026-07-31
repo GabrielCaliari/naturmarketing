@@ -130,6 +130,8 @@ const enUS: Record<string, string> = {
   'blog.h2.strong': 'Hotel Marketing',
   'blog.body': 'Strategies, tools and data for hotels that want to grow through direct bookings.',
   'blog.read': 'Read article →',
+  /* same action as 'blog.read', without the arrow in the text — used where the arrow is an animated SVG */
+  'blog.readmore': 'Read article',
   'blog.readmin': 'min read',
   'blog.cta': 'See all articles',
 
@@ -144,6 +146,7 @@ const enUS: Record<string, string> = {
   // ── Blog article page ──────────────────────────────────────────────────────
   'blog.article.home': 'Home',
   'blog.article.related': 'Related Articles',
+  'blog.article.topics': 'Topics in this article',
   'blog.article.cta.title': 'Want to apply these strategies at your hotel?',
   'blog.article.cta.body': 'Request a free diagnosis and find out where your operation can grow.',
   'blog.article.cta.btn': 'Free Diagnosis',

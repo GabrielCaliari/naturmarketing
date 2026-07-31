@@ -130,6 +130,8 @@ const ptBR: Record<string, string> = {
   'blog.h2.strong': 'Marketing Hoteleiro',
   'blog.body': 'Estratégias, ferramentas e dados para hotéis que querem crescer com reservas diretas.',
   'blog.read': 'Ler artigo →',
+  /* mesma ação de 'blog.read', mas sem a seta no texto — usado onde a seta é um SVG animado */
+  'blog.readmore': 'Ler artigo',
   'blog.readmin': 'min',
   'blog.cta': 'Ver todos os artigos',
 
@@ -144,6 +146,7 @@ const ptBR: Record<string, string> = {
   // ── Blog article page ──────────────────────────────────────────────────────
   'blog.article.home': 'Início',
   'blog.article.related': 'Artigos Relacionados',
+  'blog.article.topics': 'Tópicos deste artigo',
   'blog.article.cta.title': 'Quer aplicar essas estratégias no seu hotel?',
   'blog.article.cta.body': 'Solicite um diagnóstico gratuito e entenda onde sua operação pode crescer.',
   'blog.article.cta.btn': 'Diagnóstico Gratuito',
