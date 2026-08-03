@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 import { blogPostsMeta as blogPosts } from "@/data/blog-meta";
 import { useLocale } from "@/context/LocaleContext";
 import { formatDate } from "@/lib/format-date";
@@ -45,12 +46,18 @@ export default function BlogPageContent() {
       {/* Destaques */}
       <section className="pb-10 px-6 md:px-16">
         <div className="max-w-5xl mx-auto">
-          <p className="text-[10px] font-medium tracking-[0.3em] uppercase mb-6" style={{ color: BRAND_GREEN }}>
+          <Reveal
+            as="p"
+            className="text-[10px] font-medium tracking-[0.3em] uppercase mb-6"
+            style={{ color: BRAND_GREEN }}
+          >
             {t("blog.listing.featured")}
-          </p>
+          </Reveal>
           <div className="grid md:grid-cols-3 gap-5">
-            {featured.map((post) => (
-              <BlogCard key={post.slug} post={post} highlight locale={locale} t={t} />
+            {featured.map((post, i) => (
+              <Reveal key={post.slug} delay={i * 60} className="h-full">
+                <BlogCard post={post} highlight locale={locale} t={t} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -59,12 +66,18 @@ export default function BlogPageContent() {
       {/* Todos os artigos */}
       <section className="pb-20 px-6 md:px-16">
         <div className="max-w-5xl mx-auto">
-          <p className="text-[10px] font-medium tracking-[0.3em] uppercase mb-6" style={{ color: BRAND_GREEN }}>
+          <Reveal
+            as="p"
+            className="text-[10px] font-medium tracking-[0.3em] uppercase mb-6"
+            style={{ color: BRAND_GREEN }}
+          >
             {t("blog.listing.all")}
-          </p>
+          </Reveal>
           <div className="grid md:grid-cols-3 gap-5">
-            {rest.map((post) => (
-              <BlogCard key={post.slug} post={post} locale={locale} t={t} />
+            {rest.map((post, i) => (
+              <Reveal key={post.slug} delay={i * 60} className="h-full">
+                <BlogCard post={post} locale={locale} t={t} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -87,7 +100,7 @@ function BlogCard({
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+      className="group flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
       style={{ background: BG_CARD, border: `1px solid ${BORDER}`, textDecoration: "none" }}
     >
       <div className="w-full relative overflow-hidden" style={{ height: "190px" }}>
@@ -125,16 +138,23 @@ function BlogCard({
           {post.excerpt}
         </p>
 
-        <div className="flex items-center justify-between mt-2 pt-3" style={{ borderTop: `1px solid ${BORDER}` }}>
-          <span className="text-[11px]" style={{ color: TEXT_BODY }}>
-            {formatDate(post.publishedAt, locale)}
-          </span>
-          <span
-            className="text-[11px] font-medium transition-colors duration-300 group-hover:text-[#994f2a]"
-            style={{ color: BRAND_BROWN }}
+        <div
+          className="flex items-center gap-1.5 mt-2 pt-3 text-[11px] font-medium"
+          style={{ borderTop: `1px solid ${BORDER}`, color: BRAND_BROWN }}
+        >
+          <span>{t("blog.readmore")}</span>
+          <svg
+            className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
           >
-            {t("blog.read")}
-          </span>
+            <path d="M9 5l7 7-7 7" />
+          </svg>
         </div>
       </div>
     </Link>
