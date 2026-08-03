@@ -152,21 +152,45 @@ main {
    ============================ */
 .article-content {
   font-size: 17px;
-  line-height: 1.8;
+  line-height: 1.85;
   color: #6e5e52;
+  /* medida de leitura confortável (~65-70 caracteres) dentro do container */
+  max-width: 68ch;
+  margin-inline: auto;
+  text-wrap: pretty;
 }
 
+.article-content > *:first-child { margin-top: 0; }
+.article-content > *:last-child { margin-bottom: 0; }
+
+/* Hierarquia: h2 abre bloco, respiro acima maior que abaixo */
 .article-content h2 {
-  font-size: 22px;
+  font-size: 25px;
   font-weight: 600;
   color: #1A0F08;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.3;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  margin-top: 3.25rem;
+  margin-bottom: 1.1rem;
 }
 
+.article-content h3 {
+  font-size: 19px;
+  font-weight: 600;
+  color: #1A0F08;
+  line-height: 1.4;
+  margin-top: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.article-content h2 + p,
+.article-content h3 + p {
+  margin-top: 0;
+}
+
+/* Ritmo vertical uniforme entre parágrafos */
 .article-content p {
-  margin-bottom: 1.25rem;
+  margin: 0 0 1.35rem;
   font-weight: 300;
 }
 
@@ -175,12 +199,17 @@ main {
   color: #1A0F08;
 }
 
+.article-content em {
+  font-style: italic;
+}
+
 .article-content ul,
 .article-content ol {
-  margin: 1.25rem 0 1.5rem 1.5rem;
+  margin: 1.35rem 0 1.75rem;
+  padding-left: 1.4rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.7rem;
 }
 
 .article-content ul { list-style: disc; }
@@ -188,15 +217,34 @@ main {
 
 .article-content li {
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 1.75;
+  padding-left: 0.2rem;
 }
 
-.article-content em {
+.article-content li::marker {
+  color: #84936f;
+}
+
+.article-content li p {
+  margin-bottom: 0.5rem;
+}
+
+.article-content blockquote {
+  margin: 2.25rem 0;
+  padding: 0.15rem 0 0.15rem 1.4rem;
+  border-left: 3px solid #84936f;
   font-style: italic;
+  font-weight: 300;
+  color: #5a4c42;
+}
+
+.article-content blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 .article-content a {
   color: #994f2a;
+  font-weight: 400;
   text-decoration: underline;
   text-decoration-color: rgba(153, 79, 42, 0.35);
   text-underline-offset: 3px;
@@ -205,6 +253,12 @@ main {
 
 .article-content a:hover {
   text-decoration-color: #994f2a;
+}
+
+@media (max-width: 640px) {
+  .article-content { font-size: 16px; }
+  .article-content h2 { font-size: 21px; margin-top: 2.5rem; }
+  .article-content h3 { font-size: 18px; margin-top: 1.9rem; }
 }
 
 /* ============================
