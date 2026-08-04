@@ -43,7 +43,10 @@
       "Bash(cd \"C:\\\\Users\\\\gabri\\\\OneDrive\\\\Documents\\\\GitHub\\\\naturmarketing\")",
       "Bash(grep -v \"^\\\\S*:\\\\s*//\\\\|/\\\\*\")",
       "Bash(sort -t: -k2 -rn)",
-      "Bash(awk -F: '$2>0')"
+      "Bash(awk -F: '$2>0')",
+      "Bash(git log *)",
+      "Bash(xargs wc -l)",
+      "Bash(npm install *)"
     ]
   }
 }
