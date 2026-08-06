@@ -2,6 +2,15 @@ export interface BlogPostMeta {
   slug: string;
   title: string;
   excerpt: string;
+  /**
+   * Título e descrição usados APENAS na SERP (<title> e meta description).
+   * Existem separados porque `title` é o <h1> do artigo e `excerpt` é a
+   * chamada do card na listagem — ambos escritos para quem já está no site,
+   * e longos demais para o Google, que corta em ~60 e ~155 caracteres.
+   * Quando ausentes, caem no `title`/`excerpt`.
+   */
+  seoTitle?: string;
+  seoDescription?: string;
   category: string;
   keywords: string[];
   readTime: number;
@@ -16,6 +25,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "agencia-marketing-hoteleiro-vs-agencia-generica",
     "title": "Agência de Marketing Hoteleiro vs. Agência Genérica: qual a diferença real?",
     "excerpt": "Contratar uma agência que não conhece hotelaria pode custar muito mais do que a mensalidade. Entenda por que especialização no setor é o que separa campanhas que geram reservas de campanhas que geram apenas relatórios.",
+    "seoTitle": "Agência de Marketing Hoteleiro vs. Genérica: a Diferença Real",
+    "seoDescription": "A diferença entre uma agência genérica e uma especializada em hotelaria: por que só uma delas gera reservas, e não apenas relatórios mensais.",
     "category": "Estratégia",
     "keywords": [
       "agência de marketing hoteleiro",
@@ -33,6 +44,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "google-hotel-ads-guia-completo",
     "title": "Google Hotel Ads: o guia completo para hotéis e pousadas em 2026",
     "excerpt": "O Google Hotel Ads coloca seu hotel lado a lado com o Booking e o Expedia no momento exato em que o viajante está pronto para reservar. Entenda como funciona, como aparecer e como transformar esse canal no seu principal gerador de reservas diretas.",
+    "seoTitle": "Google Hotel Ads: Guia Completo para Hotéis em 2026",
+    "seoDescription": "Como funciona o Google Hotel Ads, como aparecer ao lado do Booking e como transformar esse canal no principal gerador de reservas diretas do hotel.",
     "category": "Google Ads",
     "keywords": [
       "Google Hotel Ads",
@@ -50,6 +63,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "quanto-custa-marketing-digital-hotel",
     "title": "Quanto custa o marketing digital para um hotel? Tudo que você precisa saber",
     "excerpt": "Ninguém responde essa pergunta diretamente. Mas a resposta existe, e quando você a compara com o que já paga de comissão para OTAs, o cálculo muda completamente.",
+    "seoTitle": "Quanto Custa o Marketing Digital para um Hotel?",
+    "seoDescription": "Ninguém responde essa pergunta diretamente. Veja as faixas de investimento e como elas se comparam ao que o seu hotel já paga de comissão às OTAs.",
     "category": "Estratégia",
     "keywords": [
       "quanto custa marketing digital para hotel",
@@ -237,6 +252,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "booking-comissao-18-porcento-o-que-fazer",
     "title": "Booking sobe a comissão para 18% em julho de 2026: o que o seu hotel precisa fazer agora",
     "excerpt": "Em 2026 a Booking.com comunicou aos parceiros brasileiros uma comissão preferencial de 18%, com vigência prevista para 1º de julho. Em uma diária de R$ 500, a comissão sobe de R$ 75 para R$ 90. Entenda o impacto real e o plano de ação para proteger sua margem.",
+    "seoTitle": "Booking 18% de Comissão em 2026: o Que Fazer Agora",
+    "seoDescription": "A Booking.com passa a cobrar 18% em julho de 2026. Numa diária de R$ 500 são R$ 90 por reserva. Veja o impacto real e como proteger a sua margem.",
     "category": "OTAs & Canal Direto",
     "keywords": [
       "comissão booking 18%",
@@ -254,4 +271,18 @@ export const blogPostsMeta: BlogPostMeta[] = [
 
 export function getFeaturedPostsMeta(limit = 3): BlogPostMeta[] {
   return blogPostsMeta.filter((p) => p.featured).slice(0, limit);
+}
+
+/**
+ * Título e descrição do artigo para a SERP, já com o fallback aplicado.
+ *
+ * Vive aqui, e não em blog-posts.ts, para não duplicar as strings entre os dois
+ * arquivos (que já repetem slug/title/excerpt e sairiam do ar um do outro). Este
+ * módulo não carrega o HTML dos artigos, então importá-lo na página do post não
+ * acrescenta peso ao bundle.
+ */
+export function getSeoMeta(slug: string): { titulo: string; descricao: string } | undefined {
+  const p = blogPostsMeta.find((post) => post.slug === slug);
+  if (!p) return undefined;
+  return { titulo: p.seoTitle ?? p.title, descricao: p.seoDescription ?? p.excerpt };
 }

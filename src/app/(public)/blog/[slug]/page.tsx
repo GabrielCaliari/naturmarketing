@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBlogPost, getAllSlugs, blogPosts } from "@/data/blog-posts";
+import { getSeoMeta } from "@/data/blog-meta";
 import { BreadcrumbJsonLd } from "@/components/SEO/JsonLd";
 import { COMPANY_NAP } from "@/constants/company";
 import Header from "@/components/Header";
@@ -22,9 +23,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
+  // Versões cortadas para a SERP (ver getSeoMeta); o `title` e o `excerpt` do
+  // post continuam servindo o <h1> e o card da listagem. Sem sufixo de marca: a
+  // Réserve ainda é desconhecida na busca, e num artigo disputando a posição 8
+  // quem ganha o clique é a manchete, não o nome da agência.
+  const seo = getSeoMeta(slug);
+  const tituloSerp = seo?.titulo ?? post.title;
+  const descricaoSerp = seo?.descricao ?? post.excerpt;
+
   return {
-    title: `${post.title} | Réserve Blog`,
-    description: post.excerpt,
+    title: tituloSerp,
+    description: descricaoSerp,
     keywords: post.keywords.join(", "),
     alternates: {
       canonical: `${siteUrl}/blog/${post.slug}`,
