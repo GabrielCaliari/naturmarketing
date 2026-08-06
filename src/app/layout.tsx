@@ -23,7 +23,9 @@ import { COMPANY_NAP } from '@/constants/company';
 // (public) route-group layout)
 import { LocaleProvider } from '@/context/LocaleContext';
 import { LeadModalProvider } from '@/context/LeadModalContext';
-import { LeadModal } from '@/components/LeadModal';
+// Mount = carrega o modal (e o framer-motion junto) só na 1ª interação,
+// tirando ~39 KiB do bundle inicial de todas as páginas — see LeadModal/Mount.tsx
+import { LeadModalMount } from '@/components/LeadModal/Mount';
 
 // Optimize fonts with next/font
 const rubik = Rubik({
@@ -129,7 +131,7 @@ export default function RootLayout({
         <LocaleProvider>
           <LeadModalProvider>
             {children}
-            <LeadModal />
+            <LeadModalMount />
           </LeadModalProvider>
         </LocaleProvider>
 
