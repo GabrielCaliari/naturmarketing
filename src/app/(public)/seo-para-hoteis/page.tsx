@@ -6,8 +6,8 @@ import SeoParaHoteisContent from "./_components/SeoParaHoteisContent";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "SEO para Hotéis e Pousadas | Réserve | Apareça no Google Antes das OTAs",
-  description: "Especialistas em SEO para hotéis, resorts e pousadas. Otimizamos seu site e Google Business Profile para você aparecer organicamente antes do Booking.com e Expedia.",
+  title: "SEO para Hotéis: Apareça no Google Antes do Booking",
+  description: "Seu hotel aparecendo no Google antes das OTAs. Otimizamos site e Google Business Profile para atrair hóspede que já está pronto para reservar.",
   keywords: "SEO para hotéis, SEO para pousadas, como aparecer no Google hotel, SEO hoteleiro, otimização site hotel, SEO para resorts, Google Business Profile hotel, SEO local hotel, marketing orgânico hotel",
   alternates: { canonical: `${siteUrl}/seo-para-hoteis` },
   openGraph: {

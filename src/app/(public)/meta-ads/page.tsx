@@ -11,8 +11,8 @@ import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Meta Ads para Hotéis | Réserve | Facebook e Instagram Ads Hoteleiro",
-  description: "Gestão especializada de Meta Ads para hotéis, resorts e pousadas. Anúncios no Facebook e Instagram que alcançam o público ideal e convertem em reservas diretas.",
+  title: "Facebook e Instagram Ads para Hotéis | Meta Ads Hoteleiro",
+  description: "Anúncios no Facebook e Instagram para hotéis, resorts e pousadas: campanhas que alcançam o viajante certo e convertem em reserva direta, não em curtida.",
   keywords: "Meta Ads hotel, Facebook Ads hotel, Instagram Ads hotel, anúncios Facebook pousada, tráfego pago hotelaria, campanhas Instagram hotel, Meta Ads hoteleiro, retargeting hotel",
   alternates: { canonical: `${siteUrl}/meta-ads` },
   openGraph: {

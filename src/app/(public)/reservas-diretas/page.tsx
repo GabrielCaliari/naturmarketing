@@ -6,8 +6,8 @@ import ReservasDiretasContent from "./_components/ReservasDiretasContent";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Reservas Diretas para Hotéis | Réserve | Menos OTAs, Mais Margem",
-  description: "Estratégia completa para hotéis aumentarem reservas diretas e reduzirem dependência de OTAs. Canal direto com zero comissão, motor de reservas e campanhas integradas.",
+  title: "Reservas Diretas para Hotéis: Menos OTA, Mais Margem",
+  description: "Como aumentar as reservas diretas do seu hotel e reduzir a dependência de OTA: canal próprio sem comissão, motor de reservas e campanhas integradas.",
   keywords: "reservas diretas hotel, como aumentar reservas diretas hotel, reduzir OTAs hotel, canal direto hotel, motor de reservas hotel, reservas sem comissão hotel, independência OTA hotel",
   alternates: { canonical: `${siteUrl}/reservas-diretas` },
   openGraph: {

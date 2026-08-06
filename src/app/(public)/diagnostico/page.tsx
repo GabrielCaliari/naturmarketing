@@ -6,9 +6,9 @@ import DiagnosticoContent from "./_components/DiagnosticoContent";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Diagnóstico Gratuito de Marketing Hoteleiro | Réserve",
+  title: "Diagnóstico Gratuito para Hotéis: Onde Você Perde Reservas",
   description:
-    "Solicite um diagnóstico gratuito e descubra onde o seu hotel ou pousada perde reservas: dependência de OTA, presença digital, site, anúncios e atendimento. Sem compromisso.",
+    "Descubra onde o seu hotel ou pousada perde reserva: dependência de OTA, site, anúncios e atendimento. Diagnóstico gratuito e sem compromisso.",
   keywords:
     "diagnóstico marketing hoteleiro, diagnóstico gratuito hotel, consultoria marketing hoteleiro, análise marketing hotel, auditoria marketing digital hotel, agencia de marketing para hotel",
   alternates: { canonical: `${siteUrl}/diagnostico` },

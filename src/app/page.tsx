@@ -4,8 +4,8 @@ import { COMPANY_NAP } from '@/constants/company'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url
 
 export const metadata: Metadata = {
-  title: 'RÉSERVE | Agência de Marketing Hoteleiro | Diagnóstico, Estratégia e Reservas Diretas',
-  description: 'A RÉSERVE é especialista em marketing hoteleiro. Diagnóstico preciso, estratégia personalizada e sistema de reservas diretas para hotéis, pousadas e lodges. Menos OTA. Mais margem.',
+  title: 'RÉSERVE | Agência de Marketing Hoteleiro e Reservas Diretas',
+  description: 'Especialistas em marketing hoteleiro: diagnóstico, estratégia e reservas diretas para hotéis, pousadas e lodges. Menos OTA. Mais margem.',
   alternates: {
     canonical: '/',
   },

@@ -6,9 +6,9 @@ import MotorDeReservasContent from "./_components/MotorDeReservasContent";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Motor de Reservas para Hotéis | Réserve | Site com Reserva Direta",
+  title: "Motor de Reservas para Hotéis e Pousadas | Reserva Direta",
   description:
-    "Implantamos o melhor motor de reservas para o seu hotel ou pousada: reserva direta no site, sem comissão de OTA, integrado ao seu PMS e otimizado para conversão.",
+    "Motor de reservas integrado ao seu PMS: o hóspede reserva direto no site do hotel, com Pix e parcelamento, e você deixa de pagar comissão de OTA.",
   keywords:
     "motor de reservas para hotel, motor de reservas para hotéis, motor de reservas online, site para hotel com motor de reservas, melhor motor de reservas, software de reservas diretas, sistema de reservas online para hotéis, motor de reserva",
   alternates: { canonical: `${siteUrl}/motor-de-reservas` },

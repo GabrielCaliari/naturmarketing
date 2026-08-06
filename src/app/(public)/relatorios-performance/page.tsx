@@ -11,8 +11,8 @@ import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Relatórios de Performance para Hotéis | Réserve | Análise e ROI Hoteleiro",
-  description: "Relatórios de performance e análise de ROI especializados para hotéis, resorts e pousadas. Métricas reais, decisões baseadas em dados e visibilidade total sobre seus investimentos em marketing.",
+  title: "Relatórios de Performance para Hotéis: ROI Real do Marketing",
+  description: "Saiba quanto cada real investido em marketing devolve em reserva. Relatórios de performance e ROI para hotéis, resorts e pousadas, sem métrica de vaidade.",
   keywords: "relatório de performance hotel, ROI marketing hoteleiro, análise dados hotel, métricas hotel, dashboard hotel, relatório reservas hotel, KPI hoteleiro, analytics hotel",
   alternates: { canonical: `${siteUrl}/relatorios-performance` },
   openGraph: {

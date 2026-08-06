@@ -11,8 +11,8 @@ import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Gestão de Canais Digitais para Hotéis | Réserve | Marketing Hoteleiro Integrado",
-  description: "Gerenciamos redes sociais, OTAs e plataformas digitais do seu hotel de forma integrada. Do Instagram ao Booking, do Google ao WhatsApp, tudo alinhado para gerar reservas diretas.",
+  title: "Gestão de Canais para Hotéis: OTAs, Redes e Google",
+  description: "Instagram, Booking, Google e WhatsApp do seu hotel falando a mesma língua. Gestão integrada de canais para transformar audiência em reserva direta.",
   keywords: "gestão de canais digitais hotel, gestão OTA hotel, redes sociais para hotéis, marketing digital hoteleiro, gestão Instagram hotel, gestão Booking hotel, canais digitais pousada",
   alternates: { canonical: `${siteUrl}/gestao-de-canais` },
   openGraph: {

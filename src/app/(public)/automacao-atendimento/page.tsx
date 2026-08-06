@@ -11,8 +11,8 @@ import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Automação de Atendimento para Hotéis | Réserve | WhatsApp e Reservas 24h",
-  description: "Automação inteligente de WhatsApp para hotéis, resorts e pousadas. Capturamos leads, respondemos dúvidas e convertemos reservas diretas 24 horas por dia, 7 dias por semana.",
+  title: "Automação de WhatsApp para Hotéis: Atendimento 24h",
+  description: "Seu hotel respondendo no WhatsApp 24h por dia: automação que captura o lead, tira dúvidas e conduz o hóspede até a reserva direta, sem plantão manual.",
   keywords: "automação WhatsApp hotel, chatbot hotel, atendimento automatizado pousada, WhatsApp Business hotel, automação reservas hotel, bot atendimento hotelaria, WhatsApp API hotel",
   alternates: { canonical: `${siteUrl}/automacao-atendimento` },
   openGraph: {

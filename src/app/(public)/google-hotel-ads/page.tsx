@@ -6,8 +6,8 @@ import GoogleHotelAdsContent from "./_components/GoogleHotelAdsContent";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Google Hotel Ads para Hotéis | Réserve | Gestão Especializada",
-  description: "Agência especializada em Google Hotel Ads para hotéis, resorts e pousadas. Integramos seu motor de reservas, gerenciamos lances e maximizamos reservas diretas com custo 3x menor que OTAs.",
+  title: "Google Hotel Ads para Hotéis: Gestão Especializada",
+  description: "Seu hotel lado a lado com Booking e Expedia no Google, na hora da decisão. Gestão de lances, integração com o motor e foco em reserva direta.",
   keywords: "Google Hotel Ads, hotel ads, google ads para hotel, google ads para hotéis, hotel google ads, google adwords hotel, dicas para google hotel ads, Google Hotel Ads para hotéis, Google Hotel Ads agência, como aparecer no Google Hotel Ads, gestão Google Hotel Ads hotel, reservas diretas Google, Google Hotel Center, motor de reservas Google",
   alternates: { canonical: `${siteUrl}/google-hotel-ads` },
   openGraph: {

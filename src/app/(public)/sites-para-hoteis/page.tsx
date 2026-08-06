@@ -11,8 +11,8 @@ import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Sites para Hotéis e Pousadas | Réserve | Com Motor de Reservas",
-  description: "Criação de sites para hotéis, resorts e pousadas com motor de reservas integrado. Design premium, carregamento rápido, otimizado para conversão e SEO hoteleiro.",
+  title: "Site para Hotel e Pousada com Motor de Reservas Integrado",
+  description: "Site de hotel ou pousada com motor de reservas integrado: rápido, impecável no celular e construído para transformar visitante em hóspede.",
   keywords: "site para hotel, site para pousada, criação site hotel, site hoteleiro motor de reservas, website hotel com reservas online, landing page hotel, site resort, site boutique hotel",
   alternates: { canonical: `${siteUrl}/sites-para-hoteis` },
   openGraph: {

@@ -6,9 +6,9 @@ import EcossistemaContent from "./_components/EcossistemaContent";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Ecossistema de Aquisição de Hóspedes | Metodologia Réserve",
+  title: "Como Atrair Hóspedes: Metodologia de Aquisição para Hotéis",
   description:
-    "Conheça o Ecossistema de Aquisição de Hóspedes, a metodologia da Réserve que conecta demanda, conversão, atendimento e dados para gerar reservas diretas de forma previsível.",
+    "A metodologia que conecta demanda, conversão, atendimento e dados para o seu hotel gerar reservas diretas de forma previsível, e não por sorte.",
   keywords:
     "ecossistema de aquisição de hóspedes, metodologia marketing hoteleiro, estratégia reservas diretas, funil de reservas hotel, marketing hoteleiro integrado, como aumentar reservas diretas",
   alternates: { canonical: `${siteUrl}/ecossistema` },

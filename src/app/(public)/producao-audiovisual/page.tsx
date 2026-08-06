@@ -11,8 +11,12 @@ import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url;
 
 export const metadata: Metadata = {
-  title: "Produção Audiovisual para Hotéis | Réserve | Fotografia e Vídeo Hoteleiro",
-  description: "Produção audiovisual de alto padrão para hotéis, resorts e pousadas. Fotografia profissional e vídeos que capturam a essência do seu hotel e convertem visitantes em hóspedes.",
+  // ATENÇÃO: esta é a página com melhor CTR do site (8,11% na posição 5,5).
+  // A mensagem foi mantida palavra por palavra — só saiu o "| Réserve" do meio,
+  // que fazia o título ser cortado em "...| Fotografia e Víd…". Se o CTR cair
+  // no Search Console, é só reverter este trecho.
+  title: "Produção Audiovisual para Hotéis: Fotografia e Vídeo",
+  description: "Produção audiovisual de alto padrão para hotéis, resorts e pousadas. Fotografia e vídeo que capturam a essência do seu hotel e convertem visitantes em hóspedes.",
   keywords: "fotografia para hotéis, vídeo para hotéis, produção audiovisual hotelaria, foto hotel profissional, vídeo institucional hotel, fotografia pousada, tour virtual hotel",
   alternates: { canonical: `${siteUrl}/producao-audiovisual` },
   openGraph: {
