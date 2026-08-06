@@ -46,7 +46,9 @@
       "Bash(awk -F: '$2>0')",
       "Bash(git log *)",
       "Bash(xargs wc -l)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Read(//c/Program Files \\\\\\(x86\\\\\\)/Google/Chrome/Application/**)"
     ]
   }
 }
