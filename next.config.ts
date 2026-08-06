@@ -62,8 +62,16 @@ const nextConfig: NextConfig = {
   },
   images: {
     qualities: [70, 85],
+    // AVIF antes de WebP: ~25% menor no mesmo nível de qualidade para fotos.
+    // O encode é mais lento, mas acontece uma vez por variante e fica em cache
+    // no CDN — quem paga o custo é o build/primeiro acesso, não o visitante.
+    formats: ['image/avif', 'image/webp'],
     // 448 cobre os cards de ~406px exibidos no desktop (o padrão pulava de 384 p/ 640)
     deviceSizes: [448, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    // 192 preenche o buraco do padrão entre 128 e 256: as fotos do carrossel de
+    // clientes ocupam ~180px no desktop e, sem esse degrau, o browser precisava
+    // subir para 256w (~40% de bytes a mais) para pintar 180px.
+    imageSizes: [16, 32, 48, 64, 96, 128, 192, 256, 384],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
