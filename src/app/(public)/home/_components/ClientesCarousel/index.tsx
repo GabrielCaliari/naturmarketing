@@ -7,22 +7,33 @@ import { useAutoScrollVisible } from "@/hooks/useAutoScrollVisible";
 // As máscaras laterais precisam dissolver exatamente nessa cor.
 const BG_SECAO = "#F0EBE3";
 
+// Altura renderizada do card, em CSS px — precisa bater com as classes
+// `h-[180px] md:h-[240px]` lá embaixo. Como a largura é `w-auto`, a largura
+// exibida de cada foto é ALTURA × proporção dela, e é isso que o `sizes`
+// precisa declarar (ver comentário no <Image/>).
+const ALT_MOBILE = 180;
+const ALT_DESKTOP = 240;
+
 // Fotos de public/img/clientes em ordem embaralhada FIXA — um shuffle em
 // runtime renderizaria ordens diferentes no servidor e no cliente (erro de
 // hidratação). Arquivos .HEIC excluídos: navegadores não renderizam HEIC.
+//
+// `ratio` = largura/altura REAL do arquivo. Não é decorativo: alimenta os
+// atributos width/height (proporção correta = zero layout shift quando a foto
+// entra) e o cálculo do `sizes`. Se trocar uma foto, medir o arquivo novo.
 const FOTOS = [
-  "/img/clientes/IMG_5619.jpg",
-  "/img/clientes/28D676B2-2D80-4D92-8BA5-2115E3E79C22.png",
-  "/img/clientes/IMG_5188.jpg",
-  "/img/clientes/piscina.JPG",
-  "/img/clientes/IMG_5585.jpg",
-  "/img/clientes/IMG_E5318.jpg",
-  "/img/clientes/IMG_5134.jpg",
-  "/img/clientes/61FE9AB7-9D2F-4A3F-B0D5-5CE1BB2FF96B.png",
-  "/img/clientes/IMG_5586.jpg",
-  "/img/clientes/IMG_5190.jpg",
-  "/img/clientes/IMG_5732.jpg",
-  "/img/clientes/IMG_5584.jpg",
+  { src: "/img/clientes/IMG_5619.jpg", ratio: 3 / 4 },
+  { src: "/img/clientes/28D676B2-2D80-4D92-8BA5-2115E3E79C22.jpg", ratio: 4 / 5 },
+  { src: "/img/clientes/IMG_5188.jpg", ratio: 3 / 4 },
+  { src: "/img/clientes/piscina.JPG", ratio: 4000 / 2256 },
+  { src: "/img/clientes/IMG_5585.jpg", ratio: 3024 / 3303 },
+  { src: "/img/clientes/IMG_E5318.jpg", ratio: 3 / 4 },
+  { src: "/img/clientes/IMG_5134.jpg", ratio: 3 / 4 },
+  { src: "/img/clientes/61FE9AB7-9D2F-4A3F-B0D5-5CE1BB2FF96B.jpg", ratio: 4 / 5 },
+  { src: "/img/clientes/IMG_5586.jpg", ratio: 3 / 4 },
+  { src: "/img/clientes/IMG_5190.jpg", ratio: 3 / 4 },
+  { src: "/img/clientes/IMG_5732.jpg", ratio: 3 / 4 },
+  { src: "/img/clientes/IMG_5584.jpg", ratio: 3 / 4 },
 ];
 
 export default function ClientesCarousel() {
@@ -49,7 +60,7 @@ export default function ClientesCarousel() {
         className={`animate-scroll-infinite-seamless${scroll.visible ? " is-playing" : ""}`}
         style={{ animationDuration: "60s" }}
       >
-        {fotos.map((src, i) => (
+        {fotos.map(({ src, ratio }, i) => (
           // O espaçamento é margem à direita de TODA foto, não `gap` no trilho:
           // com `gap` haveria 2N-1 intervalos para 2N fotos, e os -50% da
           // animação cairiam meio intervalo fora do ponto de repetição —
@@ -61,10 +72,18 @@ export default function ClientesCarousel() {
             <Image
               src={src}
               alt="Foto de hotel cliente da Réserve"
-              width={480}
-              height={320}
+              // Proporção real do arquivo. Com um valor genérico (era 480x320)
+              // o browser reserva uma caixa com a proporção errada e reflowa
+              // quando a foto chega.
+              width={Math.round(480 * ratio)}
+              height={480}
               quality={70}
-              sizes="(max-width: 768px) 300px, 400px"
+              // Largura REAL exibida = altura do card × proporção. São fotos
+              // retrato (~0,75), então cada uma ocupa ~135px no mobile e
+              // ~180px no desktop — não os 300/400px que estavam declarados
+              // aqui, que faziam o browser baixar o candidato 640w/448w para
+              // pintar 236px. O breakpoint casa com o `md:` (768px) acima.
+              sizes={`(max-width: 767px) ${Math.ceil(ALT_MOBILE * ratio)}px, ${Math.ceil(ALT_DESKTOP * ratio)}px`}
               className="h-full w-auto max-w-none object-cover transition-transform duration-500 group-hover:scale-110"
             />
             {/* Véu escuro no hover, por cima do zoom */}
