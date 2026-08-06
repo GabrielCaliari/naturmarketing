@@ -50,10 +50,14 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: 'RÉSERVE | Agência de Marketing Hoteleiro | Diagnóstico, Estratégia e Reservas Diretas',
-    template: '%s | Réserve Marketing'
-  },
+  // Sem `template`. Ele colava " | Réserve Marketing" (19 caracteres) em TODO
+  // título do site, empurrando o texto útil para além do corte do Google — que
+  // é por largura, perto de 60 caracteres. Cada página agora escreve o título
+  // inteiro, incluindo a marca quando ela couber e valer o espaço.
+  // String simples em vez de { default, template }: sem template, o título que
+  // cada página declara é o que vai para a SERP, e páginas sem título próprio
+  // herdam este aqui.
+  title: 'Réserve | Agência de Marketing Hoteleiro e Reservas Diretas',
   description: 'A RÉSERVE é especialista em marketing hoteleiro. Diagnóstico preciso, estratégia personalizada e sistema de reservas diretas para hotéis, resorts, pousadas e lodges. Menos OTA. Mais margem.',
   keywords: 'marketing hoteleiro, agência de marketing hoteleiro, agência de marketing para hotel, marketing digital hotel, marketing digital para hotéis, marketing para resort, marketing para resorts, especialista em marketing para hotéis, diagnóstico marketing hoteleiro, estratégia hoteleira, reservas diretas hotel, reduzir dependência OTA, marketing para pousadas, marketing para lodges, marketing para hotéis boutique, consultoria marketing hoteleiro, agência especializada em hotelaria, como aumentar reservas diretas hotel, como reduzir comissão OTA hotel, Google Hotel Ads, SEO para hotéis, tráfego pago para hotel, motor de reservas, agencia de marketing para hoteis, Google Hotel Ads para pousadas, estrategia de reservas diretas hotel, como reduzir dependencia de OTA, consultoria marketing hoteleiro brasil, hotel marketing agency, hospitality marketing agency, hotel digital marketing, hotel marketing consultant Brazil, increase direct bookings hotel, reduce OTA commissions hotel, boutique hotel digital marketing strategy, hotel SEO agency, direct booking strategy hotel',
   authors: [{ name: COMPANY_NAP.name, url: siteUrl }],
