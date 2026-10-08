@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Rubik } from 'next/font/google'
+import { Fira_Sans, DM_Serif_Display } from 'next/font/google'
 import localFont from 'next/font/local'
 
 // Importar estilos CSS essenciais
@@ -27,16 +27,31 @@ import { LeadModalProvider } from '@/context/LeadModalContext';
 // tirando ~39 KiB do bundle inicial de todas as páginas — see LeadModal/Mount.tsx
 import { LeadModalMount } from '@/components/LeadModal/Mount';
 
-// Optimize fonts with next/font
-const rubik = Rubik({
+// Optimize fonts with next/font — o Google Fonts é baixado no build e servido
+// pelo próprio domínio (URL com hash, sem requisição externa em runtime).
+// Só as pesagens realmente usadas: a Fira Sans não é variável, cada peso é um
+// arquivo, então declarar 800/900 sem uso só engordaria o preload.
+const firaSans = Fira_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-rubik',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-fira',
   display: 'swap',
 })
 
-// Brand display font (PP Hatton) — next/font/local self-hosts with automatic
-// preload, hashed immutable URL and zero render-blocking @font-face CSS
+// Fonte de display dos títulos. Tem face itálica de verdade, o que permite o
+// destaque em itálico dos títulos sem oblíquo sintético.
+const dmSerif = DM_Serif_Display({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-dm-serif',
+  display: 'swap',
+  fallback: ['Georgia', 'serif'],
+})
+
+// PP Hatton fica SÓ na assinatura "réserve" (header, footer e comparativo) —
+// é o traço fino do logotipo. A DM Serif Display é bem mais encorpada e deixava
+// a marca pesada demais. Ver --font-logo em globals.css.
 const hatton = localFont({
   src: '../../public/fonts/pp-hatton-medium.woff2',
   weight: '400',
@@ -112,7 +127,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR" className={`${rubik.variable} ${hatton.variable}`}>
+    <html lang="pt-BR" className={`${firaSans.variable} ${dmSerif.variable} ${hatton.variable}`}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

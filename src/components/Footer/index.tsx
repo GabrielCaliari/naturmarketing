@@ -60,7 +60,7 @@ const Footer = () => {
           <div className="flex flex-col gap-6 max-w-sm">
             <span
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-logo)",
                 fontSize: "32px",
                 fontWeight: 400,
                 color: "#1A0F08",

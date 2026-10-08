@@ -1,112 +1,119 @@
 "use client";
 
 import { useRef, useState } from "react";
-import {
-  IconBrandMeta,
-  IconBrandGoogle,
-} from "@tabler/icons-react";
 import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 import ClientesCarousel from "../ClientesCarousel";
 
-const BRAND_GREEN = "#84936f";
 const BRAND_BROWN = "#994f2a";
 const BG_CARD     = "#FDFAF7";
-const BORDER      = "rgba(196,164,142,0.2)";
+const BORDER      = "rgba(26,15,8,0.10)";
 const TEXT_HEAD   = "#1A0F08";
-const TEXT_BODY   = "#6e5e52";
-// Verde para TEXTO sobre fundos claros — >= 4.5:1 (WCAG AA)
-const TEXT_LABEL  = "#5d6b4c";
+const TEXT_BODY   = "#5C4F45";
+// Verde para TEXTO/ícone sobre fundos claros — >= 4.5:1 (WCAG AA)
+const TEXT_GREEN  = "#5d6b4c";
 
-const InstagramIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="4" y="4" width="16" height="16" rx="4" />
-    <circle cx="12" cy="12" r="3" />
-    <path d="M16.5 7.5v.001" />
-  </svg>
-);
-
-const CameraIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
-    <circle cx="12" cy="13" r="3" />
-  </svg>
-);
-
-const SiteIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-  </svg>
-);
-
-const SEOIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="11" cy="11" r="8" />
-    <path d="m21 21-4.35-4.35" />
-    <path d="M11 8v6M8 11h6" />
-  </svg>
-);
-
-const AnalyticsIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 3v18h18" />
-    <path d="M18 17V9M13 17V5M8 17v-3" />
-  </svg>
-);
-
-const WhatsAppIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
-    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
+// Ícones do layout de referência (Lucide: share-2, clapperboard,
+// monitor-smartphone, search, megaphone, trending-up, bar-chart-3 e
+// message-circle), inline em vez de instalar a lucide-react só por oito
+// desenhos — é a mesma convenção dos SVGs que já existiam aqui.
+const Icon = ({ children }: { children: React.ReactNode }) => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    {children}
   </svg>
 );
 
 const serviceIcons = [
-  <InstagramIcon key="ig" />,
-  <CameraIcon key="cam" />,
-  <SiteIcon key="site" />,
-  <IconBrandGoogle key="g" size={28} stroke={1.3} />,
-  <IconBrandMeta key="meta" size={28} stroke={1.3} />,
-  <SEOIcon key="seo" />,
-  <AnalyticsIcon key="analytics" />,
-  <WhatsAppIcon key="wa" />,
+  // Gestão de canais digitais
+  <Icon key="share">
+    <circle cx="18" cy="5" r="3" />
+    <circle cx="6" cy="12" r="3" />
+    <circle cx="18" cy="19" r="3" />
+    <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+    <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
+  </Icon>,
+  // Produção audiovisual
+  <Icon key="clapperboard">
+    <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
+    <path d="m6.2 5.3 3.1 3.9" />
+    <path d="m12.4 3.4 3.1 4" />
+    <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+  </Icon>,
+  // Sites e landing pages
+  <Icon key="monitor">
+    <path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8" />
+    <path d="M10 19v-3.96 3.15" />
+    <path d="M7 19h5" />
+    <rect width="6" height="10" x="16" y="12" rx="2" />
+  </Icon>,
+  // Google Ads & Hotel Ads
+  <Icon key="search">
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.3-4.3" />
+  </Icon>,
+  // Meta Ads
+  <Icon key="megaphone">
+    <path d="m3 11 18-5v12L3 14v-3z" />
+    <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+  </Icon>,
+  // SEO hoteleiro
+  <Icon key="trending">
+    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+    <polyline points="16 7 22 7 22 13" />
+  </Icon>,
+  // Relatórios de performance
+  <Icon key="chart">
+    <path d="M3 3v18h18" />
+    <path d="M18 17V9" />
+    <path d="M13 17V5" />
+    <path d="M8 17v-3" />
+  </Icon>,
+  // Chatbot e automação
+  <Icon key="message">
+    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+  </Icon>,
 ];
 
 const serviceKeys = ['s1','s2','s3','s4','s5','s6','s7','s8'];
 
-function BentoCard({ icon, titulo, descricao }: { icon: React.ReactNode; titulo: string; descricao: string }) {
+function ServiceCard({ icon, titulo, descricao }: { icon: React.ReactNode; titulo: string; descricao: string }) {
   return (
     <div
       className={[
-        "group flex flex-col items-center text-center gap-4 md:gap-3 px-6 py-8 md:px-5 md:py-6 rounded-2xl h-full",
-        "min-h-[290px] md:min-h-[230px]",
+        "group flex h-full flex-col rounded-2xl p-8 md:p-7",
+        "min-h-[260px] md:min-h-[240px]",
         "transition-all duration-500 cursor-default",
-        "hover:bg-[#84936f] hover:shadow-lg hover:-translate-y-1",
+        "hover:-translate-y-1 hover:shadow-xl",
       ].join(" ")}
       style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}
     >
-      <div
-        className="w-14 h-14 md:w-12 md:h-12 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:bg-white/15"
-        style={{ background: "rgba(132,147,111,0.12)", color: BRAND_GREEN }}
+      <span
+        className="grid h-12 w-12 shrink-0 place-items-center rounded-full transition-colors duration-500 group-hover:bg-[#5d6b4c] group-hover:text-white"
+        style={{ background: "rgba(132,147,111,0.15)", color: TEXT_GREEN }}
       >
         {icon}
-      </div>
-      <div className="flex flex-col gap-2 md:gap-1.5 flex-1">
-        <h3
-          className="text-[20px] md:text-[18px] font-semibold leading-tight transition-colors duration-500 group-hover:text-white"
-          style={{ color: TEXT_HEAD }}
-        >
-          {titulo}
-        </h3>
-        <p
-          className="text-[15px] md:text-[13px] leading-[1.65] font-light transition-colors duration-500 group-hover:text-white/80"
-          style={{ color: TEXT_BODY }}
-        >
-          {descricao}
-        </p>
-      </div>
+      </span>
+
+      <h3
+        className="mt-6 text-[20px] md:text-[19px]"
+        style={{ fontFamily: "var(--font-display)", fontWeight: 400, lineHeight: 1.3, color: TEXT_HEAD }}
+      >
+        {titulo}
+      </h3>
+      <p className="mt-3 text-[14px] leading-[1.7] font-light" style={{ color: TEXT_BODY }}>
+        {descricao}
+      </p>
     </div>
   );
 }
@@ -136,38 +143,42 @@ export default function OQueFazemos() {
   };
 
   return (
-    <section id="services" className="py-10 md:py-16" style={{ background: "#F0EBE3" }}>
+    <section id="services" className="py-16 md:py-24" style={{ background: "#F0EBE3" }}>
       <div className="section-container">
-        <Reveal className="flex flex-col items-center text-center mb-10 gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: TEXT_LABEL }}>
+        <Reveal className="flex flex-col">
+          {/* Eyebrow */}
+          <p className="flex items-center gap-4">
+            <span aria-hidden="true" className="h-px w-10 shrink-0" style={{ background: BRAND_BROWN }} />
+            <span className="text-[11px] font-semibold uppercase" style={{ letterSpacing: "0.3em", color: BRAND_BROWN }}>
               {t('services.label')}
             </span>
-            <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-          </div>
-          <h2 className="h2" style={{ color: TEXT_HEAD, fontWeight: 400 }}>
-            {t('services.h2')}{" "}
-            <strong className="font-semibold" style={{ color: TEXT_HEAD }}>
-              {t('services.h2.strong')}
-            </strong>
-          </h2>
-          <p className="paragraph max-w-lg italic" style={{ fontWeight: 300, color: TEXT_BODY }}>
-            {t('services.body')}
           </p>
+
+          <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
+            <h2
+              className="max-w-2xl text-4xl md:text-5xl xl:text-6xl"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 400, lineHeight: 1.08, color: TEXT_HEAD }}
+            >
+              {t('services.h2')}{" "}
+              <span style={{ fontStyle: "italic", color: TEXT_GREEN }}>{t('services.h2.strong')}</span>
+            </h2>
+            <p className="max-w-sm text-[14px] leading-[1.7] font-light" style={{ color: TEXT_BODY }}>
+              {t('services.body')}
+            </p>
+          </div>
         </Reveal>
 
         {/* Desktop grid */}
-        <div className="hidden md:flex md:flex-wrap justify-center gap-4">
+        <div className="mt-12 hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {servicos.map((s, i) => (
-            <Reveal key={i} delay={i * 60} style={{ width: "calc(25% - 12px)", minWidth: "200px" }}>
-              <BentoCard icon={s.icon} titulo={s.titulo} descricao={s.descricao} />
+            <Reveal key={i} delay={i * 60} className="h-full">
+              <ServiceCard icon={s.icon} titulo={s.titulo} descricao={s.descricao} />
             </Reveal>
           ))}
         </div>
 
         {/* Mobile carousel */}
-        <div className="md:hidden">
+        <div className="mt-10 md:hidden">
           <div
             ref={trackRef}
             className="flex overflow-x-auto gap-3 pb-2 snap-x snap-mandatory"
@@ -186,7 +197,7 @@ export default function OQueFazemos() {
           >
             {servicos.map((s, i) => (
               <div key={i} className="flex-shrink-0 snap-center" style={{ width: "100%" }}>
-                <BentoCard icon={s.icon} titulo={s.titulo} descricao={s.descricao} />
+                <ServiceCard icon={s.icon} titulo={s.titulo} descricao={s.descricao} />
               </div>
             ))}
           </div>

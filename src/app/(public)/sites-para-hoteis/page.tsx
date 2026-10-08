@@ -118,9 +118,14 @@ export default function SitesHoteisPage() {
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>O que entregamos</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Tudo que um site hoteleiro precisa
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                Um site rápido é a base de qualquer{" "}
+                <Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>investimento em marketing hoteleiro</Link>, mas ele só converte de verdade com fotos e vídeo que vendem a experiência do hotel, é onde entra a nossa{" "}
+                <Link href="/producao-audiovisual" style={{ color: BRAND_BROWN }}>produção audiovisual</Link>.
+              </p>
             </Reveal>
             <div className="grid md:grid-cols-3 gap-5">
               {features.map((f, i) => (
@@ -158,7 +163,8 @@ export default function SitesHoteisPage() {
               Seu site atual converte?
             </h2>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.65)", fontWeight: 300, lineHeight: 1.75 }}>
-              Avaliamos gratuitamente seu site atual e identificamos onde você perde hóspedes para as OTAs.
+              Avaliamos gratuitamente seu site atual e identificamos onde você perde hóspedes para as OTAs. Os dados mais recentes do mercado mostram que sites próprios lideram em valor médio por reserva: veja em{" "}
+              <Link href="/blog/reserva-direta-lidera-valor-dados-mercado" style={{ color: BRAND_GREEN, textDecoration: "underline" }}>reserva direta lidera em valor, não só no discurso</Link>.
             </p>
             <DiagnosticoCTA
               preselect={SERVICE_PRESELECT["/sites-para-hoteis"]}

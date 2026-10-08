@@ -61,13 +61,15 @@ export default function ClientesCarousel() {
         style={{ animationDuration: "60s" }}
       >
         {fotos.map(({ src, ratio }, i) => (
-          // O espaçamento é margem à direita de TODA foto, não `gap` no trilho:
+          // Estilo grade do Instagram: fotos contínuas, sem borda arredondada,
+          // separadas só por uma linha fina (o fundo da seção aparece nos 2px
+          // de margem). A margem é à direita de TODA foto, não `gap` no trilho:
           // com `gap` haveria 2N-1 intervalos para 2N fotos, e os -50% da
           // animação cairiam meio intervalo fora do ponto de repetição —
           // um salto visível a cada volta do loop.
           <div
             key={`${src}-${i}`}
-            className="group relative mr-4 h-[180px] shrink-0 overflow-hidden rounded-xl sm:mr-5 md:h-[240px]"
+            className="group relative mr-[2px] h-[180px] shrink-0 overflow-hidden md:h-[240px]"
           >
             <Image
               src={src}

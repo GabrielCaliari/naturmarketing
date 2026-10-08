@@ -1,141 +1,201 @@
 "use client";
 
 import Image from "next/image";
-import BackgroundImage from "./../../../../../../public/img/resource/background.webp";
+import HeroImage from "./../../../../../../public/img/resource/hotel-pool.jpg";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
+
+// Faixa de números do rodapé do hero. Só os índices ficam aqui — os textos
+// vêm do dicionário para não escapar do i18n.
+const STAT_INDEXES = [1, 2, 3, 4] as const;
 
 const Banner = () => {
   const { t } = useLocale();
 
   const handleScroll = () => {
-    document.getElementById("transform")?.scrollIntoView({ behavior: "smooth" });
+    // Depoimentos só existe no DOM quando há depoimento cadastrado (a seção
+    // renderiza null com a lista vazia) — cai para #transform nesse caso.
+    const target = document.getElementById("depoimentos") ?? document.getElementById("transform");
+    target?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section
-      className="relative flex flex-col overflow-hidden banner-section"
-      style={{ minHeight: "100svh" }}
-    >
-      <div className="absolute inset-0" aria-hidden="true">
-        <Image
-          src={BackgroundImage}
-          alt=""
-          fill
-          priority={true}
-          fetchPriority="high"
-          quality={85}
-          sizes="100vw"
-          className="object-cover object-center"
-          placeholder="blur"
-        />
-        {/* Gradiente em vez de overlay chapado: escurece só as faixas que
-            sustentam o texto (badge no topo, CTAs na base) e deixa a foto
-            aparecer no meio. Tom 60,30,10 é menos saturado que o marrom
-            anterior, então não tinge a imagem de laranja. */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(60,30,10,0.55) 0%, rgba(60,30,10,0.22) 45%, rgba(60,30,10,0.60) 100%)",
-          }}
-        />
-      </div>
+    <section className="banner-section relative overflow-hidden">
+      {/* Foto de fundo. alt="" + aria-hidden: é imagem de apoio atrás do
+          texto — toda a informação já está no h1/subtítulo, e anunciá-la
+          antes do título só adiciona ruído no leitor de tela.
+          priority + fetchPriority: é o LCP em todos os breakpoints (agora a
+          foto cobre a seção inteira, não só metade), por isso uma <Image> só
+          em vez das duas variantes por breakpoint de antes. */}
+      <Image
+        src={HeroImage}
+        alt=""
+        aria-hidden="true"
+        fill
+        priority
+        fetchPriority="high"
+        quality={85}
+        sizes="100vw"
+        className="object-cover object-center"
+        placeholder="blur"
+      />
 
+      {/* Gradiente: escuro na base (onde mora o texto) e quase limpo no topo,
+          para a foto respirar. Garante o contraste AA do texto branco. */}
       <div
-        className="relative z-10 flex-1 flex flex-col justify-center items-center text-center section-container"
-        style={{ paddingTop: "120px", paddingBottom: "80px" }}
-      >
-        {/* Badge */}
-        <div className="hero-fade-up" style={{ marginBottom: "1.75rem" }}>
+        className="absolute inset-0"
+        aria-hidden="true"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(26,15,8,0.90) 0%, rgba(26,15,8,0.45) 50%, rgba(26,15,8,0.25) 100%)",
+        }}
+      />
+
+      {/* section-container: mesmo max-width (1440px) e mesmo padding lateral
+          do header — é o que alinha o conteúdo do hero com o logo. */}
+      <div className="section-container banner-inner relative z-10 flex flex-col justify-end">
+
+        {/* Eyebrow */}
+        <p className="hero-fade-up flex items-center gap-4">
           <span
-            className="inline-flex items-center gap-2 text-[10px] font-medium tracking-[0.25em] uppercase px-5 py-2.5 rounded-full"
+            aria-hidden="true"
+            style={{ width: "40px", height: "1px", background: "var(--color-text-muted-on-dark)", flexShrink: 0 }}
+          />
+          <span
             style={{
-              color: "rgba(255,255,255,0.85)",
-              border: "1px solid rgba(255,255,255,0.3)",
-              background: "rgba(255,255,255,0.1)",
+              fontSize: "11px",
+              fontWeight: 600,
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+              color: "var(--color-text-muted-on-dark)",
             }}
           >
-            <span className="w-1 h-1 rounded-full bg-white/70" />
             {t('banner.badge')}
           </span>
-        </div>
+        </p>
 
         {/* Título */}
         <h1
-          className="hero-rise hero-delay-1"
+          className="hero-rise hero-delay-1 mt-8 max-w-4xl text-5xl md:text-7xl xl:text-[84px]"
           style={{
-            color: "#ffffff",
-            marginBottom: "1.5rem",
-            maxWidth: "900px",
-            fontSize: "clamp(2.25rem, 4.5vw, 4rem)",
-            fontWeight: 700,
-            lineHeight: "1.05",
-            // Compensa a faixa central clara do gradiente: garante contraste do
-            // branco sobre as regiões mais claras da foto.
-            textShadow: "0 1px 12px rgba(0,0,0,0.35)",
+            fontFamily: "var(--font-display)",
+            fontWeight: 400,
+            lineHeight: 1.04,
+            color: "var(--color-text-on-dark)",
           }}
         >
-          {t('banner.title.1')}<br /> {t('banner.title.2')}
-          <br />{t('banner.title.3')}<br /> {t('banner.title.4')}{" "}
-          {t('banner.title.5')}
+          {t('banner.title.1')}{" "}
+          {/* Itálico de verdade: a DM Serif Display carrega a face italic
+              (ver app/layout.tsx), então não há oblíquo sintético aqui. */}
+          <span style={{ fontStyle: "italic", color: "var(--color-brand-brown-light)" }}>
+            {t('banner.title.2')}
+          </span>
         </h1>
 
         {/* Subtítulo */}
         <p
-          className="hero-fade-up hero-delay-2"
+          className="hero-fade-up hero-delay-2 mt-8 max-w-xl"
           style={{
+            fontSize: "18px",
             fontWeight: 300,
-            color: "rgba(255,255,255,0.75)",
-            marginBottom: "2.75rem",
-            maxWidth: "520px",
-            fontSize: "clamp(1rem, 2vw, 1.25rem)",
             lineHeight: 1.7,
-            textShadow: "0 1px 10px rgba(0,0,0,0.35)",
+            color: "var(--color-text-muted-on-dark)",
           }}
         >
-          {t('banner.subtitle')}<br />{" "}
-          <strong style={{ fontWeight: 600, color: "#ffffff" }}>
+          {t('banner.subtitle')}{" "}
+          <strong style={{ fontWeight: 600, color: "var(--color-text-on-dark)" }}>
             {t('banner.subtitle.strong')}
           </strong>
         </p>
 
         {/* CTAs */}
-        <div className="hero-fade-up hero-delay-3 flex flex-wrap items-center justify-center gap-5">
+        <div className="hero-fade-up hero-delay-3 mt-10 flex flex-wrap items-center gap-6">
           <DiagnosticoCTA
             trackId="cta_home_hero"
             source="/"
-            className="inline-flex items-center px-8 py-3.5 rounded-full text-[12px] font-semibold tracking-[0.1em] uppercase transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
-            style={{ background: "#ffffff", color: "#1A0F08", letterSpacing: "0.08em" }}
+            className="inline-flex items-center transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+            style={{
+              background: "var(--color-brand-brown)",
+              color: "#ffffff",
+              fontSize: "12px",
+              fontWeight: 700,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              padding: "16px 32px",
+              borderRadius: "999px",
+            }}
           >
             {t('banner.cta.primary')}
           </DiagnosticoCTA>
 
           <button
             onClick={handleScroll}
-            className="inline-flex items-center gap-3 text-[11px] font-medium tracking-[0.18em] uppercase transition-colors duration-300 hover:text-white"
-            style={{ color: "rgba(255,255,255,0.7)" }}
+            className="inline-flex items-center gap-3 transition-colors duration-300"
           >
             <span
               className="hero-arrow-bounce"
               style={{
-                borderColor: "rgba(255,255,255,0.35)",
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                width: "2rem",
-                height: "2rem",
-                borderRadius: "9999px",
-                border: "1px solid rgba(255,255,255,0.35)",
+                width: "40px",
+                height: "40px",
+                borderRadius: "999px",
+                border: "1px solid rgba(255,255,255,0.3)",
                 flexShrink: 0,
               }}
             >
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="rgba(255,255,255,0.92)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
-            {t('banner.cta.secondary')}
+            <span
+              style={{
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "var(--color-text-muted-on-dark)",
+              }}
+            >
+              {t('banner.cta.secondary')}
+            </span>
           </button>
+        </div>
+
+        {/* Números */}
+        <div
+          className="hero-fade-up hero-delay-3 mt-16 grid grid-cols-2 gap-8 pt-8 md:grid-cols-4"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.15)" }}
+        >
+          {STAT_INDEXES.map((i) => (
+            <div key={i}>
+              <p
+                className="text-3xl md:text-4xl"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 400,
+                  lineHeight: 1.1,
+                  color: "var(--color-text-on-dark)",
+                }}
+              >
+                {t(`banner.stat.${i}.value`)}
+              </p>
+              <p
+                className="mt-2"
+                style={{
+                  fontSize: "11px",
+                  fontWeight: 500,
+                  letterSpacing: "0.05em",
+                  textTransform: "uppercase",
+                  lineHeight: 1.5,
+                  color: "var(--color-text-muted-on-dark)",
+                }}
+              >
+                {t(`banner.stat.${i}.label`)}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

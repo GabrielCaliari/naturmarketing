@@ -124,9 +124,14 @@ export default function AutomacaoAtendimentoPage() {
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>O que automatizamos</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Atendimento inteligente em cada etapa da jornada
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                A automação entra depois que o lead chega, seja pelo{" "}
+                <Link href="/meta-ads" style={{ color: BRAND_BROWN }}>Meta Ads</Link>, pelo Google Hotel Ads ou pelo próprio site, cada conversa é conduzida até o{" "}
+                <Link href="/motor-de-reservas" style={{ color: BRAND_BROWN }}>motor de reservas</Link>, sem depender de alguém disponível 24 horas.
+              </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
               {features.map((f, i) => (
@@ -147,9 +152,13 @@ export default function AutomacaoAtendimentoPage() {
                 <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>Como implantamos</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Da configuração ao atendimento ativo
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                É uma frente especialmente relevante para operações pequenas, onde a equipe é enxuta: veja mais em{" "}
+                <Link href="/blog/marketing-digital-pousadas-pequenas" style={{ color: BRAND_BROWN }}>marketing digital para pousadas pequenas: por onde começar com pouco orçamento</Link>.
+              </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {steps.map((s, i) => (

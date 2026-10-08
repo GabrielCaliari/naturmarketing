@@ -18,6 +18,9 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      // Material de referência de design (stack TanStack/Lovable, não compila
+      // aqui e não faz parte do bundle) — ver docs/lovable/README.md.
+      "docs/**",
     ],
   },
   {

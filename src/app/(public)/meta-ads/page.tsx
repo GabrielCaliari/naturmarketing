@@ -124,9 +124,14 @@ export default function MetaAdsPage() {
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>Como atuamos</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Campanhas para cada etapa da jornada do hóspede
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                As campanhas convertem melhor quando os criativos vêm de uma{" "}
+                <Link href="/producao-audiovisual" style={{ color: BRAND_BROWN }}>produção pensada para redes sociais</Link>, e quando cada lead gerado recebe resposta imediata pela nossa{" "}
+                <Link href="/automacao-atendimento" style={{ color: BRAND_BROWN }}>automação de atendimento</Link>.
+              </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
               {formats.map((f, i) => (
@@ -147,9 +152,14 @@ export default function MetaAdsPage() {
                 <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>Como trabalhamos</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Da configuração técnica à otimização contínua
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                Cada ajuste é acompanhado nos{" "}
+                <Link href="/relatorios-performance" style={{ color: BRAND_BROWN }}>relatórios de performance</Link>{" "}
+                mensais, para saber exatamente quanto cada campanha devolve em reserva.
+              </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {steps.map((s, i) => (

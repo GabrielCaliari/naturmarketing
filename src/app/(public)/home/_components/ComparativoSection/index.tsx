@@ -1,6 +1,7 @@
 "use client";
 
 import { IconX, IconCheck } from "@tabler/icons-react";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 
@@ -37,7 +38,7 @@ export default function ComparativoSection() {
           {/* Sem estrutura */}
           <div className="flex flex-col gap-3">
             <Reveal className="mb-3">
-              <span className="text-[32px] font-light" style={{ color: "rgba(26,15,8,0.5)", fontFamily: "var(--font-rubik), sans-serif" }}>
+              <span className="text-[32px] font-light" style={{ color: "rgba(26,15,8,0.5)", fontFamily: "var(--font-body)" }}>
                 {t('comp.left')}
               </span>
             </Reveal>
@@ -61,7 +62,7 @@ export default function ComparativoSection() {
             <Reveal className="mb-3">
               <span className="text-[32px]" style={{ color: BRAND_GREEN_DARK, fontWeight: 400 }}>
                 {t('comp.right')}{" "}
-                <span style={{ fontFamily: "var(--font-display)", fontWeight: 400 }}>réserve</span>
+                <span style={{ fontFamily: "var(--font-logo)", fontWeight: 400 }}>réserve</span>
               </span>
             </Reveal>
             {comItems.map((item, i) => (
@@ -79,6 +80,19 @@ export default function ComparativoSection() {
             ))}
           </div>
         </div>
+
+        <Reveal delay={340} className="text-center mt-8">
+          <span className="text-[13px] font-light" style={{ color: "rgba(26,15,8,0.55)" }}>
+            {t('comp.footnote.text')}
+            <Link
+              href="/blog/agencia-marketing-hoteleiro-vs-agencia-generica"
+              className="underline underline-offset-2 hover:opacity-70 transition-opacity"
+              style={{ color: BRAND_GREEN_DARK }}
+            >
+              {t('comp.footnote.link')}
+            </Link>
+          </span>
+        </Reveal>
       </div>
     </section>
   );

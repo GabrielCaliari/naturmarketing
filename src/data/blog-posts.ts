@@ -72,7 +72,7 @@ export const blogPosts: BlogPost[] = [
       "como aparecer no Google Hotel Ads",
       "reservas diretas hotel Google",
     ],
-    readTime: 8,
+    readTime: 13,
     publishedAt: "2025-08-18",
     featured: true,
     coverImage: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=700&h=400&fit=crop&q=80",
@@ -83,21 +83,32 @@ export const blogPosts: BlogPost[] = [
 <p>A diferença entre aparecer ali com canal direto ou não aparecer é a diferença entre capturar o hóspede ou pagar comissão para quem o capturou por você.</p>
 
 <h2>Como o Google Hotel Ads funciona tecnicamente</h2>
-<p>O Google Hotel Ads opera em um modelo de CPC (custo por clique) ou CPA (custo por aquisição), dependendo da integração escolhida. Para aparecer, seu hotel precisa de três coisas:</p>
+<p>O modelo de cobrança mudou nos últimos anos, e vale entender a versão atual. Até pouco tempo era possível negociar uma comissão por reserva (CPA) diretamente com o Google, mas esse formato está sendo descontinuado pelo próprio Google. Hoje o Google Hotel Ads opera essencialmente em <strong>CPC (custo por clique)</strong>, com algumas variações de lance disponíveis: CPC manual fixo, CPC% (um percentual do valor da diária cobrado a cada clique) e estratégias automatizadas como Target ROAS e CPC otimizado, que ajustam o lance com base na probabilidade de conversão de cada busca. Na prática, isso significa que você paga pelo clique, converta ou não, então a qualidade da página de destino e a paridade tarifária pesam ainda mais do que pesavam no modelo antigo.</p>
+<p>Para aparecer, seu hotel precisa de três coisas:</p>
 <ul>
   <li><strong>Perfil no Google Hotel Center</strong> (vinculado ao Google Business Profile)</li>
-  <li><strong>Integração com um motor de reservas homologado</strong> pelo Google que sincronize tarifas e disponibilidade em tempo real</li>
+  <li><strong>Integração com um <a href="/blog/motor-de-reservas-para-hotel-comparativo">motor de reservas homologado</a></strong> pelo Google que sincronize tarifas e disponibilidade em tempo real</li>
   <li><strong>Campanha ativa no Google Ads</strong> com configuração específica para Hotel Ads</li>
 </ul>
 <p>Sem essa integração, você simplesmente não aparece, por melhor que seja seu site ou sua presença digital em outros canais.</p>
 
 <h2>Por que o Google Hotel Ads é o canal de maior ROI para hotelaria</h2>
 <p>A lógica é simples: você aparece no exato momento em que o viajante está pesquisando ativamente para reservar, em um ambiente de alta intenção de compra. Não é remarketing de pessoas que talvez voltem. Não é social media de pessoas que estão entretidas. É a janela de decisão de alguém que digitou o nome do seu destino e está pronto para confirmar.</p>
-<p>Hotéis que gerenciam bem o Google Hotel Ads conseguem um custo de aquisição significativamente inferior às comissões de OTAs, em muitos casos, entre 5% e 8% do valor da reserva, versus 15% a 25% cobrados pelo Booking.</p>
+<p>Hotéis que gerenciam bem o Google Hotel Ads conseguem um custo de aquisição significativamente inferior às comissões de OTAs, em muitos casos, com um custo efetivo entre 5% e 8% do valor da reserva, versus 15% a 25% cobrados pelo Booking, e a diferença fica ainda mais relevante depois do <a href="/blog/booking-comissao-18-porcento-o-que-fazer">aumento da comissão do Booking para 18%</a>. É por isso que a gestão desse canal é um dos pilares do nosso <a href="/google-hotel-ads">serviço de Google Hotel Ads</a>.</p>
 
 <h2>O erro que a maioria dos hotéis comete</h2>
 <p>Muitos hoteleiros acham que basta cadastrar o hotel no Google e esperar. Não funciona assim. O Google Hotel Ads é um leilão, e as OTAs licitam agressivamente. Para competir com elas, é preciso gestão ativa de lances, segmentação por mercado geográfico de origem, ajustes sazonais de bid, e monitoramento contínuo de paridade tarifária.</p>
 <p>Se a tarifa do seu site aparece mais cara do que a do Booking no comparativo, ninguém vai clicar no canal direto. <strong>A paridade tarifária, ou a garantia de melhor preço no canal direto, é condição básica para o Hotel Ads funcionar.</strong></p>
+
+<h2>Dicas práticas para tirar mais resultado do Google Hotel Ads</h2>
+<p>Além dos fundamentos técnicos, existe um conjunto de práticas que separam uma conta de Google Hotel Ads mediana de uma que realmente performa:</p>
+<ul>
+  <li><strong>Acompanhe cliques e conversões por data, mercado e tipo de quarto com frequência</strong>, não só no fechamento do mês. Em CPC, cada clique tem custo mesmo sem conversão, então identificar rápido o que não está performando evita queimar orçamento.</li>
+  <li><strong>Integre o rastreamento de conversões ao Google Analytics (GA4)</strong>. Sem dado de conversão limpo, as estratégias automatizadas de lance (Target ROAS, CPC otimizado) não têm o que otimizar, e você acaba pagando por cliques sem saber quais geraram reserva.</li>
+  <li><strong>Mantenha tarifas, disponibilidade e comodidades sempre atualizadas</strong> no motor de reservas conectado. Qualquer defasagem gera inconsistência no comparativo de preço exibido ao viajante.</li>
+  <li><strong>Ajuste os lances por sazonalidade e mercado de origem.</strong> Um lance fixo o ano inteiro ignora picos de demanda (feriados, alta temporada) e desperdiça orçamento em períodos de baixo interesse.</li>
+  <li><strong>Considere unificar a estratégia com campanhas Performance Max para viagens.</strong> O próprio Google recomenda combinar o Hotel Ads com Performance Max, que distribui o mesmo orçamento entre Search, Display, YouTube e Maps a partir dos dados de conversão já configurados.</li>
+</ul>
 
 <h2>Passo a passo para começar com Google Hotel Ads</h2>
 <ol>
@@ -109,12 +120,12 @@ export const blogPosts: BlogPost[] = [
   <li><strong>Monitore e otimize</strong>, ajuste lances por mercado, por dispositivo e por período com base no ROAS real.</li>
 </ol>
 
-<h2>Google Hotel Ads vs. Google Search Ads: qual usar?</h2>
-<p>Os dois se complementam. O Hotel Ads aparece no módulo de busca de hotéis com comparativo de preços, ideal para capturar hóspedes que já escolheram o destino e estão comparando opções. O Search Ads aparece nos resultados gerais de texto, ideal para capturar buscas pelo nome do seu hotel ou por termos como "hotel boutique em [destino]".</p>
-<p>Uma estratégia completa usa os dois, com orçamentos e objetivos distintos. Tentar usar apenas um significa deixar dinheiro na mesa. Saiba também <a href="/blog/reservas-diretas-vs-otas-como-equilibrar">como equilibrar reservas diretas e OTAs</a> para maximizar sua margem.</p>
+<h2>Google Ads para hotéis: Hotel Ads vs. Search Ads, qual usar?</h2>
+<p>"Google Ads para hotéis" não é um único formato de campanha, é a combinação de formatos diferentes dentro da mesma plataforma, cada um com uma função. O Hotel Ads aparece no módulo de busca de hotéis com comparativo de preços, ideal para capturar hóspedes que já escolheram o destino e estão comparando opções. O Search Ads aparece nos resultados gerais de texto, ideal para capturar buscas pelo nome do seu hotel ou por termos como "hotel boutique em [destino]". Some a isso o Performance Max para viagens, mencionado acima, que amplia esse alcance para Display, YouTube e Maps usando os mesmos dados de conversão.</p>
+<p>Uma estratégia completa usa Hotel Ads e Search Ads juntos, com orçamentos e objetivos distintos. Tentar usar apenas um significa deixar dinheiro na mesa. Saiba também <a href="/blog/reservas-diretas-vs-otas-como-equilibrar">como equilibrar reservas diretas e OTAs</a> para maximizar sua margem.</p>
 
 <h2>Quão rápido você começa a ver resultados</h2>
-<p>Diferente do <a href="/blog/seo-para-hoteis-aparecer-no-google">SEO para hotéis</a>, que leva meses, o Google Hotel Ads pode gerar as primeiras reservas diretas em dias após a ativação, desde que a integração técnica esteja correta e a paridade tarifária esteja garantida. O otimização do canal para máximo ROI leva de 30 a 60 dias de ajustes baseados em dados reais de performance.</p>
+<p>Diferente do <a href="/blog/seo-para-hoteis-aparecer-no-google">SEO para hotéis</a>, que leva meses, o Google Hotel Ads pode gerar as primeiras reservas diretas em dias após a ativação, desde que a integração técnica esteja correta e a paridade tarifária esteja garantida. A otimização do canal para máximo ROI leva de 30 a 60 dias de ajustes baseados em dados reais de performance, e é aí que um <a href="/sites-para-hoteis">site rápido e bem construído</a> faz toda a diferença na conversão do clique pago em reserva.</p>
     `,
   },
   {
@@ -681,6 +692,61 @@ export const blogPosts: BlogPost[] = [
 
 <h2>A janela é agora</h2>
 <p>Reposicionar a operação para o canal direto leva alguns meses, e o aumento chega em julho. Quem começar a estruturar <a href="/reservas-diretas">reservas diretas</a> agora chega na nova realidade com a margem protegida. Quem esperar vai simplesmente pagar mais e seguir refém. O aumento da Booking não é só uma má notícia: é o empurrão que o seu canal direto precisava para deixar de ser plano e virar prioridade.</p>
+    `,
+  },
+  {
+    slug: "motor-de-reservas-para-hotel-comparativo",
+    title: "Motor de reservas para hotel: comparativo completo para 2026",
+    excerpt:
+      "\"Motor de reservas para hotel\" é a palavra-chave de maior volume do site, mas quem ocupa a página 1 do Google são comparativos honestos, não páginas de venda. Pesquisamos os principais sistemas disponíveis no Brasil e comparamos só o que conseguimos confirmar: integração com PMS, conversão em mobile e suporte real.",
+    category: "OTAs & Canal Direto",
+    keywords: [
+      "motor de reservas para hotel",
+      "melhor motor de reservas para hotel",
+      "motor de reservas hotel Brasil",
+      "comparativo motor de reservas hotel",
+    ],
+    readTime: 13,
+    publishedAt: "2026-07-20",
+    featured: false,
+    coverImage: "https://images.unsplash.com/photo-1759038085950-1234ca8f5fed?w=700&h=400&fit=crop&q=80",
+    coverAlt: "Balcão de recepção de hotel moderno com computadores e poltronas de couro ao fundo",
+    content: `
+<h2>O que é um motor de reservas (e por que ele decide a sua margem)</h2>
+<p>Motor de reservas é o sistema embutido no site do seu hotel que permite ao hóspede ver disponibilidade, escolher o quarto, pagar e receber a confirmação sem sair do seu domínio e sem passar por nenhuma OTA. É a peça técnica que transforma uma visita ao site em reserva confirmada.</p>
+<p>Parece detalhe técnico, mas é o que separa uma reserva com margem cheia de uma reserva com 15% a 18% descontados para o Booking. Sem um motor rápido, confiável e em português, o hóspede que chegou até o seu site volta para a OTA para fechar a reserva, e a comissão que você tentou evitar acontece do mesmo jeito. Vale dizer de onde falamos: a Réserve implementa e integra motores de reservas nos sites que constrói para hotéis e pousadas, o que dá bagagem prática para essa comparação, não uma posição neutra de quem nunca lidou com nenhum desses sistemas.</p>
+
+<h2>Os critérios que realmente importam na escolha</h2>
+<ul>
+  <li><strong>Taxa por reserva.</strong> A maioria dos fornecedores não publica esse número na página institucional, você só descobre pedindo cotação. Peça sempre o valor final com todos os módulos que vai usar, não só o "a partir de".</li>
+  <li><strong>Integração com o seu PMS e channel manager.</strong> Alguns motores só funcionam dentro do ecossistema fechado do próprio fornecedor, outros se conectam a dezenas ou centenas de sistemas diferentes. Se você já tem um PMS que funciona bem, essa é a pergunta mais importante da negociação.</li>
+  <li><strong>Conversão em mobile.</strong> A maior parte das buscas por hospedagem acontece no celular. Um motor com muitos cliques ou que trava em conexão ruim perde reserva silenciosamente, sem gerar alerta nenhum.</li>
+  <li><strong>Checkout em português e em reais.</strong> Nem todo fornecedor internacional garante meios de pagamento locais (Pix, boleto, parcelamento) nem suporte na sua língua no momento em que o hóspede mais precisa, o do pagamento.</li>
+  <li><strong>Suporte.</strong> Motor fora do ar num feriado prolongado é reserva perdida. Confirme horário de atendimento, idioma e se existe telefone ou só chat e e-mail.</li>
+</ul>
+<p>Vale um esclarecimento antes da comparação: nem tudo que aparece numa busca por "motor de reservas" é um motor de reservas. A Asksuite, por exemplo, bastante conhecida no setor, não é um motor de reservas, é uma plataforma de atendimento com IA (WhatsApp, chat, redes sociais) que se integra a centenas de motores diferentes para converter conversa em reserva. É categoria complementar, não substituto.</p>
+
+<h2>Os motores de reservas que avaliamos para o mercado brasileiro</h2>
+<p>Pesquisamos nas páginas oficiais e nas centrais de ajuda de cada fornecedor. Ficou de fora a RoomRaccoon: tem site em português de Portugal, mas o material institucional é voltado à Europa e a países de língua inglesa, sem menção a suporte no Brasil.</p>
+
+<h3>Omnibees</h3>
+<p>Brasileira, sede em São Paulo. Afirma ter mais de 10.000 hotéis parceiros e se posiciona como líder no Brasil e na América Latina. O motor roda integrado ao CRS (sistema central de reservas) próprio, com conexão nativa a Google Hotel Ads, TripAdvisor e Trivago, e ao gateway de pagamento próprio, o Bee2Pay. Pelo módulo Bee Connect, também se integra a mais de 60 sistemas de PMS e RMS de terceiros, então não é obrigatório trocar de sistema de gestão. Suporte por telefone em português, atendimento estendido (segunda a sexta, 7h às 22h). A comunicação fala mais com redes e hotéis de porte médio a grande, dado o peso que dá ao CRS, e o site não publica preço nem comissão.</p>
+
+<h3>HSystem</h3>
+<p>Também brasileira, afirma atender mais de 3.000 hotéis no país. Vendida como pacote tudo-em-um: motor de reservas, gestor de canais (Booking, Decolar, HRS e outras OTAs), revenue management, site e um assistente com IA chamado HAI, tudo do mesmo fornecedor. Faz sentido para quem prefere resolver site, motor e distribuição num contrato só. Em compensação, o material institucional não detalha modelo de cobrança nem especificações do checkout, é preciso falar com o time comercial.</p>
+
+<h3>Cloudbeds</h3>
+<p>Global, com site inteiro em português do Brasil e forte presença na hotelaria independente internacional. O motor é vendido como módulo do PMS da Cloudbeds e se conecta à solução de marketing digital da empresa (Amplify), com metabusca em Google Hotel Ads, Trivago e TripAdvisor. Ponto importante: a própria central de ajuda da Cloudbeds confirma que o motor funciona apenas com o PMS da Cloudbeds, incompatível com sistemas de terceiros. Adotá-lo significa migrar o PMS inteiro, não só trocar uma peça. Vale a pena se você topa trocar de PMS; é obstáculo se já gosta do seu.</p>
+
+<h3>SiteMinder</h3>
+<p>Global, sede na Austrália, conteúdo em português. Diferente da Cloudbeds, não é um PMS: o site afirma conectar-se a cerca de 400 sistemas de gestão hoteleira diferentes, então dá para manter o PMS atual e agregar o motor e o gestor de canais por cima. Oferece um serviço gerenciado, o Demand Plus, focado em lances e otimização no Google Hotel Ads. Não encontramos confirmação de escritório ou suporte telefônico dedicado ao Brasil, o atendimento local tende a ser menos próximo do que o de um fornecedor brasileiro.</p>
+
+<h2>Um padrão que vale registrar</h2>
+<p>Nenhum dos quatro fornecedores publica preço, comissão ou taxa fixa nas páginas institucionais. É prática do setor inteiro: cotação sob consulta, ajustada ao tamanho do hotel e aos módulos contratados. A única forma confiável de comparar custo real é pedir proposta detalhada para dois ou três fornecedores e comparar o valor final, não a mensalidade anunciada isoladamente.</p>
+
+<h2>Como decidir sem enrolar</h2>
+<p>Se o seu hotel já tem um PMS que funciona bem, comece perguntando se o motor se integra a ele ou exige troca de sistema, essa resposta sozinha já elimina metade das opções. Peça demonstração no celular, não no notebook do vendedor, e cronometre quantos cliques leva até a confirmação da reserva. Pergunte pela integração com <a href="/google-hotel-ads">Google Hotel Ads</a>: um motor sem ela fecha a porta para um dos canais de maior retorno em reserva direta.</p>
+<p>Escolher o motor certo é só metade da equação. Ele só entrega resultado dentro de um <a href="/sites-para-hoteis">site rápido e pensado para conversão</a>, com paridade tarifária e estratégia real de captura de demanda, é assim que a Réserve implementa <a href="/motor-de-reservas">motor de reservas</a> nos projetos que constrói. Veja também como <a href="/blog/reservas-diretas-vs-otas-como-equilibrar">equilibrar reservas diretas e OTAs</a> e como <a href="/blog/como-reduzir-comissoes-booking-sem-perder-ocupacao">reduzir a comissão do Booking sem perder ocupação</a>: o motor de reservas é a ferramenta, essas duas leituras são a estratégia por trás dela.</p>
     `,
   },
 ];

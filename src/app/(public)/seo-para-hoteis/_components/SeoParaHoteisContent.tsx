@@ -29,6 +29,11 @@ const content = {
     heroCta: "Quero melhorar meu SEO",
     pillarsLabel: "Nosso método",
     pillarsH2: "4 pilares do SEO Hoteleiro",
+    pillarsPa: "SEO hoteleiro é um dos pilares centrais de qualquer ",
+    pillarsPlink1: "trabalho sério de marketing para hotéis",
+    pillarsPb: ", e trabalha lado a lado com a ",
+    pillarsPlink2: "gestão de canais digitais",
+    pillarsPc: " do hotel, sobretudo o Google Business Profile e as avaliações.",
     pillars: [
       { title: "SEO Técnico", desc: "Velocidade, Core Web Vitals, URLs amigáveis, schema markup, versão mobile. Base que o Google exige para ranquear bem.", icon: "⚙️" },
       { title: "Google Business Profile", desc: "Otimização completa do perfil local: fotos, avaliações, categorias e posts. Aparece no Maps e no pacote local das buscas.", icon: "📍" },
@@ -37,6 +42,9 @@ const content = {
     ],
     tlLabel: "Resultados",
     tlH2: "SEO é um ativo que cresce com o tempo",
+    tlPa: "O caminho completo, com prazos e táticas para cada etapa, está no nosso ",
+    tlPlink: "guia completo de SEO para hotéis",
+    tlPb: ".",
     timeline: [
       { period: "30–90 dias", what: "Melhorias no Google Business Profile e otimizações técnicas começam a gerar impacto em buscas locais e pelo nome do hotel." },
       { period: "3–6 meses", what: "Conteúdo novo começa a ser indexado. Crescimento consistente de tráfego orgânico." },
@@ -64,6 +72,11 @@ const content = {
     heroCta: "I want to improve my SEO",
     pillarsLabel: "Our method",
     pillarsH2: "The 4 pillars of Hotel SEO",
+    pillarsPa: "Hotel SEO is one of the central pillars of any ",
+    pillarsPlink1: "serious marketing program for hotels",
+    pillarsPb: ", and it works hand in hand with the hotel's ",
+    pillarsPlink2: "digital channel management",
+    pillarsPc: ", especially the Google Business Profile and reviews.",
     pillars: [
       { title: "Technical SEO", desc: "Speed, Core Web Vitals, friendly URLs, schema markup, mobile version. The foundation Google requires to rank well.", icon: "⚙️" },
       { title: "Google Business Profile", desc: "Complete local profile optimization: photos, reviews, categories and posts. Appears on Maps and in the local pack of searches.", icon: "📍" },
@@ -72,6 +85,9 @@ const content = {
     ],
     tlLabel: "Results",
     tlH2: "SEO is an asset that grows over time",
+    tlPa: "The full path, with timelines and tactics for each stage, is in our ",
+    tlPlink: "complete hotel SEO guide",
+    tlPb: ".",
     timeline: [
       { period: "30–90 days", what: "Improvements to Google Business Profile and technical optimizations start to impact local searches and searches by the hotel name." },
       { period: "3–6 months", what: "New content starts getting indexed. Consistent growth in organic traffic." },
@@ -138,9 +154,12 @@ export default function SeoParaHoteisContent() {
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.pillarsLabel}</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 {c.pillarsH2}
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                {c.pillarsPa}<Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>{c.pillarsPlink1}</Link>{c.pillarsPb}<Link href="/gestao-de-canais" style={{ color: BRAND_BROWN }}>{c.pillarsPlink2}</Link>{c.pillarsPc}
+              </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
               {c.pillars.map((p, i) => (
@@ -162,9 +181,12 @@ export default function SeoParaHoteisContent() {
                 <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.tlLabel}</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 {c.tlH2}
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                {c.tlPa}<Link href="/blog/seo-para-hoteis-aparecer-no-google" style={{ color: BRAND_BROWN }}>{c.tlPlink}</Link>{c.tlPb}
+              </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {c.timeline.map((t, i) => (

@@ -61,6 +61,15 @@ const content = {
       "Nossa equipe de especialistas atua de forma integrada, unindo tráfego pago, Google Hotel Ads, branding, conteúdo e tecnologia para construir canais próprios de aquisição que trabalham pelo seu hotel 24 horas por dia.",
       "Com metodologias exclusivas de marketing hoteleiro, já ajudamos dezenas de estabelecimentos a aumentarem suas reservas diretas, reduzirem custos com comissões e consolidarem sua marca como referência de mercado.",
     ],
+    temaLabel: "O que é marketing hoteleiro",
+    temaH2a: "Marketing hoteleiro não é marketing digital genérico com um ",
+    temaH2strong: "hotel como cliente",
+    temaParas: [
+      "Marketing hoteleiro é a aplicação de estratégia de aquisição, conteúdo e tecnologia à lógica específica da hotelaria: sazonalidade de alta e baixa temporada, tarifário dinâmico, uma jornada de compra mais longa que a de um e-commerce comum, e a disputa direta contra OTAs como Booking e Expedia por cada reserva.",
+      "Uma agência de marketing digital genérica sabe rodar campanha, mas raramente entende por que o custo de aquisição de um hotel de praia varia conforme a temporada, ou por que aparecer no comparador do Google Hotel Ads pesa mais, para quem já escolheu o destino, do que um anúncio de Instagram. Marketing digital para hotéis exige esse repertório específico do setor.",
+      "É por isso que tratamos marketing hoteleiro como especialidade — não como mais um segmento dentro de um portfólio de clientes de nichos variados.",
+    ],
+    temaH3: "Marketing hoteleiro na prática: da visibilidade à reserva direta",
     servLabel: "O que fazemos",
     servH2a: "Serviços especializados em ",
     servH2strong: "marketing hoteleiro",
@@ -109,6 +118,15 @@ const content = {
       "Our team of specialists works in an integrated way, combining paid traffic, Google Hotel Ads, branding, content and technology to build owned acquisition channels that work for your hotel 24 hours a day.",
       "With exclusive hotel marketing methodologies, we have already helped dozens of properties increase their direct bookings, reduce commission costs and consolidate their brand as a market reference.",
     ],
+    temaLabel: "What is hotel marketing",
+    temaH2a: "Hotel marketing isn't generic digital marketing with a ",
+    temaH2strong: "hotel as the client",
+    temaParas: [
+      "Hotel marketing is the application of acquisition strategy, content and technology to the specific logic of hospitality: high and low season swings, dynamic pricing, a purchase journey longer than a typical e-commerce one, and a direct fight against OTAs like Booking and Expedia for every reservation.",
+      "A generic digital marketing agency knows how to run a campaign, but rarely understands why a beach hotel's cost of acquisition swings with the season, or why showing up in the Google Hotel Ads comparator matters more, for someone who already picked the destination, than an Instagram ad. Hotel digital marketing demands that sector-specific know-how.",
+      "That's why we treat hotel marketing as a specialty — not as one more niche inside a portfolio of unrelated clients.",
+    ],
+    temaH3: "Hotel marketing in practice: from visibility to direct bookings",
     servLabel: "What we do",
     servH2a: "Services specialized in ",
     servH2strong: "hotel marketing",
@@ -182,7 +200,10 @@ const Empresa = () => {
               style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
             >
               {c.heroH1a}
-              <strong className="font-semibold">{c.heroH1strong}</strong>
+              <strong className="font-semibold">{c.heroH1strong}</strong>{" "}
+              {/* O espaço antes do <br> é intencional: sem ele o texto extraído
+                  do h1 sai grudado ("Hoteleiroque"), o que atrapalha crawlers de
+                  IA — que leem o texto, não o layout. Visualmente nada muda. */}
               <br />{c.heroH1b}
             </h1>
 
@@ -231,6 +252,99 @@ const Empresa = () => {
                   {p}
                 </p>
               ))}
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ── O que é marketing hoteleiro ── */}
+        <section className="py-20 md:py-28 px-6 md:px-16" style={{ background: BG_LIGHT }}>
+          <div className="max-w-4xl mx-auto">
+            <Reveal className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
+              <span
+                className="text-[10px] font-medium tracking-[0.3em] uppercase"
+                style={{ color: BRAND_GREEN_TEXT }}
+              >
+                {c.temaLabel}
+              </span>
+            </Reveal>
+
+            <Reveal
+              as="h2"
+              className="h2 mb-8"
+              style={{ color: TEXT_HEAD, fontWeight: 400 }}
+            >
+              {c.temaH2a}
+              <strong className="font-semibold">{c.temaH2strong}</strong>
+            </Reveal>
+
+            <Reveal delay={90} className="flex flex-col gap-5 mb-10">
+              {c.temaParas.map((p, i) => (
+                <p key={i} className="text-[15px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+                  {p}
+                </p>
+              ))}
+            </Reveal>
+
+            <Reveal
+              delay={160}
+              className="flex flex-col gap-4 p-8 md:p-10 rounded-2xl"
+              style={{
+                background: BG_CARD,
+                border: `1px solid ${BORDER}`,
+                boxShadow: "0 8px 40px rgba(26,15,8,0.06)",
+              }}
+            >
+              <h3 className="text-[15px] font-semibold" style={{ color: TEXT_HEAD }}>
+                {c.temaH3}
+              </h3>
+              {locale === "en" ? (
+                <>
+                  {/* Três parágrafos seguindo o funil — atrair, converter, sustentar.
+                      A <Reveal> em volta já tem gap-4, então eles se espaçam sozinhos. */}
+                  <p className="text-[15px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+                    In practice, that means showing up in the price comparator with{" "}
+                    <Link href="/google-hotel-ads" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>Google Hotel Ads</Link>, paid traffic segmented by guest profile with{" "}
+                    <Link href="/meta-ads" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>Meta Ads</Link>, and organic positioning for people already researching lodging, through{" "}
+                    <Link href="/seo-para-hoteis" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>SEO for hotels</Link>.
+                  </p>
+                  <p className="text-[15px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+                    Once a guest lands on the site, they need to convert — which is where a{" "}
+                    <Link href="/sites-para-hoteis" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>website built for hospitality</Link> with an integrated{" "}
+                    <Link href="/motor-de-reservas" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>booking engine</Link> and a{" "}
+                    <Link href="/reservas-diretas" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>direct booking strategy</Link> come in, designed to cut reliance on OTA commissions.
+                  </p>
+                  <p className="text-[15px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+                    Rounding out the ecosystem:{" "}
+                    <Link href="/gestao-de-canais" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>channel management</Link> to keep rates and availability in sync,{" "}
+                    <Link href="/producao-audiovisual" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>audiovisual production</Link> that sells the experience before the booking,{" "}
+                    <Link href="/relatorios-performance" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>performance reports</Link> that show what is actually driving bookings, and{" "}
+                    <Link href="/automacao-atendimento" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>service automation</Link> that answers the guest the moment they decide.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="text-[15px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+                    Na prática, isso significa presença no comparador de preços com{" "}
+                    <Link href="/google-hotel-ads" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>Google Hotel Ads</Link>, tráfego pago segmentado por perfil de hóspede com{" "}
+                    <Link href="/meta-ads" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>Meta Ads</Link> e posicionamento orgânico para quem já está pesquisando hospedagem, via{" "}
+                    <Link href="/seo-para-hoteis" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>SEO para hotéis</Link>.
+                  </p>
+                  <p className="text-[15px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+                    Depois que o hóspede chega ao site, ele precisa converter — e é aí que entram um{" "}
+                    <Link href="/sites-para-hoteis" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>site pensado para hotelaria</Link> com{" "}
+                    <Link href="/motor-de-reservas" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>motor de reservas</Link> integrado e uma estratégia de{" "}
+                    <Link href="/reservas-diretas" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>reservas diretas</Link> desenhada para reduzir a dependência de comissão de OTA.
+                  </p>
+                  <p className="text-[15px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+                    Completam o ecossistema a{" "}
+                    <Link href="/gestao-de-canais" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>gestão de canais</Link> para manter tarifa e disponibilidade sincronizadas, a{" "}
+                    <Link href="/producao-audiovisual" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>produção audiovisual</Link> que vende a experiência antes da reserva, os{" "}
+                    <Link href="/relatorios-performance" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>relatórios de performance</Link> que mostram o que está gerando reserva de fato, e a{" "}
+                    <Link href="/automacao-atendimento" className="underline underline-offset-2" style={{ color: BRAND_GREEN_TEXT }}>automação de atendimento</Link> que responde o hóspede no momento em que ele decide.
+                  </p>
+                </>
+              )}
             </Reveal>
           </div>
         </section>

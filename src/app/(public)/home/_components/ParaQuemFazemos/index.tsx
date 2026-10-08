@@ -1,36 +1,32 @@
 "use client";
 
 import Image from "next/image";
-import { IconBuilding, IconHome, IconBrandAirbnb, IconArrowRight } from "@tabler/icons-react";
+import { IconArrowRight } from "@tabler/icons-react";
 import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 
-const BRAND_GREEN = "#84936f";
-// Verde para TEXTO sobre fundos claros — >= 4.5:1 (WCAG AA)
-const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
+const BRAND_BROWN_LIGHT = "#c4a48e";
+const TEXT_HEAD = "#1A0F08";
 
 export default function ParaQuemFazemos() {
   const { t } = useLocale();
 
   const publicos = [
     {
-      image: "/img/resource/hotel-resort.webp",
-      icon: <IconBuilding size={13} stroke={1.8} />,
+      image: "/img/resource/segment-resort.jpg",
       labelKey: 'para.p1.label',
       titleKey: 'para.p1.title',
       descKey: 'para.p1.desc',
     },
     {
-      image: "/img/resource/pousada.webp",
-      icon: <IconHome size={13} stroke={1.8} />,
+      image: "/img/resource/segment-pousada.jpg",
       labelKey: 'para.p2.label',
       titleKey: 'para.p2.title',
       descKey: 'para.p2.desc',
     },
     {
-      image: "/img/resource/airnb.webp",
-      icon: <IconBrandAirbnb size={13} stroke={1.8} />,
+      image: "/img/resource/segment-airbnb.jpg",
       labelKey: 'para.p3.label',
       titleKey: 'para.p3.title',
       descKey: 'para.p3.desc',
@@ -42,36 +38,35 @@ export default function ParaQuemFazemos() {
   };
 
   return (
-    <section id="para-quem-fazemos" className="py-10 md:py-16" style={{ background: "#F7F3EE" }}>
+    <section id="para-quem-fazemos" className="py-16 md:py-24" style={{ background: "#F7F3EE" }}>
       <div className="section-container">
-        <Reveal className="text-center mb-10 md:mb-12">
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>
+        <Reveal className="flex flex-col">
+          {/* Eyebrow */}
+          <p className="flex items-center gap-4">
+            <span aria-hidden="true" className="h-px w-10 shrink-0" style={{ background: BRAND_BROWN }} />
+            <span className="text-[11px] font-semibold uppercase" style={{ letterSpacing: "0.3em", color: BRAND_BROWN }}>
               {t('para.label')}
             </span>
-            <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-          </div>
-          <h2 className="h2" style={{ color: "#1A0F08", fontWeight: 400 }}>
+          </p>
+
+          <h2
+            className="mt-8 max-w-3xl text-4xl md:text-5xl xl:text-6xl"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 400, lineHeight: 1.08, color: TEXT_HEAD }}
+          >
             {t('para.h2')}{" "}
-            <strong className="font-semibold">{t('para.h2.strong')}</strong>
+            <span style={{ fontStyle: "italic", color: "#5d6b4c" }}>{t('para.h2.strong')}</span>
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           {publicos.map((p, i) => (
             <Reveal
               key={i}
               as="article"
               delay={i * 100}
-              className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1"
-              style={{
-                background: "#FDFAF7",
-                border: "1px solid rgba(196,164,142,0.22)",
-                boxShadow: "0 4px 24px rgba(26,15,8,0.06)",
-              }}
+              className="group relative overflow-hidden rounded-2xl"
             >
-              <div className="relative overflow-hidden" style={{ height: "240px" }}>
+              <div className="relative w-full" style={{ aspectRatio: "4/5" }}>
                 <Image
                   src={p.image}
                   alt={t(p.titleKey)}
@@ -80,49 +75,61 @@ export default function ParaQuemFazemos() {
                   sizes="(min-width: 768px) 33vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0" style={{ background: "rgba(26,15,8,0.06)" }} />
               </div>
 
-              <div className="flex flex-col gap-4 p-6 flex-1">
-                <div className="flex items-center gap-2">
-                  <div
-                    className="w-5 h-5 rounded flex items-center justify-center shrink-0"
-                    style={{ background: "rgba(153,79,42,0.08)", color: BRAND_BROWN }}
-                  >
-                    {p.icon}
-                  </div>
-                  <span className="text-[9px] font-semibold tracking-[0.22em] uppercase" style={{ color: BRAND_BROWN }}>
-                    {t(p.labelKey)}
-                  </span>
-                </div>
+              {/* Gradiente: escuro na base, onde mora o texto — garante o
+                  contraste AA do texto branco sobre a foto. */}
+              <div
+                className="absolute inset-0"
+                aria-hidden="true"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(26,15,8,0.92) 0%, rgba(26,15,8,0.55) 45%, rgba(26,15,8,0.15) 100%)",
+                }}
+              />
+
+              <div className="absolute inset-x-0 bottom-0 p-7 md:p-8">
+                <p
+                  className="text-[10px] font-semibold uppercase"
+                  style={{ letterSpacing: "0.25em", color: BRAND_BROWN_LIGHT }}
+                >
+                  {t(p.labelKey)}
+                </p>
 
                 <h3
-                  className="font-semibold leading-snug"
-                  style={{ fontSize: "clamp(1rem, 1.6vw, 1.15rem)", color: "#1A0F08", fontWeight: 600 }}
+                  className="mt-3 text-[26px] md:text-[28px]"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontWeight: 400,
+                    lineHeight: 1.15,
+                    color: "var(--color-text-on-dark)",
+                  }}
                 >
                   {t(p.titleKey)}
                 </h3>
 
-                <p className="text-[13px] font-light leading-[1.85] flex-1" style={{ color: "#6e5e52" }}>
+                <p
+                  className="mt-3 text-[14px] font-light leading-[1.75]"
+                  style={{ color: "var(--color-text-muted-on-dark)" }}
+                >
                   {t(p.descKey)}
                 </p>
 
                 <button
                   onClick={handleContact}
-                  className="group/btn inline-flex items-center gap-2 pt-2 transition-colors duration-300"
-                  style={{ borderTop: "1px solid rgba(196,164,142,0.2)", paddingTop: "14px" }}
+                  className="group/btn mt-6 inline-flex items-center gap-2 transition-opacity duration-300 hover:opacity-80"
                 >
                   <span
-                    className="text-[10px] font-semibold tracking-[0.2em] uppercase transition-colors duration-300 group-hover/btn:text-[#994f2a]"
-                    style={{ color: BRAND_GREEN_TEXT }}
+                    className="text-[10px] font-bold uppercase"
+                    style={{ letterSpacing: "0.2em", color: "var(--color-text-on-dark)" }}
                   >
                     {t('para.learnmore')}
                   </span>
                   <IconArrowRight
-                    size={13}
+                    size={14}
                     stroke={2}
-                    className="transition-all duration-300 group-hover/btn:translate-x-1"
-                    style={{ color: BRAND_GREEN_TEXT }}
+                    className="transition-transform duration-300 group-hover/btn:translate-x-1"
+                    style={{ color: BRAND_BROWN_LIGHT }}
                   />
                 </button>
               </div>

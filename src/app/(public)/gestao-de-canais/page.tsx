@@ -124,9 +124,14 @@ export default function GestaoDeCanaisPage() {
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>Canais que gerenciamos</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Todos os canais do seu hotel, uma só estratégia
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                Cada canal reforça os outros: o Google Meu Negócio alimenta o{" "}
+                <Link href="/seo-para-hoteis" style={{ color: BRAND_BROWN }}>SEO para hotéis</Link>, e o Instagram vira tráfego qualificado para o{" "}
+                <Link href="/meta-ads" style={{ color: BRAND_BROWN }}>Meta Ads</Link>.
+              </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
               {channels.map((c, i) => (
@@ -147,9 +152,14 @@ export default function GestaoDeCanaisPage() {
                 <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>Como trabalhamos</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Do diagnóstico à execução contínua
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                É essa integração que sustenta a nossa{" "}
+                <Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>abordagem de marketing hoteleiro</Link>, sempre com o olho no objetivo final: mais{" "}
+                <Link href="/reservas-diretas" style={{ color: BRAND_BROWN }}>reservas geradas pelo canal direto</Link>.
+              </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {processSteps.map((s, i) => (

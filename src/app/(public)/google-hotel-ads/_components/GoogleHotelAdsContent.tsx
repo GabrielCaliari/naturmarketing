@@ -30,7 +30,9 @@ const content = {
     whatLabel: "O que é",
     whatH2: "O canal de maior ROI para hotelaria",
     whatP1: "O Google Hotel Ads exibe as tarifas e disponibilidade do seu hotel diretamente nos resultados de busca e no Google Maps, ao lado das OTAs. Quando o viajante pesquisa hotel em seu destino, seu hotel aparece com seu preço direto, competindo de igual para igual com o Booking e o Expedia.",
-    whatP2: "Hotéis que gerenciam bem o Google Hotel Ads conquistam reservas com custo de aquisição entre 5% e 8% do valor da reserva, contra 15% a 25% cobrados pelas OTAs. É o canal de maior retorno sobre investimento no marketing hoteleiro.",
+    whatP2a: "Hotéis que gerenciam bem o Google Hotel Ads conquistam reservas com custo de aquisição entre 5% e 8% do valor da reserva, contra 15% a 25% cobrados pelas OTAs. É o canal de maior retorno sobre investimento dentro de uma ",
+    whatP2link: "estratégia de marketing hoteleiro bem estruturada",
+    whatP2b: ".",
     stats: [
       { v: "5–8%", l: "Custo médio por reserva" },
       { v: "3–7d", l: "Para primeiras reservas" },
@@ -38,6 +40,9 @@ const content = {
     ],
     stepsLabel: "Como trabalhamos",
     stepsH2: "5 passos para seu hotel aparecer no Google Hotel Ads",
+    stepsPa: "Este é o roteiro técnico que aplicamos em cada conta, os mesmos passos explicados em detalhe no nosso ",
+    stepsPlink: "guia completo de Google Hotel Ads",
+    stepsPb: ".",
     steps: [
       { n: "01", title: "Google Business Profile", desc: "Configuração e otimização completa do perfil, a base técnica de tudo." },
       { n: "02", title: "Motor de Reservas", desc: "Integramos seu sistema com o Google Hotel Center para sincronização de tarifas em tempo real." },
@@ -47,7 +52,9 @@ const content = {
     ],
     dicasLabel: "Boas práticas",
     dicasH2: "Dicas para Google Hotel Ads que realmente convertem",
-    dicasP: "Aparecer no Google Hotel Ads é só o começo. Estas são as práticas que separam uma campanha que queima verba de uma que gera reservas diretas com lucro, as mesmas que aplicamos na gestão de Google Ads para hotéis e pousadas.",
+    dicasPa: "Aparecer no Google Hotel Ads é só o começo. Estas são as práticas que separam uma campanha que queima verba de uma que gera ",
+    dicasPlink: "reservas diretas com lucro",
+    dicasPb: ", as mesmas que aplicamos na gestão de Google Ads para hotéis e pousadas.",
     dicas: [
       { title: "Garanta paridade tarifária", desc: "Seu preço no site precisa ser igual ou menor que o das OTAs. Sem paridade, o Hotel Ads mostra você mais caro e o hóspede reserva no Booking." },
       { title: "Separe campanhas por dispositivo", desc: "Celular e desktop convertem de formas diferentes. Lances separados por device evitam desperdício e melhoram o custo por reserva." },
@@ -81,7 +88,9 @@ const content = {
     whatLabel: "What it is",
     whatH2: "The highest-ROI channel for hospitality",
     whatP1: "Google Hotel Ads shows your hotel's rates and availability directly in search results and on Google Maps, alongside the OTAs. When a traveler searches for a hotel in your destination, your hotel appears with your direct price, competing head to head with Booking and Expedia.",
-    whatP2: "Hotels that manage Google Hotel Ads well win bookings at an acquisition cost between 5% and 8% of the booking value, versus the 15% to 25% charged by OTAs. It's the highest return-on-investment channel in hotel marketing.",
+    whatP2a: "Hotels that manage Google Hotel Ads well win bookings at an acquisition cost between 5% and 8% of the booking value, versus the 15% to 25% charged by OTAs. It's the highest return-on-investment channel within a well-structured ",
+    whatP2link: "hotel marketing strategy",
+    whatP2b: ".",
     stats: [
       { v: "5–8%", l: "Average cost per booking" },
       { v: "3–7d", l: "To first bookings" },
@@ -89,6 +98,9 @@ const content = {
     ],
     stepsLabel: "How we work",
     stepsH2: "5 steps to get your hotel on Google Hotel Ads",
+    stepsPa: "This is the technical roadmap we apply to every account, the same steps explained in detail in our ",
+    stepsPlink: "complete Google Hotel Ads guide",
+    stepsPb: ".",
     steps: [
       { n: "01", title: "Google Business Profile", desc: "Complete profile setup and optimization, the technical foundation of everything." },
       { n: "02", title: "Booking Engine", desc: "We integrate your system with Google Hotel Center for real-time rate synchronization." },
@@ -98,7 +110,10 @@ const content = {
     ],
     dicasLabel: "Best practices",
     dicasH2: "Google Hotel Ads tips that actually convert",
-    dicasP: "Appearing on Google Hotel Ads is just the start. These are the practices that separate a campaign that burns budget from one that generates profitable direct bookings, the same ones we apply managing Google Ads for hotels and inns.",
+    dicasPa: "Appearing on Google Hotel Ads is just the start. These are the practices that separate a campaign that burns budget from one that generates profitable ",
+    dicasPlink: "direct bookings",
+    dicasPb: ", the same ones we apply managing Google Ads for hotels and inns.",
+
     dicas: [
       { title: "Ensure rate parity", desc: "Your price on the site needs to be equal to or lower than the OTAs'. Without parity, Hotel Ads shows you as more expensive and the guest books on Booking." },
       { title: "Split campaigns by device", desc: "Mobile and desktop convert differently. Separate bids by device avoid waste and improve cost per booking." },
@@ -179,7 +194,7 @@ export default function GoogleHotelAdsContent() {
                 {c.whatP1}
               </Reveal>
               <Reveal as="p" delay={120} style={{ color: TEXT_BODY, fontWeight: 300, lineHeight: 1.85 }}>
-                {c.whatP2}
+                {c.whatP2a}<Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>{c.whatP2link}</Link>{c.whatP2b}
               </Reveal>
             </div>
 
@@ -203,9 +218,12 @@ export default function GoogleHotelAdsContent() {
                 <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>{c.stepsLabel}</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 {c.stepsH2}
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                {c.stepsPa}<Link href="/blog/google-hotel-ads-guia-completo" style={{ color: BRAND_BROWN }}>{c.stepsPlink}</Link>{c.stepsPb}
+              </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {c.steps.map((s, i) => (
@@ -233,7 +251,7 @@ export default function GoogleHotelAdsContent() {
                 {c.dicasH2}
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
-                {c.dicasP}
+                {c.dicasPa}<Link href="/reservas-diretas" style={{ color: BRAND_BROWN }}>{c.dicasPlink}</Link>{c.dicasPb}
               </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">

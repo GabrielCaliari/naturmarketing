@@ -1,4 +1,5 @@
 import { COMPANY_NAP } from '@/constants/company'
+import { DEPOIMENTOS } from '@/data/depoimentos'
 
 interface JsonLdProps {
   data: Record<string, unknown>
@@ -200,4 +201,80 @@ export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
   }
 
   return <JsonLd data={breadcrumbData} id="breadcrumb-schema" />
+}
+
+// Reviews / AggregateRating Schema
+//
+// EXPECTATIVA CORRETA: isto NÃO produz estrelas na SERP do Google. Desde a
+// política de set/2019, avaliação "self-serving" — a empresa publicando no
+// próprio site notas sobre si mesma, com @type Organization/LocalBusiness —
+// é inelegível para o rich result de estrelas, mesmo sendo real. O valor aqui
+// é AEO/AIO: dá aos buscadores de IA (ChatGPT, Perplexity, AI Overviews) uma
+// fonte estruturada e citável das avaliações. Estrelas na busca dependeriam
+// de avaliações em plataforma independente (Google Business Profile etc.).
+//
+// Só renderizar em página que EXIBE os depoimentos (hoje: a home, junto do
+// componente Depoimentos). O Google exige que o conteúdo marcado esteja
+// visível na página — emitir isto em uma rota sem a seção viola o requisito.
+//
+// Isto NÃO redeclara a entidade Organization (@id "#organization", emitida
+// por OrganizationJsonLd no layout raiz e presente em toda página). Duas
+// tags <script> com @type Organization e o mesmo @id — uma com NAP e sem
+// avaliações, outra com avaliações e sem NAP — fariam o Google mesclar por
+// @id, mas crawlers de IA e parsers genéricos costumam não mesclar, e o
+// próprio objetivo deste schema é ser citável por eles. Por isso o
+// AggregateRating e cada Review aqui são nós com identidade própria
+// (@id distinto) que apenas *referenciam* a organização via itemReviewed —
+// um parser que não resolve a referência ainda vê nós válidos e
+// autoexplicativos, sem nunca ver duas Organizations conflitantes.
+export function ReviewsJsonLd() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_NAP.url
+
+  const depoimentosComNota = DEPOIMENTOS.filter(
+    (d): d is typeof d & { nota: 1 | 2 | 3 | 4 | 5 } => d.nota != null
+  )
+
+  // Regra inegociável: sem depoimento com nota, não há avaliação real para
+  // publicar — nunca emitir aggregateRating/review fabricado (violaria as
+  // diretrizes do Google e pode gerar penalização manual do domínio).
+  if (depoimentosComNota.length === 0) {
+    return null
+  }
+
+  const media = depoimentosComNota.reduce((soma, d) => soma + d.nota, 0) / depoimentosComNota.length
+  const organizationRef = { "@id": `${siteUrl}/#organization` }
+
+  const reviewsData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AggregateRating",
+        "@id": `${siteUrl}/#aggregate-rating`,
+        "itemReviewed": organizationRef,
+        "ratingValue": Math.round(media * 10) / 10,
+        "reviewCount": depoimentosComNota.length,
+        "bestRating": 5,
+        "worstRating": 1
+      },
+      ...depoimentosComNota.map(d => ({
+        "@type": "Review",
+        "@id": `${siteUrl}/#review-${d.id}`,
+        "itemReviewed": organizationRef,
+        "author": {
+          "@type": "Person",
+          "name": d.nome
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": d.nota,
+          "bestRating": 5,
+          "worstRating": 1
+        },
+        ...(d.texto ? { "reviewBody": d.texto } : {}),
+        ...(d.data ? { "datePublished": d.data } : {})
+      }))
+    ]
+  }
+
+  return <JsonLd data={reviewsData} id="reviews-schema" />
 }

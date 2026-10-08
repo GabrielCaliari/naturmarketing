@@ -53,7 +53,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
       "como aparecer no Google Hotel Ads",
       "reservas diretas hotel Google"
     ],
-    "readTime": 8,
+    "readTime": 13,
     "publishedAt": "2025-08-18",
     "featured": true,
     "coverImage": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=700&h=400&fit=crop&q=80",
@@ -266,6 +266,25 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "featured": true,
     "coverImage": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&h=400&fit=crop&q=80",
     "coverAlt": "Aperto de mãos sobre mesa de negociação com documentos e calculadora"
+  },
+  {
+    "slug": "motor-de-reservas-para-hotel-comparativo",
+    "title": "Motor de reservas para hotel: comparativo completo para 2026",
+    "excerpt": "\"Motor de reservas para hotel\" é a palavra-chave de maior volume do site, mas quem ocupa a página 1 do Google são comparativos honestos, não páginas de venda. Pesquisamos os principais sistemas disponíveis no Brasil e comparamos só o que conseguimos confirmar: integração com PMS, conversão em mobile e suporte real.",
+    "seoTitle": "Motor de Reservas para Hotel: Comparativo 2026",
+    "seoDescription": "Comparamos motores de reservas para hotéis e pousadas no Brasil: taxas, integração com PMS e suporte real. Veja qual combina com seu hotel.",
+    "category": "OTAs & Canal Direto",
+    "keywords": [
+      "motor de reservas para hotel",
+      "melhor motor de reservas para hotel",
+      "motor de reservas hotel Brasil",
+      "comparativo motor de reservas hotel"
+    ],
+    "readTime": 13,
+    "publishedAt": "2026-07-20",
+    "featured": false,
+    "coverImage": "https://images.unsplash.com/photo-1759038085950-1234ca8f5fed?w=700&h=400&fit=crop&q=80",
+    "coverAlt": "Balcão de recepção de hotel moderno com computadores e poltronas de couro ao fundo"
   }
 ];
 

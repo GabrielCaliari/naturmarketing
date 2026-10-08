@@ -124,9 +124,15 @@ export default function RelatoriosPerformancePage() {
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>O que medimos</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 As métricas que realmente importam para hotelaria
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                Essas métricas existem para responder uma pergunta só: seu hotel está avançando na migração para o{" "}
+                <Link href="/reservas-diretas" style={{ color: BRAND_BROWN }}>canal direto</Link>{" "}
+                frente às OTAs? É o centro do nosso{" "}
+                <Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>método de marketing hoteleiro</Link>.
+              </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
               {metrics.map((m, i) => (
@@ -147,9 +153,13 @@ export default function RelatoriosPerformancePage() {
                 <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>Ferramentas e entregas</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Visibilidade total sobre o desempenho do hotel
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                Métricas de marketing sem revenue management contam só metade da história: veja como as duas frentes se conectam em{" "}
+                <Link href="/blog/revenue-management-e-marketing-hoteleiro" style={{ color: BRAND_BROWN }}>revenue management e marketing hoteleiro</Link>.
+              </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {tools.map((t, i) => (

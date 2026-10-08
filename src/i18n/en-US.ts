@@ -28,26 +28,51 @@ const enUS: Record<string, string> = {
 
   // ── Banner ─────────────────────────────────────────────────────────────────
   'banner.badge': 'Hotel Marketing Agency',
-  'banner.title.1': 'Hotel',
-  'banner.title.2': 'marketing agency.',
-  'banner.title.3': 'Results in',
-  'banner.title.4': 'direct',
-  'banner.title.5': 'bookings.',
+  // Two-part title: the 2nd part gets the terracotta accent color in the hero.
+  'banner.title.1': 'Results in',
+  'banner.title.2': 'direct bookings.',
   'banner.subtitle': 'From diagnosis to execution,',
   'banner.subtitle.strong': 'your own channels working for your hotel 24/7.',
   'banner.cta.primary': 'Free Diagnosis',
   'banner.cta.secondary': 'Explore',
   'banner.wa': 'https://wa.me/5535997742984?text=Hello!%20I%20would%20like%20a%20free%20strategic%20diagnosis%20for%20my%20property.',
+  // Stats strip at the bottom of the hero. Values stay identical across
+  // locales — only the labels are translated.
+  'banner.stat.1.value': '+40%',
+  'banner.stat.1.label': 'Less dependence on OTAs',
+  'banner.stat.2.value': '3×',
+  'banner.stat.2.label': 'More direct bookings',
+  'banner.stat.3.value': '90d',
+  'banner.stat.3.label': 'To measurable results',
+  'banner.stat.4.value': '100%',
+  'banner.stat.4.label': 'Exclusive focus on hospitality',
+
+  // ── Comparison (footnote linking to the blog post) ─────────────────────────
+  'comp.footnote.text': 'Want the full breakdown? ',
+  'comp.footnote.link': 'Hotel marketing agency vs. generic agency',
+
+  // ── Testimonials ───────────────────────────────────────────────────────────
+  'depo.label': 'What our clients say',
+  'depo.h2': 'The experience of those who',
+  'depo.h2.strong': 'already work with Réserve.',
+  'depo.body': 'Hoteliers who built their property\'s own channels with us.',
+  'depo.video.play': 'Watch the testimonial from',
+  'depo.prev': 'Previous testimonial',
+  'depo.next': 'Next testimonial',
 
   // ── Transform ──────────────────────────────────────────────────────────────
   'transform.label': 'Our Specialty',
-  'transform.h3.1': 'We are specialists in Hotel Marketing.',
+  'transform.h3.1': 'We are specialists in',
+  'transform.h3.1.highlight': 'Hotel Marketing.',
   'transform.h3.2': 'We build direct channels that generate',
   'transform.h3.highlight': 'direct bookings',
   'transform.h3.end': 'and eliminate OTA commissions.',
   'transform.body': 'Real visibility, guests who pay for value',
   'transform.body.strong': 'and margin that stays with you.',
   'transform.cta': 'Talk to a specialist',
+  'transform.badge.value': '100%',
+  'transform.badge.label': 'Exclusive focus on hospitality',
+  'transform.alt': 'Boutique hotel reception welcoming guests',
 
   // ── Resultados ─────────────────────────────────────────────────────────────
   'results.label': 'Results',
@@ -155,6 +180,8 @@ const enUS: Record<string, string> = {
   'faq.label': 'FAQ',
   'faq.h2': 'Questions about',
   'faq.h2.strong': 'Hotel Marketing',
+  'faq.desc': 'Did not find your question? Talk to a specialist and get a personalized answer for your hotel.',
+  'faq.cta': 'Talk to a specialist',
   'faq.q1': 'What is the difference between hiring Réserve and a generic marketing agency?',
   'faq.a1': "A generalist agency treats a hotel like any other business. Réserve understands sector seasonality, OTA dynamics, guest behavior in the booking funnel, Google Hotel Ads and specific strategies to increase direct occupancy. Poorly configured campaigns by those who don't know hospitality waste budget and generate no bookings. The difference in results is significant.",
   'faq.q2': 'Is it possible to reduce OTA dependency without losing occupancy?',

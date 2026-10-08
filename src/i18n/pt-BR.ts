@@ -28,26 +28,51 @@ const ptBR: Record<string, string> = {
 
   // ── Banner ─────────────────────────────────────────────────────────────────
   'banner.badge': 'Agência de Marketing Hoteleiro',
-  'banner.title.1': 'Agência de',
-  'banner.title.2': 'marketing hoteleiro.',
-  'banner.title.3': 'Resultados em',
-  'banner.title.4': 'reservas',
-  'banner.title.5': 'diretas.',
+  // Título em duas partes: a 2ª recebe a cor de destaque (terracota) no hero.
+  'banner.title.1': 'Resultados em',
+  'banner.title.2': 'reservas diretas.',
   'banner.subtitle': 'Do diagnóstico à execução,',
   'banner.subtitle.strong': 'canais próprios trabalhando pelo seu hotel 24h.',
   'banner.cta.primary': 'Diagnóstico Gratuito',
   'banner.cta.secondary': 'Explorar',
   'banner.wa': 'https://wa.me/5535997742984?text=Olá! Gostaria de receber um diagnóstico estratégico gratuito sobre a presença digital da minha hospedagem.',
+  // Faixa de números no rodapé do hero. Os valores ficam iguais nos dois
+  // idiomas (só os rótulos traduzem).
+  'banner.stat.1.value': '+40%',
+  'banner.stat.1.label': 'Redução de dependência de OTAs',
+  'banner.stat.2.value': '3×',
+  'banner.stat.2.label': 'Aumento em reservas diretas',
+  'banner.stat.3.value': '90d',
+  'banner.stat.3.label': 'Para resultados mensuráveis',
+  'banner.stat.4.value': '100%',
+  'banner.stat.4.label': 'Foco exclusivo em hotelaria',
+
+  // ── Comparativo (rodapé que leva ao post do blog) ──────────────────────────
+  'comp.footnote.text': 'Quer entender essa diferença em detalhe? ',
+  'comp.footnote.link': 'Agência de marketing hoteleiro x agência genérica',
+
+  // ── Depoimentos ────────────────────────────────────────────────────────────
+  'depo.label': 'O que dizem nossos clientes',
+  'depo.h2': 'A experiência de quem já',
+  'depo.h2.strong': 'trabalha com a Réserve.',
+  'depo.body': 'Hoteleiros que estruturaram os canais próprios da sua hospedagem com a gente.',
+  'depo.video.play': 'Assistir ao depoimento de',
+  'depo.prev': 'Depoimento anterior',
+  'depo.next': 'Próximo depoimento',
 
   // ── Transform ──────────────────────────────────────────────────────────────
   'transform.label': 'Nossa Especialidade',
-  'transform.h3.1': 'Somos especialistas em Marketing Hoteleiro.',
+  'transform.h3.1': 'Somos especialistas em',
+  'transform.h3.1.highlight': 'Marketing Hoteleiro.',
   'transform.h3.2': 'Construímos canais próprios que geram',
   'transform.h3.highlight': 'reservas diretas',
   'transform.h3.end': 'e eliminam a comissão das OTAs.',
   'transform.body': 'Visibilidade de verdade, hóspedes que pagam pelo valor',
   'transform.body.strong': 'e margem que fica com você.',
   'transform.cta': 'Falar com um especialista',
+  'transform.badge.value': '100%',
+  'transform.badge.label': 'Foco exclusivo em hotelaria',
+  'transform.alt': 'Recepção de hotel boutique acolhendo hóspedes',
 
   // ── Resultados ─────────────────────────────────────────────────────────────
   'results.label': 'Resultados',
@@ -155,6 +180,8 @@ const ptBR: Record<string, string> = {
   'faq.label': 'Dúvidas Frequentes',
   'faq.h2': 'Perguntas sobre',
   'faq.h2.strong': 'Marketing Hoteleiro',
+  'faq.desc': 'Não encontrou a sua dúvida? Fale com um especialista e receba uma resposta personalizada para o seu hotel.',
+  'faq.cta': 'Falar com um especialista',
   'faq.q1': 'Qual a diferença entre contratar a Réserve e uma agência de marketing genérica?',
   'faq.a1': 'Uma agência generalista trata um hotel como qualquer outro negócio. A Réserve entende a sazonalidade do setor, a dinâmica das OTAs, o comportamento do hóspede no funil de reserva, o Google Hotel Ads e as estratégias específicas para aumentar a taxa de ocupação direta. Campanhas mal configuradas por quem não conhece a hotelaria desperdiçam orçamento e não geram reservas. A diferença no resultado é significativa.',
   'faq.q2': 'É possível reduzir a dependência das OTAs sem perder ocupação?',

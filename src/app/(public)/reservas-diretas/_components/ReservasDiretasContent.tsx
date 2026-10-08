@@ -45,8 +45,16 @@ const content = {
       "Maior margem por reserva",
       "Ativo que valoriza com o tempo",
     ],
+    contaFooterPa: "O ",
+    contaFooterPlink1: "Google Hotel Ads",
+    contaFooterPb: " é hoje o canal mais rápido para captar essa demanda no site do hotel. Para entender o equilíbrio certo entre canal direto e OTAs, veja o guia ",
+    contaFooterPlink2: "reservas diretas vs. OTAs: como equilibrar os dois canais",
+    contaFooterPc: ".",
     roadmapLabel: "Como fazemos",
     roadmapH2: "Roteiro de migração para canal direto",
+    roadmapPa: "Esse roteiro é a espinha dorsal da nossa ",
+    roadmapPlink1: "maneira de fazer marketing hoteleiro para o canal direto",
+    roadmapPb: ".",
     etapas: [
       { mes: "Mês 1–2", title: "Site + Motor de Reservas", desc: "Otimizamos ou construímos seu site com motor de reservas integrado, rápido e focado em conversão." },
       { mes: "Mês 1–2", title: "Google Hotel Ads", desc: "Canal de maior ROI ativado para capturar viajantes que já buscam seu destino." },
@@ -95,8 +103,16 @@ const content = {
       "Higher margin per booking",
       "An asset that appreciates over time",
     ],
+    contaFooterPa: "Today, ",
+    contaFooterPlink1: "Google Hotel Ads",
+    contaFooterPb: " is the fastest channel to capture that demand on the hotel's own site. To find the right balance between the direct channel and OTAs, see the guide ",
+    contaFooterPlink2: "direct bookings vs. OTAs: how to balance both channels",
+    contaFooterPc: ".",
     roadmapLabel: "How we do it",
     roadmapH2: "Migration roadmap to a direct channel",
+    roadmapPa: "This roadmap is the backbone of our ",
+    roadmapPlink1: "way we run hotel marketing for the direct channel",
+    roadmapPb: ".",
     etapas: [
       { mes: "Month 1–2", title: "Website + Booking Engine", desc: "We optimize or build your website with an integrated booking engine, fast and conversion-focused." },
       { mes: "Month 1–2", title: "Google Hotel Ads", desc: "The highest-ROI channel, activated to capture travelers already searching for your destination." },
@@ -187,7 +203,7 @@ export default function ReservasDiretasContent() {
                 </p>
               </Reveal>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
               {c.benefits.map((b, i) => (
                 <Reveal key={i} delay={i * 60} className="flex items-center gap-2 p-3 rounded-xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
                   <span style={{ color: BRAND_GREEN }}>✓</span>
@@ -195,6 +211,9 @@ export default function ReservasDiretasContent() {
                 </Reveal>
               ))}
             </div>
+            <Reveal as="p" className="text-[14px] font-light leading-relaxed max-w-2xl" style={{ color: TEXT_BODY }}>
+              {c.contaFooterPa}<Link href="/google-hotel-ads" style={{ color: BRAND_BROWN }}>{c.contaFooterPlink1}</Link>{c.contaFooterPb}<Link href="/blog/reservas-diretas-vs-otas-como-equilibrar" style={{ color: BRAND_BROWN }}>{c.contaFooterPlink2}</Link>{c.contaFooterPc}
+            </Reveal>
           </div>
         </section>
 
@@ -206,9 +225,12 @@ export default function ReservasDiretasContent() {
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.roadmapLabel}</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 {c.roadmapH2}
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                {c.roadmapPa}<Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>{c.roadmapPlink1}</Link>{c.roadmapPb}
+              </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {c.etapas.map((e, i) => (

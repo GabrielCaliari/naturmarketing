@@ -37,6 +37,9 @@ const content = {
     introP2c: " e ",
     introLink3: "Google Hotel Ads",
     introP2d: ", para que cada visitante tenha o caminho mais curto possível até a reserva.",
+    introP3a: "O motor cuida da tecnologia. Separadamente, vale negociar e reduzir o peso da comissão nos canais que o hotel mantiver ativos: mostramos como em ",
+    introP3link: "como reduzir a comissão do Booking sem perder ocupação",
+    introP3b: ".",
     benLabel: "Por que importa",
     benH2: "O que um bom motor de reservas entrega",
     benefits: [
@@ -91,6 +94,9 @@ const content = {
     introP2c: " and ",
     introLink3: "Google Hotel Ads",
     introP2d: ", so every visitor has the shortest possible path to a reservation.",
+    introP3a: "The engine handles the technology. Separately, it's worth negotiating and cutting the commission weight on any channels the hotel keeps active: we show how in ",
+    introP3link: "how to reduce Booking's commission without losing occupancy",
+    introP3b: ".",
     benLabel: "Why it matters",
     benH2: "What a good booking engine delivers",
     benefits: [
@@ -176,8 +182,11 @@ export default function MotorDeReservasContent() {
             <p className="text-[16px] font-light leading-[1.85] mb-4" style={{ color: TEXT_BODY }}>
               {c.introP1a}<strong>{c.introP1strong}</strong>{c.introP1b}
             </p>
-            <p className="text-[16px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+            <p className="text-[16px] font-light leading-[1.85] mb-4" style={{ color: TEXT_BODY }}>
               {c.introP2a}<Link href="/reservas-diretas" style={{ color: BRAND_BROWN }}>{c.introLink1}</Link>{c.introP2b}<Link href="/sites-para-hoteis" style={{ color: BRAND_BROWN }}>{c.introLink2}</Link>{c.introP2c}<Link href="/google-hotel-ads" style={{ color: BRAND_BROWN }}>{c.introLink3}</Link>{c.introP2d}
+            </p>
+            <p className="text-[16px] font-light leading-[1.85]" style={{ color: TEXT_BODY }}>
+              {c.introP3a}<Link href="/blog/como-reduzir-comissoes-booking-sem-perder-ocupacao" style={{ color: BRAND_BROWN }}>{c.introP3link}</Link>{c.introP3b}
             </p>
           </Reveal>
         </section>

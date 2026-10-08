@@ -128,9 +128,15 @@ export default function ProducaoAudiovisualPage() {
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>O que produzimos</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Conteúdo que posiciona e converte
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                As imagens e vídeos que produzimos alimentam dois canais centrais: o seu{" "}
+                <Link href="/sites-para-hoteis" style={{ color: BRAND_BROWN }}>site hoteleiro</Link>{" "}
+                e as suas{" "}
+                <Link href="/meta-ads" style={{ color: BRAND_BROWN }}>campanhas de Meta Ads</Link>.
+              </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
               {deliverables.map((d, i) => (
@@ -151,9 +157,13 @@ export default function ProducaoAudiovisualPage() {
                 <div className="w-8 h-px" style={{ background: BRAND_BROWN }} />
                 <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_BROWN }}>Nosso processo</span>
               </div>
-              <h2 className="mb-10" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
+              <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Do planejamento à entrega final
               </h2>
+              <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
+                Reels simples, gravados no próprio hotel, vêm superando produções elaboradas em alcance e engajamento: entenda por que em{" "}
+                <Link href="/blog/video-simples-vende-mais-hotelaria" style={{ color: BRAND_BROWN }}>por que o vídeo simples vende mais que o produzido na hotelaria</Link>.
+              </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {steps.map((s, i) => (
