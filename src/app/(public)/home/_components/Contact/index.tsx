@@ -77,7 +77,7 @@ export default function Contact() {
             <DiagnosticoCTA
               trackId="cta_contact_especialista"
               source="/"
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] w-fit cursor-pointer"
+              className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 w-fit cursor-pointer"
               style={{ background: BRAND_BROWN, letterSpacing: "0.04em" }}
             >
               <IconBrandWhatsapp size={17} />

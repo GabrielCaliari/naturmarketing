@@ -64,14 +64,16 @@
 
   /* Heading Classes — apenas via classe, não sobrescreve elementos nativos */
   .h1 {
+    font-family: var(--font-display);
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 100%;
   }
 
   .h2 {
+    font-family: var(--font-display);
     font-size: 36px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 110%;
   }
 
@@ -936,7 +938,7 @@ main {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(5px);
+    transform: translateY(6px);
   }
 }
 
@@ -985,4 +987,49 @@ main {
     animation: scroll-infinite-seamless 10s linear infinite;
     animation-play-state: paused;
   }
+}
+
+/* ============================
+   Títulos: uma família só
+   ============================
+   As seções portadas do layout novo usam a DM Serif Display (400) inline;
+   as que ficaram na classe .h2 estavam em Fira Sans 700 — ao rolar a home os
+   títulos alternavam serifa/sans. .h1/.h2 agora apontam para --font-display
+   (em @layer base, acima). A DM Serif só tem o peso 400, então <strong>
+   dentro de título viraria negrito sintético: aqui vira itálico, que é o
+   destaque que o resto do site já usa. Fora de @layer de propósito — precisa
+   vencer a utility .font-semibold que alguns títulos ainda carregam. */
+.h1 strong,
+.h2 strong {
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* "Explorar" do hero: círculo + rótulo reagem ao hover do botão inteiro. */
+.hero-explore-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.92);
+  background: transparent;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.hero-explore-label {
+  color: var(--color-text-muted-on-dark);
+  transition: color 0.3s ease;
+}
+.hero-explore:hover .hero-explore-circle,
+.hero-explore:focus-visible .hero-explore-circle {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #1a0f08;
+}
+.hero-explore:hover .hero-explore-label,
+.hero-explore:focus-visible .hero-explore-label {
+  color: var(--color-text-on-dark);
 }

@@ -72,7 +72,7 @@ const enUS: Record<string, string> = {
   'transform.cta': 'Talk to a specialist',
   'transform.badge.value': '100%',
   'transform.badge.label': 'Exclusive focus on hospitality',
-  'transform.alt': 'Boutique hotel reception welcoming guests',
+  'transform.alt': 'Pool area of a guesthouse served by Réserve, with sun loungers and greenery in the background',
 
   // ── Resultados ─────────────────────────────────────────────────────────────
   'results.label': 'Results',

@@ -138,7 +138,7 @@ export default function SeoParaHoteisContent() {
               preselect={SERVICE_PRESELECT["/seo-para-hoteis"]}
               trackId="cta_seo_hero"
               source="/seo-para-hoteis"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer"
               style={{ background: BRAND_GREEN }}
             >
               {c.heroCta}

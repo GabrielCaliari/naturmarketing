@@ -132,7 +132,7 @@ export default function DiagnosticoContent() {
               {c.heroP}
             </p>
             <DiagnosticoCTA
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
               style={{ background: BRAND_BROWN }}
               trackId="cta_diag_page_hero"
               source="/diagnostico"
@@ -232,7 +232,7 @@ export default function DiagnosticoContent() {
               <div className="flex flex-col items-center gap-3">
                 <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{c.orWa}</p>
                 <DiagnosticoCTA
-                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] w-fit"
+                  className="inline-flex items-center gap-3 px-7 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 w-fit"
                   style={{ background: BRAND_GREEN, letterSpacing: "0.04em" }}
                   trackId="cta_diag_page_whatsapp"
                   source="/diagnostico"

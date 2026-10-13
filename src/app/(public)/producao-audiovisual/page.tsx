@@ -112,7 +112,7 @@ export default function ProducaoAudiovisualPage() {
               preselect={SERVICE_PRESELECT["/producao-audiovisual"]}
               trackId="cta_producao_hero"
               source="/producao-audiovisual"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer"
               style={{ background: BRAND_GREEN }}
             >
               Quero produção audiovisual para meu hotel
@@ -212,7 +212,7 @@ export default function ProducaoAudiovisualPage() {
               Solicite um diagnóstico gratuito e descubra como fotos e vídeos profissionais podem aumentar suas reservas diretas.
             </p>
             <DiagnosticoCTA
-              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
               style={{ background: BRAND_GREEN }}
               trackId="cta_producao_audiovisual"
               source="/producao-audiovisual"

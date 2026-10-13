@@ -130,7 +130,7 @@ export default function BlogPreview() {
         <Reveal className="flex justify-center mt-10">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[13px] font-medium transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[13px] font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
             style={{ background: BG_CARD, border: `1px solid ${BORDER}`, color: TEXT_HEAD }}
           >
             {labels.cta}

@@ -544,7 +544,7 @@ const Empresa = () => {
 
             <Reveal delay={200}>
               <DiagnosticoCTA
-                className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] active:scale-[0.98]"
+                className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-[13px] text-white transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] active:translate-y-0"
                 style={{ background: BRAND_BROWN, letterSpacing: "0.05em" }}
                 trackId="cta_empresa"
                 source="/marketing-hoteleiro"

@@ -87,12 +87,14 @@ const TransformSection = () => {
             style={{ aspectRatio: "4/3", boxShadow: "0 20px 50px rgba(26,15,8,0.18)" }}
           >
             <Image
-              src="/img/resource/hotel-reception.jpg"
+              src="/img/resource/especialidade-piscina.jpg"
               alt={t('transform.alt')}
               fill
               quality={70}
               sizes="(min-width: 1024px) 640px, 100vw"
-              className="object-cover"
+              // foto real de cliente (era uma recepção gerada por IA); o recorte
+              // puxa para baixo para priorizar piscina e espreguiçadeiras
+              className="object-cover object-[50%_62%]"
             />
           </div>
 

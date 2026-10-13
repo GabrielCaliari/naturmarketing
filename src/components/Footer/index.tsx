@@ -54,7 +54,10 @@ const Footer = () => {
       <div
         className="max-w-7xl mx-auto px-6 md:px-16 py-10 md:py-12"
       >
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-16">
+        {/* Marca e colunas lado a lado só a partir de xl: abaixo disso as
+            colunas ocupam a largura toda. Com 9 serviços numa coluna só (como
+            no layout original), nenhum rótulo precisa quebrar linha. */}
+        <div className="grid gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] xl:gap-16">
 
           {/* Marca + descrição */}
           <div className="flex flex-col gap-6 max-w-sm">
@@ -97,19 +100,19 @@ const Footer = () => {
           </div>
 
           {/* Colunas de links */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-10 lg:gap-12">
+          <div className="grid grid-cols-2 gap-10 md:grid-cols-[1.4fr_1fr_0.8fr_0.8fr] md:gap-8 lg:gap-10">
 
             {/* Serviços */}
-            <div className="flex flex-col gap-4 col-span-2">
+            <div className="flex flex-col gap-4 col-span-2 md:col-span-1">
               <span className="text-[11px] font-bold tracking-[0.25em] uppercase" style={{ color: "rgba(26,15,8,0.62)" }}>
                 {t('footer.col.services')}
               </span>
-              <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+              <div className="flex flex-col gap-3">
                 {serviceLinks.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="text-left text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
+                    className="text-left text-[14px] leading-snug transition-colors duration-300 hover:text-[#994f2a]"
                     style={{ color: "#5C4F45", fontWeight: 400 }}
                   >
                     {item.label}
@@ -127,14 +130,14 @@ const Footer = () => {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
+                  className="text-[14px] leading-snug transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#5C4F45", fontWeight: 400 }}
                 >
                   {item.label}
                 </Link>
               ))}
               <DiagnosticoCTA
-                className="text-left text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
+                className="text-left text-[14px] leading-snug transition-colors duration-300 hover:text-[#994f2a]"
                 style={{ color: "#5C4F45", fontWeight: 400, cursor: "pointer" }}
                 trackId="cta_footer"
                 source="/"
@@ -154,7 +157,7 @@ const Footer = () => {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
+                  className="text-[14px] leading-snug transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#5C4F45", fontWeight: 400 }}
                 >
                   {s.label}
@@ -171,7 +174,7 @@ const Footer = () => {
                 <Link
                   key={l.label}
                   href={l.href}
-                  className="text-[13px] tracking-[0.1em] transition-colors duration-300 hover:text-[#994f2a]"
+                  className="text-[14px] leading-snug transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#5C4F45", fontWeight: 400 }}
                 >
                   {l.label}

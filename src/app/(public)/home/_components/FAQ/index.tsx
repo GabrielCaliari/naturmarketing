@@ -75,7 +75,7 @@ export default function FAQ() {
           <DiagnosticoCTA
             trackId="cta_faq"
             source="/"
-            className="mt-8 self-start inline-flex items-center rounded-full px-8 py-4 text-[12px] font-bold uppercase text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="mt-8 self-start inline-flex items-center rounded-full px-8 py-4 text-[12px] font-bold uppercase text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             style={{ background: BRAND_BROWN, letterSpacing: "0.15em" }}
           >
             {t('faq.cta')}
@@ -93,12 +93,15 @@ export default function FAQ() {
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-6 py-6 text-left"
                 >
+                  {/* Pergunta na fonte de corpo, não na serifa dos títulos: são
+                      linhas interativas de uma lista, e em serifa no tamanho de
+                      corpo destoavam do resto do site. */}
                   <span
-                    className="text-[18px] md:text-[20px] transition-colors duration-300"
+                    className="text-[16px] md:text-[17px] transition-colors duration-300"
                     style={{
-                      fontFamily: "var(--font-display)",
-                      fontWeight: 400,
-                      lineHeight: 1.3,
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 500,
+                      lineHeight: 1.45,
                       color: isOpen ? BRAND_GREEN_TEXT : TEXT_HEAD,
                     }}
                   >

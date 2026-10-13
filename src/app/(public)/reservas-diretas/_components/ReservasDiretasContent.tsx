@@ -169,7 +169,7 @@ export default function ReservasDiretasContent() {
               preselect={SERVICE_PRESELECT["/reservas-diretas"]}
               trackId="cta_reservas_diretas_hero"
               source="/reservas-diretas"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               {c.heroCta}

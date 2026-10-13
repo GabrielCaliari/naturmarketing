@@ -108,7 +108,7 @@ export default function MetaAdsPage() {
               preselect={SERVICE_PRESELECT["/meta-ads"]}
               trackId="cta_meta_ads_hero"
               source="/meta-ads"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               Quero Meta Ads para meu hotel
@@ -208,7 +208,7 @@ export default function MetaAdsPage() {
               Solicite um diagnóstico gratuito e descubra quanto seu hotel pode ganhar com campanhas bem estruturadas no Facebook e Instagram.
             </p>
             <DiagnosticoCTA
-              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
               style={{ background: BRAND_BROWN }}
               trackId="cta_meta_ads"
               source="/meta-ads"

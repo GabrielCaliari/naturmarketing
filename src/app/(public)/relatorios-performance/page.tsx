@@ -108,7 +108,7 @@ export default function RelatoriosPerformancePage() {
               preselect={SERVICE_PRESELECT["/relatorios-performance"]}
               trackId="cta_relatorios_hero"
               source="/relatorios-performance"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               Quero visibilidade sobre meus resultados
@@ -208,7 +208,7 @@ export default function RelatoriosPerformancePage() {
               Solicite um diagnóstico gratuito e descubra como estruturar a análise de dados do seu hotel para tomar decisões de marketing baseadas em resultados reais.
             </p>
             <DiagnosticoCTA
-              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
               style={{ background: BRAND_BROWN }}
               trackId="cta_relatorios_performance"
               source="/relatorios-performance"

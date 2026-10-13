@@ -169,7 +169,7 @@ export default function GoogleHotelAdsContent() {
               preselect={SERVICE_PRESELECT["/google-hotel-ads"]}
               trackId="cta_google_hotel_ads_hero"
               source="/google-hotel-ads"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               {c.heroCta}
@@ -298,7 +298,7 @@ export default function GoogleHotelAdsContent() {
               {c.ctaP}
             </p>
             <DiagnosticoCTA
-              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
               style={{ background: BRAND_BROWN }}
               trackId="cta_google_hotel_ads"
               source="/google-hotel-ads"

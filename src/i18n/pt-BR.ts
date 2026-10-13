@@ -72,7 +72,7 @@ const ptBR: Record<string, string> = {
   'transform.cta': 'Falar com um especialista',
   'transform.badge.value': '100%',
   'transform.badge.label': 'Foco exclusivo em hotelaria',
-  'transform.alt': 'Recepção de hotel boutique acolhendo hóspedes',
+  'transform.alt': 'Área de piscina de uma pousada atendida pela Réserve, com espreguiçadeiras e vegetação ao fundo',
 
   // ── Resultados ─────────────────────────────────────────────────────────────
   'results.label': 'Resultados',

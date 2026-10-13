@@ -108,7 +108,7 @@ export default function GestaoDeCanaisPage() {
               preselect={SERVICE_PRESELECT["/gestao-de-canais"]}
               trackId="cta_gestao_canais_hero"
               source="/gestao-de-canais"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               Quero gestão integrada para meu hotel
@@ -208,7 +208,7 @@ export default function GestaoDeCanaisPage() {
               Solicite um diagnóstico gratuito e descubra como unificar todos os canais do seu hotel em uma estratégia que gera reservas diretas.
             </p>
             <DiagnosticoCTA
-              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+              className="inline-flex items-center px-8 py-4 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5"
               style={{ background: BRAND_BROWN }}
               trackId="cta_gestao_de_canais"
               source="/gestao-de-canais"

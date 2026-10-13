@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { IconBrandGoogle, IconBrandMeta } from "@tabler/icons-react";
 import Reveal from "@/components/Reveal";
 import { useLocale } from "@/context/LocaleContext";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
@@ -15,9 +16,10 @@ const TEXT_BODY   = "#5C4F45";
 const TEXT_GREEN  = "#5d6b4c";
 
 // Ícones do layout de referência (Lucide: share-2, clapperboard,
-// monitor-smartphone, search, megaphone, trending-up, bar-chart-3 e
-// message-circle), inline em vez de instalar a lucide-react só por oito
-// desenhos — é a mesma convenção dos SVGs que já existiam aqui.
+// monitor-smartphone, trending-up e bar-chart-3), inline em vez de instalar
+// a lucide-react só por cinco desenhos. Google Ads, Meta Ads e Automação
+// mantêm os ícones de marca de antes do port (Google, Meta e WhatsApp): o
+// genérico (lupa, megafone, balão) dizia menos que o logotipo do canal.
 const Icon = ({ children }: { children: React.ReactNode }) => (
   <svg
     width="20"
@@ -58,15 +60,9 @@ const serviceIcons = [
     <rect width="6" height="10" x="16" y="12" rx="2" />
   </Icon>,
   // Google Ads & Hotel Ads
-  <Icon key="search">
-    <circle cx="11" cy="11" r="8" />
-    <path d="m21 21-4.3-4.3" />
-  </Icon>,
+  <IconBrandGoogle key="google" size={20} stroke={1.8} aria-hidden="true" />,
   // Meta Ads
-  <Icon key="megaphone">
-    <path d="m3 11 18-5v12L3 14v-3z" />
-    <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
-  </Icon>,
+  <IconBrandMeta key="meta" size={20} stroke={1.8} aria-hidden="true" />,
   // SEO hoteleiro
   <Icon key="trending">
     <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
@@ -79,9 +75,10 @@ const serviceIcons = [
     <path d="M13 17V5" />
     <path d="M8 17v-3" />
   </Icon>,
-  // Chatbot e automação
-  <Icon key="message">
-    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+  // Chatbot e automação (WhatsApp)
+  <Icon key="whatsapp">
+    <path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+    <path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" />
   </Icon>,
 ];
 
@@ -245,7 +242,7 @@ export default function OQueFazemos() {
           <DiagnosticoCTA
             trackId="cta_services_strip"
             source="/"
-            className="shrink-0 inline-flex items-center px-6 py-3 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="shrink-0 inline-flex items-center px-6 py-3 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             style={{ background: BRAND_BROWN, letterSpacing: "0.04em" }}
           >
             {t('services.cta.btn')}

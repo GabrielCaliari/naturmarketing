@@ -102,7 +102,7 @@ export default function SitesHoteisPage() {
               preselect={SERVICE_PRESELECT["/sites-para-hoteis"]}
               trackId="cta_sites_hero"
               source="/sites-para-hoteis"
-              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+              className="inline-flex items-center px-7 py-3.5 rounded-full text-[13px] font-medium text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer"
               style={{ background: BRAND_BROWN }}
             >
               Quero um site para meu hotel

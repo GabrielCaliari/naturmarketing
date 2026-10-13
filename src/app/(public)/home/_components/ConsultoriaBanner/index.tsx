@@ -86,7 +86,7 @@ export default function ConsultoriaBanner() {
           <DiagnosticoCTA
             trackId="cta_diagnostico"
             source="/"
-            className="group inline-flex items-center gap-3 rounded-full px-10 py-5 text-[12px] font-bold uppercase text-white transition-all duration-300 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="group inline-flex items-center gap-3 rounded-full px-10 py-5 text-[12px] font-bold uppercase text-white transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
             style={{ background: BRAND_BROWN, letterSpacing: "0.15em" }}
           >
             {t('cta.btn')}

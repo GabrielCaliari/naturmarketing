@@ -113,7 +113,7 @@ const Banner = () => {
           <DiagnosticoCTA
             trackId="cta_home_hero"
             source="/"
-            className="inline-flex items-center transition-all duration-300 hover:opacity-90 hover:scale-[1.02] cursor-pointer"
+            className="inline-flex items-center transition-all duration-300 hover:opacity-90 hover:-translate-y-0.5 cursor-pointer"
             style={{
               background: "var(--color-brand-brown)",
               color: "#ffffff",
@@ -128,34 +128,26 @@ const Banner = () => {
             {t('banner.cta.primary')}
           </DiagnosticoCTA>
 
+          {/* "Explorar": o círculo balança o tempo todo (hero-arrow-bounce) e,
+              no hover do botão inteiro, preenche de branco com a seta escura e
+              o rótulo acende. Cores e borda vivem em globals.css (.hero-explore)
+              de propósito: estilo inline venceria o :hover da folha. */}
           <button
             onClick={handleScroll}
-            className="inline-flex items-center gap-3 transition-colors duration-300"
+            className="hero-explore inline-flex items-center gap-3 cursor-pointer"
           >
-            <span
-              className="hero-arrow-bounce"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "40px",
-                height: "40px",
-                borderRadius: "999px",
-                border: "1px solid rgba(255,255,255,0.3)",
-                flexShrink: 0,
-              }}
-            >
-              <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="rgba(255,255,255,0.92)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <span className="hero-explore-circle hero-arrow-bounce">
+              <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 1V11M6 11L1 6M6 11L11 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
             <span
+              className="hero-explore-label"
               style={{
                 fontSize: "11px",
                 fontWeight: 600,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "var(--color-text-muted-on-dark)",
               }}
             >
               {t('banner.cta.secondary')}
