@@ -10,11 +10,14 @@ const BRAND_BROWN = "#994f2a";
 export default function ResultadosSection() {
   const { t } = useLocale();
 
+  // Era uma faixa de "médias" (+40%, 3×, 90d) que veio com o layout do Lovable
+  // sem dado por trás. Agora é a ordem das quatro etapas do trabalho — o
+  // número carrega informação (sequência), não promessa.
   const stats = [
-    { value: "+40%", label: t('results.stat1.label'), desc: t('results.stat1.desc') },
-    { value: "3×",   label: t('results.stat2.label'), desc: t('results.stat2.desc') },
-    { value: "90d",  label: t('results.stat3.label'), desc: t('results.stat3.desc') },
-    { value: "100%", label: t('results.stat4.label'), desc: t('results.stat4.desc') },
+    { value: "1", label: t('results.stat1.label'), desc: t('results.stat1.desc') },
+    { value: "2", label: t('results.stat2.label'), desc: t('results.stat2.desc') },
+    { value: "3", label: t('results.stat3.label'), desc: t('results.stat3.desc') },
+    { value: "4", label: t('results.stat4.label'), desc: t('results.stat4.desc') },
   ];
 
   return (
