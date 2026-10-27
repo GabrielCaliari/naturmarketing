@@ -5,7 +5,10 @@ import { LEGAL_CONFIG } from "@/constants/legal-pages";
 import { COMPANY_NAP } from "@/constants/company";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade | Réserve | Agência de Marketing para Hotéis",
+  // Sem "Agência de Marketing para Hotéis": com essa frase no título, esta
+  // página aparecia no Google no lugar da home para "agência de marketing
+  // para hotéis".
+  title: "Política de Privacidade | Réserve Marketing Hoteleiro",
   description:
     "Política de Privacidade da Réserve Marketing Digital, agência especializada em marketing hoteleiro. Saiba como coletamos, usamos e protegemos seus dados conforme a LGPD.",
   alternates: { canonical: "/privacy-policy" },

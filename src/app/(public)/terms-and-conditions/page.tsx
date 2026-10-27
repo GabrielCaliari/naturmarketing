@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import { LEGAL_CONFIG } from "@/constants/legal-pages";
 
 export const metadata: Metadata = {
-  title: "Termos e Condições | Réserve | Agência de Marketing para Hotéis",
+  // Mesmo motivo da Política de Privacidade: página legal não deve disputar
+  // "agência de marketing para hotéis" com a home.
+  title: "Termos e Condições | Réserve Marketing Hoteleiro",
   description:
     "Termos e Condições de Uso do site e dos serviços da Réserve Marketing Digital, agência especializada em marketing hoteleiro.",
   alternates: { canonical: "/terms-and-conditions" },
