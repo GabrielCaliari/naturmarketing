@@ -11,8 +11,16 @@
 export const COMPANY_NAP = {
   // Core Business Identity
   name: "Réserve",
+  // Nome completo da marca, igual ao do Perfil da Empresa no Google e ao do
+  // Instagram. "Réserve" sozinho é ambíguo para buscadores e IAs (vira a
+  // palavra comum "reserve"; a IA do Google já escreveu "Révèrse"), então os
+  // dados estruturados e o og:site_name usam este nome e listam as variações.
+  brandName: "Réserve Marketing Hoteleiro",
+  alternateNames: ["Réserve", "Reserve Marketing Hoteleiro", "Reserve MKT", "reservemkt"],
   legalName: "Réserve Marketing Digital LTDA",
   tagline: "Agência de Marketing Hoteleiro | Diagnóstico, Estratégia e Reservas Diretas",
+  description:
+    "Agência de marketing digital especializada exclusivamente em hotelaria. Ajuda hotéis, resorts e pousadas no Brasil a aumentar as reservas diretas e depender menos das comissões de OTAs, com Google Hotel Ads, SEO, sites com motor de reservas, Meta Ads e automação de atendimento.",
   
   // Contact Information
   email: "contato@reservemkt.com.br",
@@ -78,7 +86,21 @@ export const COMPANY_NAP = {
   // Business Categories (for schema)
   businessType: "ProfessionalService", // LocalBusiness @type
   industry: "Marketing Digital Hoteleiro",
-  
+
+  // Especialidades declaradas no schema (knowsAbout): os serviços do site
+  knowsAbout: [
+    "Marketing hoteleiro",
+    "Reservas diretas",
+    "Google Hotel Ads",
+    "SEO para hotéis",
+    "Meta Ads para hotéis",
+    "Sites para hotéis",
+    "Motor de reservas",
+    "Gestão de canais digitais",
+    "Automação de atendimento no WhatsApp",
+    "Produção audiovisual para hotelaria",
+  ],
+
   // SEO Keywords
   primaryKeywords: [
     "marketing hoteleiro",

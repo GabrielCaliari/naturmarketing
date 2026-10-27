@@ -24,16 +24,22 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${siteUrl}/#organization`,
-    "name": COMPANY_NAP.name,
+    "name": COMPANY_NAP.brandName,
+    "alternateName": COMPANY_NAP.alternateNames,
     "legalName": COMPANY_NAP.legalName,
+    "description": COMPANY_NAP.description,
     "url": siteUrl,
     "email": COMPANY_NAP.email,
     "telephone": COMPANY_NAP.phone.schema,
     "foundingDate": COMPANY_NAP.foundingYear.toString(),
+    "knowsAbout": COMPANY_NAP.knowsAbout,
     // Service-area business (sem local físico no Google Meu Negócio):
-    // não expomos endereço de rua nem geo; o atendimento é em todo o Brasil.
+    // não expomos rua nem geo, só cidade e estado da sede; o atendimento é
+    // em todo o Brasil.
     "address": {
       "@type": "PostalAddress",
+      "addressLocality": COMPANY_NAP.address.city,
+      "addressRegion": COMPANY_NAP.address.state,
       "addressCountry": "BR"
     },
     "sameAs": [
@@ -59,15 +65,19 @@ export function LocalBusinessJsonLd() {
     "@context": "https://schema.org",
     "@type": COMPANY_NAP.businessType,
     "@id": `${siteUrl}/#business`,
-    "name": COMPANY_NAP.name,
+    "name": COMPANY_NAP.brandName,
+    "alternateName": COMPANY_NAP.alternateNames,
     "description": COMPANY_NAP.tagline,
     "url": siteUrl,
     "email": COMPANY_NAP.email,
     "telephone": COMPANY_NAP.phone.schema,
     // Service-area business (sem local físico no Google Meu Negócio):
-    // não expomos endereço de rua nem geo; o atendimento é em todo o Brasil.
+    // não expomos rua nem geo, só cidade e estado da sede; o atendimento é
+    // em todo o Brasil.
     "address": {
       "@type": "PostalAddress",
+      "addressLocality": COMPANY_NAP.address.city,
+      "addressRegion": COMPANY_NAP.address.state,
       "addressCountry": "BR"
     },
     "openingHours": [COMPANY_NAP.hours.schema],
@@ -96,8 +106,10 @@ export function WebSiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${siteUrl}/#website`,
-    "name": COMPANY_NAP.name,
-    "alternateName": "Réserve Marketing",
+    // name/alternateName da home são o que o Google usa como nome do site
+    // na SERP (hoje ele mostra só "reservemkt.com.br")
+    "name": COMPANY_NAP.brandName,
+    "alternateName": COMPANY_NAP.alternateNames,
     "description": COMPANY_NAP.tagline,
     "url": siteUrl,
     "publisher": {

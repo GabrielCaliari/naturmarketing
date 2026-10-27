@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     description: 'Não somos uma gestora de tráfego. Somos especialistas em marketing hoteleiro: diagnóstico, estratégia e reservas diretas para hotéis, pousadas e lodges de experiência.',
     url: siteUrl,
     type: 'website',
+    // Este openGraph substitui o do layout inteiro, então o siteName precisa
+    // estar aqui também: na home ele é um dos sinais do nome do site na SERP.
+    siteName: COMPANY_NAP.brandName,
     images: [
       {
         url: '/og-image.jpg',

@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     alternateLocale: ['en_US'],
     url: siteUrl,
-    siteName: COMPANY_NAP.name,
+    siteName: COMPANY_NAP.brandName,
     title: 'RÉSERVE | Agência de Marketing Hoteleiro Especializada',
     description: 'Não somos uma gestora de tráfego. Somos especialistas em marketing hoteleiro: diagnóstico, estratégia e reservas diretas para hotéis, pousadas e lodges de experiência.',
     images: [
