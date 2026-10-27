@@ -6,8 +6,6 @@ import localFont from 'next/font/local'
 import "@/styles/globals.css";
 
 // Analytics e Rastreamento
-import { GTMNoScript } from '@/components/Analytics/GTMScript';
-import MetaPixel from '@/components/Analytics/MetaPixel';
 import CookieConsent from '@/components/CookieConsent';
 import AutoTrack from '@/components/Analytics/AutoTrack';
 import DeferredAnalytics from '@/components/Analytics/DeferredAnalytics';
@@ -136,16 +134,11 @@ export default function RootLayout({
         <OrganizationJsonLd />
         <WebSiteJsonLd />
 
-        {/* GTM e Clarity são carregados na 1ª interação — see DeferredAnalytics.tsx */}
-        {/* Meta Pixel is loaded client-side after LGPD consent — see MetaPixel.tsx */}
+        {/* GTM e Clarity: 1ª interação + consentimento de analytics — see DeferredAnalytics.tsx */}
+        {/* Meta Pixel: iniciado no 1º evento com consentimento de marketing — see lib/analytics.ts */}
+        {/* Sem <noscript> do GTM: sem JS não há como checar o consentimento (LGPD) */}
       </head>
       <body suppressHydrationWarning={true}>
-        {/* GTM NoScript Fallback */}
-        <GTMNoScript />
-        
-        {/* Meta Pixel */}
-        <MetaPixel />
-
         {/* Conteúdo principal */}
         <LocaleProvider>
           <LeadModalProvider>

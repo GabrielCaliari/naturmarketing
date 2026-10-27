@@ -7,7 +7,12 @@ import {
   trackTimeOnPage,
   trackLinkClick,
   trackPageView,
+  trackWhatsAppClick,
 } from '@/lib/analytics';
+import { captureAttribution } from '@/lib/attribution';
+import { onConsentChange } from '@/lib/consent';
+
+const WHATSAPP_HOST = /(^|\.)(wa\.me|whatsapp\.com)$/;
 
 export default function AutoTrack() {
   const pathname = usePathname();
@@ -22,9 +27,18 @@ export default function AutoTrack() {
 
     // Envia page_view
     if (typeof window !== 'undefined') {
+      captureAttribution(window.location.search);
       trackPageView(window.location.href);
     }
   }, [pathname]);
+
+  // O PageView da Meta na página em que o visitante aceitou os cookies foi
+  // barrado pelo consentimento; reenvia no aceite. O GTM fica de fora: ele
+  // carrega no aceite e o gtm.js já conta essa página.
+  useEffect(
+    () => onConsentChange(() => trackPageView(window.location.href, { gtm: false })),
+    []
+  );
 
   // Scroll depth tracking
   useEffect(() => {
@@ -110,18 +124,20 @@ export default function AutoTrack() {
     };
   }, [pathname]);
 
-  // Rastreamento de cliques em links externos
+  // Rastreamento de cliques em links externos (WhatsApp vira Contact)
   useEffect(() => {
     const handleLinkClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const link = target.closest('a');
 
       if (link && link.href) {
-        const isExternal = 
+        const isExternal =
           link.hostname !== window.location.hostname &&
           link.href.startsWith('http');
 
-        if (isExternal) {
+        if (WHATSAPP_HOST.test(link.hostname)) {
+          trackWhatsAppClick('link');
+        } else if (isExternal) {
           trackLinkClick(link.href, link.textContent || undefined);
         }
       }

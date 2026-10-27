@@ -3,43 +3,27 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { IconX } from "@tabler/icons-react";
-
-interface CookiePreferences {
-  analytics: boolean;
-  marketing: boolean;
-  savedAt: string;
-}
-
-const STORAGE_KEY = "reserve-cookie-consent";
-
-function getStoredConsent(): CookiePreferences | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as CookiePreferences) : null;
-  } catch {
-    return null;
-  }
-}
+import { CONSENT_EVENT, CONSENT_KEY, getConsent, type ConsentPrefs } from "@/lib/consent";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const stored = getStoredConsent();
+    const stored = getConsent();
     if (!stored) {
       const timer = setTimeout(() => setVisible(true), 900);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  const save = (prefs: Omit<CookiePreferences, "savedAt">) => {
+  const save = (prefs: Omit<ConsentPrefs, "savedAt">) => {
     try {
       localStorage.setItem(
-        STORAGE_KEY,
+        CONSENT_KEY,
         JSON.stringify({ ...prefs, savedAt: new Date().toISOString() })
       );
-      // Notify MetaPixel and other listeners that consent was updated
-      window.dispatchEvent(new Event("reserve:consent"));
+      // Avisa DeferredAnalytics e AutoTrack (ver onConsentChange em lib/consent)
+      window.dispatchEvent(new Event(CONSENT_EVENT));
     } catch {
       // silently fail in private browsing
     }

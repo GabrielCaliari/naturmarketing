@@ -9,7 +9,10 @@ import crypto from 'crypto';
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const ACCESS_TOKEN = process.env.META_CONVERSION_API_TOKEN;
-const API_VERSION = 'v21.0';
+// Código da aba "Eventos de teste" do Gerenciador de Eventos. Só para validar
+// a integração: com ele setado, os eventos não contam como reais.
+const TEST_EVENT_CODE = process.env.META_TEST_EVENT_CODE;
+const API_VERSION = 'v23.0';
 
 /**
  * Hasheia dados sensíveis usando SHA-256
@@ -102,6 +105,7 @@ export async function sendConversionEvent(
         },
       ],
       access_token: ACCESS_TOKEN,
+      ...(TEST_EVENT_CODE ? { test_event_code: TEST_EVENT_CODE } : {}),
     };
 
     const response = await fetch(url, {
