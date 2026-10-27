@@ -11,6 +11,9 @@ import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 
 const BRAND_GREEN = "#84936f";
+// Verde para texto pequeno sobre fundo claro: >= 4.5:1 (WCAG AA). O #84936f
+// acima só decora — como texto de 10px ficava em 2,8:1.
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 const BG = "#F0EBE3";
 const BG_CARD = "#FDFAF7";
@@ -185,7 +188,7 @@ export default function GoogleHotelAdsContent() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.whatLabel}</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>{c.whatLabel}</span>
               </div>
               <h2 className="mb-6" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD, lineHeight: 1.2 }}>
                 {c.whatH2}
@@ -196,7 +199,7 @@ export default function GoogleHotelAdsContent() {
                 {c.whatP1}
               </Reveal>
               <Reveal as="p" delay={120} style={{ color: TEXT_BODY, fontWeight: 300, lineHeight: 1.85 }}>
-                {c.whatP2a}<Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>{c.whatP2link}</Link>{c.whatP2b}
+                {c.whatP2a}<Link href="/marketing-hoteleiro" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>{c.whatP2link}</Link>{c.whatP2b}
               </Reveal>
             </div>
 
@@ -224,13 +227,13 @@ export default function GoogleHotelAdsContent() {
                 {c.stepsH2}
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
-                {c.stepsPa}<Link href="/blog/google-hotel-ads-guia-completo" style={{ color: BRAND_BROWN }}>{c.stepsPlink}</Link>{c.stepsPb}
+                {c.stepsPa}<Link href="/blog/google-hotel-ads-guia-completo" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>{c.stepsPlink}</Link>{c.stepsPb}
               </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {c.steps.map((s, i) => (
                 <Reveal key={s.n} delay={i * 60} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
-                  <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.25)" }}>{s.n}</span>
+                  <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.7)" }}>{s.n}</span>
                   <div>
                     <h3 className="font-semibold mb-1" style={{ color: TEXT_HEAD }}>{s.title}</h3>
                     <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{s.desc}</p>
@@ -247,13 +250,13 @@ export default function GoogleHotelAdsContent() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.dicasLabel}</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>{c.dicasLabel}</span>
               </div>
               <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 {c.dicasH2}
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
-                {c.dicasPa}<Link href="/reservas-diretas" style={{ color: BRAND_BROWN }}>{c.dicasPlink}</Link>{c.dicasPb}
+                {c.dicasPa}<Link href="/reservas-diretas" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>{c.dicasPlink}</Link>{c.dicasPb}
               </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
@@ -273,7 +276,7 @@ export default function GoogleHotelAdsContent() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.faqLabel}</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>{c.faqLabel}</span>
               </div>
               <h2 className="mb-8" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 {c.faqH2}

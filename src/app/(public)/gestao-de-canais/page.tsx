@@ -26,6 +26,9 @@ export const metadata: Metadata = {
 };
 
 const BRAND_GREEN = "#84936f";
+// Verde para texto pequeno sobre fundo claro: >= 4.5:1 (WCAG AA). O #84936f
+// acima só decora — como texto de 10px ficava em 2,8:1.
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 const BG = "#F0EBE3";
 const BG_CARD = "#FDFAF7";
@@ -124,15 +127,15 @@ export default function GestaoDeCanaisPage() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>Canais que gerenciamos</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>Canais que gerenciamos</span>
               </div>
               <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Todos os canais do seu hotel, uma só estratégia
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
                 Cada canal reforça os outros: o Google Meu Negócio alimenta o{" "}
-                <Link href="/seo-para-hoteis" style={{ color: BRAND_BROWN }}>SEO para hotéis</Link>, e o Instagram vira tráfego qualificado para o{" "}
-                <Link href="/meta-ads" style={{ color: BRAND_BROWN }}>Meta Ads</Link>.
+                <Link href="/seo-para-hoteis" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>SEO para hotéis</Link>, e o Instagram vira tráfego qualificado para o{" "}
+                <Link href="/meta-ads" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>Meta Ads</Link>.
               </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
@@ -159,14 +162,14 @@ export default function GestaoDeCanaisPage() {
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
                 É essa integração que sustenta a nossa{" "}
-                <Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>abordagem de marketing hoteleiro</Link>, sempre com o olho no objetivo final: mais{" "}
-                <Link href="/reservas-diretas" style={{ color: BRAND_BROWN }}>reservas geradas pelo canal direto</Link>.
+                <Link href="/marketing-hoteleiro" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>abordagem de marketing hoteleiro</Link>, sempre com o olho no objetivo final: mais{" "}
+                <Link href="/reservas-diretas" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>reservas geradas pelo canal direto</Link>.
               </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {processSteps.map((s, i) => (
                 <Reveal key={s.n} delay={i * 60} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
-                  <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.25)" }}>{s.n}</span>
+                  <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.7)" }}>{s.n}</span>
                   <div>
                     <h3 className="font-semibold mb-1" style={{ color: TEXT_HEAD }}>{s.title}</h3>
                     <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{s.desc}</p>
@@ -183,7 +186,7 @@ export default function GestaoDeCanaisPage() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>Dúvidas Frequentes</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>Dúvidas Frequentes</span>
               </div>
               <h2 className="mb-8" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Perguntas sobre Gestão de Canais

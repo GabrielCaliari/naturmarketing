@@ -26,6 +26,9 @@ export const metadata: Metadata = {
 };
 
 const BRAND_GREEN = "#84936f";
+// Verde para texto pequeno sobre fundo claro: >= 4.5:1 (WCAG AA). O #84936f
+// acima só decora — como texto de 10px ficava em 2,8:1.
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 const BG = "#F0EBE3";
 const BG_CARD = "#FDFAF7";
@@ -124,16 +127,16 @@ export default function RelatoriosPerformancePage() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>O que medimos</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>O que medimos</span>
               </div>
               <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 As métricas que realmente importam para hotelaria
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
                 Essas métricas existem para responder uma pergunta só: seu hotel está avançando na migração para o{" "}
-                <Link href="/reservas-diretas" style={{ color: BRAND_BROWN }}>canal direto</Link>{" "}
+                <Link href="/reservas-diretas" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>canal direto</Link>{" "}
                 frente às OTAs? É o centro do nosso{" "}
-                <Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>método de marketing hoteleiro</Link>.
+                <Link href="/marketing-hoteleiro" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>método de marketing hoteleiro</Link>.
               </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
@@ -160,13 +163,13 @@ export default function RelatoriosPerformancePage() {
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
                 Métricas de marketing sem revenue management contam só metade da história: veja como as duas frentes se conectam em{" "}
-                <Link href="/blog/revenue-management-e-marketing-hoteleiro" style={{ color: BRAND_BROWN }}>revenue management e marketing hoteleiro</Link>.
+                <Link href="/blog/revenue-management-e-marketing-hoteleiro" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>revenue management e marketing hoteleiro</Link>.
               </p>
             </Reveal>
             <div className="flex flex-col gap-4">
               {tools.map((t, i) => (
                 <Reveal key={t.n} delay={i * 60} className="flex items-start gap-5 p-5 rounded-2xl" style={{ background: BG_CARD, border: `1px solid ${BORDER}` }}>
-                  <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.25)" }}>{t.n}</span>
+                  <span className="text-[32px] font-light shrink-0 leading-none" style={{ color: "rgba(153,79,42,0.7)" }}>{t.n}</span>
                   <div>
                     <h3 className="font-semibold mb-1" style={{ color: TEXT_HEAD }}>{t.title}</h3>
                     <p className="text-[14px] font-light" style={{ color: TEXT_BODY }}>{t.desc}</p>
@@ -183,7 +186,7 @@ export default function RelatoriosPerformancePage() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>Dúvidas Frequentes</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>Dúvidas Frequentes</span>
               </div>
               <h2 className="mb-8" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Perguntas sobre Relatórios de Performance

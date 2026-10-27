@@ -8,6 +8,9 @@ import { useLocale } from "@/context/LocaleContext";
 import { formatDate } from "@/lib/format-date";
 
 const BRAND_GREEN = "#84936f";
+// Verde para texto pequeno sobre fundo claro: >= 4.5:1 (WCAG AA). O #84936f
+// acima só decora — como texto de 10px ficava em 2,8:1.
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 const BG_CARD = "#FDFAF7";
 const BORDER = "rgba(196,164,142,0.2)";
@@ -28,7 +31,7 @@ export default function BlogPageContent() {
         <div className="max-w-5xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-5">
             <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>
+            <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>
               {t("blog.listing.label")}
             </span>
             <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />

@@ -84,7 +84,8 @@ export default function ComparativoSection() {
         </div>
 
         <Reveal delay={340} className="text-center mt-8">
-          <span className="text-[13px] font-light" style={{ color: "rgba(26,15,8,0.55)" }}>
+          {/* 0.65: com 0.55 o texto de 13px ficava em 4,0:1 (abaixo do AA) */}
+          <span className="text-[13px] font-light" style={{ color: "rgba(26,15,8,0.65)" }}>
             {t('comp.footnote.text')}
             <Link
               href="/blog/agencia-marketing-hoteleiro-vs-agencia-generica"

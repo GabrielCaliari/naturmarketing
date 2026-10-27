@@ -11,6 +11,9 @@ import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 
 const BRAND_GREEN = "#84936f";
+// Verde para texto pequeno sobre fundo claro: >= 4.5:1 (WCAG AA). O #84936f
+// acima só decora — como texto de 10px ficava em 2,8:1.
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 const BG = "#F0EBE3";
 const BG_CARD = "#FDFAF7";
@@ -154,13 +157,13 @@ export default function SeoParaHoteisContent() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.pillarsLabel}</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>{c.pillarsLabel}</span>
               </div>
               <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 {c.pillarsH2}
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
-                {c.pillarsPa}<Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>{c.pillarsPlink1}</Link>{c.pillarsPb}<Link href="/gestao-de-canais" style={{ color: BRAND_BROWN }}>{c.pillarsPlink2}</Link>{c.pillarsPc}
+                {c.pillarsPa}<Link href="/marketing-hoteleiro" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>{c.pillarsPlink1}</Link>{c.pillarsPb}<Link href="/gestao-de-canais" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>{c.pillarsPlink2}</Link>{c.pillarsPc}
               </p>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-5">
@@ -187,7 +190,7 @@ export default function SeoParaHoteisContent() {
                 {c.tlH2}
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
-                {c.tlPa}<Link href="/blog/seo-para-hoteis-aparecer-no-google" style={{ color: BRAND_BROWN }}>{c.tlPlink}</Link>{c.tlPb}
+                {c.tlPa}<Link href="/blog/seo-para-hoteis-aparecer-no-google" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>{c.tlPlink}</Link>{c.tlPb}
               </p>
             </Reveal>
             <div className="flex flex-col gap-4">

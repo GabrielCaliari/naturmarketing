@@ -26,6 +26,9 @@ export const metadata: Metadata = {
 };
 
 const BRAND_GREEN = "#84936f";
+// Verde para texto pequeno sobre fundo claro: >= 4.5:1 (WCAG AA). O #84936f
+// acima só decora — como texto de 10px ficava em 2,8:1.
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 const BG = "#F0EBE3";
 const BG_CARD = "#FDFAF7";
@@ -118,15 +121,15 @@ export default function SitesHoteisPage() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>O que entregamos</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>O que entregamos</span>
               </div>
               <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 Tudo que um site hoteleiro precisa
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
                 Um site rápido é a base de qualquer{" "}
-                <Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>investimento em marketing hoteleiro</Link>, mas ele só converte de verdade com fotos e vídeo que vendem a experiência do hotel, é onde entra a nossa{" "}
-                <Link href="/producao-audiovisual" style={{ color: BRAND_BROWN }}>produção audiovisual</Link>.
+                <Link href="/marketing-hoteleiro" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>investimento em marketing hoteleiro</Link>, mas ele só converte de verdade com fotos e vídeo que vendem a experiência do hotel, é onde entra a nossa{" "}
+                <Link href="/producao-audiovisual" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>produção audiovisual</Link>.
               </p>
             </Reveal>
             <div className="grid md:grid-cols-3 gap-5">

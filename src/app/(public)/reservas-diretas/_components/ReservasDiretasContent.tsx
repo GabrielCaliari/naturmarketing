@@ -11,6 +11,9 @@ import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 import { SERVICE_PRESELECT } from "@/components/LeadModal/constants";
 
 const BRAND_GREEN = "#84936f";
+// Verde para texto pequeno sobre fundo claro: >= 4.5:1 (WCAG AA). O #84936f
+// acima só decora — como texto de 10px ficava em 2,8:1.
+const BRAND_GREEN_TEXT = "#5d6b4c";
 const BRAND_BROWN = "#994f2a";
 const BG = "#F0EBE3";
 const BG_CARD = "#FDFAF7";
@@ -214,7 +217,7 @@ export default function ReservasDiretasContent() {
               ))}
             </div>
             <Reveal as="p" className="text-[14px] font-light leading-relaxed max-w-2xl" style={{ color: TEXT_BODY }}>
-              {c.contaFooterPa}<Link href="/google-hotel-ads" style={{ color: BRAND_BROWN }}>{c.contaFooterPlink1}</Link>{c.contaFooterPb}<Link href="/blog/reservas-diretas-vs-otas-como-equilibrar" style={{ color: BRAND_BROWN }}>{c.contaFooterPlink2}</Link>{c.contaFooterPc}
+              {c.contaFooterPa}<Link href="/google-hotel-ads" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>{c.contaFooterPlink1}</Link>{c.contaFooterPb}<Link href="/blog/reservas-diretas-vs-otas-como-equilibrar" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>{c.contaFooterPlink2}</Link>{c.contaFooterPc}
             </Reveal>
           </div>
         </section>
@@ -225,13 +228,13 @@ export default function ReservasDiretasContent() {
             <Reveal>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-px" style={{ background: BRAND_GREEN }} />
-                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN }}>{c.roadmapLabel}</span>
+                <span className="text-[10px] font-medium tracking-[0.3em] uppercase" style={{ color: BRAND_GREEN_TEXT }}>{c.roadmapLabel}</span>
               </div>
               <h2 className="mb-4" style={{ fontSize: "clamp(1.5rem, 3vw, 2.25rem)", fontWeight: 400, color: TEXT_HEAD }}>
                 {c.roadmapH2}
               </h2>
               <p className="text-[15px] font-light leading-[1.85] mb-10 max-w-2xl" style={{ color: TEXT_BODY }}>
-                {c.roadmapPa}<Link href="/marketing-hoteleiro" style={{ color: BRAND_BROWN }}>{c.roadmapPlink1}</Link>{c.roadmapPb}
+                {c.roadmapPa}<Link href="/marketing-hoteleiro" className="underline underline-offset-2" style={{ color: BRAND_BROWN }}>{c.roadmapPlink1}</Link>{c.roadmapPb}
               </p>
             </Reveal>
             <div className="flex flex-col gap-4">
