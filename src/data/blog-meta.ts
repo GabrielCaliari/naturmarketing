@@ -82,6 +82,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "como-reduzir-comissoes-booking-sem-perder-ocupacao",
     "title": "Como reduzir as comissões do Booking.com sem perder ocupação",
     "excerpt": "A dependência de OTAs corrói sua margem reserva a reserva. Mas sair do Booking de forma abrupta é suicídio comercial. Existe um caminho gradual e estratégico, e começa mais cedo do que você imagina.",
+    "seoTitle": "Como Reduzir a Comissão do Booking sem Perder Ocupação",
+    "seoDescription": "Sair do Booking de uma vez derruba a ocupação. Veja a migração gradual para o canal direto, os benefícios que funcionam e uma meta realista.",
     "category": "OTAs & Canal Direto",
     "keywords": [
       "como reduzir comissão booking hotel",
@@ -99,6 +101,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "reservas-diretas-vs-otas-como-equilibrar",
     "title": "Reservas diretas vs. OTAs: como equilibrar os dois canais e aumentar sua margem",
     "excerpt": "Depender demais das OTAs corrói sua margem. Ignorá-las corta sua distribuição. O equilíbrio certo entre canais diretos e plataformas é onde os hotéis mais rentáveis operam, e chegar lá tem um método.",
+    "seoTitle": "Reservas Diretas vs. OTAs: Como Equilibrar os Canais",
+    "seoDescription": "Sair das OTAs não faz sentido, mas depender delas corrói a margem. Veja o benchmark de canal direto e qual canal custa menos por reserva.",
     "category": "OTAs & Canal Direto",
     "keywords": [
       "reservas diretas hotel",
@@ -116,6 +120,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "seo-para-hoteis-aparecer-no-google",
     "title": "SEO para hotéis: como aparecer no Google antes das OTAs",
     "excerpt": "As OTAs dominam os resultados de busca com orçamentos de marketing que nenhum hotel independente consegue igualar. Mas existem janelas de oportunidade no SEO hoteleiro que as grandes plataformas não conseguem ocupar, e é exatamente onde seu hotel deve estar.",
+    "seoTitle": "SEO para Hotéis: Como Aparecer no Google Antes das OTAs",
+    "seoDescription": "As OTAs dominam o Google, mas hotel independente ainda ganha no SEO local e em buscas específicas. Veja os fundamentos e quanto tempo leva.",
     "category": "SEO",
     "keywords": [
       "SEO para hotéis",
@@ -133,6 +139,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "marketing-hoteleiro-baixa-temporada",
     "title": "Marketing hoteleiro na baixa temporada: como manter a ocupação no ano todo",
     "excerpt": "A baixa temporada não precisa ser sinônimo de quartos vazios e preços derrubados. Hotéis que planejam a comunicação com antecedência e conhecem seus diferentes públicos transformam a sazonalidade em oportunidade.",
+    "seoTitle": "Marketing Hoteleiro na Baixa Temporada: o Que Fazer",
+    "seoDescription": "Quem viaja na baixa temporada, como planejar com antecedência e quais estratégias e métricas mantêm a ocupação do hotel fora da alta.",
     "category": "Estratégia",
     "keywords": [
       "marketing hoteleiro baixa temporada",
@@ -150,6 +158,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "marketing-digital-pousadas-pequenas",
     "title": "Marketing digital para pousadas pequenas: por onde começar com pouco orçamento",
     "excerpt": "Você não precisa de um orçamento de resort para ter uma presença digital que gera reservas. Pousadas pequenas têm vantagens que hotéis grandes não têm, e uma estratégia enxuta bem executada supera facilmente presença digital descuidada de qualquer tamanho.",
+    "seoTitle": "Marketing Digital para Pousadas Pequenas: Por Onde Começar",
+    "seoDescription": "Os três pilares que toda pousada precisa, como dividir R$ 2.000 a R$ 4.000 por mês e o que não fazer. Um plano enxuto para reservas diretas.",
     "category": "Pousadas",
     "keywords": [
       "marketing digital para pousadas",
@@ -167,6 +177,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "revenue-management-e-marketing-hoteleiro",
     "title": "Revenue Management e marketing hoteleiro: como os dois se conectam para maximizar receita",
     "excerpt": "Marketing traz o hóspede até a reserva. Revenue Management garante que essa reserva aconteça no melhor preço possível para o hotel. Quando os dois trabalham juntos, o resultado é uma operação que maximiza receita em qualquer nível de demanda.",
+    "seoTitle": "Revenue Management e Marketing Hoteleiro: Como se Conectam",
+    "seoDescription": "O que é Revenue Management, como o marketing alimenta a precificação e por que o RevPAR une as duas áreas para maximizar a receita do hotel.",
     "category": "Estratégia",
     "keywords": [
       "revenue management hoteleiro",
@@ -184,6 +196,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "panorama-hotelaria-2026-novos-hoteis",
     "title": "Panorama da Hotelaria 2026: R$ 13,6 bilhões em novos hotéis e o que isso muda no seu marketing",
     "excerpt": "O Panorama da Hotelaria Brasileira 2026 projeta R$ 13,6 bilhões em 178 novos hotéis e mais de 26 mil novas unidades até 2030, 66% delas fora dos grandes centros. Mais oferta significa mais concorrência por atenção. Entenda o que isso exige da sua estratégia de marketing hoteleiro.",
+    "seoTitle": "Panorama da Hotelaria 2026: R$ 13,6 bi em Novos Hotéis",
+    "seoDescription": "178 novos hotéis e mais de 26 mil unidades até 2030, 66% fora dos grandes centros. O que mais oferta muda na disputa por hóspedes e no seu marketing.",
     "category": "Mercado",
     "keywords": [
       "panorama da hotelaria brasileira 2026",
@@ -201,6 +215,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "reserva-direta-lidera-valor-dados-mercado",
     "title": "Reserva direta lidera em valor, não só no discurso: o que os dados de 2025 provam",
     "excerpt": "Relatórios de mercado mostram que a reserva direta se manteve estável em 95% dos mercados e que os sites próprios lideraram em valor médio por reserva. 'O futuro é direto' deixou de ser slogan e virou dado. Entenda o que isso significa para a margem do seu hotel.",
+    "seoTitle": "Reserva Direta Vale Mais: o Que os Dados de 2025 Mostram",
+    "seoDescription": "Os dados de mercado de 2025 mostram o site próprio à frente das OTAs em valor médio por reserva. Veja por que e a conta para a margem do hotel.",
     "category": "OTAs & Canal Direto",
     "keywords": [
       "reserva direta hotel",
@@ -218,6 +234,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "video-simples-vende-mais-hotelaria",
     "title": "Por que o vídeo simples vende mais que o produzido na hotelaria",
     "excerpt": "Reels gravados no celular, com luz natural e fala direta para a câmera, vêm superando produções elaboradas em alcance e engajamento. O algoritmo premia autenticidade e retenção, não orçamento de produção. Veja como aplicar isso no marketing do seu hotel.",
+    "seoTitle": "Vídeo Simples Vende Mais que o Produzido na Hotelaria",
+    "seoDescription": "Reels de celular, com luz natural e fala direta, superam produções caras em alcance. Por que o algoritmo prefere o simples e como aplicar no hotel.",
     "category": "Conteúdo & Redes",
     "keywords": [
       "marketing de conteúdo para hotéis",
@@ -235,6 +253,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "slug": "ia-busca-hospedagem-como-aparecer",
     "title": "A IA já decide onde as pessoas se hospedam: como aparecer no ChatGPT e no Google AI Overviews",
     "excerpt": "Uma parcela relevante das buscas por hospedagem hoje passa por motores de IA antes do Google tradicional. Hotéis invisíveis nesses canais perdem reservas que nem sabem que existiram. Entenda o que muda e como posicionar seu hotel para a busca por IA.",
+    "seoTitle": "Como o Hotel Aparece no ChatGPT e no Google AI Overviews",
+    "seoDescription": "A busca por hospedagem passa cada vez mais pela IA. Veja como ela escolhe o que recomendar e um checklist prático para o seu hotel ser citado.",
     "category": "SEO",
     "keywords": [
       "SEO para IA hotéis",
