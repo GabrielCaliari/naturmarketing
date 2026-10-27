@@ -1,10 +1,12 @@
 import Image from "next/image";
 
 type PageHeroBackdropProps = {
-  /** caminho a partir de public/ — fotos reais de clientes em /img/clientes */
+  /** foto do tema da página (Unsplash, licença livre — mesmo critério das
+   *  capas do blog) ou caminho a partir de public/ (fotos de cliente em
+   *  /img/clientes) */
   src: string;
-  /** object-position da foto: as fotos de cliente são retrato (1200x1600) e o
-   *  hero é uma faixa larga, então isto escolhe qual faixa da foto aparece */
+  /** object-position da foto: o hero é uma faixa larga, então em fotos
+   *  retrato (as de cliente são 1200x1600) isto escolhe qual faixa aparece */
   position?: string;
   /** "left": texto alinhado à esquerda, foto respira à direita no desktop.
    *  "center": texto centralizado, véu uniforme. */

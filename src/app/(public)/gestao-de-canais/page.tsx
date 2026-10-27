@@ -89,7 +89,7 @@ export default function GestaoDeCanaisPage() {
 
         {/* Hero */}
         <section className="pt-36 pb-16 px-6 md:px-16" style={{ background: "#1a0f08", position: "relative", overflow: "hidden" }}>
-          <PageHeroBackdrop src="/img/clientes/IMG_5584.jpg" position="50% 68%" />
+          <PageHeroBackdrop src="https://images.unsplash.com/photo-1647964185965-5df77c4a4b2d?auto=format&fit=crop&w=2400&q=80" />
           <div className="max-w-4xl mx-auto relative z-10">
             <nav className="flex items-center gap-2 mb-8 text-[12px]" style={{ color: "rgba(255,255,255,0.5)" }}>
               <Link href="/" className="hover:text-white transition-colors">Início</Link>

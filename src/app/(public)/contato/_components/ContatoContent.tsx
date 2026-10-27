@@ -51,7 +51,7 @@ export default function ContatoContent() {
       <main style={{ background: BG, minHeight: "100vh" }}>
         {/* Hero */}
         <section className="pt-36 pb-14 px-6 md:px-16" style={{ background: "#1a0f08", position: "relative", overflow: "hidden" }}>
-          <PageHeroBackdrop src="/img/clientes/IMG_5585.jpg" position="50% 40%" />
+          <PageHeroBackdrop src="https://images.unsplash.com/photo-1758708536313-e7055ddba277?auto=format&fit=crop&w=2400&q=80" />
           <div className="max-w-5xl mx-auto relative z-10">
             <nav className="flex items-center gap-2 mb-8 text-[12px]" style={{ color: "rgba(255,255,255,0.65)" }}>
               <Link href="/" className="hover:text-white transition-colors">{c.crumbHome}</Link>

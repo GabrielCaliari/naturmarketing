@@ -177,7 +177,7 @@ const Empresa = () => {
           className="pt-40 pb-24 px-6 md:px-16 relative overflow-hidden"
           style={{ background: "#1a0f08" }}
         >
-          <PageHeroBackdrop src="/img/clientes/piscina.JPG" position="50% 55%" variant="center" />
+          <PageHeroBackdrop src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2400&q=80" variant="center" />
           <div className="relative z-10 max-w-4xl mx-auto text-center">
             <div className="hero-fade-up flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-px" style={{ background: "rgba(255,255,255,0.25)" }} />
