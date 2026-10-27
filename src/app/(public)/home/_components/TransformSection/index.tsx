@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_BROWN = "#994f2a";
@@ -13,10 +14,6 @@ const TEXT_BODY = "#5C4F45";
 
 const TransformSection = () => {
   const { t } = useLocale();
-
-  const handleContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section id="transform" className="py-16 md:py-24 overflow-hidden" style={{ background: "#F7F3EE" }}>
@@ -60,9 +57,13 @@ const TransformSection = () => {
             </strong>
           </p>
 
-          <button
-            onClick={handleContact}
-            className="group mt-10 inline-flex items-center gap-3 self-start transition-opacity duration-300 hover:opacity-80"
+          {/* Abre o modal de diagnóstico (antes rolava até a faixa do rodapé).
+              Hover: o círculo preenche e a seta vai e volta — ver .cta-arrow
+              em globals.css. */}
+          <DiagnosticoCTA
+            trackId="cta_transform_especialista"
+            source="/"
+            className="cta-arrow mt-10 inline-flex items-center gap-3 self-start cursor-pointer"
           >
             <span
               className="text-[12px] font-bold uppercase"
@@ -70,15 +71,12 @@ const TransformSection = () => {
             >
               {t('transform.cta')}
             </span>
-            <span
-              className="grid h-10 w-10 shrink-0 place-items-center rounded-full transition-colors duration-300"
-              style={{ border: `1px solid rgba(153,79,42,0.4)` }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={BRAND_BROWN} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <span className="cta-arrow-circle">
+              <svg className="cta-arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </span>
-          </button>
+          </DiagnosticoCTA>
         </Reveal>
 
         <Reveal from="right" delay={180} className="relative">

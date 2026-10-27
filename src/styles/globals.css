@@ -1048,6 +1048,48 @@ h2 {
   color: var(--color-text-on-dark);
 }
 
+/* Botão de texto + círculo com seta em fundo claro ("Falar com um
+   especialista"). Mesma linguagem do "Explorar": no hover o círculo preenche
+   de marrom e a seta vai e volta na horizontal. */
+@keyframes cta-arrow-nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+.cta-arrow-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid rgba(153, 79, 42, 0.4);
+  color: #994f2a;
+  background: transparent;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.cta-arrow:hover .cta-arrow-circle,
+.cta-arrow:focus-visible .cta-arrow-circle {
+  background: #994f2a;
+  border-color: #994f2a;
+  color: #ffffff;
+}
+.cta-arrow:hover .cta-arrow-icon,
+.cta-arrow:focus-visible .cta-arrow-icon {
+  animation: cta-arrow-nudge 0.9s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-arrow:hover .cta-arrow-icon,
+  .cta-arrow:focus-visible .cta-arrow-icon {
+    animation: none;
+  }
+}
+
 /* Véu dos heros das páginas internas (PageHeroBackdrop). Até 1024px o
    texto ocupa a largura toda, então o véu é uniforme e forte; no desktop
    o texto fica à esquerda e a foto respira à direita. Os alfas foram

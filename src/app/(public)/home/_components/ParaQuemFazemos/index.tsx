@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { IconArrowRight } from "@tabler/icons-react";
 import Reveal from "@/components/Reveal";
+import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
 import { useLocale } from "@/context/LocaleContext";
 
 const BRAND_BROWN = "#994f2a";
@@ -18,24 +19,23 @@ export default function ParaQuemFazemos() {
       labelKey: 'para.p1.label',
       titleKey: 'para.p1.title',
       descKey: 'para.p1.desc',
+      trackId: 'cta_para_resort',
     },
     {
       image: "/img/resource/segment-pousada.jpg",
       labelKey: 'para.p2.label',
       titleKey: 'para.p2.title',
       descKey: 'para.p2.desc',
+      trackId: 'cta_para_pousada',
     },
     {
       image: "/img/resource/segment-airbnb.jpg",
       labelKey: 'para.p3.label',
       titleKey: 'para.p3.title',
       descKey: 'para.p3.desc',
+      trackId: 'cta_para_airbnb',
     },
   ];
-
-  const handleContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section id="para-quem-fazemos" className="py-16 md:py-24" style={{ background: "#F7F3EE" }}>
@@ -115,9 +115,11 @@ export default function ParaQuemFazemos() {
                   {t(p.descKey)}
                 </p>
 
-                <button
-                  onClick={handleContact}
-                  className="group/btn mt-6 inline-flex items-center gap-2 transition-opacity duration-300 hover:opacity-80"
+                {/* Abre o modal de diagnóstico (antes rolava até a faixa do rodapé) */}
+                <DiagnosticoCTA
+                  trackId={p.trackId}
+                  source="/"
+                  className="group/btn mt-6 inline-flex items-center gap-2 transition-opacity duration-300 hover:opacity-80 cursor-pointer"
                 >
                   <span
                     className="text-[10px] font-bold uppercase"
@@ -131,7 +133,7 @@ export default function ParaQuemFazemos() {
                     className="transition-transform duration-300 group-hover/btn:translate-x-1"
                     style={{ color: BRAND_BROWN_LIGHT }}
                   />
-                </button>
+                </DiagnosticoCTA>
               </div>
             </Reveal>
           ))}
