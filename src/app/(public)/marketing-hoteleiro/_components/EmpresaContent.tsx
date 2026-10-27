@@ -1,7 +1,7 @@
 "use client";
 
 import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
-import Image from "next/image";
+import { CtaBackdrop } from "@/components/CtaBackdrop";
 import Reveal from "@/components/Reveal";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -501,19 +501,9 @@ const Empresa = () => {
         {/* ── CTA ── */}
         <section
           className="py-16 md:py-20 px-6 md:px-16 relative overflow-hidden"
-          style={{ background: "#2a1f14" }}
+          style={{ background: "#1A0F08" }}
         >
-          <div className="absolute inset-0 z-0" aria-hidden="true">
-            <Image
-              src="/img/resource/seedsbackground.webp"
-              alt=""
-              fill
-              quality={85}
-              sizes="100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0" style={{ background: "rgba(20,12,6,0.5)" }} />
-          </div>
+          <CtaBackdrop />
 
           <div className="relative z-10 max-w-3xl mx-auto text-center">
             <Reveal

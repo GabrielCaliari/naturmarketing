@@ -1,6 +1,7 @@
 "use client";
 
 import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
+import { CtaBackdrop } from "@/components/CtaBackdrop";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -284,8 +285,9 @@ export default function EcossistemaContent() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 px-6 md:px-16" style={{ background: "#15110d" }}>
-          <Reveal className="max-w-2xl mx-auto text-center">
+        <section className="py-16 md:py-20 px-6 md:px-16 relative overflow-hidden" style={{ background: "#1A0F08" }}>
+          <CtaBackdrop />
+          <Reveal className="relative z-10 max-w-2xl mx-auto text-center">
             <h2 className="text-white mb-4" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 400 }}>
               {c.ctaH2}
             </h2>
