@@ -42,7 +42,12 @@ Every sales CTA goes through `DiagnosticoCTA`, which opens the 3-step `LeadForm`
 
 ### Analytics (`src/lib/analytics.ts`)
 
-Unified helper that fans out events to GTM (`window.dataLayer`), Meta Pixel (`window.fbq`), and the Meta Conversion API (`/api/meta-conversion`). All tracking is gated on consent stored in `localStorage` under `reserve-cookie-consent` by the custom `CookieConsent` banner. `AutoTrack` handles page view, scroll depth, time-on-page, and link click tracking. GTM and Microsoft Clarity load off the critical path via `DeferredAnalytics`.
+Unified helper that fans out events to GTM (`window.dataLayer`), Meta Pixel (`window.fbq`), and the Meta Conversion API (`/api/meta-conversion`). Consent lives in `src/lib/consent.ts` (stored by the custom `CookieConsent` banner): GTM and Clarity need `analytics`, Pixel and Conversion API need `marketing`. Nothing loads before consent — GTM has no `<noscript>` fallback for that reason.
+
+- The Pixel is initialized inside `analytics.ts` on the first consented event; there is no separate Pixel component. Pixel and Conversion API share one `eventID` per event so Meta deduplicates.
+- Event names outside Meta's standard list go through `fbq('trackCustom')` automatically. Only `META_SERVER_EVENTS` (PageView, Lead, Contact) go server-side, and the API route rejects anything else.
+- Every WhatsApp open fires the standard `Contact` event (`trackWhatsAppClick`; `AutoTrack` catches plain `wa.me` links). WhatsApp messages end with a `ref:` origin code (page + `utm_campaign`, see `src/lib/attribution.ts`) that the bot reads. Use `WhatsAppLink` or `buildWhatsAppUrl(message, ref)` — never a hardcoded `wa.me` URL.
+- `AutoTrack` handles page view, scroll depth, time-on-page, and link click tracking. GTM and Microsoft Clarity load off the critical path via `DeferredAnalytics`.
 
 ### SEO
 
@@ -54,7 +59,7 @@ Unified helper that fans out events to GTM (`window.dataLayer`), Meta Pixel (`wi
 
 Copy `.env.example` to `.env.local`. Currently consumed by the code:
 - `NEXT_PUBLIC_SITE_URL` — canonical origin used by structured data
-- `NEXT_PUBLIC_META_PIXEL_ID` + `META_CONVERSION_API_TOKEN` — Meta tracking (optional)
+- `NEXT_PUBLIC_META_PIXEL_ID` + `META_CONVERSION_API_TOKEN` — Meta tracking (optional); `META_TEST_EVENT_CODE` only while validating in Events Manager
 - `NEXT_PUBLIC_GTM_ID` — Google Tag Manager (optional)
 - `NEXT_PUBLIC_CLARITY_ID` — Microsoft Clarity (optional)
 
