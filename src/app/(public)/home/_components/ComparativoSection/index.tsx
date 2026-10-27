@@ -70,7 +70,9 @@ export default function ComparativoSection() {
                 key={i}
                 delay={i * 80}
                 className="flex items-center gap-3 px-4 py-3.5 rounded-xl"
-                style={{ background: BRAND_GREEN_DARK }}
+                // borda transparente: mesma altura dos cards da esquerda (que
+                // têm borda de 1px), senão as linhas das colunas desalinham
+                style={{ background: BRAND_GREEN_DARK, border: "1px solid transparent" }}
               >
                 <div className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ background: "rgba(255,255,255,0.2)", color: "#ffffff" }}>
                   <IconCheck size={13} stroke={2.5} />
