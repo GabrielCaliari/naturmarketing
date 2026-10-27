@@ -82,10 +82,12 @@ export default function ContatoContent() {
                   {c.infoTitle}
                 </h2>
 
-                <a href={COMPANY_NAP.phone.href} className="flex items-center gap-3 p-4 rounded-2xl transition-all hover:shadow-md" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
+                {/* Só informativo: o número não atende ligação. O contato
+                    começa pelo diagnóstico ao lado. */}
+                <div className="flex items-center gap-3 p-4 rounded-2xl" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
                   <IconPhone size={20} color={BRAND_BROWN} />
                   <span className="text-[14px]" style={{ color: TEXT_HEAD }}>{COMPANY_NAP.phone.display}</span>
-                </a>
+                </div>
 
                 <a href={`mailto:${COMPANY_NAP.email}`} className="flex items-center gap-3 p-4 rounded-2xl transition-all hover:shadow-md" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
                   <IconMail size={20} color={BRAND_BROWN} />
