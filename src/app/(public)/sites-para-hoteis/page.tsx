@@ -90,7 +90,7 @@ export default function SitesHoteisPage() {
             <span className="inline-flex items-center gap-2 text-[10px] font-medium tracking-[0.25em] uppercase px-4 py-2 rounded-full mb-6" style={{ color: "rgba(255,255,255,0.8)", border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.07)" }}>
               Serviço Especializado
             </span>
-            <h1 className="text-white mb-5" style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", fontWeight: 700, lineHeight: 1.1 }}>
+            <h1 className="text-white mb-5" style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)", fontWeight: 400, lineHeight: 1.1 }}>
               Sites para hotéis que<br />
               <span style={{ color: BRAND_GREEN }}>realmente vendem</span>
             </h1>
@@ -159,7 +159,7 @@ export default function SitesHoteisPage() {
         {/* CTA */}
         <section className="py-16 px-6 md:px-16" style={{ background: "#141a24" }}>
           <Reveal className="max-w-2xl mx-auto text-center">
-            <h2 className="text-white mb-4" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 700 }}>
+            <h2 className="text-white mb-4" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", fontWeight: 400 }}>
               Seu site atual converte?
             </h2>
             <p className="mb-8" style={{ color: "rgba(255,255,255,0.65)", fontWeight: 300, lineHeight: 1.75 }}>

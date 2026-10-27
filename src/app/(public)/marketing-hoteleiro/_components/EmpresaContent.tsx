@@ -196,7 +196,7 @@ const Empresa = () => {
             </div>
 
             <h1
-              className="hero-rise hero-delay-1 font-extralight text-white leading-[1.06] tracking-[-0.025em] mb-6"
+              className="hero-rise hero-delay-1 text-white leading-[1.06] tracking-[-0.015em] mb-6"
               style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
             >
               {c.heroH1a}

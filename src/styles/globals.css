@@ -171,7 +171,7 @@ main {
 /* Hierarquia: h2 abre bloco, respiro acima maior que abaixo */
 .article-content h2 {
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 400;
   color: #1A0F08;
   line-height: 1.28;
   letter-spacing: -0.01em;
@@ -1000,9 +1000,23 @@ main {
    destaque que o resto do site já usa. Fora de @layer de propósito — precisa
    vencer a utility .font-semibold que alguns títulos ainda carregam. */
 .h1 strong,
-.h2 strong {
+.h2 strong,
+h1 strong,
+h2 strong {
   font-weight: 400;
   font-style: italic;
+}
+
+/* Títulos de seção em TODO o site (não só nas classes .h1/.h2): as páginas
+   internas tinham h1/h2 em Fira Sans 700 enquanto a home usa a DM Serif —
+   cada página com uma cara. Fora de @layer de propósito, para vencer
+   utilities de peso (font-semibold etc.): a DM Serif só tem o peso 400, e
+   qualquer outro peso seria negrito sintético. h3 em diante seguem na fonte
+   de corpo. Exceção pontual (rótulo em h2) usa fontFamily inline. */
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
 }
 
 /* "Explorar" do hero: círculo + rótulo reagem ao hover do botão inteiro. */

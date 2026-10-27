@@ -60,7 +60,7 @@ export default function ContatoContent() {
             <span className="inline-flex items-center gap-2 text-[10px] font-medium tracking-[0.25em] uppercase px-4 py-2 rounded-full mb-6" style={{ color: "rgba(255,255,255,0.92)", border: "1px solid rgba(255,255,255,0.2)", background: "rgba(255,255,255,0.07)" }}>
               {c.badge}
             </span>
-            <h1 className="text-white" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, lineHeight: 1.1 }}>
+            <h1 className="text-white" style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 400, lineHeight: 1.1 }}>
               {c.h1}
             </h1>
           </div>
@@ -77,7 +77,7 @@ export default function ContatoContent() {
               </p>
 
               <div className="flex flex-col gap-3">
-                <h2 className="text-[13px] font-semibold tracking-[0.2em] uppercase" style={{ color: BRAND_GREEN }}>
+                <h2 className="text-[13px] tracking-[0.2em] uppercase" style={{ color: BRAND_GREEN, fontFamily: "var(--font-body)", fontWeight: 600 }}>
                   {c.infoTitle}
                 </h2>
 
