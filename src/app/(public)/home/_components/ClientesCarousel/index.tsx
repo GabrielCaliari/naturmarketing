@@ -23,13 +23,11 @@ const ALT_DESKTOP = 240;
 // entra) e o cálculo do `sizes`. Se trocar uma foto, medir o arquivo novo.
 const FOTOS = [
   { src: "/img/clientes/IMG_5619.jpg", ratio: 3 / 4 },
-  { src: "/img/clientes/28D676B2-2D80-4D92-8BA5-2115E3E79C22.jpg", ratio: 4 / 5 },
   { src: "/img/clientes/IMG_5188.jpg", ratio: 3 / 4 },
   { src: "/img/clientes/piscina.JPG", ratio: 4000 / 2256 },
   { src: "/img/clientes/IMG_5585.jpg", ratio: 3024 / 3303 },
   { src: "/img/clientes/IMG_E5318.jpg", ratio: 3 / 4 },
   { src: "/img/clientes/IMG_5134.jpg", ratio: 3 / 4 },
-  { src: "/img/clientes/61FE9AB7-9D2F-4A3F-B0D5-5CE1BB2FF96B.jpg", ratio: 4 / 5 },
   { src: "/img/clientes/IMG_5586.jpg", ratio: 3 / 4 },
   { src: "/img/clientes/IMG_5190.jpg", ratio: 3 / 4 },
   { src: "/img/clientes/IMG_5732.jpg", ratio: 3 / 4 },
