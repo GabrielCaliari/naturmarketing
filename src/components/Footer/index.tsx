@@ -1,11 +1,12 @@
 "use client";
 
+import type { AnchorHTMLAttributes, ReactNode } from "react";
 import { IconBrandInstagram, IconBrandWhatsapp } from "@tabler/icons-react";
 import Link from "next/link";
 import { useLocale } from "@/context/LocaleContext";
 import { COMPANY_NAP } from "@/constants/company";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { DiagnosticoCTA } from "@/components/DiagnosticoCTA";
+import { WhatsAppLink } from "@/components/WhatsAppLink";
 
 const BRAND_GREEN = "#84936f";
 
@@ -27,7 +28,12 @@ const contentLinks = [
   { label: "Ecossistema", href: "/ecossistema" },
 ];
 
-const socialLinks = [
+type SocialLinkItem = { label: string; icon: ReactNode } & (
+  | { href: string }
+  | { whatsappMessage: string }
+);
+
+const socialLinks: SocialLinkItem[] = [
   {
     label: "Instagram",
     href: COMPANY_NAP.social.instagram,
@@ -35,12 +41,21 @@ const socialLinks = [
   },
   {
     label: "WhatsApp",
-    href: buildWhatsAppUrl(
-      "Olá! 👋 Gostaria de saber mais sobre os serviços de marketing digital para a minha pousada/hotel."
-    ),
+    whatsappMessage:
+      "Olá! 👋 Gostaria de saber mais sobre os serviços de marketing digital para a minha pousada/hotel.",
     icon: <IconBrandWhatsapp size={16} />,
   },
 ];
+
+function SocialLink({
+  item,
+  ...props
+}: { item: SocialLinkItem } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href">) {
+  if ("whatsappMessage" in item) {
+    return <WhatsAppLink message={item.whatsappMessage} {...props} />;
+  }
+  return <a href={item.href} target="_blank" rel="noopener noreferrer" {...props} />;
+}
 
 const legalLinks = [
   { label: "Privacidade", href: "/privacy-policy" },
@@ -80,11 +95,9 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-4 pt-1">
               {socialLinks.map((s) => (
-                <a
+                <SocialLink
                   key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  item={s}
                   aria-label={s.label}
                   className="flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 hover:scale-110"
                   style={{
@@ -94,7 +107,7 @@ const Footer = () => {
                   }}
                 >
                   {s.icon}
-                </a>
+                </SocialLink>
               ))}
             </div>
           </div>
@@ -152,16 +165,14 @@ const Footer = () => {
                 {t('footer.col.social')}
               </span>
               {socialLinks.map((s) => (
-                <a
+                <SocialLink
                   key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  item={s}
                   className="text-[14px] leading-snug transition-colors duration-300 hover:text-[#994f2a]"
                   style={{ color: "#5C4F45", fontWeight: 400 }}
                 >
                   {s.label}
-                </a>
+                </SocialLink>
               ))}
             </div>
 

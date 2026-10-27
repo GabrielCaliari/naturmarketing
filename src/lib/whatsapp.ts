@@ -1,8 +1,13 @@
 import { WHATSAPP_LINK } from "@/constants/company";
 
-/** Monta a URL de Click-to-Chat do WhatsApp com a mensagem já codificada. */
-export function buildWhatsAppUrl(message: string): string {
-  return `${WHATSAPP_LINK}?text=${encodeURIComponent(message)}`;
+/**
+ * Monta a URL de Click-to-Chat do WhatsApp com a mensagem já codificada.
+ * `ref` (ver buildWhatsAppRef em lib/attribution) vai na última linha como
+ * `ref:<código>`, que o bot lê para saber de qual página/campanha veio a conversa.
+ */
+export function buildWhatsAppUrl(message: string, ref?: string): string {
+  const text = ref ? `${message}\n\nref:${ref}` : message;
+  return `${WHATSAPP_LINK}?text=${encodeURIComponent(text)}`;
 }
 
 /** Dados coletados pelo modal de diagnóstico. */

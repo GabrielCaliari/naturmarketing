@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { IconCheck, IconPhone, IconMail, IconBrandWhatsapp } from "@tabler/icons-react";
 import Link from "next/link";
+import { WhatsAppLink } from "@/components/WhatsAppLink";
 
 export default function ConsultoriaSucesso() {
   useEffect(() => {
@@ -82,15 +83,13 @@ export default function ConsultoriaSucesso() {
                   Entre em contato direto pelo WhatsApp:
                 </p>
                 <div className="flex justify-center">
-                  <a
-                    href="https://wa.me/5535997742984?text=Olá! Acabei de enviar uma solicitação de consultoria pelo site."
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <WhatsAppLink
+                    message="Olá! Acabei de enviar uma solicitação de consultoria pelo site."
                     className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     <IconBrandWhatsapp size={24} />
                     Falar no WhatsApp
-                  </a>
+                  </WhatsAppLink>
                 </div>
               </div>
             </div>

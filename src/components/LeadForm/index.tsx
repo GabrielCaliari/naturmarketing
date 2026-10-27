@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   IconX,
@@ -11,7 +12,8 @@ import {
   IconChevronDown,
 } from "@tabler/icons-react";
 import { useLocale } from "@/context/LocaleContext";
-import { trackFormStart, trackFormSubmit } from "@/lib/analytics";
+import { trackFormStart, trackFormSubmit, trackWhatsAppClick } from "@/lib/analytics";
+import { buildWhatsAppRef, getAttribution } from "@/lib/attribution";
 import { buildDiagnosticoMessage, buildWhatsAppUrl, type LeadData } from "@/lib/whatsapp";
 import { SERVICE_COMBOS, PROPERTY_TYPES, MODAL_CONTENT } from "@/components/LeadModal/constants";
 
@@ -100,6 +102,7 @@ export function LeadForm({
   analyticsId = "diagnostico_modal",
 }: LeadFormProps) {
   const { locale } = useLocale();
+  const pathname = usePathname();
   const lang = locale === "en" ? "en" : "pt";
   const c = MODAL_CONTENT[lang];
 
@@ -154,24 +157,28 @@ export function LeadForm({
     };
   };
 
+  const whatsAppUrl = () =>
+    buildWhatsAppUrl(
+      buildDiagnosticoMessage(buildLeadData(), lang),
+      buildWhatsAppRef(pathname, getAttribution().utm_campaign)
+    );
+
   const finish = () => {
     if (form.services.length === 0) {
       setError(c.servicesError);
       return;
     }
     setError(null);
-    const url = buildWhatsAppUrl(buildDiagnosticoMessage(buildLeadData(), lang));
+    const url = whatsAppUrl();
     trackFormSubmit(analyticsId, true);
+    trackWhatsAppClick(analyticsId);
     window.open(url, "_blank", "noopener,noreferrer");
     setStep(3);
   };
 
   const openWhatsAppAgain = () => {
-    window.open(
-      buildWhatsAppUrl(buildDiagnosticoMessage(buildLeadData(), lang)),
-      "_blank",
-      "noopener,noreferrer"
-    );
+    trackWhatsAppClick(analyticsId);
+    window.open(whatsAppUrl(), "_blank", "noopener,noreferrer");
   };
 
   const inputClass =
