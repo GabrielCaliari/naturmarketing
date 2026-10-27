@@ -1047,3 +1047,25 @@ h2 {
 .hero-explore:focus-visible .hero-explore-label {
   color: var(--color-text-on-dark);
 }
+
+/* Véu dos heros das páginas internas (PageHeroBackdrop). Até 1024px o
+   texto ocupa a largura toda, então o véu é uniforme e forte; no desktop
+   o texto fica à esquerda e a foto respira à direita. Os alfas foram
+   escolhidos para o texto branco a 70% manter >= 4.5:1 mesmo sobre céu
+   ou parede branca. */
+.page-hero-overlay {
+  background: linear-gradient(to top, rgba(26, 15, 8, 0.92) 0%, rgba(26, 15, 8, 0.8) 100%);
+}
+@media (min-width: 1024px) {
+  .page-hero-overlay {
+    background:
+      linear-gradient(to top, rgba(26, 15, 8, 0.5) 0%, rgba(26, 15, 8, 0) 40%),
+      linear-gradient(90deg, rgba(26, 15, 8, 0.92) 0%, rgba(26, 15, 8, 0.86) 50%, rgba(26, 15, 8, 0.42) 100%);
+  }
+}
+.page-hero-overlay--center,
+.page-hero-overlay.page-hero-overlay--center {
+  /* mais leve que o .page-hero-overlay: o título é grande (contraste 3:1 basta)
+     e o parágrafo fica na metade de baixo, onde o véu já está em ~70% */
+  background: linear-gradient(to top, rgba(26, 15, 8, 0.82) 0%, rgba(26, 15, 8, 0.48) 100%);
+}

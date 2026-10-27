@@ -1,3 +1,4 @@
+import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/components/Header";
@@ -79,8 +80,8 @@ export default function SitesHoteisPage() {
       <main style={{ background: BG, minHeight: "100vh" }}>
 
         {/* Hero */}
-        <section className="pt-36 pb-16 px-6 md:px-16" style={{ background: "#141a24", position: "relative", overflow: "hidden" }}>
-          <div className="absolute inset-0 opacity-15" style={{ backgroundImage: "radial-gradient(circle at 30% 60%, #4a7c9e 0%, transparent 55%)" }} />
+        <section className="pt-36 pb-16 px-6 md:px-16" style={{ background: "#1a0f08", position: "relative", overflow: "hidden" }}>
+          <PageHeroBackdrop src="/img/clientes/IMG_5586.jpg" position="50% 68%" />
           <div className="max-w-4xl mx-auto relative z-10">
             <nav className="flex items-center gap-2 mb-8 text-[12px]" style={{ color: "rgba(255,255,255,0.5)" }}>
               <Link href="/" className="hover:text-white transition-colors">Início</Link>

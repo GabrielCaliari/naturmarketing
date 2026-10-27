@@ -1,5 +1,6 @@
 "use client";
 
+import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Header from "@/components/Header";
@@ -173,16 +174,10 @@ const Empresa = () => {
 
         {/* ── Hero ── */}
         <section
-          className="pt-40 pb-24 px-6 md:px-16 relative"
-          style={{ background: BRAND_BROWN }}
+          className="pt-40 pb-24 px-6 md:px-16 relative overflow-hidden"
+          style={{ background: "#1a0f08" }}
         >
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 70%)",
-            }}
-          />
+          <PageHeroBackdrop src="/img/clientes/piscina.JPG" position="50% 55%" variant="center" />
           <div className="relative z-10 max-w-4xl mx-auto text-center">
             <div className="hero-fade-up flex items-center justify-center gap-3 mb-6">
               <div className="w-8 h-px" style={{ background: "rgba(255,255,255,0.25)" }} />

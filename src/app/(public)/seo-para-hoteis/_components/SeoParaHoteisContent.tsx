@@ -1,5 +1,6 @@
 "use client";
 
+import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -116,8 +117,8 @@ export default function SeoParaHoteisContent() {
       <main style={{ background: BG, minHeight: "100vh" }}>
 
         {/* Hero */}
-        <section className="pt-36 pb-16 px-6 md:px-16" style={{ background: "#1a2918", position: "relative", overflow: "hidden" }}>
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle at 70% 50%, #84936f 0%, transparent 60%)" }} />
+        <section className="pt-36 pb-16 px-6 md:px-16" style={{ background: "#1a0f08", position: "relative", overflow: "hidden" }}>
+          <PageHeroBackdrop src="/img/clientes/28D676B2-2D80-4D92-8BA5-2115E3E79C22.jpg" position="50% 50%" />
           <div className="max-w-4xl mx-auto relative z-10">
             <nav className="flex items-center gap-2 mb-8 text-[12px]" style={{ color: "rgba(255,255,255,0.5)" }}>
               <Link href="/" className="hover:text-white transition-colors">{c.crumbHome}</Link>

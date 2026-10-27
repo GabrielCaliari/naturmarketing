@@ -1,5 +1,6 @@
 "use client";
 
+import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
 import Link from "next/link";
 import Header from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -143,8 +144,8 @@ export default function MotorDeReservasContent() {
       <main style={{ background: BG, minHeight: "100vh" }}>
 
         {/* Hero */}
-        <section className="pt-36 pb-16 px-6 md:px-16" style={{ background: "#15110d", position: "relative", overflow: "hidden" }}>
-          <div className="absolute inset-0 opacity-20" style={{ backgroundImage: `radial-gradient(circle at 30% 50%, ${BRAND_GREEN} 0%, transparent 60%)` }} />
+        <section className="pt-36 pb-16 px-6 md:px-16" style={{ background: "#1a0f08", position: "relative", overflow: "hidden" }}>
+          <PageHeroBackdrop src="/img/clientes/IMG_5134.jpg" position="50% 62%" />
           <div className="max-w-4xl mx-auto relative z-10">
             <nav className="flex items-center gap-2 mb-8 text-[12px]" style={{ color: "rgba(255,255,255,0.5)" }}>
               <Link href="/" className="hover:text-white transition-colors">{c.crumbHome}</Link>
